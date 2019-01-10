@@ -1,10 +1,14 @@
-
+import time
 from remotelib import Remote
 
-rmlib = Remote("172.20.10.2")
+rmlib = Remote("192.168.31.160")
 
 rmlib.wsStartup()
 
-rmlib.moveWheels(10,10,3)
 
-print("ADAAAGAHA")
+
+
+
+print("END")
+
+time.sleep(30)

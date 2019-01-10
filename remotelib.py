@@ -1,51 +1,73 @@
 import json
-import asyncio
-import websockets
+import websocket
+import threading
+import time
 
-from threading import Thread
-
-from state import State
+from State import State
 from processors.PTProcessor import PTProcessor
 from processors.RobProcessor import RobProcessor
 from processors.VisionProcessor import VisionProcessor
-
+from utils.IR import IR
 class Remote:
     def __init__(self, ip):
         self.ip = ip
         self.ws = None
         self.password = ""
-        self.disconnect = False;
+        self.disconnect = False
         self.state = State()
         self.processors ={ "PT": PTProcessor(self.state),
                            "ROB": RobProcessor(self.state),
                            "Vision": VisionProcessor(self.state)}
 
+        self.wsDaemon = None
+        self.connected = False
+
+
+
+
 
 
     def wsStartup(self):
-        self.ws = websockets.connect('ws://'+self.ip+':40404')
+        def on_open(ws):
+            print("Open")
+            ws.send(f"PASSWORD: {self.password}")
+            self.connected = True
+
+        def on_message(ws, message):
+            self.processMessage(message)
+
+        def on_error(ws, error):
+            print(error)
+
+        def on_close(ws):
+            self.connected = False
+            print("### closed ###")
+
+        self.ws = websocket.WebSocketApp('ws://'+self.ip+":40404",
+                                    on_message=on_message,
+                                     on_error=on_error,
+                                    on_close=on_close)
+
+
+        self.ws.on_open = on_open
+
+
+
+
+        def runWS():
+            self.ws.run_forever()
+
+        self.wsDaemon = threading.Thread(target=runWS, name='wsDaemon')
+        self.wsDaemon.setDaemon(True)
+        self.wsDaemon.start()
+
+
         print("Connecting")
+        while not self.connected:
+            print("wait")
+            time.sleep(0.1)
 
-        while not self.ws.connected:
-            pass
-        print("Connected")
-    async def asyncStartup(self):
-        async with websockets.connect('ws://'+self.ip+':40404') as ws:
-            self.ws = ws
-            await ws.send(f"PASSWORD: {self.password}")
 
-            print(f"PASSWORD: {self.password}")
-            while not self.disconnect:
-                msg = await ws.recv()
-                self.processMessage(msg)
-
-    def startws(self):
-        thread = Thread(target=self.asyncioThread())
-        thread.start()
-
-    def asyncioThread(self):
-        asyncio.run_coroutine_threadsafe(self.asyncStartup())
-        #asyncio.get_event_loop().run_until_complete(self.asyncStartup())
     def processMessage(self,msg):
         status = json.loads(msg)
         name = status["name"]
@@ -58,9 +80,17 @@ class Remote:
                 break
 
 
-    def moveWheels(self, rspeed, lspeed, time):
-        msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, time)
-        self.ws.send(msg)
+    def moveWheels(self, rspeed, lspeed, duration):
+        msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+
+    def moveWheelsWait(self, rspeed, lspeed, duration):
+        msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+
+        time.sleep(duration-.15)
 
 
 

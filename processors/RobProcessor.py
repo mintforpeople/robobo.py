@@ -1,18 +1,19 @@
 import json
 from utils.message import Message
+from utils.IR import IR
+
 from processors import AbstractProcessor
 
 
 class RobProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
-        self.supportedMessages = ["IRS","BAT-BASE","BAT-PHONE","WHEELS"]
+        self.supportedMessages = ["IRS","BAT-BASE","BAT-PHONE","WHEELS","UNLOCK-MOVE"]
 
     def process(self, status):
 
         name = status["name"]
         value = status["value"]
-
         if (name == "WHEELS"):
             self.state.wheelPosR = int(value["wheelPosR"])
             self.state.wheelPosL = int(value["wheelPosL"])
@@ -21,6 +22,9 @@ class RobProcessor(AbstractProcessor):
 
         elif (name == "IRS"):
             self.state.irs = value
+        elif (name == "UNLOCK-MOVE"):
+            print("Unlock")
+            self.state.wheelLock = False
 
         elif (name == "BAT-BASE"):
             self.state.baseBattery = int(value["level"])
@@ -37,6 +41,16 @@ class RobProcessor(AbstractProcessor):
                  "rspeed":speedR,
                  "time":time}
         id = self.state.getId()
+
+        return Message(name,values,id)
+
+    def moveWheelsSeparatedWait(self,speedL, speedR, time, callback):
+        name = "MOVE-BLOCKING"
+        id = self.state.getId()
+        values= {"lspeed":speedL,
+                 "rspeed":speedR,
+                 "time":time,
+                 "blockid":id}
 
         return Message(name,values,id)
 

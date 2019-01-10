@@ -6,11 +6,11 @@ class Message:
         self.id = id
 
     def encode(self):
-        st = "{\"name\": "
+        st = "{\"name\":"
         st +=  "\""+self.name + "\","
 
 
-        st += "\"parameters\"{"
+        st += "\"parameters\":{"
 
         for key in self.parameters.keys():
             st += "\""+key+"\":"+"\""+str(self.parameters[key])+"\","
