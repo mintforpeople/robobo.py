@@ -90,7 +90,20 @@ class Remote:
         print(msg.encode())
         self.ws.send(msg.encode())
 
-        time.sleep(duration-.15)
+        time.sleep(duration-0.15)
+
+    def moveWheelsByDegree(self, wheel, degrees, speed ):
+        msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+
+    def moveWheelsByDegreeWait(self, wheel, degrees, speed ):
+        msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+        self.state.wheelLock = True
+        while self.state.wheelLock:
+            time.sleep(0.1)
 
 
 

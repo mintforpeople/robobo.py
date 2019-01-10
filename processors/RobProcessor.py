@@ -1,6 +1,7 @@
 import json
 from utils.message import Message
 from utils.IR import IR
+from utils.Wheels import Wheels
 
 from processors import AbstractProcessor
 
@@ -53,6 +54,16 @@ class RobProcessor(AbstractProcessor):
                  "blockid":id}
 
         return Message(name,values,id)
+
+    def moveWheelsByDegree(self, wheel, degrees, speed):
+        name = "MOVEBY-DEGREES"
+        id = self.state.getId()
+        values = {"wheel": wheel.value,
+                  "degrees": degrees,
+                  "speed": speed,
+                  "blockid": id}
+
+        return Message(name, values, id)
 
 
 
