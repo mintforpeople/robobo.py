@@ -59,6 +59,9 @@ class State:
         self.wheelSpeedL = 0
 
         self.wheelLock = False
+        self.panLock = False
+        self.tiltLock = False
+
 
         self.emotion = "normal"
 

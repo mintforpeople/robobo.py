@@ -1,5 +1,5 @@
 import json
-from utils.message import Message
+from utils.Message import Message
 from utils.IR import IR
 from utils.Wheels import Wheels
 
@@ -23,6 +23,7 @@ class RobProcessor(AbstractProcessor):
 
         elif (name == "IRS"):
             self.state.irs = value
+
         elif (name == "UNLOCK-MOVE"):
             print("Unlock")
             self.state.wheelLock = False
@@ -65,8 +66,12 @@ class RobProcessor(AbstractProcessor):
 
         return Message(name, values, id)
 
+    def resetEncoders(self):
 
+        name = "RESET-WHEELS"
+        id = self.state.getId()
+        values = {}
 
-
+        return Message(name, values, id)
 
 

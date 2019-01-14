@@ -30,7 +30,7 @@ class Remote:
     def wsStartup(self):
         def on_open(ws):
             print("Open")
-            ws.send(f"PASSWORD: {self.password}")
+            ws.send("PASSWORD: "+self.password)
             self.connected = True
 
         def on_message(ws, message):
@@ -105,8 +105,37 @@ class Remote:
         while self.state.wheelLock:
             time.sleep(0.1)
 
+    def resetEncoders(self):
+        msg = self.processors["ROB"].resetEncoders()
+        self.ws.send(msg.encode())
 
 
+    def movePan(self, pos, speed):
+        msg = self.processors["PT"].movePan(pos, speed)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+
+    def movePanWait(self, pos, speed):
+        msg = self.processors["PT"].movePanWait(pos, speed)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+        self.state.panLock = True
+
+        while self.state.panLock:
+            time.sleep(0.1)
+
+    def moveTilt(self, pos, speed):
+        msg = self.processors["PT"].moveTilt(pos, speed)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+
+    def moveTiltWait(self, pos, speed):
+        msg = self.processors["PT"].moveTiltWait(pos, speed)
+        print(msg.encode())
+        self.ws.send(msg.encode())
+        self.state.tiltLock = True
+        while self.state.tiltLock:
+            time.sleep(0.1)
 
 
 

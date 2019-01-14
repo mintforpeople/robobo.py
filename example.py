@@ -1,15 +1,16 @@
 import time
 from remotelib import Remote
 from utils.Wheels import Wheels
+from utils.IR import IR
+from Robobo import Robobo
 
-rmlib = Remote("192.168.31.160")
+rob = Robobo("192.168.1.27")
+rob.connect()
 
-rmlib.wsStartup()
+rob.moveWheelsByDegree(Wheels.BOTH,90,50)
+rob.moveWheels(-10,-10,1)
+rob.movePan(100,10)
+rob.moveTilt(70,10)
 
-rmlib.moveWheelsByDegreeWait(Wheels.R, 360, 20)
-
-
-
-print("END")
-
-time.sleep(30)
+while True:
+    print(rob.getIR(IR.FrontC))

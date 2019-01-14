@@ -1,4 +1,4 @@
-from utils.message import Message
+from utils.Message import Message
 
 name = "ASDF"
 
