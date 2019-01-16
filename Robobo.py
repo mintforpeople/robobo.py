@@ -37,3 +37,6 @@ class Robobo:
 
     def getIR(self, id):
         return self.rem.state.irs[id.value]
+
+    def getBlob(self, color):
+        return  self.rem.state.blobs[color]

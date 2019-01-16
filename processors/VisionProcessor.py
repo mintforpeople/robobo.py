@@ -1,6 +1,6 @@
 
 from processors import AbstractProcessor
-
+from utils.Message import Message
 class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
@@ -31,5 +31,14 @@ class VisionProcessor(AbstractProcessor):
         # Callback here
 
 
+    def configureBlobTracking(self, red, green, blue, custom):
+        name = "CONFIGURE_BLOBTRACKING"
+        id = self.state.getId()
+        values = {"red": red,
+                  "green": green,
+                  "blue": blue,
+                  "custom": custom}
+
+        return Message(name, values, id)
 
 

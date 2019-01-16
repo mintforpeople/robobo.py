@@ -15,10 +15,10 @@ class PTProcessor(AbstractProcessor):
         value = status["value"]
 
         if (name == "PAN"):
-            self.state.panPos = value["panPos"]
+            self.state.panPos = int(value["panPos"])
 
         elif (name == "TILT"):
-            self.state.tiltPos = value["tiltPos"]
+            self.state.tiltPos = int(value["tiltPos"])
 
         elif (name == "UNLOCK-PAN"):
             self.state.panLock = False

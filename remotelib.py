@@ -7,6 +7,8 @@ from State import State
 from processors.PTProcessor import PTProcessor
 from processors.RobProcessor import RobProcessor
 from processors.VisionProcessor import VisionProcessor
+from processors.SmartphoneProcessor import SmartphoneProcessor
+from processors.SoundProcessor import SoundProcessor
 from utils.IR import IR
 class Remote:
     def __init__(self, ip):
@@ -17,7 +19,9 @@ class Remote:
         self.state = State()
         self.processors ={ "PT": PTProcessor(self.state),
                            "ROB": RobProcessor(self.state),
-                           "Vision": VisionProcessor(self.state)}
+                           "PHONE": SmartphoneProcessor(self.state),
+                           "SOUND": SoundProcessor(self.state),
+                           "VISION": VisionProcessor(self.state)}
 
         self.wsDaemon = None
         self.connected = False
@@ -102,7 +106,7 @@ class Remote:
         print(msg.encode())
         self.ws.send(msg.encode())
         self.state.wheelLock = True
-        while self.state.wheelLock:
+        while self.state.degreesLock:
             time.sleep(0.1)
 
     def resetEncoders(self):
@@ -136,6 +140,4 @@ class Remote:
         self.state.tiltLock = True
         while self.state.tiltLock:
             time.sleep(0.1)
-
-
 

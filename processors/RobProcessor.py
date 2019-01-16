@@ -9,7 +9,7 @@ from processors import AbstractProcessor
 class RobProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
-        self.supportedMessages = ["IRS","BAT-BASE","BAT-PHONE","WHEELS","UNLOCK-MOVE"]
+        self.supportedMessages = ["IRS","LED","BAT-BASE","BAT-PHONE","WHEELS","UNLOCK-MOVE","UNLOCK-DEGREES"]
 
     def process(self, status):
 
@@ -24,8 +24,10 @@ class RobProcessor(AbstractProcessor):
         elif (name == "IRS"):
             self.state.irs = value
 
+        elif (name == "LEDS"):
+            self.state.leds = value
+
         elif (name == "UNLOCK-MOVE"):
-            print("Unlock")
             self.state.wheelLock = False
 
         elif (name == "BAT-BASE"):
@@ -74,4 +76,10 @@ class RobProcessor(AbstractProcessor):
 
         return Message(name, values, id)
 
+    def setLedColor(self, led, color):
+        name = "SET_LEDCOLOR"
+        id = self.state.getId()
+        values = {"led": led.value,
+                  "color": color.value}
 
+        return Message(name, values, id)

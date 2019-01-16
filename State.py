@@ -1,5 +1,5 @@
 import json
-from objects.blob import Blob
+from objects.Blob import Blob
 
 
 class State:
@@ -11,6 +11,7 @@ class State:
         self.claps = 0
 
         self.irs = []
+        self.leds = []
 
         self.baseBattery = 0
         self.phoneBattery = 0
@@ -22,9 +23,9 @@ class State:
         self.tapx = 0
         self.tapy = 0
 
-        self.flingangle = 0
-        self.flingtime = 0
-        self.flingdistance = 0
+        self.flingAngle = 0
+        self.flingTime = 0
+        self.flingDistance = 0
         self.brightness = 0
 
         self.pitch = 0
@@ -46,9 +47,7 @@ class State:
             "red": Blob("red", 0, 0, 0),
             "green": Blob("green", 0, 0, 0),
             "blue": Blob("blue", 0, 0, 0),
-            "custom": Blob("custom", 0, 0, 0),
-
-        }
+            "custom": Blob("custom", 0, 0, 0)}
 
         self.lastNote = 0
         self.lastNoteDuration = 0
@@ -61,11 +60,10 @@ class State:
         self.wheelLock = False
         self.panLock = False
         self.tiltLock = False
-
+        self.degreesLock = False
+        self.talkLock = False
 
         self.emotion = "normal"
-
-
 
     def getId(self):
         retId = self.id
@@ -132,19 +130,7 @@ class State:
         name = status["name"]
         value = status["value"]
 
-        if (name == "NOISE"):  #
-            self.noise = value["level"]
-
-        elif (name == "CLAP"):  #
-            self.claps += 1
-
-
-
-
-
-
-
-        elif (name == "TAP"):
+        if (name == "TAP"):
             self.tapx = int(value["coordx"])
             self.tapy = int(value["coordy"])
 
@@ -170,9 +156,6 @@ class State:
 
 
 
-        elif (name == "NOTE"):
-            self.lastNote = int(value["name"])
-            self.lastNoteDuration = int(value["duration"])
 
 
 
@@ -181,8 +164,6 @@ class State:
 
         elif (name == "QRCODE"):
             self.qr = value
-
-
 
         # elif (name == "LED"):
         # this.led
