@@ -43,3 +43,27 @@ class Robobo:
 
     def getBlob(self, color):
         return  self.rem.state.blobs[color]
+
+    def setLedColor(self, led, color):
+        self.rem.setLedColor(led, color)
+
+    def resetWheels(self):
+        self.rem.resetEncoders()
+
+    def playNote(self, note, duration, wait = True):
+        self.rem.playNote(note, duration,wait)
+
+    def playEmotionSound(self, sound):
+        self.rem.playEmotionSound(sound)
+
+    def talk(self, speech, wait = True):
+        self.rem.talk(speech, wait)
+
+    def resetClaps(self):
+        self.rem.resetClaps()
+
+    def setEmotion(self, emotion):
+        self.rem.setEmotion(emotion)
+
+    def configureBlobTracking(self, red, green, blue, custom):
+        self.rem.configureBlobTracking(red, green, blue, custom)

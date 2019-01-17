@@ -4,7 +4,7 @@ class IR(Enum):
     BackR = "Back-R"
     BackC = "Back-C"
     FrontR = "Front-R"
-    FrontRE = "Front-RR"
+    FrontRR = "Front-RR"
     FrontC = "Front-C"
     FrontL = "Front-L"
     FrontLL = "Front-LL"

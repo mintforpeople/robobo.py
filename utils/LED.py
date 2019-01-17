@@ -1,6 +1,6 @@
 from enum import Enum
 
-class IR(Enum):
+class LED(Enum):
     BackR = "Back-R"
     FrontR = "Front-R"
     FrontRE = "Front-RR"

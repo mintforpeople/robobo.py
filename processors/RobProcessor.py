@@ -23,6 +23,8 @@ class RobProcessor(AbstractProcessor):
 
         elif (name == "IRS"):
             self.state.irs = value
+            for element in IR:
+                self.state.irs[element] =  int(self.state.irs[element])
 
         elif (name == "LEDS"):
             self.state.leds = value
@@ -77,7 +79,7 @@ class RobProcessor(AbstractProcessor):
         return Message(name, values, id)
 
     def setLedColor(self, led, color):
-        name = "SET_LEDCOLOR"
+        name = "SET-LEDCOLOR"
         id = self.state.getId()
         values = {"led": led.value,
                   "color": color.value}

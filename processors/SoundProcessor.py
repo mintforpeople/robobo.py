@@ -24,7 +24,7 @@ class SoundProcessor(AbstractProcessor):
         elif (name == "UNLOCK-TALK"):
             self.state.talkLock = False
     def playNote(self, index, duration):
-        name = "MOVE"
+        name = "PLAY-NOTE"
         values = {"index": index,
                   "time": duration}
         id = self.state.getId()
@@ -32,7 +32,7 @@ class SoundProcessor(AbstractProcessor):
         return Message(name, values, id)
 
     def playEmotionSound(self, sound):
-        name = "SOUND"
+        name = "PLAY-SOUND"
         values = {"sound": sound.value}
         id = self.state.getId()
 

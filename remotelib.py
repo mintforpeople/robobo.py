@@ -147,13 +147,15 @@ class Remote:
             time.sleep(0.1)
 
     def playNote(self, index, duration, wait):
-        msg = self.processors["SOUND"].playNote(index, duration)
+        msg = self.processors["SOUND"].playNote(index, int(duration*1000))
+        print(msg.encode())
         self.sendMessage(msg)
         if wait:
             time.sleep(duration)
 
     def playEmotionSound(self, sound):
         msg = self.processors["SOUND"].playEmotionSound(sound)
+        print(msg.encode())
         self.sendMessage(msg)
 
     def talk(self, speech, wait):
@@ -169,7 +171,8 @@ class Remote:
 
 
     def setEmotion(self, emotion):
-        self.processors["SMARTPHONE"].setEmotion(emotion)
+        msg = self.processors["PHONE"].setEmotion(emotion)
+        self.sendMessage(msg)
 
 
     def configureBlobTracking(self, red, green, blue, custom):

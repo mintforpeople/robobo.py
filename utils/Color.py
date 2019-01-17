@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class IR(Enum):
+class Color(Enum):
     OFF = 'off'
     WHITE = 'white'
     RED = 'red'
