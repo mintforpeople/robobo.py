@@ -1,6 +1,6 @@
 import json
-from objects.Blob import Blob
-
+from utils.Blob import Blob
+from utils.QRCode import QRCode
 
 class State:
     def __init__(self):
@@ -113,6 +113,8 @@ class State:
 
         }
 
+        self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
         self.lastNote = 0
         self.lastNoteDuration = 0
 
@@ -152,18 +154,10 @@ class State:
             self.accely = int(value["accely"])
             self.accelz = int(value["accelz"])
 
-
-
-
-
-
-
-
         elif (name == "EMOTION"):
             self.emotion = value["emotion"]
 
-        elif (name == "QRCODE"):
-            self.qr = value
+
 
         # elif (name == "LED"):
         # this.led

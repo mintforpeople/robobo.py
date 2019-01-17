@@ -1,4 +1,4 @@
-from processors import AbstractProcessor
+from processors.AbstractProcessor import AbstractProcessor
 from utils import Emotions
 from utils.Message import Message
 

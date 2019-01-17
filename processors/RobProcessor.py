@@ -3,7 +3,7 @@ from utils.Message import Message
 from utils.IR import IR
 from utils.Wheels import Wheels
 
-from processors import AbstractProcessor
+from processors.AbstractProcessor import AbstractProcessor
 
 
 class RobProcessor(AbstractProcessor):

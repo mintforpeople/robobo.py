@@ -36,7 +36,10 @@ class Robobo:
             self.rem.moveTilt(degrees, speed)
 
     def getIR(self, id):
-        return self.rem.state.irs[id.value]
+        if self.rem.state.irs == []:
+            return 0
+        else:
+            return self.rem.state.irs[id.value]
 
     def getBlob(self, color):
         return  self.rem.state.blobs[color]

@@ -3,10 +3,9 @@ from utils.Message import Message
 
 
 class SoundProcessor(AbstractProcessor):
-    def __init__(self, state, clapCallback):
+    def __init__(self, state):
         super().__init__(state)
         self.supportedMessages = ["NOTE", "CLAP", "UNLOCK-TALK", "NOISE"]
-        self.clapCallback = clapCallback
 
     def process(self, status):
 
@@ -18,7 +17,6 @@ class SoundProcessor(AbstractProcessor):
 
         elif (name == "CLAP"):  #
             self.state.claps += 1
-            self.clapCallback()
         elif (name == "NOTE"):
             self.state.lastNote = int(value["name"])
             self.state.lastNoteDuration = int(value["duration"])
@@ -35,7 +33,7 @@ class SoundProcessor(AbstractProcessor):
 
     def playEmotionSound(self, sound):
         name = "SOUND"
-        values = {"sound": sound}
+        values = {"sound": sound.value}
         id = self.state.getId()
 
         return Message(name, values, id)

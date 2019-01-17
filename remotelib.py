@@ -9,6 +9,7 @@ from processors.RobProcessor import RobProcessor
 from processors.VisionProcessor import VisionProcessor
 from processors.SmartphoneProcessor import SmartphoneProcessor
 from processors.SoundProcessor import SoundProcessor
+from utils.ConnectionState import ConnectionState
 from utils.IR import IR
 class Remote:
     def __init__(self, ip):
@@ -24,8 +25,7 @@ class Remote:
                            "VISION": VisionProcessor(self.state)}
 
         self.wsDaemon = None
-        self.connected = False
-
+        self.connectionState = ConnectionState.DISCONNECTED
 
 
 
@@ -35,17 +35,18 @@ class Remote:
         def on_open(ws):
             print("Open")
             ws.send("PASSWORD: "+self.password)
-            self.connected = True
+            self.connectionState = ConnectionState.CONNECTED
 
         def on_message(ws, message):
             self.processMessage(message)
 
         def on_error(ws, error):
             print(error)
+            self.connectionState = ConnectionState.ERROR
 
         def on_close(ws):
-            self.connected = False
-            print("### closed ###")
+            self.connectionState = ConnectionState.DISCONNECTED
+            print("### closed connection ###")
 
         self.ws = websocket.WebSocketApp('ws://'+self.ip+":40404",
                                     on_message=on_message,
@@ -67,7 +68,9 @@ class Remote:
 
 
         print("Connecting")
-        while not self.connected:
+        self.connectionState = ConnectionState.CONNECTING
+
+        while self.connectionState == ConnectionState.CONNECTING:
             print("wait")
             time.sleep(0.1)
 
@@ -83,46 +86,50 @@ class Remote:
                 processed = True
                 break
 
+    def sendMessage(self, msg):
+        if self.connectionState == ConnectionState.CONNECTED:
+            self.ws.send(msg.encode())
+        else:
+            print("Error: Stablish connection before sending a message")
 
     def moveWheels(self, rspeed, lspeed, duration):
         msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
-        print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
 
     def moveWheelsWait(self, rspeed, lspeed, duration):
         msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
-        print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
 
         time.sleep(duration-0.15)
 
     def moveWheelsByDegree(self, wheel, degrees, speed ):
         msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
-        print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
 
     def moveWheelsByDegreeWait(self, wheel, degrees, speed ):
         msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
-        print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
         self.state.wheelLock = True
         while self.state.degreesLock:
             time.sleep(0.1)
 
+    def setLedColor(self,led, color):
+        msg = self.processors["ROB"].setLedColor(led,color)
+        self.sendMessage(msg)
+
     def resetEncoders(self):
         msg = self.processors["ROB"].resetEncoders()
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
 
 
     def movePan(self, pos, speed):
         msg = self.processors["PT"].movePan(pos, speed)
         print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
 
     def movePanWait(self, pos, speed):
         msg = self.processors["PT"].movePanWait(pos, speed)
-        print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
         self.state.panLock = True
 
         while self.state.panLock:
@@ -130,14 +137,40 @@ class Remote:
 
     def moveTilt(self, pos, speed):
         msg = self.processors["PT"].moveTilt(pos, speed)
-        print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
 
     def moveTiltWait(self, pos, speed):
         msg = self.processors["PT"].moveTiltWait(pos, speed)
-        print(msg.encode())
-        self.ws.send(msg.encode())
+        self.sendMessage(msg)
         self.state.tiltLock = True
         while self.state.tiltLock:
             time.sleep(0.1)
 
+    def playNote(self, index, duration, wait):
+        msg = self.processors["SOUND"].playNote(index, duration)
+        self.sendMessage(msg)
+        if wait:
+            time.sleep(duration)
+
+    def playEmotionSound(self, sound):
+        msg = self.processors["SOUND"].playEmotionSound(sound)
+        self.sendMessage(msg)
+
+    def talk(self, speech, wait):
+        msg = self.processors["SOUND"].talk(speech)
+        self.sendMessage(msg)
+        if wait:
+            self.state.talkLock = True
+            while self.state.talkLock:
+                time.sleep(0.1)
+
+    def resetClaps(self):
+        self.processors["SOUND"].resetClaps()
+
+
+    def setEmotion(self, emotion):
+        self.processors["SMARTPHONE"].setEmotion(emotion)
+
+
+    def configureBlobTracking(self, red, green, blue, custom):
+        self.processors["VISION"].configureBlobTracking(red, green, blue, custom)

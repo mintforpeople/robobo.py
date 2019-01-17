@@ -1,6 +1,7 @@
 
-from processors import AbstractProcessor
+from processors.AbstractProcessor import AbstractProcessor
 from utils.Message import Message
+from utils.QRCode import QRCode
 class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
@@ -24,11 +25,31 @@ class VisionProcessor(AbstractProcessor):
 
             self.state.blobs[value["color"]].size = int(value["size"])
 
-        # elif (name == "QRCODEAPPEAR"):
-        # Callback here
+        elif (name == "QRCODEAPPEAR"):
 
-        # elif (name == "QRCODELOST"):
-        # Callback here
+            self.state.qr = QRCode(int(value["coordx"]),
+                             int(value["coordy"]),
+                             int(value["distance"]),
+                             int(value["p1x"]),
+                             int(value["p1y"]),
+                             int(value["p2x"]),
+                             int(value["p2y"]),
+                             int(value["p3x"]),
+                             int(value["p3y"]))
+
+        elif (name == "QRCODE"):
+            self.state.qr = QRCode(int(value["coordx"]),
+                             int(value["coordy"]),
+                             int(value["distance"]),
+                             int(value["p1x"]),
+                             int(value["p1y"]),
+                             int(value["p2x"]),
+                             int(value["p2y"]),
+                             int(value["p3x"]),
+                             int(value["p3y"]))
+
+        elif (name == "QRCODELOST"):
+            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
     def configureBlobTracking(self, red, green, blue, custom):
