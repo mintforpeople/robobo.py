@@ -1,6 +1,7 @@
 import json
 from utils.Blob import Blob
 from utils.QRCode import QRCode
+from utils.Face import Face
 
 class State:
     def __init__(self):
@@ -16,9 +17,7 @@ class State:
         self.baseBattery = 0
         self.phoneBattery = 0
 
-        self.facex = 0
-        self.facey = 0
-        self.facedist = 0
+        self.face = Face(0,0,0)
 
         self.tapx = 0
         self.tapy = 0
@@ -38,10 +37,6 @@ class State:
 
         self.panPos = 0
         self.tiltPos = 0
-
-        self.blobPosx = 0
-        self.blobPosy = 0
-        self.blobSize = 0
 
         self.blobs = {
             "red": Blob("red", 0, 0, 0),
@@ -65,6 +60,8 @@ class State:
 
         self.emotion = "normal"
 
+
+
     def getId(self):
         retId = self.id
         self.id += 1
@@ -78,16 +75,15 @@ class State:
         self.baseBattery = 0
         self.phoneBattery = 0
 
-        self.facex = 0
-        self.facey = 0
-        self.facedist = 0
+
+        self.face = Face(0,0,0)
 
         self.tapx = 0
         self.tapy = 0
 
-        self.flingangle = 0
-        self.flingtime = 0
-        self.flingdistance = 0
+        self.flingAngle = 0
+        self.flingTime = 0
+        self.flingDistance = 0
         self.brightness = 0
 
         self.pitch = 0
@@ -101,9 +97,6 @@ class State:
         self.panPos = 0
         self.tiltPos = 0
 
-        self.blobPosx = 0
-        self.blobPosy = 0
-        self.blobSize = 0
 
         self.blobs = {
             "red": Blob("red", 0, 0, 0),

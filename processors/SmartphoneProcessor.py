@@ -32,9 +32,9 @@ class SmartphoneProcessor(AbstractProcessor):
             self.state.tapy = int(value["coordy"])
 
         elif (name == "FLING"):
-            self.state.flingangle = int(value["angle"])
-            self.state.flingtime = int(value["time"])
-            self.state.flingdistance = int(value["distance"])
+            self.state.flingAngle = int(value["angle"])
+            self.state.flingTime = int(value["time"])
+            self.state.flingDistance = int(value["distance"])
 
         elif (name == "EMOTION"):
             self.state.emotion = value["emotion"]

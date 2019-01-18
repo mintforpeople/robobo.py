@@ -35,21 +35,23 @@ rob.talk("Hello world")
 
 rob.setEmotion(Emotions.ANGRY)
 
-time.sleep(2)
+time.sleep(1)
 rob.setLedColor(LED.All, Color.RED)
 
 rob.setEmotion(Emotions.LAUGTHING)
 
-time.sleep(2)
+time.sleep(1)
 rob.setLedColor(LED.All, Color.BLUE)
 
 rob.setEmotion(Emotions.NORMAL)
 
+rob.resetClaps()
+print("Now Clap")
+time.sleep(3)
+print("You clapped "+str(rob.getClaps())+" times")
 
 
 
-
-while True:
-    for element in IR:
-        print("IR " + element.name + " value: " + str(rob.getIR(element)))
-    print(rob.getBlob("green"))
+for element in IR:
+    print("IR " + element.name + " value: " + str(rob.getIR(element)))
+print(rob.getBlob("green"))

@@ -2,6 +2,7 @@
 from processors.AbstractProcessor import AbstractProcessor
 from utils.Message import Message
 from utils.QRCode import QRCode
+from utils.Face import Face
 class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
@@ -12,9 +13,7 @@ class VisionProcessor(AbstractProcessor):
         value = status["value"]
 
         if (name == "FACE"):
-            self.state.facex = int(value["coordx"])
-            self.state.facey = int(value["coordy"])
-            self.state.facedist = int(value["distance"])
+            self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
 
 
         elif (name == "BLOB"):

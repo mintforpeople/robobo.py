@@ -177,3 +177,5 @@ class Remote:
 
     def configureBlobTracking(self, red, green, blue, custom):
         self.processors["VISION"].configureBlobTracking(red, green, blue, custom)
+
+

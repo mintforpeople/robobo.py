@@ -1,5 +1,6 @@
 from remotelib import Remote
-from utils import Wheels, IR
+from utils.Wheels import Wheels
+from utils.IR import IR
 import time
 class Robobo:
     def __init__(self, ip):
@@ -35,14 +36,6 @@ class Robobo:
         else:
             self.rem.moveTilt(degrees, speed)
 
-    def getIR(self, id):
-        if self.rem.state.irs == []:
-            return 0
-        else:
-            return self.rem.state.irs[id.value]
-
-    def getBlob(self, color):
-        return  self.rem.state.blobs[color]
 
     def setLedColor(self, led, color):
         self.rem.setLedColor(led, color)
@@ -67,3 +60,87 @@ class Robobo:
 
     def configureBlobTracking(self, red, green, blue, custom):
         self.rem.configureBlobTracking(red, green, blue, custom)
+
+    def getClaps(self):
+        return self.rem.state.claps
+
+    def getIR(self, id):
+        if self.rem.state.irs == []:
+            return 0
+        else:
+            return self.rem.state.irs[id.value]
+
+    def getBlob(self, color):
+        return  self.rem.state.blobs[color]
+
+    def getQR(self):
+        return self.rem.state.qr
+
+    def getOrientation(self,axis):
+        if axis == "yaw":
+            return self.rem.state.yaw
+        elif axis == "pitch":
+            return self.rem.state.pitch
+        elif axis == "roll":
+            return self.rem.state.roll
+
+    def getAcceleration(self,axis):
+        if axis == "x":
+            return self.rem.state.accelx
+        elif axis == "y":
+            return self.rem.state.accely
+        elif axis == "z":
+            return self.rem.state.accelz
+
+    def getTap(self,axis):
+        if axis == "x":
+            return self.rem.state.tapx
+        elif axis == "y":
+            return self.rem.state.tapy
+
+    def getPanPos(self):
+        return self.rem.state.panPos
+
+    def getTiltPos(self):
+        return self.rem.state.tiltPos
+
+    def getWheelPos(self, wheel):
+        if wheel.value == Wheels.R:
+            return self.rem.state.wheelPosR
+        elif wheel.value == Wheels.L:
+            return self.rem.state.wheelPosL
+        else:
+            print("Wheel id not valid")
+            return 0
+
+    def getWheelSpeed(self, wheel):
+        if wheel.value == Wheels.R:
+            return self.rem.state.wheelSpeedR
+        elif wheel.value == Wheels.L:
+            return self.rem.state.wheelSpeedL
+        else:
+            print("Wheel id not valid")
+            return 0
+
+    def getFlingAngle(self):
+        return self.rem.state.flingAngle
+
+    def getFlingDistance(self):
+        return self.rem.state.flingDistance
+
+    def getFlingTime(self):
+        return self.rem.state.flingTime
+
+    def getPhoneBattery(self):
+        return self.rem.state.phoneBattery
+
+    def getBaseBattery(self):
+        return self.rem.state.baseBattery
+
+    def getNoiseLevel(self):
+        return self.rem.state.noise
+
+    def getFace(self):
+        return self.rem.state.face
+
+
