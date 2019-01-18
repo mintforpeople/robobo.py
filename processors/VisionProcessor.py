@@ -35,7 +35,8 @@ class VisionProcessor(AbstractProcessor):
                              int(value["p2x"]),
                              int(value["p2y"]),
                              int(value["p3x"]),
-                             int(value["p3y"]))
+                             int(value["p3y"]),
+                             value["qrid"])
 
         elif (name == "QRCODE"):
             self.state.qr = QRCode(int(value["coordx"]),
@@ -46,10 +47,11 @@ class VisionProcessor(AbstractProcessor):
                              int(value["p2x"]),
                              int(value["p2y"]),
                              int(value["p3x"]),
-                             int(value["p3y"]))
+                             int(value["p3y"]),
+                             value["qrid"])
 
         elif (name == "QRCODELOST"):
-            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0)
+            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
 
 
     def configureBlobTracking(self, red, green, blue, custom):

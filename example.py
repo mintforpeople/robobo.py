@@ -19,7 +19,7 @@ rob.connect()
 
 rob.moveWheelsByDegree(Wheels.BOTH,90,50)
 rob.moveWheels(-10,-10,1)
-rob.movePan(100,10)
+rob.movePan(0,10)
 rob.moveTilt(70,10)
 
 rob.playNote(64,0.2)
@@ -45,9 +45,11 @@ rob.setLedColor(LED.All, Color.BLUE)
 
 rob.setEmotion(Emotions.NORMAL)
 
-time.sleep(2)
 
-for element in IR:
-    print("IR "+element.name+" value: "+ str(rob.getIR(element)))
 
-print(rob.getBlob("green").posx)
+
+
+while True:
+    for element in IR:
+        print("IR " + element.name + " value: " + str(rob.getIR(element)))
+    print(rob.getBlob("green"))

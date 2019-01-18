@@ -1,7 +1,7 @@
 
 
 class QRCode():
-    def __init__(self, x, y, dist, p1x, p1y, p2x, p2y, p3x, p3y):
+    def __init__(self, x, y, dist, p1x, p1y, p2x, p2y, p3x, p3y, id):
 
         self.x = x
         self.y = y
@@ -15,3 +15,8 @@ class QRCode():
 
         self.p3 = {"x":p3x,
                    "y":p3y}
+
+        self.id = id
+
+    def __str__(self):
+        return "QR, Id:"+self.id+" x:"+str(self.x)+" y:"+str(self.y)+" distance:"+str(self.distance)

@@ -16,7 +16,7 @@ class PTProcessor(AbstractProcessor):
         value = status["value"]
 
         if (name == "PAN"):
-            self.state.panPos = int(value["panPos"])
+            self.state.panPos = self.internalAngleToExternal(int(value["panPos"]))
 
         elif (name == "TILT"):
             self.state.tiltPos = int(value["tiltPos"])
@@ -34,7 +34,7 @@ class PTProcessor(AbstractProcessor):
     def movePan(self, pos, speed):
         name = "MOVEPAN"
         id = self.state.getId()
-        values = {"pos":self.panBounds(pos),
+        values = {"pos":self.panBounds(self.externalAngleToInternal(pos)),
                   "speed": speed}
 
         return Message(name, values, id)
@@ -50,7 +50,7 @@ class PTProcessor(AbstractProcessor):
     def movePanWait(self, pos, speed):
         name = "MOVEPAN-BLOCKING"
         id = self.state.getId()
-        values = {"pos":self.panBounds(pos),
+        values = {"pos":self.panBounds(self.externalAngleToInternal(pos)),
                   "speed": speed,
                   "blockid": id}
 
@@ -84,3 +84,10 @@ class PTProcessor(AbstractProcessor):
 
         else:
             return angle
+
+    def externalAngleToInternal(self, angle):
+        return angle+180
+
+
+    def internalAngleToExternal(self, angle):
+        return angle-180

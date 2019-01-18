@@ -113,7 +113,7 @@ class State:
 
         }
 
-        self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0)
+        self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
 
         self.lastNote = 0
         self.lastNoteDuration = 0
@@ -125,39 +125,3 @@ class State:
 
         self.emotion = "normal"
 
-    def process(self, msg):
-
-        status = json.loads(msg)
-        print(status)
-        name = status["name"]
-        value = status["value"]
-
-        if (name == "TAP"):
-            self.tapx = int(value["coordx"])
-            self.tapy = int(value["coordy"])
-
-        elif (name == "FLING"):
-            self.flingangle = int(value["angle"])
-            self.flingtime = int(value["time"])
-            self.flingdistance = int(value["distance"])
-
-        elif (name == "AMBIENTLIGHT"):
-            self.brightness = int(value)
-
-        elif (name == "ORIENTATION"):
-            self.pitch = int(value["pitch"])
-            self.yaw = int(value["yaw"])
-            self.roll = int(value["roll"])
-
-        elif (name == "ACCELERATION"):
-            self.accelx = int(value["accelx"])
-            self.accely = int(value["accely"])
-            self.accelz = int(value["accelz"])
-
-        elif (name == "EMOTION"):
-            self.emotion = value["emotion"]
-
-
-
-        # elif (name == "LED"):
-        # this.led
