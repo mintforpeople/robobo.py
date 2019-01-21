@@ -13,12 +13,14 @@ class Robobo:
     def wait(self, seconds):
         time.sleep(seconds)
 
-    def moveWheels(self, rSpeed, lSpeed, duration=30000, wait = True):
+    def moveWheelsByTime(self, rSpeed, lSpeed, duration, wait = True):
         if wait:
             self.rem.moveWheelsWait(rSpeed, lSpeed, duration)
         else:
             self.rem.moveWheels(rSpeed, lSpeed, duration)
 
+    def moveWheels(self, rSpeed, lSpeed):
+            self.rem.moveWheels(rSpeed, lSpeed, 100000)
     def stopMotors(self):
         self.moveWheels(0,0,1,False)
 
