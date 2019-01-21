@@ -9,7 +9,7 @@ from utils.Color import Color
 
 from Robobo import Robobo
 
-rob = Robobo("192.168.1.27")
+rob = Robobo("192.168.1.179")
 rob.connect()
 
 # Todos los comandos de movimiento pueden llevar un argumento más, que activa o desactiva la espera

@@ -54,7 +54,7 @@ class VisionProcessor(AbstractProcessor):
 
 
     def configureBlobTracking(self, red, green, blue, custom):
-        name = "CONFIGURE_BLOBTRACKING"
+        name = "CONFIGURE-BLOBTRACKING"
         id = self.state.getId()
         values = {"red": red,
                   "green": green,
