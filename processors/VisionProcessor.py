@@ -11,6 +11,7 @@ class VisionProcessor(AbstractProcessor):
     def process(self, status):
         name = status["name"]
         value = status["value"]
+        print(name)
 
         if (name == "FACE"):
             self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
@@ -26,31 +27,34 @@ class VisionProcessor(AbstractProcessor):
 
         elif (name == "QRCODEAPPEAR"):
 
-            self.state.qr = QRCode(int(value["coordx"]),
-                             int(value["coordy"]),
-                             int(value["distance"]),
-                             int(value["p1x"]),
-                             int(value["p1y"]),
-                             int(value["p2x"]),
-                             int(value["p2y"]),
-                             int(value["p3x"]),
-                             int(value["p3y"]),
-                             value["qrid"])
+            self.state.qr = QRCode(float(value["coordx"]),
+                             float(value["coordy"]),
+                             float(value["distance"]),
+                             float(value["p1x"]),
+                             float(value["p1y"]),
+                             float(value["p2x"]),
+                             float(value["p2y"]),
+                             float(value["p3x"]),
+                             float(value["p3y"]),
+                             value["id"])
+
 
         elif (name == "QRCODE"):
-            self.state.qr = QRCode(int(value["coordx"]),
-                             int(value["coordy"]),
-                             int(value["distance"]),
-                             int(value["p1x"]),
-                             int(value["p1y"]),
-                             int(value["p2x"]),
-                             int(value["p2y"]),
-                             int(value["p3x"]),
-                             int(value["p3y"]),
-                             value["qrid"])
+            self.state.qr = QRCode(float(value["coordx"]),
+                             float(value["coordy"]),
+                             float(value["distance"]),
+                             float(value["p1x"]),
+                             float(value["p1y"]),
+                             float(value["p2x"]),
+                             float(value["p2y"]),
+                             float(value["p3x"]),
+                             float(value["p3y"]),
+                             value["id"])
+            print(self.state.qr)
 
         elif (name == "QRCODELOST"):
             self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
+
 
 
     def configureBlobTracking(self, red, green, blue, custom):
