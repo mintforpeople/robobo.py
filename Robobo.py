@@ -22,7 +22,7 @@ class Robobo:
     def moveWheels(self, rSpeed, lSpeed):
             self.rem.moveWheels(rSpeed, lSpeed, 100000)
     def stopMotors(self):
-        self.moveWheels(0,0,1,False)
+        self.rem.moveWheels(0,0,1)
 
     def moveWheelsByDegree(self, wheel, degrees, speed, wait = True):
         if wait:
