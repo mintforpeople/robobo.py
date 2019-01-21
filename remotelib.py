@@ -182,3 +182,29 @@ class Remote:
         self.sendMessage(msg)
 
 
+    def setClapCallback(self, callback):
+        self.processors["SOUND"].clapCallback = callback
+
+    def setNoteCallback(self, callback):
+            self.processors["SOUND"].noteCallback = callback
+
+    def setTalkCallback(self, callback):
+            self.processors["SOUND"].talkCallback = callback
+
+
+    def setFaceCallback(self, callback):
+            self.processors["VISION"].faceCallback = callback
+
+    def setBlobCallback(self, callback):
+            self.processors["VISION"].blobCallback = callback
+
+    def setQRCallback(self, callback):
+            self.processors["VISION"].qrCallback = callback
+
+
+    def setTapCallback(self, callback):
+            self.processors["PHONE"].tapCallback = callback
+
+    def setFlingCallback(self, callback):
+            self.processors["PHONE"].flingCallback = callback
+

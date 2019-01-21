@@ -7,6 +7,9 @@ class SmartphoneProcessor(AbstractProcessor):
         super().__init__(state)
         self.supportedMessages = ["ORIENTATION","ACCELERATION","AMBIENTLIGHT", "BAT-PHONE", "TAP", "FLING", "EMOTION"]
 
+        self.tapCallback = lambda :True
+        self.flingCallback = lambda :True
+
     def process(self, status):
 
         name = status["name"]
@@ -30,12 +33,13 @@ class SmartphoneProcessor(AbstractProcessor):
         elif (name == "TAP"):
             self.state.tapx = int(value["coordx"])
             self.state.tapy = int(value["coordy"])
+            self.tapCallback()
 
         elif (name == "FLING"):
             self.state.flingAngle = int(value["angle"])
             self.state.flingTime = int(value["time"])
             self.state.flingDistance = int(value["distance"])
-
+            self.flingCallback()
         elif (name == "EMOTION"):
             self.state.emotion = value["emotion"]
 

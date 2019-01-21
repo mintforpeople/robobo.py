@@ -144,4 +144,28 @@ class Robobo:
     def getFace(self):
         return self.rem.state.face
 
+    def onClap(self, callback):
+        self.rem.setClapCallback(callback)
+
+    def onNote(self, callback):
+        self.rem.setNoteCallback(callback)
+
+    def onTalk(self, callback):
+        self.rem.setTalkCallback(callback)
+
+    def onFace(self, callback):
+        self.rem.setFaceCallback(callback)
+
+    def onBlob(self, callback):
+        self.rem.setBlobCallback(callback)
+
+    def onQR(self, callback):
+        self.rem.setQRCallback(callback)
+
+    def onTap(self, callback):
+        self.rem.setTapCallback(callback)
+
+    def onFling(self, callback):
+        self.rem.setFlingCallback(callback)
+
 

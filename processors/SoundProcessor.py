@@ -5,6 +5,11 @@ from utils.Message import Message
 class SoundProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
+
+        self.clapCallback = lambda :True
+        self.noteCallback = lambda :True
+        self.talkCallback = lambda :True
+
         self.supportedMessages = ["NOTE", "CLAP", "UNLOCK-TALK", "NOISE"]
 
     def process(self, status):
@@ -17,12 +22,17 @@ class SoundProcessor(AbstractProcessor):
 
         elif (name == "CLAP"):  #
             self.state.claps += 1
+            self.clapCallback()
+
         elif (name == "NOTE"):
             self.state.lastNote = int(value["name"])
             self.state.lastNoteDuration = int(value["duration"])
+            self.noteCallback()
 
         elif (name == "UNLOCK-TALK"):
             self.state.talkLock = False
+            self.talkCallback()
+
     def playNote(self, index, duration):
         name = "PLAY-NOTE"
         values = {"index": index,
