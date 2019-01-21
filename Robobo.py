@@ -19,6 +19,9 @@ class Robobo:
         else:
             self.rem.moveWheels(rSpeed, lSpeed, duration)
 
+    def stopMotors(self):
+        self.moveWheels(0,0,1,False)
+
     def moveWheelsByDegree(self, wheel, degrees, speed, wait = True):
         if wait:
             self.rem.moveWheelsByDegreeWait(wheel,degrees,speed)

@@ -44,6 +44,8 @@ class State:
             "blue": Blob("blue", 0, 0, 0),
             "custom": Blob("custom", 0, 0, 0)}
 
+        self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
+
         self.lastNote = 0
         self.lastNoteDuration = 0
 
