@@ -7,8 +7,8 @@ class SmartphoneProcessor(AbstractProcessor):
         super().__init__(state)
         self.supportedMessages = ["ORIENTATION","ACCELERATION","AMBIENTLIGHT", "BAT-PHONE", "TAP", "FLING", "EMOTION"]
 
-        self.tapCallback = lambda :True
-        self.flingCallback = lambda :True
+        self.tapCallback = None
+        self.flingCallback = None
 
     def process(self, status):
 

@@ -7,9 +7,9 @@ class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
         self.supportedMessages = ["QRCODE","FACE","BLOB","QRCODEAPPEAR","QRCODELOST"]
-        self.qrCallback= lambda :True
-        self.faceCallback= lambda :True
-        self.blobCallback= lambda :True
+        self.qrCallback=   None
+        self.faceCallback= None
+        self.blobCallback= None
 
     def process(self, status):
         name = status["name"]

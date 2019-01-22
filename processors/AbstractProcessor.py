@@ -13,5 +13,6 @@ class AbstractProcessor:
         value = status["value"]
 
     def runCallback(self,callback):
-        t = threading.Thread(target=callback)
-        t.start()
+        if not callback == None:
+            t = threading.Thread(target=callback)
+            t.start()
