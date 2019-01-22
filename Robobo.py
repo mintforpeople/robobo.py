@@ -21,6 +21,7 @@ class Robobo:
 
     def moveWheels(self, rSpeed, lSpeed):
             self.rem.moveWheels(rSpeed, lSpeed, 100000)
+
     def stopMotors(self):
         self.rem.moveWheels(0,0,1)
 

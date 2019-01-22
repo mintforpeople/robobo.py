@@ -1,4 +1,4 @@
-
+import threading
 
 class AbstractProcessor:
     def __init__(self, state):
@@ -11,3 +11,7 @@ class AbstractProcessor:
     def process(self, status):
         name = status["name"]
         value = status["value"]
+
+    def runCallback(self,callback):
+        t = threading.Thread(target=callback)
+        t.start()

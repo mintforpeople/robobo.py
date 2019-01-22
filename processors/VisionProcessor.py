@@ -18,7 +18,7 @@ class VisionProcessor(AbstractProcessor):
 
         if (name == "FACE"):
             self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
-            self.faceCallback()
+            self.runCallback(self.faceCallback)
 
         elif (name == "BLOB"):
             print(status)
@@ -28,7 +28,7 @@ class VisionProcessor(AbstractProcessor):
 
             self.state.blobs[value["color"]].size = int(value["size"])
 
-            self.blobCallback()
+            self.runCallback(self.blobCallback)
 
         elif (name == "QRCODEAPPEAR"):
 
@@ -43,7 +43,7 @@ class VisionProcessor(AbstractProcessor):
                              float(value["p3y"]),
                              value["id"])
 
-            self.qrCallback()
+            self.runCallback(self.qrCallback)
 
 
         elif (name == "QRCODE"):
