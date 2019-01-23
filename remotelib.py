@@ -102,7 +102,8 @@ class Remote:
         msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
         self.sendMessage(msg)
 
-        time.sleep(duration-0.15)
+        while self.state.wheelLock:
+            time.sleep(0.1)
 
     def moveWheelsByDegree(self, wheel, degrees, speed ):
         msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
@@ -183,28 +184,28 @@ class Remote:
 
 
     def setClapCallback(self, callback):
-        self.processors["SOUND"].clapCallback = callback
+        self.processors["SOUND"].callbacks["clap"] = callback
 
     def setNoteCallback(self, callback):
-            self.processors["SOUND"].noteCallback = callback
+            self.processors["SOUND"].callbacks["note"] = callback
 
     def setTalkCallback(self, callback):
-            self.processors["SOUND"].talkCallback = callback
+            self.processors["SOUND"].callbacks["talk"]= callback
 
 
     def setFaceCallback(self, callback):
-            self.processors["VISION"].faceCallback = callback
+            self.processors["VISION"].callbacks["face"] = callback
 
     def setBlobCallback(self, callback):
-            self.processors["VISION"].blobCallback = callback
+            self.processors["VISION"].callbacks["blob"] = callback
 
     def setQRCallback(self, callback):
-            self.processors["VISION"].qrCallback = callback
+            self.processors["VISION"].callbacks["qr"] = callback
 
 
     def setTapCallback(self, callback):
-            self.processors["PHONE"].tapCallback = callback
+            self.processors["PHONE"].callbacks["tap"] = callback
 
     def setFlingCallback(self, callback):
-            self.processors["PHONE"].flingCallback = callback
+            self.processors["PHONE"].callbacks["fling"] = callback
 

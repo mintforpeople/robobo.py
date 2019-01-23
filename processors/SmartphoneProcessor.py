@@ -10,6 +10,12 @@ class SmartphoneProcessor(AbstractProcessor):
         self.tapCallback = None
         self.flingCallback = None
 
+        self.callbacklocks = {"tap": False,
+                              "fling": False}
+
+        self.callbacks = {"tap":  None,
+                          "fling":None}
+
     def process(self, status):
 
         name = status["name"]
@@ -33,13 +39,13 @@ class SmartphoneProcessor(AbstractProcessor):
         elif (name == "TAP"):
             self.state.tapx = int(value["coordx"])
             self.state.tapy = int(value["coordy"])
-            self.runCallback(self.tapCallback)
+            self.runCallback("tap")
 
         elif (name == "FLING"):
             self.state.flingAngle = int(value["angle"])
             self.state.flingTime = int(value["time"])
             self.state.flingDistance = int(value["distance"])
-            self.runCallback(self.flingCallback)
+            self.runCallback("fling")
         elif (name == "EMOTION"):
             self.state.emotion = value["emotion"]
 

@@ -10,6 +10,15 @@ class SoundProcessor(AbstractProcessor):
         self.noteCallback = None
         self.talkCallback = None
 
+        self.callbacklocks = {"clap": False,
+                              "note": False,
+                              "talk": False}
+
+        self.callbacks = {"clap": None,
+                          "note": None,
+                          "talk": None}
+
+
         self.supportedMessages = ["NOTE", "CLAP", "UNLOCK-TALK", "NOISE"]
 
     def process(self, status):

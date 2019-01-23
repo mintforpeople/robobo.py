@@ -7,9 +7,15 @@ class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
         self.supportedMessages = ["QRCODE","FACE","BLOB","QRCODEAPPEAR","QRCODELOST"]
-        self.qrCallback=   None
-        self.faceCallback= None
-        self.blobCallback= None
+
+
+        self.callbacklocks={"qr": False,
+                           "face": False,
+                           "blob": False}
+
+        self.callbacks={"qr": None,
+                           "face": None,
+                           "blob": None}
 
     def process(self, status):
         name = status["name"]
@@ -18,17 +24,16 @@ class VisionProcessor(AbstractProcessor):
 
         if (name == "FACE"):
             self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
-            self.runCallback(self.faceCallback)
+            self.runCallback("face")
 
         elif (name == "BLOB"):
-            print(status)
             self.state.blobs[value["color"]].posx = int(value["posx"])
 
             self.state.blobs[value["color"]].posy = int(value["posy"])
 
             self.state.blobs[value["color"]].size = int(value["size"])
 
-            self.runCallback(self.blobCallback)
+            self.runCallback("blob")
 
         elif (name == "QRCODEAPPEAR"):
 
@@ -43,7 +48,7 @@ class VisionProcessor(AbstractProcessor):
                              float(value["p3y"]),
                              value["id"])
 
-            self.runCallback(self.qrCallback)
+            self.runCallback("qr")
 
 
         elif (name == "QRCODE"):
