@@ -27,13 +27,33 @@ class Remote:
         self.wsDaemon = None
         self.connectionState = ConnectionState.DISCONNECTED
 
+        self.wheelsLastTime = 0
+        self.panLastTime = 0
+        self.tiltLastTime = 0
+
+        self.timeout = 10
 
 
+
+    def filterMovement(self, speed, axis):
+        if speed == 0:
+            return True
+        elif axis == "wheels":
+            millis = int(round(time.time() * 1000))
+            return ((millis - self.wheelsLastTime) > self.timeout)
+
+        elif axis == "pan":
+            millis = int(round(time.time() * 1000))
+            return ((millis - self.panLastTime) > self.timeout)
+
+        elif axis == "tilt":
+            millis = int(round(time.time() * 1000))
+            return ((millis - self.tiltLastTime) > self.timeout)
 
 
     def wsStartup(self):
         def on_open(ws):
-            print("Open")
+            print("### connection established ###")
             ws.send("PASSWORD: "+self.password)
             self.connectionState = ConnectionState.CONNECTED
 
@@ -95,26 +115,37 @@ class Remote:
             print("Error: Stablish connection before sending a message")
 
     def moveWheels(self, rspeed, lspeed, duration):
-        msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
-        self.sendMessage(msg)
+        if self.filterMovement(abs(rspeed)+abs(lspeed), "wheels"):
+            msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
+            self.sendMessage(msg)
 
     def moveWheelsWait(self, rspeed, lspeed, duration):
-        msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
-        self.sendMessage(msg)
+        if self.filterMovement(abs(rspeed)+abs(lspeed), "wheels"):
 
-        while self.state.wheelLock:
-            time.sleep(0.1)
+            msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
+            self.sendMessage(msg)
 
-    def moveWheelsByDegree(self, wheel, degrees, speed ):
-        msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
-        self.sendMessage(msg)
+            while self.state.wheelLock:
+                time.sleep(0.1)
 
-    def moveWheelsByDegreeWait(self, wheel, degrees, speed ):
-        msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
-        self.sendMessage(msg)
-        self.state.wheelLock = True
-        while self.state.degreesLock:
-            time.sleep(0.1)
+
+    def moveWheelsByDegree(self, wheel, degrees, speed):
+        if self.filterMovement(speed, "wheels"):
+            msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
+            self.sendMessage(msg)
+        else:
+            print('Robobo Warning: Ignored moveWheelsByDegree command. Maybe the client is sending messages too fast?')
+
+    def moveWheelsByDegreeWait(self, wheel, degrees, speed):
+        if self.filterMovement(speed, "wheels"):
+
+            msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
+            self.sendMessage(msg)
+            self.state.wheelLock = True
+            while self.state.degreesLock:
+                time.sleep(0.1)
+        else:
+            print('Robobo Warning: Ignored moveWheelsByDegree command. Maybe the client is sending messages too fast?')
 
     def setLedColor(self,led, color):
         msg = self.processors["ROB"].setLedColor(led,color)
@@ -124,30 +155,47 @@ class Remote:
         msg = self.processors["ROB"].resetEncoders()
         self.sendMessage(msg)
 
+    def changeStatusFrequency(self, frequency):
+        msg = self.processors["ROB"].changeStatusFrequency(frequency)
+        self.sendMessage(msg)
 
     def movePan(self, pos, speed):
-        msg = self.processors["PT"].movePan(pos, speed)
-        print(msg.encode())
-        self.sendMessage(msg)
+        if self.filterMovement(speed, "pan"):
+            msg = self.processors["PT"].movePan(pos, speed)
+            print(msg.encode())
+            self.sendMessage(msg)
+        else:
+            print('Robobo Warning: Ignored movePan command. Maybe the client is sending messages too fast?')
 
     def movePanWait(self, pos, speed):
-        msg = self.processors["PT"].movePanWait(pos, speed)
-        self.sendMessage(msg)
-        self.state.panLock = True
+        if self.filterMovement(speed, "pan"):
 
-        while self.state.panLock:
-            time.sleep(0.1)
+            msg = self.processors["PT"].movePanWait(pos, speed)
+            self.sendMessage(msg)
+            self.state.panLock = True
+
+            while self.state.panLock:
+                time.sleep(0.1)
+        else:
+            print('Robobo Warning: Ignored movePan command. Maybe the client is sending messages too fast?')
 
     def moveTilt(self, pos, speed):
-        msg = self.processors["PT"].moveTilt(pos, speed)
-        self.sendMessage(msg)
+        if self.filterMovement(speed, "tilt"):
+            msg = self.processors["PT"].moveTilt(pos, speed)
+            self.sendMessage(msg)
+
+        else:
+            print('Robobo Warning: Ignored moveTilt command. Maybe the client is sending messages too fast?')
 
     def moveTiltWait(self, pos, speed):
-        msg = self.processors["PT"].moveTiltWait(pos, speed)
-        self.sendMessage(msg)
-        self.state.tiltLock = True
-        while self.state.tiltLock:
-            time.sleep(0.1)
+        if self.filterMovement(speed, "tilt"):
+            msg = self.processors["PT"].moveTiltWait(pos, speed)
+            self.sendMessage(msg)
+            self.state.tiltLock = True
+            while self.state.tiltLock:
+                time.sleep(0.1)
+        else:
+            print('Robobo Warning: Ignored moveTilt command. Maybe the client is sending messages too fast?')
 
     def playNote(self, index, duration, wait):
         msg = self.processors["SOUND"].playNote(index, int(duration*1000))

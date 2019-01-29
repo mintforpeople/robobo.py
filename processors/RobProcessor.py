@@ -85,3 +85,10 @@ class RobProcessor(AbstractProcessor):
                   "color": color.value}
 
         return Message(name, values, id)
+
+    def changeStatusFrequency(self, frequency):
+        name = "SET-SENSOR-FREQUENCY"
+        id = self.state.getId()
+        values = {"frequency":frequency.value}
+
+        return Message(name, values, id)

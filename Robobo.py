@@ -4,13 +4,16 @@ from utils.IR import IR
 import time
 
 class Robobo:
+    """
+
+    """
     def __init__(self, ip):
         self.rem = Remote(ip)
 
     def connect(self):
         self.rem.wsStartup()
 
-    def wait(self, seconds):
+    def pause(self, seconds):
         time.sleep(seconds)
 
     def moveWheelsByTime(self, rSpeed, lSpeed, duration, wait = True):
@@ -33,14 +36,14 @@ class Robobo:
         else:
             self.rem.moveWheelsByDegree(wheel, degrees, speed)
 
-    def movePan(self, degrees, speed, wait = True):
+    def movePanTo(self, degrees, speed, wait = True):
         if wait:
             self.rem.movePanWait(degrees, speed)
 
         else:
             self.rem.movePan(degrees, speed)
 
-    def moveTilt(self, degrees, speed, wait = True):
+    def moveTiltTo(self, degrees, speed, wait = True):
         if wait:
             self.rem.moveTiltWait(degrees, speed)
 
@@ -48,7 +51,7 @@ class Robobo:
             self.rem.moveTilt(degrees, speed)
 
 
-    def setLedColor(self, led, color):
+    def setLedColorTo(self, led, color):
         self.rem.setLedColor(led, color)
 
     def resetWheels(self):
@@ -57,13 +60,13 @@ class Robobo:
     def playNote(self, note, duration, wait = True):
         self.rem.playNote(note, duration,wait)
 
-    def playEmotionSound(self, sound):
+    def playSound(self, sound):
         self.rem.playEmotionSound(sound)
 
-    def talk(self, speech, wait = True):
+    def sayText(self, speech, wait = True):
         self.rem.talk(speech, wait)
 
-    def resetClaps(self):
+    def resetClapCounter(self):
         self.rem.resetClaps()
 
     def setEmotion(self, emotion):
@@ -72,22 +75,22 @@ class Robobo:
     def configureBlobTracking(self, red, green, blue, custom):
         self.rem.configureBlobTracking(red, green, blue, custom)
 
-    def getClaps(self):
+    def readClapCounter(self):
         return self.rem.state.claps
 
-    def getIR(self, id):
+    def readIRSensor(self, id):
         if self.rem.state.irs == []:
             return 0
         else:
             return self.rem.state.irs[id.value]
 
-    def getBlob(self, color):
+    def readColorBlob(self, color):
         return  self.rem.state.blobs[color]
 
-    def getQR(self):
+    def readQR(self):
         return self.rem.state.qr
 
-    def getOrientation(self,axis):
+    def readOrientationSensor(self, axis):
         if axis == "yaw":
             return self.rem.state.yaw
         elif axis == "pitch":
@@ -95,7 +98,7 @@ class Robobo:
         elif axis == "roll":
             return self.rem.state.roll
 
-    def getAcceleration(self,axis):
+    def readAccelerationSensor(self, axis):
         if axis == "x":
             return self.rem.state.accelx
         elif axis == "y":
@@ -103,19 +106,19 @@ class Robobo:
         elif axis == "z":
             return self.rem.state.accelz
 
-    def getTap(self,axis):
+    def readTapSensor(self, axis):
         if axis == "x":
             return self.rem.state.tapx
         elif axis == "y":
             return self.rem.state.tapy
 
-    def getPanPos(self):
+    def readPanPosition(self):
         return self.rem.state.panPos
 
-    def getTiltPos(self):
+    def readTiltPosition(self):
         return self.rem.state.tiltPos
 
-    def getWheelPos(self, wheel):
+    def readWheelPosition(self, wheel):
         if wheel.value == Wheels.R:
             return self.rem.state.wheelPosR
         elif wheel.value == Wheels.L:
@@ -124,7 +127,7 @@ class Robobo:
             print("Wheel id not valid")
             return 0
 
-    def getWheelSpeed(self, wheel):
+    def readWheelSpeed(self, wheel):
         if wheel.value == Wheels.R:
             return self.rem.state.wheelSpeedR
         elif wheel.value == Wheels.L:
@@ -133,49 +136,51 @@ class Robobo:
             print("Wheel id not valid")
             return 0
 
-    def getFlingAngle(self):
+    def readFlingAngle(self):
         return self.rem.state.flingAngle
 
-    def getFlingDistance(self):
+    def readFlingDistance(self):
         return self.rem.state.flingDistance
 
-    def getFlingTime(self):
+    def readFlingTime(self):
         return self.rem.state.flingTime
 
-    def getPhoneBattery(self):
+    def readPhoneBatteryLevel(self):
         return self.rem.state.phoneBattery
 
-    def getBaseBattery(self):
+    def readBaseBatteryLevel(self):
         return self.rem.state.baseBattery
 
-    def getNoiseLevel(self):
+    def readNoiseLevel(self):
         return self.rem.state.noise
 
-    def getFace(self):
+    def readFaceSensor(self):
         return self.rem.state.face
 
-    def onClap(self, callback):
+    def whenClapIsDetected(self, callback):
         self.rem.setClapCallback(callback)
 
-    def onNote(self, callback):
+    def whenANoteIsDetected(self, callback):
         self.rem.setNoteCallback(callback)
 
-    def onTalk(self, callback):
+    def whenSpeechEnds(self, callback):
         self.rem.setTalkCallback(callback)
 
-    def onFace(self, callback):
+    def whenANewFaceIsDetected(self, callback):
         self.rem.setFaceCallback(callback)
 
-    def onBlob(self, callback):
+    def whenANewColorBlobIsDetected(self, callback):
         self.rem.setBlobCallback(callback)
 
-    def onQR(self, callback):
+    def whenANewQRCodeIsDetected(self, callback):
         self.rem.setQRCallback(callback)
 
-    def onTap(self, callback):
+    def whenATapIsDetected(self, callback):
         self.rem.setTapCallback(callback)
 
-    def onFling(self, callback):
+    def whenAFlingIsDetected(self, callback):
         self.rem.setFlingCallback(callback)
 
+    def changeStatusFrequency(self, frequency):
+        self.rem.changeStatusFrequency(frequency)
 

@@ -19,39 +19,39 @@ rob.connect()
 
 rob.moveWheelsByDegree(Wheels.BOTH,90,50)
 rob.moveWheels(-10,-10,1)
-rob.movePan(0,10)
-rob.moveTilt(70,10)
+rob.movePanTo(0, 10)
+rob.moveTiltTo(70, 10)
 
 rob.playNote(64,0.2)
 rob.playNote(66,0.2)
 rob.playNote(68,0.2)
 
-rob.playEmotionSound(Sounds.APPROVE)
+rob.playSound(Sounds.APPROVE)
 
 time.sleep(2)
-rob.setLedColor(LED.All, Color.GREEN)
+rob.setLedColorTo(LED.All, Color.GREEN)
 
-rob.talk("Hello world")
+rob.sayText("Hello world")
 
 rob.setEmotion(Emotions.ANGRY)
 
 time.sleep(1)
-rob.setLedColor(LED.All, Color.RED)
+rob.setLedColorTo(LED.All, Color.RED)
 
 rob.setEmotion(Emotions.LAUGTHING)
 
 time.sleep(1)
-rob.setLedColor(LED.All, Color.BLUE)
+rob.setLedColorTo(LED.All, Color.BLUE)
 
 rob.setEmotion(Emotions.NORMAL)
 
-rob.resetClaps()
+rob.resetClapCounter()
 print("Now Clap")
 time.sleep(3)
-print("You clapped "+str(rob.getClaps())+" times")
+print("You clapped " + str(rob.readClapCounter()) + " times")
 
 
 
 for element in IR:
-    print("IR " + element.name + " value: " + str(rob.getIR(element)))
-print(rob.getBlob("green"))
+    print("IR " + element.name + " value: " + str(rob.readIRSensor(element)))
+print(rob.readColorBlob("green"))
