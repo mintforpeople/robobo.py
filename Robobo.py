@@ -82,7 +82,7 @@ class Robobo:
         if self.rem.state.irs == []:
             return 0
         else:
-            return self.rem.state.irs[id.value]
+            return int(self.rem.state.irs[id.value])
 
     def readColorBlob(self, color):
         return  self.rem.state.blobs[color]

@@ -20,15 +20,16 @@ class SmartphoneProcessor(AbstractProcessor):
 
         name = status["name"]
         value = status["value"]
+        print(name)
         if (name == "ORIENTATION"):
-            self.state.yaw = int(value["yaw"])
-            self.state.pitch = int(value["pitch"])
-            self.state.roll = int(value["roll"])
+            self.state.yaw =   float(value["yaw"])
+            self.state.pitch = float(value["pitch"])
+            self.state.roll =  float(value["roll"])
 
         elif (name == "ACCELERATION"):
-            self.state.accelx = int(value["xaccel"])
-            self.state.accely = int(value["yaccel"])
-            self.state.accelz = int(value["zaccel"])
+            self.state.accelx = float(value["xaccel"])
+            self.state.accely = float(value["yaccel"])
+            self.state.accelz = float(value["zaccel"])
 
         elif (name == "AMBIENTLIGHT"):
             self.state.brightness = int(value["level"])
@@ -42,9 +43,9 @@ class SmartphoneProcessor(AbstractProcessor):
             self.runCallback("tap")
 
         elif (name == "FLING"):
-            self.state.flingAngle = int(value["angle"])
-            self.state.flingTime = int(value["time"])
-            self.state.flingDistance = int(value["distance"])
+            self.state.flingAngle =    float(value["angle"])
+            self.state.flingTime =     float(value["time"])
+            self.state.flingDistance = float(value["distance"])
             self.runCallback("fling")
         elif (name == "EMOTION"):
             self.state.emotion = value["emotion"]

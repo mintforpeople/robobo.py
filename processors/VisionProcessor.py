@@ -20,7 +20,6 @@ class VisionProcessor(AbstractProcessor):
     def process(self, status):
         name = status["name"]
         value = status["value"]
-        print(name)
 
         if (name == "FACE"):
             self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
