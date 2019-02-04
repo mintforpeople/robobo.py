@@ -123,10 +123,9 @@ class Remote:
 
     def moveWheelsWait(self, rspeed, lspeed, duration):
         if self.filterMovement(abs(rspeed)+abs(lspeed), "wheels"):
-
-            msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
+            msg = self.processors["ROB"].moveWheelsSeparatedWait(lspeed, rspeed, duration)
             self.sendMessage(msg)
-
+            self.state.wheelLock = True
             while self.state.wheelLock:
                 time.sleep(0.1)
 
@@ -140,14 +139,14 @@ class Remote:
 
     def moveWheelsByDegreeWait(self, wheel, degrees, speed):
         if self.filterMovement(speed, "wheels"):
-
             msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
             self.sendMessage(msg)
             self.state.wheelLock = True
-            while self.state.degreesLock:
+            while self.state.wheelLock:
                 time.sleep(0.1)
         else:
             print('Robobo Warning: Ignored moveWheelsByDegree command. Maybe the client is sending messages too fast?')
+
 
     def setLedColor(self,led, color):
         msg = self.processors["ROB"].setLedColor(led,color)
@@ -172,7 +171,6 @@ class Remote:
 
     def movePanWait(self, pos, speed):
         if self.filterMovement(speed, "pan"):
-
             msg = self.processors["PT"].movePanWait(pos, speed)
             self.sendMessage(msg)
             self.state.panLock = True

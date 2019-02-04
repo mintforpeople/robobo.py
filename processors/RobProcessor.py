@@ -50,7 +50,7 @@ class RobProcessor(AbstractProcessor):
 
         return Message(name,values,id)
 
-    def moveWheelsSeparatedWait(self,speedL, speedR, time, callback):
+    def moveWheelsSeparatedWait(self,speedL, speedR, time):
         name = "MOVE-BLOCKING"
         id = self.state.getId()
         values= {"lspeed":speedL,
@@ -71,7 +71,6 @@ class RobProcessor(AbstractProcessor):
         return Message(name, values, id)
 
     def resetEncoders(self):
-
         name = "RESET-WHEELS"
         id = self.state.getId()
         values = {}

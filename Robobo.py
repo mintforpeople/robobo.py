@@ -16,13 +16,12 @@ class Robobo:
     def disconnect(self):
         self.rem.disconnect()
 
-    def pause(self, seconds):
+    def wait(self, seconds):
         time.sleep(seconds)
 
     def moveWheelsByTime(self, rSpeed, lSpeed, duration, wait = True):
         if wait:
             self.rem.moveWheelsWait(rSpeed, lSpeed, duration)
-
         else:
             self.rem.moveWheels(rSpeed, lSpeed, duration)
 
@@ -32,24 +31,18 @@ class Robobo:
     def stopMotors(self):
         self.rem.moveWheels(0,0,1)
 
-    def moveWheelsByDegree(self, wheel, degrees, speed, wait = True):
-        if wait:
-            self.rem.moveWheelsByDegreeWait(wheel,degrees,speed)
-
-        else:
-            self.rem.moveWheelsByDegree(wheel, degrees, speed)
+    def moveWheelsByDegree(self, wheel, degrees, speed):
+        self.rem.moveWheelsByDegreeWait(wheel,degrees,speed)
 
     def movePanTo(self, degrees, speed, wait = True):
         if wait:
             self.rem.movePanWait(degrees, speed)
-
         else:
             self.rem.movePan(degrees, speed)
 
     def moveTiltTo(self, degrees, speed, wait = True):
         if wait:
             self.rem.moveTiltWait(degrees, speed)
-
         else:
             self.rem.moveTilt(degrees, speed)
 
@@ -144,9 +137,9 @@ class Robobo:
         return self.rem.state.tiltPos
 
     def readWheelPosition(self, wheel):
-        if wheel.value == Wheels.R:
+        if wheel == Wheels.R:
             return self.rem.state.wheelPosR
-        elif wheel.value == Wheels.L:
+        elif wheel == Wheels.L:
             return self.rem.state.wheelPosL
         else:
             print("Wheel id not valid")
