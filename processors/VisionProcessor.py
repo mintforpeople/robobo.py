@@ -3,6 +3,8 @@ from processors.AbstractProcessor import AbstractProcessor
 from utils.Message import Message
 from utils.QRCode import QRCode
 from utils.Face import Face
+from utils.Blob import Blob
+
 class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
@@ -10,11 +12,17 @@ class VisionProcessor(AbstractProcessor):
 
 
         self.callbacklocks={"qr": False,
-                           "face": False,
-                           "blob": False}
+                            "newqr": False,
+                            "lostqr": False,
+                            "face": False,
+                            "lostface": False,
+                            "blob": False}
 
         self.callbacks={"qr": None,
+                        "lostqr": None,
+                        "newqr": None,
                            "face": None,
+                        "lostface": None,
                            "blob": None}
 
     def process(self, status):
@@ -22,8 +30,13 @@ class VisionProcessor(AbstractProcessor):
         value = status["value"]
 
         if (name == "FACE"):
-            self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
-            self.runCallback("face")
+            if int(value["distance"]) >= 0:
+                self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
+                self.runCallback("face")
+
+            else:
+                self.runCallback("lostface")
+                self.resetFace()
 
         elif (name == "BLOB"):
             self.state.blobs[value["color"]].posx = int(value["posx"])
@@ -47,7 +60,7 @@ class VisionProcessor(AbstractProcessor):
                              float(value["p3y"]),
                              value["id"])
 
-            self.runCallback("qr")
+            self.runCallback("newqr")
 
 
         elif (name == "QRCODE"):
@@ -61,11 +74,13 @@ class VisionProcessor(AbstractProcessor):
                              float(value["p3x"]),
                              float(value["p3y"]),
                              value["id"])
-            print(self.state.qr)
+            self.runCallback("qr")
+
 
 
         elif (name == "QRCODELOST"):
             self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
+            self.runCallback("lostqr")
 
 
 
@@ -79,4 +94,13 @@ class VisionProcessor(AbstractProcessor):
 
         return Message(name, values, id)
 
+    def resetBlobs(self):
+        self.state.blobs = {
+            "red": Blob("red", 0, 0, 0),
+            "green": Blob("green", 0, 0, 0),
+            "blue": Blob("blue", 0, 0, 0),
+            "custom": Blob("custom", 0, 0, 0)}
+
+    def resetFace(self):
+        self.state.face = Face(0,0,-1)
 

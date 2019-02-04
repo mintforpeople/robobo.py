@@ -34,7 +34,6 @@ class Remote:
         self.timeout = 10
 
 
-
     def filterMovement(self, speed, axis):
         if speed == 0:
             return True
@@ -49,6 +48,10 @@ class Remote:
         elif axis == "tilt":
             millis = int(round(time.time() * 1000))
             return ((millis - self.tiltLastTime) > self.timeout)
+
+    def disconnect(self):
+        self.ws.close()
+        self.connectionState = ConnectionState.DISCONNECTED
 
 
     def wsStartup(self):
@@ -72,7 +75,6 @@ class Remote:
                                     on_message=on_message,
                                      on_error=on_error,
                                     on_close=on_close)
-
 
         self.ws.on_open = on_open
 
@@ -155,6 +157,7 @@ class Remote:
         msg = self.processors["ROB"].resetEncoders()
         self.sendMessage(msg)
 
+
     def changeStatusFrequency(self, frequency):
         msg = self.processors["ROB"].changeStatusFrequency(frequency)
         self.sendMessage(msg)
@@ -220,8 +223,20 @@ class Remote:
     def resetClaps(self):
         self.processors["SOUND"].resetClaps()
 
+    def resetTap(self):
+        self.processors["SMARTPHONE"].resetTap()
 
-    def setEmotion(self, emotion):
+    def resetFling(self):
+        self.processors["SMARTPHONE"].resetFling()
+
+    def resetBlobs(self):
+        self.processors["VISION"].resetBlobs()
+
+    def resetFace(self):
+        self.processors["VISION"].resetFace()
+
+
+    def setEmotionTo(self, emotion):
         msg = self.processors["PHONE"].setEmotion(emotion)
         self.sendMessage(msg)
 
@@ -244,11 +259,20 @@ class Remote:
     def setFaceCallback(self, callback):
             self.processors["VISION"].callbacks["face"] = callback
 
+    def setLostFaceCallback(self, callback):
+            self.processors["VISION"].callbacks["lostface"] = callback
+
     def setBlobCallback(self, callback):
             self.processors["VISION"].callbacks["blob"] = callback
 
     def setQRCallback(self, callback):
             self.processors["VISION"].callbacks["qr"] = callback
+
+    def setNewQRCallback(self, callback):
+            self.processors["VISION"].callbacks["newqr"] = callback
+
+    def setLostQRCallback(self, callback):
+            self.processors["VISION"].callbacks["lostqr"] = callback
 
 
     def setTapCallback(self, callback):

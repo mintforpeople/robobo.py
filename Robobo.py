@@ -13,6 +13,9 @@ class Robobo:
     def connect(self):
         self.rem.wsStartup()
 
+    def disconnect(self):
+        self.rem.disconnect()
+
     def pause(self, seconds):
         time.sleep(seconds)
 
@@ -54,7 +57,7 @@ class Robobo:
     def setLedColorTo(self, led, color):
         self.rem.setLedColor(led, color)
 
-    def resetWheels(self):
+    def resetWheelEncoders(self):
         self.rem.resetEncoders()
 
     def playNote(self, note, duration, wait = True):
@@ -69,14 +72,30 @@ class Robobo:
     def resetClapCounter(self):
         self.rem.resetClaps()
 
-    def setEmotion(self, emotion):
-        self.rem.setEmotion(emotion)
+    def resetTapSensor(self):
+        self.rem.resetTap()
 
-    def configureBlobTracking(self, red, green, blue, custom):
+    def resetFlingSensor(self):
+        self.rem.resetFling()
+
+    def resetColorBlobs(self):
+        self.rem.resetBlobs()
+
+    def resetFaceSensor(self):
+        self.rem.resetFace()
+
+    def setEmotionTo(self, emotion):
+        self.rem.setEmotionTo(emotion)
+
+    def setActiveBlobs(self, red, green, blue, custom):
         self.rem.configureBlobTracking(red, green, blue, custom)
+
 
     def readClapCounter(self):
         return self.rem.state.claps
+
+    def readLastNote(self):
+        return self.rem.state.lastNote
 
     def readIRSensor(self, id):
         if self.rem.state.irs == []:
@@ -84,8 +103,14 @@ class Robobo:
         else:
             return int(self.rem.state.irs[id.value])
 
+    def readAllIRSensor(self):
+        return  self.rem.state.irs
+
     def readColorBlob(self, color):
-        return  self.rem.state.blobs[color]
+        return self.rem.state.blobs[color]
+
+    def readAllColorBlobs(self):
+        return self.rem.state.blobs
 
     def readQR(self):
         return self.rem.state.qr
@@ -145,14 +170,17 @@ class Robobo:
     def readFlingTime(self):
         return self.rem.state.flingTime
 
-    def readPhoneBatteryLevel(self):
-        return self.rem.state.phoneBattery
-
-    def readBaseBatteryLevel(self):
-        return self.rem.state.baseBattery
+    def readBatteryLevel(self, device):
+        if device == "phone":
+            return self.rem.state.phoneBattery
+        else:
+            return self.rem.state.baseBattery
 
     def readNoiseLevel(self):
         return self.rem.state.noise
+
+    def readBrightnessSensor(self):
+        return self.rem.state.brightness
 
     def readFaceSensor(self):
         return self.rem.state.face
@@ -173,13 +201,22 @@ class Robobo:
         self.rem.setBlobCallback(callback)
 
     def whenANewQRCodeIsDetected(self, callback):
-        self.rem.setQRCallback(callback)
+        self.rem.setNewQRCallback(callback)
 
     def whenATapIsDetected(self, callback):
         self.rem.setTapCallback(callback)
 
     def whenAFlingIsDetected(self, callback):
         self.rem.setFlingCallback(callback)
+
+    def whenAFaceIsLost(self, callback):
+        self.rem.setLostFaceCallback(callback)
+
+    def whenAQRCodeIsDetected(self, callback):
+        self.rem.setQRCallback(callback)
+
+    def whenAQRCodeIsLost(self, callback):
+        self.rem.setLostQRCallback(callback)
 
     def changeStatusFrequency(self, frequency):
         self.rem.changeStatusFrequency(frequency)

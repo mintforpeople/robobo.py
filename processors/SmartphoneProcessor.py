@@ -56,3 +56,12 @@ class SmartphoneProcessor(AbstractProcessor):
         values = {"emotion": emotion.value}
 
         return Message(name, values, id)
+
+    def resetTap(self):
+        self.state.tapx = 0
+        self.state.tapy = 0
+
+    def resetFling(self):
+        self.state.flingAngle = 0
+        self.state.flingDistance = 0
+        self.state.flingTime = 0

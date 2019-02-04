@@ -17,7 +17,7 @@ class State:
         self.baseBattery = 0
         self.phoneBattery = 0
 
-        self.face = Face(0,0,0)
+        self.face = Face(0,0,-1)
 
         self.tapx = 0
         self.tapy = 0
