@@ -34,7 +34,7 @@ class SoundProcessor(AbstractProcessor):
             self.runCallback(self.clapCallback)
 
         elif (name == "NOTE"):
-            self.state.lastNote = int(value["name"])
+            self.state.lastNote = value["name"]
             self.state.lastNoteDuration = int(value["duration"])
             self.runCallback(self.noteCallback)
 

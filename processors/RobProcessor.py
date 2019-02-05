@@ -9,7 +9,7 @@ from processors.AbstractProcessor import AbstractProcessor
 class RobProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
-        self.supportedMessages = ["IRS","LED","BAT-BASE","BAT-PHONE","WHEELS","UNLOCK-MOVE","UNLOCK-DEGREES"]
+        self.supportedMessages = ["IRS","LED","BAT-BASE","WHEELS","UNLOCK-MOVE","UNLOCK-DEGREES"]
 
     def process(self, status):
 
@@ -34,11 +34,6 @@ class RobProcessor(AbstractProcessor):
 
         elif (name == "BAT-BASE"):
             self.state.baseBattery = int(value["level"])
-            print(self.state.baseBattery)
-
-        elif (name == "BAT-PHONE"):  #
-            self.phoneBattery = int(value["level"])
-            print(self.state.phoneBattery)
 
 
     def moveWheelsSeparated(self,speedL, speedR, time):

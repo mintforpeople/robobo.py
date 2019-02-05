@@ -17,10 +17,9 @@ class SmartphoneProcessor(AbstractProcessor):
                           "fling":None}
 
     def process(self, status):
-
         name = status["name"]
         value = status["value"]
-        print(name)
+
         if (name == "ORIENTATION"):
             self.state.yaw =   float(value["yaw"])
             self.state.pitch = float(value["pitch"])
