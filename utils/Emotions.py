@@ -2,7 +2,7 @@ from enum import Enum
 
 class Emotions(Enum):
     HAPPY = "happy"
-    LAUGTHING = "laughing"
+    LAUGHING = "laughing"
     SURPRISED = "surprised"
     SAD = "sad"
     ANGRY = "angry"

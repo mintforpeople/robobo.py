@@ -38,7 +38,7 @@ rob.setEmotion(Emotions.ANGRY)
 time.sleep(1)
 rob.setLedColorTo(LED.All, Color.RED)
 
-rob.setEmotion(Emotions.LAUGTHING)
+rob.setEmotion(Emotions.LAUGHING)
 
 time.sleep(1)
 rob.setLedColorTo(LED.All, Color.BLUE)
