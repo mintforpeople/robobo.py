@@ -9,7 +9,7 @@ from utils.Color import Color
 
 from Robobo import Robobo
 
-rob = Robobo("10.113.36.246")
+rob = Robobo("10.113.36.195")
 rob.connect()
 
 # Todos los comandos de movimiento pueden llevar un argumento más, que activa o desactiva la espera
@@ -18,7 +18,7 @@ rob.connect()
 
 
 rob.moveWheelsByDegree(Wheels.BOTH,90,50)
-rob.moveWheels(-10,-10,1)
+rob.moveWheelsByTime(-10,-10,1)
 rob.movePanTo(0, 10)
 rob.moveTiltTo(70, 10)
 
@@ -33,23 +33,22 @@ rob.setLedColorTo(LED.All, Color.GREEN)
 
 rob.sayText("Hello world")
 
-rob.setEmotion(Emotions.ANGRY)
+rob.setEmotionTo(Emotions.ANGRY)
 
 time.sleep(1)
 rob.setLedColorTo(LED.All, Color.RED)
 
-rob.setEmotion(Emotions.LAUGHING)
+rob.setEmotionTo(Emotions.LAUGHING)
 
 time.sleep(1)
 rob.setLedColorTo(LED.All, Color.BLUE)
 
-rob.setEmotion(Emotions.NORMAL)
+rob.setEmotionTo(Emotions.NORMAL)
 
 rob.resetClapCounter()
 print("Now Clap")
 time.sleep(3)
 print("You clapped " + str(rob.readClapCounter()) + " times")
-
 
 
 for element in IR:
