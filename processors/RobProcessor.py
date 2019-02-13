@@ -12,27 +12,27 @@ class RobProcessor(AbstractProcessor):
         self.supportedMessages = ["IRS","LED","BAT-BASE","WHEELS","UNLOCK-MOVE","UNLOCK-DEGREES"]
 
     def process(self, status):
-
         name = status["name"]
         value = status["value"]
-        if (name == "WHEELS"):
+        if name == "WHEELS":
             self.state.wheelPosR = int(value["wheelPosR"])
             self.state.wheelPosL = int(value["wheelPosL"])
             self.state.wheelSpeedR = int(value["wheelSpeedR"])
             self.state.wheelSpeedL = int(value["wheelSpeedL"])
 
-        elif (name == "IRS"):
+        elif name == "IRS":
             self.state.irs = value
+            del self.state.irs['null']
             for element in IR:
                 self.state.irs[element] =  int(self.state.irs[element])
 
-        elif (name == "LEDS"):
+        elif name == "LEDS":
             self.state.leds = value
 
-        elif (name == "UNLOCK-MOVE"):
+        elif name == "UNLOCK-MOVE":
             self.state.wheelLock = False
 
-        elif (name == "BAT-BASE"):
+        elif name == "BAT-BASE":
             self.state.baseBattery = int(value["level"])
 
 

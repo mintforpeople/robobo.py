@@ -66,7 +66,7 @@ def testIRAndLeds():
     closeIRValue = 100
     mediumIRValue = 20
     farIRValue = 5
-    speed = 10
+    speed = 1
 
     rob.setLedColorTo(LED.All,Color.OFF)
     rob.moveWheels(speed,speed)
@@ -91,7 +91,7 @@ def testIRAndLeds():
     rob.setLedColorTo(LED.All,Color.RED)
     rob.setEmotionTo(Emotions.SURPRISED)
     rob.playSound(Sounds.DISCOMFORT)
-    rob.moveWheelsByTime(speed*-1,speed*-1,1)
+    #rob.moveWheelsByTime(speed*-1,speed*-1,1)
     rob.setLedColorTo(LED.All,Color.BLUE)
     rob.setEmotionTo(Emotions.SURPRISED)
 
@@ -134,20 +134,20 @@ def clapDetectedCallBack():
 if __name__ == '__main__':
     rob = Robobo("10.113.36.195")
     rob.connect()
-    rob.setEmotionTo(Emotions.NORMAL)
-    rob.setActiveBlobs(True, True, False, False)
-    rob.moveTiltTo(75,20,wait=False)
-    rob.movePanTo(0,20)
-    rob.wait(1)
-
-    rob.whenAFlingIsDetected(flingDetectedCallback)
-    rob.whenATapIsDetected(tapDetectedCallback)
-    rob.whenANewFaceIsDetected(faceDetectedCallback)
-    rob.whenAFaceIsLost(faceLostCallback())
-    #rob.whenANewColorBlobIsDetected(newColorBlobDetectedCallback)
-    rob.whenANewQRCodeIsDetected(anewQRCodeDetectedCallback)
-    #rob.whenAQRCodeIsDetected(aQRCodeDetectedCallBack)
-    rob.whenClapIsDetected(clapDetectedCallBack())
+    # rob.setEmotionTo(Emotions.NORMAL)
+    # rob.setActiveBlobs(True, True, False, False)
+    # rob.moveTiltTo(75,20,wait=False)
+    # rob.movePanTo(0,20)
+    # rob.wait(1)
+    #
+    # rob.whenAFlingIsDetected(flingDetectedCallback)
+    # rob.whenATapIsDetected(tapDetectedCallback)
+    # rob.whenANewFaceIsDetected(faceDetectedCallback)
+    # rob.whenAFaceIsLost(faceLostCallback())
+    # #rob.whenANewColorBlobIsDetected(newColorBlobDetectedCallback)
+    # rob.whenANewQRCodeIsDetected(anewQRCodeDetectedCallback)
+    # #rob.whenAQRCodeIsDetected(aQRCodeDetectedCallBack)
+    # rob.whenClapIsDetected(clapDetectedCallBack())
 
     #testLeds()
     #testIRAndLeds()
@@ -156,7 +156,7 @@ if __name__ == '__main__':
     # rob.playNote(52,1)
     # rob.playNote(55, 1)
     # rob.playNote(60, 1)
-    # print("Last note: " + str(rob.readLastNote()))
+    # print("Last Note --> " + rob.readLastNote())
 
     while (True):
         print()
@@ -169,18 +169,15 @@ if __name__ == '__main__':
         print("Phone battery level: " + str(rob.readBatteryLevel("phone")))
         print("Base battery level: "+ str(rob.readBatteryLevel("base")))
 
-        print("Orientation sensor:" + str(rob.readOrientationSensor("yaw"))
-              + ", " + str(rob.readOrientationSensor("pitch"))
-              + ", " + str(rob.readOrientationSensor("roll")))
+        #print("Orientation sensor:" + str(rob.readOrientationSensor()))
 
         print("Acceleration sensor: " + str(rob.readAccelerationSensor("x"))
               + ", " + str(rob.readAccelerationSensor("y"))
               + ", " + str(rob.readAccelerationSensor("x")))
 
-        print("Last note: " + str(rob.readLastNote()))
         print()
 
-        rob.wait(5)
+        rob.wait(1)
 
 
 

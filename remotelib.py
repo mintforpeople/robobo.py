@@ -78,9 +78,6 @@ class Remote:
 
         self.ws.on_open = on_open
 
-
-
-
         def runWS():
             self.ws.run_forever()
 
@@ -88,14 +85,12 @@ class Remote:
         self.wsDaemon.setDaemon(True)
         self.wsDaemon.start()
 
-
         print("Connecting")
         self.connectionState = ConnectionState.CONNECTING
 
         while self.connectionState == ConnectionState.CONNECTING:
             print("wait")
             time.sleep(0.1)
-
 
     def processMessage(self,msg):
         status = json.loads(msg)

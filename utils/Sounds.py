@@ -1,6 +1,9 @@
 from enum import Enum
 
 class Sounds(Enum):
+    """
+    This enumeration lists the emotion sound Robobo can play.
+    """
     PURR = "purr"
     MOAN = "moan"
     ANGRY = "angry"
