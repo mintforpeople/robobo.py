@@ -1,14 +1,30 @@
 from remotelib import Remote
 from utils.Wheels import Wheels
 from utils.Note import Note
+from utils.Acceleration import Acceleration
+from utils.Orientation import Orientation
+from utils.Tap import Tap
 import time
 
 class Robobo:
+
     """
      Robobo.py is the library used to create programs for the Robobo educational
      robot (http://www.theroboboproject.com) in the Python language.
 
      For more information and documentation see <URL WIKI>
+
+     To create a Robobo.py instance:
+
+     .. code-block:: python
+
+        from Robobo import Robobo
+
+        rob = Robobo ('10.113.36.150')
+
+     **Parameters:**
+
+     - **ip:** (string) The IP address of the Robobo robot
 
     """
     def __init__(self, ip):
@@ -64,6 +80,9 @@ class Robobo:
         self.rem.moveWheels(rSpeed, lSpeed, 100000)
 
     def stopMotors(self):
+        """
+        Stops the movement of the wheels
+        """
         self.rem.moveWheels(0,0,1)
 
     def moveWheelsByDegree(self, wheel, degrees, speed):
@@ -108,7 +127,7 @@ class Robobo:
         Changes the color of a LED of the base
 
         :param led: (enum) One value of the LED enumeration (see :class:`~utils.LED`)
-        :param color: (enum) One value of the  Color enumeration (see :class:~utils.Color`)
+        :param color: (enum) One value of the  Color enumeration (see :class:`~utils.Color`)
 
         """
         self.rem.setLedColor(led, color)
@@ -188,7 +207,7 @@ class Robobo:
         """
         Activates the individual tracking of each color.
 
-        *Warning*: Color tracking is a computionally intensive task, activating all the colors may impact performance
+        **Warning**: Color tracking is a computionally intensive task, activating all the colors may impact performance
 
         :param red: (boolean) Enables red blob tracking
         :param green: (boolean) Enables green blob tracking
@@ -198,50 +217,99 @@ class Robobo:
         self.rem.configureBlobTracking(red, green, blue, custom)
 
     def readClapCounter(self):
+        """
+        Returns the number of claps registered since the last reset
+
+        :return: (integer) Clap counter
+        """
         return self.rem.state.claps
 
     def readLastNote(self):
+        """
+        Returns the last note detected by the note sensor
+
+        :return: (Note) A Note object (see :class:`~utils.Note`)
+        """
         return Note(self.rem.state.lastNote, self.rem.state.lastNoteDuration)
 
     def readIRSensor(self, id):
+        """
+        Returns the current value sensed by the specified IR
+
+        :param id: (enum) One value of the Ir enumeration (see :class:`~utils.IR`)
+        :return:
+        """
         if self.rem.state.irs == []:
             return 0
         else:
             return int(self.rem.state.irs[id.value])
 
     def readAllIRSensor(self):
+        """
+        Returns the values of all the IR sensors.
+
+        Example of use:
+
+        .. code-block:: python
+
+            irs = rob.readAllIRSensor()
+            if irs != []:
+                print (irsensors[IR.FrontR.value])
+                print (irsensors[IR.FrontRR.value])
+
+
+        :return: (dictionary) A dictionary returning the values of all the IR sensors of the base. \
+                 Dictionary keys: (string) IR ids (see :class:`~utils.IR`). \
+                 Dictionary values: (float) The value of the IR.
+        """
         return self.rem.state.irs
 
     def readColorBlob(self, color):
+        """
+        Reads the last detected blob of color of the indicated color
+         
+        :param color: (string) Color of the blob, one of the following: 'red','green','blue','custom'
+        :return:  (Blob) A Blob object (see :class:`~utils.Blob`)  
+        """
         return self.rem.state.blobs[color]
 
     def readAllColorBlobs(self):
+        """
+        Reads all the color blob data.
+
+        :return: (dictionary) A dictionary returning the individual blob information. \
+                 Dictionary keys: 'red', 'green', 'blue', 'custom'. Dictionary Values: Blob object (see :class:`~utils.Blob`)
+        """
         return self.rem.state.blobs
 
     def readQR(self):
         return self.rem.state.qr
 
-    def readOrientationSensor(self, axis):
-        if axis == "yaw":
-            return self.rem.state.yaw
-        elif axis == "pitch":
-            return self.rem.state.pitch
-        elif axis == "roll":
-            return self.rem.state.roll
+    def readOrientationSensor(self):
+        """
+        Reads the orientation sensor.
 
-    def readAccelerationSensor(self, axis):
-        if axis == "x":
-            return self.rem.state.accelx
-        elif axis == "y":
-            return self.rem.state.accely
-        elif axis == "z":
-            return self.rem.state.accelz
+        *Warning*: This sensor may not be available on all the devices
 
-    def readTapSensor(self, axis):
-        if axis == "x":
-            return self.rem.state.tapx
-        elif axis == "y":
-            return self.rem.state.tapy
+        :return: (Orientation) An orientation object (see :class:`~utils.Orientation`)
+        """
+        return Orientation(self.rem.state.yaw, self.rem.state.pitch, self.rem.state.roll)
+
+    def readAccelerationSensor(self):
+        """
+        Reads the acceleration sensor
+
+        :return: (Acceleration) An Acceleration object (see :class:`~utils.Acceleration`)
+        """
+        return Acceleration(self.rem.state.accelx, self.rem.state.accely, self.rem.state.accelz)
+
+    def readTapSensor(self):
+        """
+        Reads the data on the tap sensor
+
+        :return: (Tap) A Tap object (see :class:`~utils.Tap`)
+        """
+        return Tap(self.rem.state.tapx, self.rem.state.tapy)
 
     def readPanPosition(self):
         return self.rem.state.panPos
@@ -277,6 +345,12 @@ class Robobo:
         return self.rem.state.flingTime
 
     def readBatteryLevel(self, device):
+        """
+        Returns the battery level of the base or the smartphone.
+
+        :param device: (string) One of 'base' or 'phone'
+        :return: (int) The battery level of the base or the smartphone
+        """
         if device == "phone":
             return self.rem.state.phoneBattery
         else:
@@ -286,41 +360,119 @@ class Robobo:
         return self.rem.state.noise
 
     def readBrightnessSensor(self):
+        """
+        Reads the brightness detected by the smartphone light sensor
+
+        :return: (int) The current brightness value
+        """
         return self.rem.state.brightness
 
     def readFaceSensor(self):
+        """
+        Returns the position and distance of the last face detected by the robot.
+
+        Example of use:
+
+        .. code-block:: python
+
+           face = robobo.readFaceSensor()
+           print(face.distance)  #the distance to the person
+           print(face.posX) # the position of the face in X axis
+           print(fase.posY) # the position of the face in Y axis
+
+        :return: (Face) A Face object (see :class:`~utils.Face`)
+
+        """
         return self.rem.state.face
 
     def whenClapIsDetected(self, callback):
+        """
+        Configures the callback that is called when a new clap is detected
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setClapCallback(callback)
 
     def whenANoteIsDetected(self, callback):
+        """
+        Configures the callback that is called when a new note is detected
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setNoteCallback(callback)
 
     def whenANewFaceIsDetected(self, callback):
+        """
+        Configures the callback that is called when a new face is detected
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setFaceCallback(callback)
 
     def whenANewColorBlobIsDetected(self, callback):
+        """
+        Configures the callback that is called when a new color blob is detected
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setBlobCallback(callback)
 
     def whenANewQRCodeIsDetected(self, callback):
+        """
+        Configures the callback that is called when a new QR is detected
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setNewQRCallback(callback)
 
     def whenATapIsDetected(self, callback):
+        """
+        Configures the callback that is called when a new tap is detected
+
+        :param callback: (fun) The callback function to be called
+        """
+
         self.rem.setTapCallback(callback)
 
     def whenAFlingIsDetected(self, callback):
+        """
+        Configures the callback that is called when a new fling is detected
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setFlingCallback(callback)
 
     def whenAFaceIsLost(self, callback):
+        """
+        Configures the callback that is called when a face is lost
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setLostFaceCallback(callback)
 
     def whenAQRCodeIsDetected(self, callback):
+        """
+        Configures the callback that is called when a QR is detected
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setQRCallback(callback)
 
     def whenAQRCodeIsLost(self, callback):
+        """
+        Configures the callback that is called when a QR is lost
+
+        :param callback: (fun) The callback function to be called
+        """
         self.rem.setLostQRCallback(callback)
 
     def changeStatusFrequency(self, frequency):
+        """
+        Changes the frequency of the status messages coming from the robot.
+        Status messages are filtered by default in order to reduce network bandwidth,
+        a higher frequency reduces the filters.
+
+        :param frequency: (StatusFrequency)
+        """
         self.rem.changeStatusFrequency(frequency)
 

@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Emotions(Enum):
     """
     The emotions Robobo can show.

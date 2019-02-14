@@ -5,6 +5,8 @@ from utils.Sounds import Sounds
 from utils.Emotions import Emotions
 from utils.LED import LED
 from utils.Color import Color
+from utils.StatusFrequency import StatusFrequency
+
 
 from Robobo import Robobo
 
@@ -95,15 +97,13 @@ def testIRAndLeds():
     rob.setLedColorTo(LED.All,Color.BLUE)
     rob.setEmotionTo(Emotions.SURPRISED)
 
-
-
 def flingDetectedCallback():
     rob.sayText("Fling detected!")
 
 
 def tapDetectedCallback():
     rob.stopMotors()
-    print("--> TAP detected -> x: "+str(rob.readTapSensor("x")) + ", y:"+str(rob.readTapSensor("y")))
+    print("--> TAP detected: "+str(rob.readTapSensor()))
 
 
 def faceDetectedCallback():
@@ -132,8 +132,9 @@ def clapDetectedCallBack():
 
 
 if __name__ == '__main__':
-    rob = Robobo("10.113.36.195")
+    rob = Robobo("10.113.36.177")
     rob.connect()
+    rob.changeStatusFrequency(StatusFrequency.Max)
     # rob.setEmotionTo(Emotions.NORMAL)
     # rob.setActiveBlobs(True, True, False, False)
     # rob.moveTiltTo(75,20,wait=False)
@@ -141,7 +142,7 @@ if __name__ == '__main__':
     # rob.wait(1)
     #
     # rob.whenAFlingIsDetected(flingDetectedCallback)
-    # rob.whenATapIsDetected(tapDetectedCallback)
+    rob.whenATapIsDetected(tapDetectedCallback)
     # rob.whenANewFaceIsDetected(faceDetectedCallback)
     # rob.whenAFaceIsLost(faceLostCallback())
     # #rob.whenANewColorBlobIsDetected(newColorBlobDetectedCallback)
@@ -160,24 +161,30 @@ if __name__ == '__main__':
 
     while (True):
         print()
+
+        irsensors = rob.readAllIRSensor()
         print("IR Sensor values: " + str(rob.readAllIRSensor()))
-        print("IR Blob values: ")
-        blobs = rob.readAllColorBlobs()
-        for key in blobs:
-            print("- "+str(blobs[key].color)+": (x,y)"+str(blobs[key].posx)+", "+str(blobs[key].posy)+" - size: " + str(blobs[key].size))
-        print("Brightness: " + str(rob.readBrightnessSensor()))
-        print("Phone battery level: " + str(rob.readBatteryLevel("phone")))
-        print("Base battery level: "+ str(rob.readBatteryLevel("base")))
 
-        #print("Orientation sensor:" + str(rob.readOrientationSensor()))
+        if irsensors != []:
+            print ("--> " + irsensors[IR.FrontR.value])
 
-        print("Acceleration sensor: " + str(rob.readAccelerationSensor("x"))
-              + ", " + str(rob.readAccelerationSensor("y"))
-              + ", " + str(rob.readAccelerationSensor("x")))
+
+        # print("IR Blob values: ")
+        # blobs = rob.readAllColorBlobs()
+        # for key in blobs:
+        #     print("- " + str(blobs[key]))
+        #     #print("- "+str(blobs[key].color)+": (x,y)"+str(blobs[key].posx)+", "+str(blobs[key].posy)+" - size: " + str(blobs[key].size))
+        # print("Brightness: " + str(rob.readBrightnessSensor()))
+        # print("Phone battery level: " + str(rob.readBatteryLevel("phone")))
+        # print("Base battery level: "+ str(rob.readBatteryLevel("base")))
+        #
+        # print("Orientation sensor:" + str(rob.readOrientationSensor()))
+        #
+        # print("Acceleration sensor: " + str(rob.readAccelerationSensor()))
 
         print()
 
-        rob.wait(1)
+        #rob.wait(0.01)
 
 
 
