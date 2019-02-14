@@ -2,6 +2,7 @@ import json
 import websocket
 import threading
 import time
+import sys
 
 from State import State
 from processors.PTProcessor import PTProcessor
@@ -32,7 +33,6 @@ class Remote:
         self.tiltLastTime = 0
 
         self.timeout = 10
-
 
     def filterMovement(self, speed, axis):
         if speed == 0:
@@ -109,7 +109,7 @@ class Remote:
         if self.connectionState == ConnectionState.CONNECTED:
             self.ws.send(msg.encode())
         else:
-            print("Error: Stablish connection before sending a message")
+            sys.exit("\nError: Establish connection before sending a message")
 
     def moveWheels(self, rspeed, lspeed, duration):
         if self.filterMovement(abs(rspeed)+abs(lspeed), "wheels"):

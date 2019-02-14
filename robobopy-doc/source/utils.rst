@@ -41,6 +41,11 @@ Classes
     :undoc-members:
     :show-inheritance:
 
+.. automodule:: utils.Tap
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 ============
 Enumerations
 ============

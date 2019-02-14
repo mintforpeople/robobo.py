@@ -46,7 +46,7 @@ class State:
 
         self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
 
-        self.lastNote = 0
+        self.lastNote = ''
         self.lastNoteDuration = 0
 
         self.wheelPosR = 0
