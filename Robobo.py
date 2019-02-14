@@ -10,9 +10,7 @@ class Robobo:
 
     """
      Robobo.py is the library used to create programs for the Robobo educational
-     robot (http://www.theroboboproject.com) in the Python language.
-
-     For more information and documentation see <URL WIKI>
+     robot in the Python language.
 
      To create a Robobo.py instance:
 
@@ -236,7 +234,7 @@ class Robobo:
         """
         Returns the current value sensed by the specified IR
 
-        :param id: (enum) One value of the Ir enumeration (see :class:`~utils.IR`)
+        :param id: (enum) One value of the IR enumeration (see :class:`~utils.IR`)
         :return:
         """
         if self.rem.state.irs == []:
@@ -277,12 +275,29 @@ class Robobo:
         """
         Reads all the color blob data.
 
+        Example of use:
+
+        .. code-block:: python
+
+            blobs = rob.readAllColorBlobs()
+            for key in blobs:
+                blob = blobs[key]
+                print(blob.color)
+                print(blob.posx)
+                print(blob.posy)
+                print(blob.size)
+
         :return: (dictionary) A dictionary returning the individual blob information. \
                  Dictionary keys: 'red', 'green', 'blue', 'custom'. Dictionary Values: Blob object (see :class:`~utils.Blob`)
         """
         return self.rem.state.blobs
 
     def readQR(self):
+        """
+        Reads the last detected QR code
+
+        :return: (QRCode) A QRCode object (see :class:`~utils.QRCode`)
+        """
         return self.rem.state.qr
 
     def readOrientationSensor(self):
@@ -312,12 +327,29 @@ class Robobo:
         return Tap(self.rem.state.tapx, self.rem.state.tapy)
 
     def readPanPosition(self):
+        """
+        Returns the current position of the PAN
+
+        :return: (int) The current position of the pan
+        """
         return self.rem.state.panPos
 
     def readTiltPosition(self):
+        """
+        Returns the current position of the TILT
+
+        :return: The current position of the TILT
+        """
         return self.rem.state.tiltPos
 
     def readWheelPosition(self, wheel):
+        """
+        Returns the position of the wheel in degrees
+
+        :param wheel: (enum) One of Wheels.L or Wheels.R (see :class:`~utils.Wheels`)
+
+        :return: (int) The position of the wheel in degrees
+        """
         if wheel == Wheels.R:
             return self.rem.state.wheelPosR
         elif wheel == Wheels.L:
@@ -327,15 +359,26 @@ class Robobo:
             return 0
 
     def readWheelSpeed(self, wheel):
-        if wheel.value == Wheels.R:
+        """
+        Returns the current speed of the wheel
+
+        :param wheel: (enum) One of Wheels.L or Wheels.R (see :class:`~utils.Wheels`)
+        :return: (int) The current speed of the wheel
+        """
+        if wheel == Wheels.R:
             return self.rem.state.wheelSpeedR
-        elif wheel.value == Wheels.L:
+        elif wheel == Wheels.L:
             return self.rem.state.wheelSpeedL
         else:
             print("Wheel id not valid")
             return 0
 
     def readFlingAngle(self):
+        """
+        Returns the angle detected on the fling sensor
+
+        :return: The last angle detected on the sensor.
+        """
         return self.rem.state.flingAngle
 
     def readFlingDistance(self):

@@ -154,37 +154,35 @@ if __name__ == '__main__':
     #testIRAndLeds()
     #testMoveWheels()
 
-    # rob.playNote(52,1)
     # rob.playNote(55, 1)
     # rob.playNote(60, 1)
-    # print("Last Note --> " + rob.readLastNote())
+    #
+    # print("Last Note --> " + str(rob.readLastNote()))
 
     while (True):
         print()
 
         irsensors = rob.readAllIRSensor()
         print("IR Sensor values: " + str(rob.readAllIRSensor()))
+        print("IR Blob values: ")
+        blobs = rob.readAllColorBlobs()
+        for key in blobs:
+            blob = blobs[key]
+            print(blob.color)
+            print(blob.posx)
+            print(blob.posy)
+            print(blob.size)
+        print("Brightness: " + str(rob.readBrightnessSensor()))
+        print("Phone battery level: " + str(rob.readBatteryLevel("phone")))
+        print("Base battery level: "+ str(rob.readBatteryLevel("base")))
 
-        if irsensors != []:
-            print ("--> " + irsensors[IR.FrontR.value])
+        print("Orientation sensor:" + str(rob.readOrientationSensor()))
 
-
-        # print("IR Blob values: ")
-        # blobs = rob.readAllColorBlobs()
-        # for key in blobs:
-        #     print("- " + str(blobs[key]))
-        #     #print("- "+str(blobs[key].color)+": (x,y)"+str(blobs[key].posx)+", "+str(blobs[key].posy)+" - size: " + str(blobs[key].size))
-        # print("Brightness: " + str(rob.readBrightnessSensor()))
-        # print("Phone battery level: " + str(rob.readBatteryLevel("phone")))
-        # print("Base battery level: "+ str(rob.readBatteryLevel("base")))
-        #
-        # print("Orientation sensor:" + str(rob.readOrientationSensor()))
-        #
-        # print("Acceleration sensor: " + str(rob.readAccelerationSensor()))
+        print("Acceleration sensor: " + str(rob.readAccelerationSensor()))
 
         print()
 
-        #rob.wait(0.01)
+        rob.wait(0.1)
 
 
 

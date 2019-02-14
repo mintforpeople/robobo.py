@@ -1,6 +1,9 @@
 
 
 class QRCode():
+    """
+    Represents a QRCode detected
+    """
     def __init__(self, x, y, dist, p1x, p1y, p2x, p2y, p3x, p3y, id):
 
         self.x = x
