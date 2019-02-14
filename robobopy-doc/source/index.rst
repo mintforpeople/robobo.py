@@ -4,10 +4,11 @@
    contain the root `toctree` directive.
 
 
+==================
 Robobo.py
-=========
+==================
 
-JavaScript programming library for the Robobo educational robot
+Python programming library for the Robobo educational robot
 
 
 .. toctree::
@@ -17,7 +18,7 @@ JavaScript programming library for the Robobo educational robot
    robobo.rst
    utils.rst
 
-
+==================
 Indices and tables
 ==================
 
