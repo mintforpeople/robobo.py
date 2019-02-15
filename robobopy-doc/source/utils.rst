@@ -6,91 +6,68 @@ Utils
 Classes
 =======
 
-.. automodule:: utils.Acceleration
-    :members:
+.. autoclass:: utils.Acceleration.Acceleration
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.Blob
-    :members:
-    :undoc-members:
+.. autoclass:: utils.Blob.Blob
     :show-inheritance:
 
-.. automodule:: utils.Face
-    :members:
-    :undoc-members:
+.. autoclass:: utils.Face.Face
     :show-inheritance:
 
-.. automodule:: utils.Message
-    :members:
-    :undoc-members:
+.. autoclass:: utils.Note.Note
     :show-inheritance:
 
-.. automodule:: utils.Note
-    :members:
-    :undoc-members:
+.. autoclass:: utils.Orientation.Orientation
     :show-inheritance:
 
-.. automodule:: utils.Orientation
-    :members:
-    :undoc-members:
+.. autoclass:: utils.QRCode.QRCode
     :show-inheritance:
 
-.. automodule:: utils.QRCode
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: utils.Tap
-    :members:
-    :undoc-members:
+.. autoclass:: utils.Tap.Tap
     :show-inheritance:
 
 ============
 Enumerations
 ============
 
-.. automodule:: utils.BlobColor
+.. autoclass:: utils.BlobColor.BlobColor
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.Color
+.. autoclass:: utils.Color.Color
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.ConnectionState
+.. autoclass:: utils.Emotions.Emotions
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.Emotions
+.. autoclass:: utils.IR.IR
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.IR
+.. autoclass:: utils.LED.LED
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.LED
+.. autoclass:: utils.Sounds.Sounds
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.Sounds
+.. autoclass:: utils.StatusFrequency.StatusFrequency
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: utils.StatusFrequency
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: utils.Wheels
+.. autoclass:: utils.Wheels.Wheels
     :members:
     :undoc-members:
     :show-inheritance:

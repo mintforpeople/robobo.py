@@ -1,11 +1,11 @@
 
 class Face:
     """
-    Represents the face detected by the smartphone front camera
+    Represents the last face detected by Robobo (front camera):
 
-    - posX: Returns the x position in which a face is detected.
-    - posY: Returns the y position in which a face is detected.
-    - distance: the distance at which the smartphone front camera detects a face.
+    - posX: (int) Returns the x position in which a face is detected.
+    - posY: (int) Returns the y position in which a face is detected.
+    - distance: (int) the distance at which the SmartPhone front camera detects a face.
 
     """
 
@@ -15,4 +15,4 @@ class Face:
         self.distance = distance
 
     def __str__(self):
-        return "Face,  x: " +str(self.posx ) +" y: " +str(self.posy ) +" distance: " +str(self.distance)
+        return "Face,  x: " + str(self.posx ) + " y: " + str(self.posy ) + " distance: " + str(self.distance)

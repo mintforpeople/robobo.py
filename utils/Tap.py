@@ -1,11 +1,17 @@
 
 class Tap:
     """
-    Represents a tap on smartphone screen:
+    Represents a tap on smartphone screen. Attributes:
 
     - x: Returns the position x of the tap
     - y: Returns the position y of the tap.
+
+        .. image:: _static/tap_position.jpg
+
     - zone: Returns the area of the smartphone screen: forehead, eye, right, left, mouth or chin.
+
+        .. image:: _static/tap_areas.jpg
+            :scale: 50 %
 
     """
     def __init__(self, x, y):

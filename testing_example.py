@@ -154,10 +154,10 @@ if __name__ == '__main__':
     #testIRAndLeds()
     #testMoveWheels()
 
-    # rob.playNote(55, 1)
-    # rob.playNote(60, 1)
-    #
-    # print("Last Note --> " + str(rob.readLastNote()))
+    rob.playNote(55, 1)
+    rob.playNote(60, 1)
+
+    print("Last Note --> " + str(rob.readLastNote()))
 
     while (True):
         print()
@@ -167,11 +167,7 @@ if __name__ == '__main__':
         print("IR Blob values: ")
         blobs = rob.readAllColorBlobs()
         for key in blobs:
-            blob = blobs[key]
-            print(blob.color)
-            print(blob.posx)
-            print(blob.posy)
-            print(blob.size)
+            print("-->" + str(blobs[key]))
         print("Brightness: " + str(rob.readBrightnessSensor()))
         print("Phone battery level: " + str(rob.readBatteryLevel("phone")))
         print("Base battery level: "+ str(rob.readBatteryLevel("base")))

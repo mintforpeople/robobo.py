@@ -1,6 +1,12 @@
 from enum import Enum
 
 class IR(Enum):
+    """
+    Represents the list of Robobo base's IR
+
+        .. image:: _static/irs.jpg
+
+    """
     BackR = "Back-R"
     BackC = "Back-C"
     FrontR = "Front-R"

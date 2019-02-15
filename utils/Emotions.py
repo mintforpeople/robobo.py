@@ -3,7 +3,11 @@ from enum import Enum
 
 class Emotions(Enum):
     """
-    The emotions Robobo can show.
+    Represents the list of emotions Robobo's face can show.
+
+    .. image:: _static/emotions.jpg
+        :scale: 80 %
+
     """
     HAPPY = "happy"
     LAUGHING = "laughing"

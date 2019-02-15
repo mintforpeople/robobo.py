@@ -2,7 +2,7 @@
 
 class Acceleration:
     """
-    Represents the current acceleration of the smartphone (x, y, z)
+    Represents the current acceleration of the SmartPhone (x, y, z)
     """
     def __init__(self, x, y, z):
         self.x = x
