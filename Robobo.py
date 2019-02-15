@@ -48,7 +48,10 @@ class Robobo:
     def wait(self, seconds):
         """
         Pauses the program for the specified time (in seconds)
-        :param seconds: (float) Time in seconds (accepts decimals like 0.2)
+
+        :param seconds: Time in seconds (accepts decimals like 0.2)
+        :type seconds: float
+
         """
         time.sleep(seconds)
 
@@ -56,10 +59,20 @@ class Robobo:
         """
         Moves the wheels of the robot at the specified speeds during the specified time.
 
-        :param rSpeed: (int) Speed factor for the right wheel [-100..100]
-        :param lSpeed: (int) Speed factor for the left wheel [-100..100]
-        :param duration: (int) Time duration of the movement in seconds
-        :param wait: (boolean) True - blocking mode, False - non blocking mode
+        :param rSpeed: Speed factor for the right wheel [-100..100]
+        :param lSpeed: Speed factor for the left wheel [-100..100]
+        :param duration: Time duration of the movement in seconds
+        :param wait:
+            * If wait = True: (default value) it waits until the movement finishes.
+            * If wait = False: the movement starts and the execution of the following command is \
+              immediately launched. This implies that the robot can execute the movement of another motor \
+              while the wheels are running.
+
+        :type rSpeed: int
+        :type lSpeed: int
+        :type duration: int
+        :type wait: bool
+
 
         """
         if wait:
@@ -73,6 +86,8 @@ class Robobo:
         
         :param rSpeed: (int) Speed factor for the right wheel [-100 - 100]
         :param lSpeed: (int) Speed factor for the left wheel [-100 - 100]
+        :type rSpeed: int
+        :type lSpeed: int
 
         """
         self.rem.moveWheels(rSpeed, lSpeed, 100000)
@@ -87,9 +102,12 @@ class Robobo:
         """
         Moves the wheels of the robot by some degress at the specified speed.
 
-        :param wheel: (enum) Wheels to move, one value of the Wheels enumeration  (see :class:`~utils.Wheels`)
-        :param degrees: (int) Degress to move the wheel
-        :param speed: (int) Speed factor for the right wheel [-100 - 100]
+        :param wheel: Wheels to move, one value of the Wheels enumeration.
+        :param degrees: Degress to move the wheel
+        :param speed: Speed factor for the right wheel [-100 - 100]
+        :type wheel: Wheels
+        :type degrees: int
+        :type speed: int
 
         """
         self.rem.moveWheelsByDegreeWait(wheel,degrees,speed)
@@ -98,9 +116,13 @@ class Robobo:
         """
         Moves the PAN of the base to the specified position at the specified speed
 
-        :param degrees: (int) Position in degress of the PAN [-160..160]
-        :param speed: (int) Speed factor [-40..40]
-        :param wait:  (boolean) True: blocking mode, False: non-blocking mode
+        :param degrees: Position in degress of the PAN [-160..160]
+        :param speed: Speed factor [-40..40]
+        :param wait: True: blocking mode, False: non-blocking mode
+        :type degrees: int
+        :type speed: int
+        :type wait: bool
+
         """
         if wait:
             self.rem.movePanWait(degrees, speed)
@@ -111,9 +133,12 @@ class Robobo:
         """
         Moves the TILT of the base to the specified position at the specified speed
 
-        :param degrees: (int) Position in degrees of the TILT [5..105]
-        :param speed: (int) Speed factor [-10..10]
-        :param wait: (boolean) True: blocking mode, False: non-blocking mode
+        :param degrees: Position in degrees of the TILT [5..105]
+        :param speed: Speed factor [-10..10]
+        :param wait: True: blocking mode, False: non-blocking mode
+        :type degrees: int
+        :type speed: int
+        :type wait: bool
         """
         if wait:
             self.rem.moveTiltWait(degrees, speed)
@@ -124,8 +149,10 @@ class Robobo:
         """
         Changes the color of a LED of the base
 
-        :param led: (enum) One value of the LED enumeration (see :class:`~utils.LED`)
-        :param color: (enum) One value of the  Color enumeration (see :class:`~utils.Color`)
+        :param led: One value of the LED enumeration.
+        :param color: One value of the  Color enumeration.
+        :type led: LED
+        :type color: Color
 
         """
         self.rem.setLedColor(led, color)
@@ -140,9 +167,12 @@ class Robobo:
         """
         Commands the robot to play a musical note
 
-        :param note: (integer) Musical note index [48..72]. Anglo-Saxon notation is used and there are 25 possible notes with the following basic correspondence. Any integer between 48 and 72.
-        :param duration: (integer) Duration of the note in seconds (decimals can be used to used, like 0.2 or 0.5)
-        :param wait: (boolean) True: blocking mode, False: non-blocking mode
+        :param note: Musical note index [48..72]. Anglo-Saxon notation is used and there are 25 possible notes with the following basic correspondence. Any integer between 48 and 72.
+        :param duration: Duration of the note in seconds (decimals can be used to used, like 0.2 or 0.5)
+        :param wait: True: blocking mode, False: non-blocking mode
+        :type note: int
+        :type duration: int
+        :type wait: bool
         """
         self.rem.playNote(note, duration, wait)
 
@@ -150,7 +180,8 @@ class Robobo:
         """
         Commands the robot to play the specified emotion sound
 
-        :param sound: (enum) One value of the Sound enumeration (see :class:`~utils.Sounds`)
+        :param sound: One value of the Sound enumeration.
+        :type sound: Sounds
         """
         self.rem.playEmotionSound(sound)
 
@@ -158,15 +189,16 @@ class Robobo:
         """
         Commands the robot say the specified text
 
-        :param speech: (string) The text to say
-        :param wait: (boolean) True: blocking mode, False: non-blocking mode
+        :param speech: The text to say
+        :param wait: True: blocking mode, False: non-blocking mode
+        :type speech: string
+        :type sound: bool
         """
         self.rem.talk(speech, wait)
 
     def resetClapCounter(self):
         """
         Resets the clap counter
-
         """
         self.rem.resetClaps()
 
@@ -197,7 +229,8 @@ class Robobo:
     def setEmotionTo(self, emotion):
         """
         Changes the emotion of showed by the face of Robobo
-        :param emotion: One value of the Emotion enumeration (see :class:`~utils.Emotions`)
+        :param emotion: One value of the Emotion enumeration
+        :type emotion: Emotions
         """
         self.rem.setEmotionTo(emotion)
 
@@ -205,12 +238,16 @@ class Robobo:
         """
         Activates the individual tracking of each color.
 
-        **Warning**: Color tracking is a computionally intensive task, activating all the colors may impact performance
+        **Warning**: Color tracking is a computationally intensive task, activating all the colors may impact performance
 
-        :param red: (boolean) Enables red blob tracking
-        :param green: (boolean) Enables green blob tracking
-        :param blue: (boolean) Enables blue blob tracking
-        :param custom: (boolean) Enables custom blob tracking
+        :param red: Enables red blob tracking
+        :param green: Enables green blob tracking
+        :param blue: Enables blue blob tracking
+        :param custom: Enables custom blob tracking
+        :type red: bool
+        :type green: bool
+        :type blue: bool
+        :type custom: bool
         """
         self.rem.configureBlobTracking(red, green, blue, custom)
 
@@ -218,7 +255,8 @@ class Robobo:
         """
         Returns the number of claps registered since the last reset
 
-        :return: (integer) Clap counter
+        :return: Clap counter
+        :rtype: int
         """
         return self.rem.state.claps
 
@@ -226,7 +264,8 @@ class Robobo:
         """
         Returns the last note detected by the note sensor
 
-        :return: (Note) A Note object (see :class:`~utils.Note`)
+        :return: A Note object
+        :rtype: Note
         """
         return Note(self.rem.state.lastNote, self.rem.state.lastNoteDuration)
 
@@ -234,8 +273,11 @@ class Robobo:
         """
         Returns the current value sensed by the specified IR
 
-        :param id: (enum) One value of the IR enumeration (see :class:`~utils.IR`)
-        :return:
+        :param id: One value of the IR enumeration
+        :return: the current value of the IR
+        :type id: IR
+        :rtype: int
+
         """
         if self.rem.state.irs == []:
             return 0
@@ -255,10 +297,10 @@ class Robobo:
                 print (irsensors[IR.FrontR.value])
                 print (irsensors[IR.FrontRR.value])
 
-
-        :return: (dictionary) A dictionary returning the values of all the IR sensors of the base. \
+        :return: A dictionary returning the values of all the IR sensors of the base. \
                  Dictionary keys: (string) IR ids (see :class:`~utils.IR`). \
                  Dictionary values: (float) The value of the IR.
+        :rtype: dictionary
         """
         return self.rem.state.irs
 
