@@ -2,7 +2,7 @@ from enum import Enum
 
 class LED(Enum):
     """
-     Represents the list of Robobo base's LEDs
+     This enumeration represents the list of Robobo base's LEDs
 
         .. image:: _static/leds.jpg
             :scale: 60 %

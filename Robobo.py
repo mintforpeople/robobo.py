@@ -12,7 +12,7 @@ class Robobo:
      Robobo.py is the library used to create programs for the Robobo educational
      robot in the Python language.
 
-     To create a Robobo.py instance:
+     To create a Robobo instance:
 
      .. code-block:: python
 
@@ -191,8 +191,8 @@ class Robobo:
 
         :param speech: The text to say
         :param wait: True: blocking mode, False: non-blocking mode
-        :type speech: string
-        :type sound: bool
+        :type speech: String
+        :type wait: bool
         """
         self.rem.talk(speech, wait)
 
@@ -229,8 +229,10 @@ class Robobo:
     def setEmotionTo(self, emotion):
         """
         Changes the emotion of showed by the face of Robobo
+
         :param emotion: One value of the Emotion enumeration
         :type emotion: Emotions
+
         """
         self.rem.setEmotionTo(emotion)
 
@@ -298,9 +300,9 @@ class Robobo:
                 print (irsensors[IR.FrontRR.value])
 
         :return: A dictionary returning the values of all the IR sensors of the base. \
-                 Dictionary keys: (string) IR ids (see :class:`~utils.IR`). \
+                 Dictionary keys: (string) IR ids (see :class:`~utils.IR.IR`). \
                  Dictionary values: (float) The value of the IR.
-        :rtype: dictionary
+        :rtype: dict
         """
         return self.rem.state.irs
 
@@ -308,8 +310,10 @@ class Robobo:
         """
         Reads the last detected blob of color of the indicated color
          
-        :param color: (string) Color of the blob, one of the following: 'red','green','blue','custom'
-        :return:  (Blob) A Blob object (see :class:`~utils.Blob`)  
+        :param color: Color of the blob, one of the following: 'red','green','blue','custom'
+        :type color: string
+        :return:  A Blob object
+        :rtype: Blob
         """
         return self.rem.state.blobs[color]
 
@@ -329,8 +333,9 @@ class Robobo:
                 print(blob.posy)
                 print(blob.size)
 
-        :return: (dictionary) A dictionary returning the individual blob information. \
+        :return: A dictionary returning the individual blob information. \
                  Dictionary keys: 'red', 'green', 'blue', 'custom'. Dictionary Values: Blob object (see :class:`~utils.Blob`)
+        :rtype: dict
         """
         return self.rem.state.blobs
 
@@ -348,7 +353,8 @@ class Robobo:
 
         *Warning*: This sensor may not be available on all the devices
 
-        :return: (Orientation) An orientation object (see :class:`~utils.Orientation`)
+        :return: An orientation object.
+        :rtype: Orientation
         """
         return Orientation(self.rem.state.yaw, self.rem.state.pitch, self.rem.state.roll)
 
@@ -356,7 +362,8 @@ class Robobo:
         """
         Reads the acceleration sensor
 
-        :return: (Acceleration) An Acceleration object (see :class:`~utils.Acceleration`)
+        :return: An Acceleration object.
+        :rtype: Acceleration
         """
         return Acceleration(self.rem.state.accelx, self.rem.state.accely, self.rem.state.accelz)
 
@@ -364,7 +371,8 @@ class Robobo:
         """
         Reads the data on the tap sensor
 
-        :return: (Tap) A Tap object (see :class:`~utils.Tap`)
+        :return: A Tap object.
+        :rtype: Tap
         """
         return Tap(self.rem.state.tapx, self.rem.state.tapy)
 
@@ -372,7 +380,8 @@ class Robobo:
         """
         Returns the current position of the PAN
 
-        :return: (int) The current position of the pan
+        :return: The current position of the pan
+        :rtype: int
         """
         return self.rem.state.panPos
 
@@ -381,6 +390,7 @@ class Robobo:
         Returns the current position of the TILT
 
         :return: The current position of the TILT
+        :rtype: int
         """
         return self.rem.state.tiltPos
 
@@ -388,9 +398,10 @@ class Robobo:
         """
         Returns the position of the wheel in degrees
 
-        :param wheel: (enum) One of Wheels.L or Wheels.R (see :class:`~utils.Wheels`)
-
-        :return: (int) The position of the wheel in degrees
+        :param wheel: One of Wheels.L or Wheels.R
+        :type wheel: Wheels
+        :return: The position of the wheel in degrees
+        :rtype: int
         """
         if wheel == Wheels.R:
             return self.rem.state.wheelPosR
@@ -404,8 +415,10 @@ class Robobo:
         """
         Returns the current speed of the wheel
 
-        :param wheel: (enum) One of Wheels.L or Wheels.R (see :class:`~utils.Wheels`)
-        :return: (int) The current speed of the wheel
+        :param wheel: One of Wheels.L or Wheels.R
+        :type wheel: Wheels
+        :return: The current speed of the wheel
+        :rtype: int
         """
         if wheel == Wheels.R:
             return self.rem.state.wheelSpeedR
@@ -420,6 +433,7 @@ class Robobo:
         Returns the angle detected on the fling sensor
 
         :return: The last angle detected on the sensor.
+        :rtype: int
         """
         return self.rem.state.flingAngle
 
@@ -433,9 +447,12 @@ class Robobo:
         """
         Returns the battery level of the base or the smartphone.
 
-        :param device: (string) One of 'base' or 'phone'
-        :return: (int) The battery level of the base or the smartphone
+        :param device: One of 'base' or 'phone'
+        :type device: string
+        :return: The battery level of the base or the smartphone
+        :rtype: int
         """
+
         if device == "phone":
             return self.rem.state.phoneBattery
         else:
@@ -448,7 +465,8 @@ class Robobo:
         """
         Reads the brightness detected by the smartphone light sensor
 
-        :return: (int) The current brightness value
+        :return: The current brightness value
+        :rtype: int
         """
         return self.rem.state.brightness
 
@@ -465,7 +483,8 @@ class Robobo:
            print(face.posX) # the position of the face in X axis
            print(fase.posY) # the position of the face in Y axis
 
-        :return: (Face) A Face object (see :class:`~utils.Face`)
+        :return: A Face object
+        :rtype: Face
 
         """
         return self.rem.state.face
@@ -474,7 +493,8 @@ class Robobo:
         """
         Configures the callback that is called when a new clap is detected
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
         """
         self.rem.setClapCallback(callback)
 
@@ -483,6 +503,8 @@ class Robobo:
         Configures the callback that is called when a new note is detected
 
         :param callback: (fun) The callback function to be called
+        :type callback: fun
+
         """
         self.rem.setNoteCallback(callback)
 
@@ -490,7 +512,9 @@ class Robobo:
         """
         Configures the callback that is called when a new face is detected
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
+
         """
         self.rem.setFaceCallback(callback)
 
@@ -498,7 +522,8 @@ class Robobo:
         """
         Configures the callback that is called when a new color blob is detected
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :rtype callback: fun
         """
         self.rem.setBlobCallback(callback)
 
@@ -506,7 +531,8 @@ class Robobo:
         """
         Configures the callback that is called when a new QR is detected
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
         """
         self.rem.setNewQRCallback(callback)
 
@@ -514,7 +540,8 @@ class Robobo:
         """
         Configures the callback that is called when a new tap is detected
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
         """
 
         self.rem.setTapCallback(callback)
@@ -523,7 +550,8 @@ class Robobo:
         """
         Configures the callback that is called when a new fling is detected
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
         """
         self.rem.setFlingCallback(callback)
 
@@ -531,7 +559,8 @@ class Robobo:
         """
         Configures the callback that is called when a face is lost
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
         """
         self.rem.setLostFaceCallback(callback)
 
@@ -539,7 +568,8 @@ class Robobo:
         """
         Configures the callback that is called when a QR is detected
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
         """
         self.rem.setQRCallback(callback)
 
@@ -547,7 +577,8 @@ class Robobo:
         """
         Configures the callback that is called when a QR is lost
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called
+        :type callback: fun
         """
         self.rem.setLostQRCallback(callback)
 
@@ -557,7 +588,8 @@ class Robobo:
         Status messages are filtered by default in order to reduce network bandwidth,
         a higher frequency reduces the filters.
 
-        :param frequency: (StatusFrequency)
+        :param frequency: One value of the StatusFrequency enumeration
+        :type frequency: StatusFrequency
         """
         self.rem.changeStatusFrequency(frequency)
 

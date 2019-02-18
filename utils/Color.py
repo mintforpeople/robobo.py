@@ -3,7 +3,7 @@ from enum import Enum
 
 class Color(Enum):
     """
-    Represents the list of colors Robobo's LEDs can show.
+    This enumeration represents the list of colors Robobo's LEDs can show.
     """
     OFF = 'off'
     WHITE = 'white'

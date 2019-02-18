@@ -2,7 +2,7 @@
 
 class Orientation:
     """
-    Represents the current orientation of the smartphone. Attributes: yaw, pitch and roll.
+    Represents the current orientation of the Smartphone. Attributes: yaw, pitch and roll.
 
         .. image:: _static/orientation.jpg
 

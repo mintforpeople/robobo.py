@@ -2,7 +2,7 @@ from enum import Enum
 
 class IR(Enum):
     """
-    Represents the list of Robobo base's IR
+    This enumeration represents the list of Robobo base's IR
 
         .. image:: _static/irs.jpg
 
