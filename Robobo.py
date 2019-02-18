@@ -187,7 +187,7 @@ class Robobo:
 
     def sayText(self, speech, wait = True):
         """
-        Commands the robot say the specified text
+        Commands the robot to say the specified text
 
         :param speech: The text to say
         :param wait: True: blocking mode, False: non-blocking mode
@@ -296,8 +296,8 @@ class Robobo:
 
             irs = rob.readAllIRSensor()
             if irs != []:
-                print (irsensors[IR.FrontR.value])
-                print (irsensors[IR.FrontRR.value])
+                print (irs[IR.FrontR.value])
+                print (irs[IR.FrontRR.value])
 
         :return: A dictionary returning the values of all the IR sensors of the base. \
                  Dictionary keys: (string) IR ids (see :class:`~utils.IR.IR`). \

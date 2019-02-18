@@ -7,20 +7,29 @@ Robobo.py is the library used to create programs for the Robobo educational robo
 
 ## Installation
 
-To use this library on your project, clone or download this repositoy and put your .py files inside of project folder. 
+To use this library on your project, clone or download this repositoy and you can use it in two ways:
+ 
+* Put your .py files inside of "robobo.py" folder, or
 
-The library runs with Python 3 and it must be installed before using the library, which also depends on the websockect-client library, that must be installed.
+* Add the folder "robobo.py" in your project folder and add "robobo.py" to your path as it's shown below:
+
+    ```python
+    import sys, os
+    sys.path.append(os.path.join(os.path.dirname(__file__), '.', 'robobo.py'))
+    ```
+
+The library runs with **Python 3** and it must be installed before using the library, which also depends on the **websocket-client** library, that must be installed.
 
 ## Basic usage
 
-To use the library within your code you have first to import it using require and then create a instance of the Robobo class:
+To use the library within your code you have first to import it and then create a instance of the Robobo class:
 
 ```python
-# This loads the library    
+# This imports the library    
 from Robobo import Robobo
 
 # This creates a instance of the Robobo class with the indicated ip address
-robobo = Robobo('192.168.0.253')
+robobo = Robobo('10.113.36.150')
 ```
 
 After the library is instantiated, we can connect to the robot via the `connect()` method of the class
@@ -59,7 +68,7 @@ moveWheels(speedR, speedL)
 
 """
 Moves the wheels of the robot at the specified speeds during the specified time. 
-  - If wait = True: (default value) it waits until the movement finishes.
+  - If wait = True: (default value) It waits until the movement finishes.
   - If wait = False: the movement starts and the execution of the following command is 
    immediately launched. This implies that the robot can execute the movement of another motor 
    while the wheels are running.
@@ -68,7 +77,7 @@ moveWheelsByTime(speedR, speedL, time, wait=True)
 
 """ 
 Moves the PAN of the base to the specified position at the specified speed.
-- If wait = True: (default value) it waits until the movement finishes.
+- If wait = True: (default value) It waits until the movement finishes.
 - If wait = False: the movement starts and the execution of the following command is 
   immediately launched.      
 """
@@ -77,8 +86,8 @@ movePanTo(position, speed, wait=True)
 
 """
 Moves the TILT of the base to the specified position at the specified speed.
-- If wait = True: (default value) it waits until the movement finishes.
-- If wait = False: the movement starts and the execution of the following command is 
+- If wait = True: (default value) It waits until the movement finishes.
+- If wait = False: The movement starts and the execution of the following command is 
   immediately launched.   
 """
 moveTiltTo(position, speed, wait = True) 
@@ -91,9 +100,9 @@ setLedColorTo(led, color)
 setEmotionTo(emotion) 
 
 """
-Commands the robot say the specified text
-- If wait = True: (default value) it waits until the robots finishes reading the text
-- If wait = False: Robobo starts reading the text and the execution of the following command is 
+Commands the robot to say the specified text
+- If wait = True: (default value) It waits until the robots finishes reading the text
+- If wait = False: It starts reading the text and the execution of the following command is 
   immediately launched.   
 """
 sayText(text, wait = True) 
@@ -103,8 +112,8 @@ playSound(sound)
 
 """
 Commands the robot to play a musical note.
-- If wait = True: (default value) it waits until the robots finishes
-- If wait = False: Robobo starts playing the note and the execution of the following command is 
+- If wait = True: (default value) It waits until the robots finishes
+- If wait = False: It starts playing the note and the execution of the following command is 
   immediately launched.       
 """
 playNote(note, time, wait = True) 
@@ -115,23 +124,24 @@ In this example the robot will move the pan and tilt at the same time, and move 
 movement is completed, say "Hello world" wait until the speech is completed, and move back.
 
 ``` python
-#This loads the library
+#This imports the library
 from Robobo import Robobo
+
 #This creates a instance of the Robobo class with the indicated ip address
-robobo = Robobo('192.168.0.253')
+robobo = Robobo('10.113.36.150')
 
 # Connect to the robobo base
 robobo.connect()
 
 # Move pan and tilt and wheels and wait for the weels to complete
 robobo.movePanTo(100, 20)
-robobo.moveTiltToK(110, 20)
+robobo.moveTiltTo(110, 20)
 robobo.moveWheelsByTime(40, 40, 3)
 
 # Say text and wait to finish
 robobo.sayText("Hello world")
 
-# Move robot without waiting to complete
+# Move robot
 robobo.moveWheelsByTime(-40, -40, 3)
     
 ```
@@ -161,8 +171,8 @@ Example of use:
 
     irs = rob.readAllIRSensor()
     if irs != []:
-        print (irsensors[IR.FrontR.value])
-        print (irsensors[IR.FrontRR.value])     
+        print (irs[IR.FrontR.value])
+        print (irs[IR.FrontRR.value])     
 """
 readAllIRSensor() 
 
