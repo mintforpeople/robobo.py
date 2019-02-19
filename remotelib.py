@@ -124,7 +124,6 @@ class Remote:
             while self.state.wheelLock:
                 time.sleep(0.1)
 
-
     def moveWheelsByDegree(self, wheel, degrees, speed):
         if self.filterMovement(speed, "wheels"):
             msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)
@@ -142,7 +141,6 @@ class Remote:
         else:
             print('Robobo Warning: Ignored moveWheelsByDegree command. Maybe the client is sending messages too fast?')
 
-
     def setLedColor(self,led, color):
         msg = self.processors["ROB"].setLedColor(led,color)
         self.sendMessage(msg)
@@ -150,7 +148,6 @@ class Remote:
     def resetEncoders(self):
         msg = self.processors["ROB"].resetEncoders()
         self.sendMessage(msg)
-
 
     def changeStatusFrequency(self, frequency):
         msg = self.processors["ROB"].changeStatusFrequency(frequency)

@@ -18,7 +18,7 @@ def testMoveWheels():
     rob.moveWheelsByTime(10, 10, 1)
     rob.movePanTo(90,20)
     rob.wait(1)
-    rob.moveWheelsByDegree(Wheels.BOTH,90,10)
+    rob.moveWheelsByDegrees(Wheels.BOTH,90,10)
     rob.movePanTo(0, 20)
     rob.wait(1)
     posL = rob.readWheelPosition(Wheels.L)
@@ -152,12 +152,12 @@ if __name__ == '__main__':
 
     #testLeds()
     #testIRAndLeds()
-    #testMoveWheels()
+    testMoveWheels()
 
-    rob.playNote(55, 1)
-    rob.playNote(60, 1)
-
-    print("Last Note --> " + str(rob.readLastNote()))
+    # rob.playNote(55, 1)
+    # rob.playNote(60, 1)
+    #
+    # print("Last Note --> " + str(rob.readLastNote()))
 
     while (True):
         print()

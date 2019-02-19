@@ -9,15 +9,10 @@ from utils.Color import Color
 
 from Robobo import Robobo
 
-rob = Robobo("10.113.36.195")
+rob = Robobo("10.113.36.177")
 rob.connect()
 
-# Todos los comandos de movimiento pueden llevar un argumento más, que activa o desactiva la espera
-# por ejemplo:
-# rob.moveWheelsByDegree(Wheels.BOTH,90,50, False)
-
-
-rob.moveWheelsByDegree(Wheels.BOTH,90,50)
+rob.moveWheelsByDegrees(Wheels.BOTH,90,50)
 rob.moveWheelsByTime(-10,-10,1)
 rob.movePanTo(0, 10)
 rob.moveTiltTo(70, 10)

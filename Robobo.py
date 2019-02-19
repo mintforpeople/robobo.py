@@ -1,3 +1,4 @@
+
 from remotelib import Remote
 from utils.Wheels import Wheels
 from utils.Note import Note
@@ -98,12 +99,12 @@ class Robobo:
         """
         self.rem.moveWheels(0,0,1)
 
-    def moveWheelsByDegree(self, wheel, degrees, speed):
+    def moveWheelsByDegrees(self, wheel, degrees, speed):
         """
         Moves the wheels of the robot by some degress at the specified speed.
 
         :param wheel: Wheels to move, one value of the Wheels enumeration.
-        :param degrees: Degress to move the wheel
+        :param degrees: Degrees to move the wheel
         :param speed: Speed factor for the right wheel [-100 - 100]
         :type wheel: Wheels
         :type degrees: int
