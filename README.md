@@ -7,7 +7,7 @@ Robobo.py is the library used to create programs for the Robobo educational robo
 
 ## Installation
 
-To use this library on your project, clone or download this repositoy and you can use it in two ways:
+To use this library on your project, clone or download this repository and you can use it in two ways:
  
 * Put your .py files inside of "robobo.py" folder, or
 
@@ -127,7 +127,7 @@ Next we will see a simple program example:
 In this example the robot will move the pan and tilt at the same time, and move forward, wait until the forward 
 movement is completed, say "Hello world" wait until the speech is completed, and move back.
 
-``` python
+```python
 #This imports the library
 from Robobo import Robobo
 
@@ -222,17 +222,17 @@ robobo = Robobo('192.168.0.71')
 robobo.connect()
 
 while True:
-    robobo.wait(0.1);
+    robobo.wait(0.1)
     robobo.print("SENSOR STATUS:")
-    robobo.print("IR: "+str(robobo.readAllIRSensor()));
-    robobo.print("Blob: "+str(robobo.readAllColorBlobs()));
-    robobo.print("Face: "+str(robobo.readFaceSensor()));
-    robobo.print("Acceleration: "+str(robobo.readAccelerationSensor()));
-    robobo.print("Orientation: "+str(robobo.readOrientationSensor()));
-    robobo.print("Claps: "+str(robobo.readClapCounter()));
-    robobo.print("Fling: "+str(robobo.readFlingSensor()));
-    robobo.print("Tap: "+str(robobo.readTapSensor()));
-    robobo.print("Battery: "+str(robobo.readBatteryLevel()));
+    robobo.print("IR: "+str(robobo.readAllIRSensor()))
+    robobo.print("Blob: "+str(robobo.readAllColorBlobs()))
+    robobo.print("Face: "+str(robobo.readFaceSensor()))
+    robobo.print("Acceleration: "+str(robobo.readAccelerationSensor()))
+    robobo.print("Orientation: "+str(robobo.readOrientationSensor()))
+    robobo.print("Claps: "+str(robobo.readClapCounter()))
+    robobo.print("Fling: "+str(robobo.readFlingSensor()))
+    robobo.print("Tap: "+str(robobo.readTapSensor()))
+    robobo.print("Battery: "+str(robobo.readBatteryLevel()))
 ```
 
 There are some methods that allow to clear the sensor readings to the default values:
@@ -268,7 +268,7 @@ The configuration methods allow to configure different parameters of the robot:
 ```python
 """
 Activates the individual tracking of each color. 
-Warning: Color tracking is a computionally intensive task, activating all the colors may impact performance     
+Warning: Color tracking is a computationally intensive task, activating all the colors may impact performance     
 """
 setColorBlobDetectionActive(red, green, blue, custom)
 
