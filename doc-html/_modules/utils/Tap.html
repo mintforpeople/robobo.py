@@ -1,0 +1,209 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>utils.Tap &#8212; Robobo.py  documentation</title>
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="canonical" href="http://www.sphinx-doc.org/en/master/_modules/utils/Tap.html" />
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="pageheader">
+<!--
+  <ul>
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../usage/installation.html">Get it</a></li>
+    <li><a href="../../contents.html">Docs</a></li>
+    <li><a href="../../develop.html">Extend/Develop</a></li>
+  </ul>
+-->
+  <div>
+    <a href="../../index.html">
+      <img src="../../_static/logo_robobo.png" alt="Robobo" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Home</a></li>
+<!--
+        <li><a href="../../index.html">Home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+-->
+
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for utils.Tap</h1><div class="highlight"><pre>
+<span></span>
+<div class="viewcode-block" id="Tap"><a class="viewcode-back" href="../../utils.html#utils.Tap.Tap">[docs]</a><span class="k">class</span> <span class="nc">Tap</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a tap on smartphone screen. Attributes:</span>
+
+<span class="sd">    - x: Returns the position x of the tap</span>
+<span class="sd">    - y: Returns the position y of the tap.</span>
+
+<span class="sd">        .. image:: _static/tap_position.jpg</span>
+
+<span class="sd">    - zone: Returns the area of the smartphone screen: forehead, eye, right, left, mouth or chin.</span>
+
+<span class="sd">        .. image:: _static/tap_areas.jpg</span>
+<span class="sd">            :scale: 50 %</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordsToZone</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">coordsToZone</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;forehead&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">85</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">&#39;eye&#39;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">77</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;mouth&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;left&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;right&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rangeFun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">85</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;chin&quot;</span>
+
+    <span class="k">def</span> <span class="nf">rangeFun</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;between&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">r1</span> <span class="o">&lt;</span> <span class="n">r2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&gt;</span> <span class="n">r1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&lt;</span> <span class="n">r2</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&gt;</span> <span class="n">r2</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&lt;</span> <span class="n">r1</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">r1</span> <span class="o">&lt;</span> <span class="n">r2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&lt;</span> <span class="n">r1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&gt;</span> <span class="n">r2</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&lt;</span> <span class="n">r2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">input</span> <span class="o">&gt;</span> <span class="n">r1</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Tap, (x,y): &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot;, &quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, zone: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zone</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Home</a></li>
+<!--
+        <li><a href="../../index.html">Home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+-->
+
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, MINT.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

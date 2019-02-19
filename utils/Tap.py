@@ -20,13 +20,6 @@ class Tap:
         self.zone = self.coordsToZone(x,y)
 
     def coordsToZone (self, x, y):
-        """
-        Converts the x,y coordinates of the tap into the name of the corresponding area of the smarthphone screen.
-
-        :param x: the x coordinate of the tap
-        :param y: the y coordinate of the tap
-        :return: (string) One of the following five values: forehead, eye, right, left, mouth or chin.
-        """
         if (y == 0) and (x == 0):
             return None
         elif y < 17:
