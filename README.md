@@ -20,6 +20,10 @@ To use this library on your project, clone or download this repositoy and you ca
 
 The library runs with **Python 3** and it must be installed before using the library, which also depends on the **websocket-client** library, that must be installed.
 
+```
+pip install websocket-client
+```
+
 ## Basic usage
 
 To use the library within your code you have first to import it and then create a instance of the Robobo class:

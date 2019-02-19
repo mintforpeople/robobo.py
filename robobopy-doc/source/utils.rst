@@ -6,68 +6,74 @@ Utils
 Classes
 =======
 
-.. autoclass:: utils.Acceleration.Acceleration
-    :undoc-members:
+.. automodule:: utils.Acceleration
+    :members:
     :show-inheritance:
 
-.. autoclass:: utils.Blob.Blob
+.. automodule:: utils.Blob
+    :members:
     :show-inheritance:
 
-.. autoclass:: utils.Face.Face
+.. automodule:: utils.Face
+    :members:
     :show-inheritance:
 
-.. autoclass:: utils.Note.Note
+.. automodule:: utils.Note
+    :members:
     :show-inheritance:
 
-.. autoclass:: utils.Orientation.Orientation
+.. automodule:: utils.Orientation
+    :members:
     :show-inheritance:
 
-.. autoclass:: utils.QRCode.QRCode
+.. automodule:: utils.QRCode
+    :members:
     :show-inheritance:
 
-.. autoclass:: utils.Tap.Tap
+.. automodule:: utils.Tap
+    :members:
     :show-inheritance:
 
 ============
 Enumerations
 ============
 
-.. autoclass:: utils.BlobColor.BlobColor
+.. automodule:: utils.BlobColor
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. autoclass:: utils.Color.Color
+.. automodule:: utils.Color
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. autoclass:: utils.Emotions.Emotions
+.. automodule:: utils.Emotions
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. autoclass:: utils.IR.IR
+.. automodule:: utils.IR
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. autoclass:: utils.LED.LED
+.. automodule:: utils.LED
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. autoclass:: utils.Sounds.Sounds
+.. automodule:: utils.Sounds
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. autoclass:: utils.StatusFrequency.StatusFrequency
+.. automodule:: utils.StatusFrequency
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. autoclass:: utils.Wheels.Wheels
+.. automodule:: utils.Wheels
     :members:
     :undoc-members:
     :show-inheritance:
