@@ -134,7 +134,7 @@ class Robobo:
         """
         Moves the TILT of the base to the specified position at the specified speed
 
-        :param degrees: Position in degrees of the TILT [29..109]
+        :param degrees: Position in degrees of the TILT [5..105]
         :param speed: Speed factor [0..100]
         :param wait: True: blocking mode, False: non-blocking mode
         :type degrees: int
