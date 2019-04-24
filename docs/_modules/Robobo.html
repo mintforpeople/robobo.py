@@ -113,7 +113,8 @@
           <div class="body" role="main">
             
   <h1>Source code for Robobo</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">remotelib</span> <span class="k">import</span> <span class="n">Remote</span>
+<span></span>
+<span class="kn">from</span> <span class="nn">remotelib</span> <span class="k">import</span> <span class="n">Remote</span>
 <span class="kn">from</span> <span class="nn">utils.Wheels</span> <span class="k">import</span> <span class="n">Wheels</span>
 <span class="kn">from</span> <span class="nn">utils.Note</span> <span class="k">import</span> <span class="n">Note</span>
 <span class="kn">from</span> <span class="nn">utils.Acceleration</span> <span class="k">import</span> <span class="n">Acceleration</span>
@@ -213,13 +214,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Robobo.moveWheelsByDegree"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.moveWheelsByDegree">[docs]</a>    <span class="k">def</span> <span class="nf">moveWheelsByDegree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+<div class="viewcode-block" id="Robobo.moveWheelsByDegrees"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.moveWheelsByDegrees">[docs]</a>    <span class="k">def</span> <span class="nf">moveWheelsByDegrees</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Moves the wheels of the robot by some degress at the specified speed.</span>
 
 <span class="sd">        :param wheel: Wheels to move, one value of the Wheels enumeration.</span>
-<span class="sd">        :param degrees: Degress to move the wheel</span>
-<span class="sd">        :param speed: Speed factor for the right wheel [-100 - 100]</span>
+<span class="sd">        :param degrees: Degrees to move the wheel</span>
+<span class="sd">        :param speed: Speed factor for the right wheel [-100..100]</span>
 <span class="sd">        :type wheel: Wheels</span>
 <span class="sd">        :type degrees: int</span>
 <span class="sd">        :type speed: int</span>
@@ -232,7 +233,7 @@
 <span class="sd">        Moves the PAN of the base to the specified position at the specified speed</span>
 
 <span class="sd">        :param degrees: Position in degress of the PAN [-160..160]</span>
-<span class="sd">        :param speed: Speed factor [-40..40]</span>
+<span class="sd">        :param speed: Speed factor [0..100]</span>
 <span class="sd">        :param wait: True: blocking mode, False: non-blocking mode</span>
 <span class="sd">        :type degrees: int</span>
 <span class="sd">        :type speed: int</span>
@@ -248,8 +249,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Moves the TILT of the base to the specified position at the specified speed</span>
 
-<span class="sd">        :param degrees: Position in degrees of the TILT [5..105]</span>
-<span class="sd">        :param speed: Speed factor [-10..10]</span>
+<span class="sd">        :param degrees: Position in degrees of the TILT [29..109]</span>
+<span class="sd">        :param speed: Speed factor [0..100]</span>
 <span class="sd">        :param wait: True: blocking mode, False: non-blocking mode</span>
 <span class="sd">        :type degrees: int</span>
 <span class="sd">        :type speed: int</span>

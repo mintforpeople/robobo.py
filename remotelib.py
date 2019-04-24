@@ -214,10 +214,10 @@ class Remote:
         self.processors["SOUND"].resetClaps()
 
     def resetTap(self):
-        self.processors["SMARTPHONE"].resetTap()
+        self.processors["PHONE"].resetTap()
 
     def resetFling(self):
-        self.processors["SMARTPHONE"].resetFling()
+        self.processors["PHONE"].resetFling()
 
     def resetBlobs(self):
         self.processors["VISION"].resetBlobs()

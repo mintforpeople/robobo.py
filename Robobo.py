@@ -105,7 +105,7 @@ class Robobo:
 
         :param wheel: Wheels to move, one value of the Wheels enumeration.
         :param degrees: Degrees to move the wheel
-        :param speed: Speed factor for the right wheel [-100 - 100]
+        :param speed: Speed factor for the right wheel [-100..100]
         :type wheel: Wheels
         :type degrees: int
         :type speed: int
@@ -118,7 +118,7 @@ class Robobo:
         Moves the PAN of the base to the specified position at the specified speed
 
         :param degrees: Position in degress of the PAN [-160..160]
-        :param speed: Speed factor [-40..40]
+        :param speed: Speed factor [0..100]
         :param wait: True: blocking mode, False: non-blocking mode
         :type degrees: int
         :type speed: int
@@ -134,8 +134,8 @@ class Robobo:
         """
         Moves the TILT of the base to the specified position at the specified speed
 
-        :param degrees: Position in degrees of the TILT [5..105]
-        :param speed: Speed factor [-10..10]
+        :param degrees: Position in degrees of the TILT [29..109]
+        :param speed: Speed factor [0..100]
         :param wait: True: blocking mode, False: non-blocking mode
         :type degrees: int
         :type speed: int

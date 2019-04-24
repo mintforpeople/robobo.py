@@ -42,8 +42,8 @@ class SmartphoneProcessor(AbstractProcessor):
             self.runCallback("tap")
 
         elif (name == "FLING"):
-            self.state.flingAngle =    float(value["angle"])
-            self.state.flingTime =     float(value["time"])
+            self.state.flingAngle = float(value["angle"])
+            self.state.flingTime = float(value["time"])
             self.state.flingDistance = float(value["distance"])
             self.runCallback("fling")
         elif (name == "EMOTION"):
