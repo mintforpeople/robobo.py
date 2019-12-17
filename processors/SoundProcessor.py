@@ -31,16 +31,16 @@ class SoundProcessor(AbstractProcessor):
 
         elif (name == "CLAP"):  #
             self.state.claps += 1
-            self.runCallback(self.clapCallback)
+            self.runCallback("clap")
 
         elif (name == "NOTE"):
             self.state.lastNote = value["name"]
             self.state.lastNoteDuration = int(value["duration"])
-            self.runCallback(self.noteCallback)
+            self.runCallback("note")
 
         elif (name == "UNLOCK-TALK"):
             self.state.talkLock = False
-            self.runCallback(self.talkCallback)
+            self.runCallback("talk")
 
     def playNote(self, index, duration):
         name = "PLAY-NOTE"
