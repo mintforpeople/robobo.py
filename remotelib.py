@@ -271,3 +271,10 @@ class Remote:
     def setFlingCallback(self, callback):
             self.processors["PHONE"].callbacks["fling"] = callback
 
+    def setTagCallback(self, callback):
+            self.processors["VISION"].callbacks["tag"] = callback
+
+    def setDetectedObjectCallback(self, callback):
+            self.processors["VISION"].callbacks["detectedobject"] = callback
+
+

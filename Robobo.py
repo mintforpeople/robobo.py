@@ -1,4 +1,3 @@
-
 from remotelib import Remote
 from utils.Wheels import Wheels
 from utils.Note import Note
@@ -7,8 +6,8 @@ from utils.Orientation import Orientation
 from utils.Tap import Tap
 import time
 
-class Robobo:
 
+class Robobo:
     """
      Robobo.py is the library used to create programs for the Robobo educational
      robot in the Python language.
@@ -26,6 +25,7 @@ class Robobo:
      - **ip:** (string) The IP address of the Robobo robot
 
     """
+
     def __init__(self, ip):
         """
         Creates a new Robobo.js library instance.
@@ -56,7 +56,7 @@ class Robobo:
         """
         time.sleep(seconds)
 
-    def moveWheelsByTime(self, rSpeed, lSpeed, duration, wait = True):
+    def moveWheelsByTime(self, rSpeed, lSpeed, duration, wait=True):
         """
         Moves the wheels of the robot at the specified speeds during the specified time.
 
@@ -97,7 +97,7 @@ class Robobo:
         """
         Stops the movement of the wheels
         """
-        self.rem.moveWheels(0,0,1)
+        self.rem.moveWheels(0, 0, 1)
 
     def moveWheelsByDegrees(self, wheel, degrees, speed):
         """
@@ -111,9 +111,9 @@ class Robobo:
         :type speed: int
 
         """
-        self.rem.moveWheelsByDegreeWait(wheel,degrees,speed)
+        self.rem.moveWheelsByDegreeWait(wheel, degrees, speed)
 
-    def movePanTo(self, degrees, speed, wait = True):
+    def movePanTo(self, degrees, speed, wait=True):
         """
         Moves the PAN of the base to the specified position at the specified speed
 
@@ -130,7 +130,7 @@ class Robobo:
         else:
             self.rem.movePan(degrees, speed)
 
-    def moveTiltTo(self, degrees, speed, wait = True):
+    def moveTiltTo(self, degrees, speed, wait=True):
         """
         Moves the TILT of the base to the specified position at the specified speed
 
@@ -164,7 +164,7 @@ class Robobo:
         """
         self.rem.resetEncoders()
 
-    def playNote(self, note, duration, wait = True):
+    def playNote(self, note, duration, wait=True):
         """
         Commands the robot to play a musical note
 
@@ -186,7 +186,7 @@ class Robobo:
         """
         self.rem.playEmotionSound(sound)
 
-    def sayText(self, speech, wait = True):
+    def sayText(self, speech, wait=True):
         """
         Commands the robot to say the specified text
 
@@ -490,6 +490,26 @@ class Robobo:
         """
         return self.rem.state.face
 
+    def readTag(self):
+        """
+        Returns the last ArUco Tag detected by the robot.
+
+        :return: A Tag object
+        :rtype: Tag
+
+        """
+        return self.rem.state.tag
+
+    def readDetectedObject(self):
+        """
+        Returns the last object detected by the robot.
+
+        :return: A DetectedObject object
+        :rtype: DetectedObject
+
+        """
+        return self.rem.state.detectedObject
+
     def whenClapIsDetected(self, callback):
         """
         Configures the callback that is called when a new clap is detected
@@ -583,6 +603,24 @@ class Robobo:
         """
         self.rem.setLostQRCallback(callback)
 
+    def whenATagIsDetected(self, callback):
+        """
+        Configures the callback that is called when a Tag is detected
+
+        :param callback: The callback function to be called
+        :type callback: fun
+        """
+        self.rem.setTagCallback(callback)
+
+    def whenAnObjectIsDetected(self, callback):
+        """
+        Configures the callback that is called when an object is detected
+
+        :param callback: The callback function to be called
+        :type callback: fun
+        """
+        self.rem.setDetectedObjectCallback(callback)
+
     def changeStatusFrequency(self, frequency):
         """
         Changes the frequency of the status messages coming from the robot.
@@ -593,4 +631,3 @@ class Robobo:
         :type frequency: StatusFrequency
         """
         self.rem.changeStatusFrequency(frequency)
-
