@@ -1,29 +1,34 @@
-
 from processors.AbstractProcessor import AbstractProcessor
+from utils.DetectedObject import DetectedObject
 from utils.Message import Message
 from utils.QRCode import QRCode
 from utils.Face import Face
 from utils.Blob import Blob
+from utils.Tag import Tag
+
 
 class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
-        self.supportedMessages = ["QRCODE","FACE","BLOB","QRCODEAPPEAR","QRCODELOST"]
+        self.supportedMessages = ["QRCODE", "FACE", "BLOB", "QRCODEAPPEAR", "QRCODELOST", "TAG", "DETECTED_OBJECT"]
 
+        self.callbacklocks = {"qr": False,
+                              "newqr": False,
+                              "lostqr": False,
+                              "face": False,
+                              "lostface": False,
+                              "blob": False,
+                              "detectedobject": False,
+                              "tag": False}
 
-        self.callbacklocks={"qr": False,
-                            "newqr": False,
-                            "lostqr": False,
-                            "face": False,
-                            "lostface": False,
-                            "blob": False}
-
-        self.callbacks={"qr": None,
-                        "lostqr": None,
-                        "newqr": None,
-                           "face": None,
-                        "lostface": None,
-                           "blob": None}
+        self.callbacks = {"qr": None,
+                          "lostqr": None,
+                          "newqr": None,
+                          "face": None,
+                          "lostface": None,
+                          "blob": None,
+                          "tag": None,
+                          "detectedobject": None}
 
     def process(self, status):
         name = status["name"]
@@ -31,7 +36,7 @@ class VisionProcessor(AbstractProcessor):
 
         if (name == "FACE"):
             if int(value["distance"]) >= 0:
-                self.state.face = Face(int(value["coordx"]),int(value["coordy"]), int(value["distance"]))
+                self.state.face = Face(int(value["coordx"]), int(value["coordy"]), int(value["distance"]))
                 self.runCallback("face")
 
             else:
@@ -50,30 +55,30 @@ class VisionProcessor(AbstractProcessor):
         elif (name == "QRCODEAPPEAR"):
 
             self.state.qr = QRCode(float(value["coordx"]),
-                             float(value["coordy"]),
-                             float(value["distance"]),
-                             float(value["p1x"]),
-                             float(value["p1y"]),
-                             float(value["p2x"]),
-                             float(value["p2y"]),
-                             float(value["p3x"]),
-                             float(value["p3y"]),
-                             value["id"])
+                                   float(value["coordy"]),
+                                   float(value["distance"]),
+                                   float(value["p1x"]),
+                                   float(value["p1y"]),
+                                   float(value["p2x"]),
+                                   float(value["p2y"]),
+                                   float(value["p3x"]),
+                                   float(value["p3y"]),
+                                   value["id"])
 
             self.runCallback("newqr")
 
 
         elif (name == "QRCODE"):
             self.state.qr = QRCode(float(value["coordx"]),
-                             float(value["coordy"]),
-                             float(value["distance"]),
-                             float(value["p1x"]),
-                             float(value["p1y"]),
-                             float(value["p2x"]),
-                             float(value["p2y"]),
-                             float(value["p3x"]),
-                             float(value["p3y"]),
-                             value["id"])
+                                   float(value["coordy"]),
+                                   float(value["distance"]),
+                                   float(value["p1x"]),
+                                   float(value["p1y"]),
+                                   float(value["p2x"]),
+                                   float(value["p2y"]),
+                                   float(value["p3x"]),
+                                   float(value["p3y"]),
+                                   value["id"])
             self.runCallback("qr")
 
 
@@ -82,7 +87,33 @@ class VisionProcessor(AbstractProcessor):
             self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
             self.runCallback("lostqr")
 
+        elif name == "TAG":
+            self.state.tag = Tag(int(value["cor1x"]),
+                                 int(value["cor1y"]),
+                                 int(value["cor2x"]),
+                                 int(value["cor2y"]),
+                                 int(value["cor3x"]),
+                                 int(value["cor3y"]),
+                                 int(value["cor4x"]),
+                                 int(value["cor4y"]),
+                                 float(value["rvec_0"]),
+                                 float(value["rvec_1"]),
+                                 float(value["rvec_2"]),
+                                 float(value["tvec_0"]),
+                                 float(value["tvec_1"]),
+                                 float(value["tvec_2"]),
+                                 value["id"])
+            self.runCallback("tag")
 
+        elif name == "DETECTED_OBJECT":
+            self.state.detectedObject = DetectedObject(
+                int(value["posx"]),
+                int(value["posy"]),
+                int(value["width"]),
+                int(value["height"]),
+                float(value["confidence"]),
+                value["label"])
+            self.runCallback("detectedobject")
 
     def configureBlobTracking(self, red, green, blue, custom):
         name = "CONFIGURE-BLOBTRACKING"
@@ -102,5 +133,4 @@ class VisionProcessor(AbstractProcessor):
             "custom": Blob("custom", 0, 0, 0)}
 
     def resetFace(self):
-        self.state.face = Face(0,0,-1)
-
+        self.state.face = Face(0, 0, -1)

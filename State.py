@@ -1,7 +1,10 @@
 import json
 from utils.Blob import Blob
+from utils.DetectedObject import DetectedObject
 from utils.QRCode import QRCode
 from utils.Face import Face
+from utils.Tag import Tag
+
 
 class State:
     def __init__(self):
@@ -17,7 +20,7 @@ class State:
         self.baseBattery = 0
         self.phoneBattery = 0
 
-        self.face = Face(0,0,-1)
+        self.face = Face(0, 0, -1)
 
         self.tapx = 0
         self.tapy = 0
@@ -62,7 +65,8 @@ class State:
 
         self.emotion = "normal"
 
-
+        self.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "")
+        self.tag = Tag(0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, "")
 
     def getId(self):
         retId = self.id
@@ -77,8 +81,7 @@ class State:
         self.baseBattery = 0
         self.phoneBattery = 0
 
-
-        self.face = Face(0,0,0)
+        self.face = Face(0, 0, 0)
 
         self.tapx = 0
         self.tapy = 0
@@ -99,7 +102,6 @@ class State:
         self.panPos = 0
         self.tiltPos = 0
 
-
         self.blobs = {
             "red": Blob("red", 0, 0, 0),
             "green": Blob("green", 0, 0, 0),
@@ -110,6 +112,9 @@ class State:
 
         self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
 
+        self.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "")
+        self.tag = Tag(0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, "")
+
         self.lastNote = 0
         self.lastNoteDuration = 0
 
@@ -119,4 +124,3 @@ class State:
         self.wheelSpeedL = 0
 
         self.emotion = "normal"
-
