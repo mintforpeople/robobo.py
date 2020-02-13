@@ -134,3 +134,101 @@ class VisionProcessor(AbstractProcessor):
 
     def resetFace(self):
         self.state.face = Face(0, 0, -1)
+
+    # Stream related functions
+    # TODO: move all start/stop messages to a single file
+    def startStream(self):
+        name = "START-STREAM"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopStream(self):
+        name = "STOP-STREAM"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startCamera(self):
+        name = "START-CAMERA"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopCamera(self):
+        name = "STOP-CAMERA"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startColorDetection(self):
+        name = "START-COLOR-DETECTION"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopColorDetection(self):
+        name = "STOP-COLOR-DETECTION"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startColorMeasurement(self):
+        name = "START-COLOR-DETECTION"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopColorMeasurement(self):
+        name = "STOP-COLOR-MEASUREMENT"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startFaceDetection(self):
+        name = "START-FACE-DETECTION"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopFaceDetection(self):
+        name = "STOP-FACE-DETECTION"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startObjectRecognition(self):
+        name = "START-OBJECT-RECOGNITION"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopObjectRecognition(self):
+        name = "STOP-OBJECT-RECOGNITION"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startQrTracking(self):
+        name = "START-QR-TRACKING"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopQrTracking(self):
+        name = "STOP-QR-TRACKING"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startTag(self):
+        name = "START-TAG"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopTag(self):
+        name = "STOP-TAG"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)

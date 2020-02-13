@@ -1,4 +1,3 @@
-
 class Message:
     def __init__(self, name, parameters, id):
         self.name = name
@@ -7,16 +6,16 @@ class Message:
 
     def encode(self):
         st = "{\"name\":"
-        st +=  "\""+self.name + "\","
-
+        st += "\"" + self.name + "\","
 
         st += "\"parameters\":{"
 
         for key in self.parameters.keys():
-            st += "\""+key+"\":"+"\""+str(self.parameters[key])+"\","
+            st += "\"" + key + "\":" + "\"" + str(self.parameters[key]) + "\","
 
-        st = st[:-1]
+        if st[-1] !="{":
+            st = st[:-1]
 
-        st += "}, \"id\":\""+str(self.id)+"\"}"
+        st += "}, \"id\":\"" + str(self.id) + "\"}"
 
         return st

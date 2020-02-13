@@ -197,6 +197,102 @@ class Robobo:
         """
         self.rem.talk(speech, wait)
 
+    def startStream(self):
+        """
+        Commands the robot to start the camera streaming
+        """
+        self.rem.startStream()
+
+    def stopStream(self):
+        """
+        Commands the robot to stop the camera streaming
+        """
+        self.rem.stopStream()
+
+    def startColorDetection(self):
+        """
+        Commands the robot to start the color detection
+        """
+        self.rem.startColorDetection()
+
+    def stopColorDetection(self):
+        """
+        Commands the robot to stop the color detection
+        """
+        self.rem.stopColorDetection()
+
+    def startColorMeasurement(self):
+        """
+        Commands the robot to start the color measurement
+        """
+        self.rem.startColorMeasurement()
+
+    def stopColorMeasurement(self):
+        """
+        Commands the robot to stop the color measurement
+        """
+        self.rem.stopColorMeasurement()
+
+    def startFaceDetection(self):
+        """
+        Commands the robot to start the face detection
+        """
+        self.rem.startFaceDetection()
+
+    def stopFaceDetection(self):
+        """
+        Commands the robot to stop the face detection
+        """
+        self.rem.stopFaceDetection()
+
+    def startObjectRecognition(self):
+        """
+        Commands the robot to start the object recognition
+        """
+        self.rem.startObjectRecognition()
+
+    def stopObjectRecognition(self):
+        """
+        Commands the robot to stop the object recognition
+        """
+        self.rem.stopObjectRecognition()
+
+    def startQrTracking(self):
+        """
+        Commands the robot to start the  QR tracking
+        """
+        self.rem.startQrTracking()
+
+    def stopQrTracking(self):
+        """
+        Commands the robot to stop the QR tracking
+        """
+        self.rem.stopQrTracking()
+
+    def startArUcoTagDetection(self):
+        """
+        Commands the robot to start the ArUcoTag detection
+        """
+        self.rem.startTag()
+
+    def stopArUcoTagDetection(self):
+        """
+        Commands the robot to stop the ArucoTag detection
+        """
+        self.rem.stopTag()
+
+    def startCamera(self):
+        """
+        Commands the robot to start the camera
+        """
+        self.rem.startCamera()
+
+    def stopCamera(self):
+        """
+        Commands the robot to stop the camera
+        """
+        self.rem.stopCamera()
+
     def resetClapCounter(self):
         """
         Resets the clap counter
