@@ -155,6 +155,18 @@ class VisionProcessor(AbstractProcessor):
         values = {}
         return Message(name, values, id)
 
+    def setStreamFps(self, fps):
+        name = "SET-STREAM-FPS"
+        id = self.state.getId()
+        values = {"fps": fps}
+        return Message(name, values, id)
+
+    def setCameraFps(self, fps):
+        name = "SET-CAMERA-FPS"
+        id = self.state.getId()
+        values = {"fps": fps}
+        return Message(name, values, id)
+
     def stopCamera(self):
         name = "STOP-CAMERA"
         id = self.state.getId()

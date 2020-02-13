@@ -223,6 +223,14 @@ class Remote:
         msg = self.processors["VISION"].startCamera()
         self.sendMessage(msg)
 
+    def setStreamFps(self, fps):
+        msg = self.processors["VISION"].setStreamFps(fps)
+        self.sendMessage(msg)
+
+    def setCameraFps(self, fps):
+        msg = self.processors["VISION"].setCameraFps(fps)
+        self.sendMessage(msg)
+
     def stopCamera(self):
         msg = self.processors["VISION"].stopCamera()
         self.sendMessage(msg)
