@@ -12,6 +12,8 @@ from processors.SmartphoneProcessor import SmartphoneProcessor
 from processors.SoundProcessor import SoundProcessor
 from utils.ConnectionState import ConnectionState
 from utils.IR import IR
+
+
 class Remote:
     def __init__(self, ip):
         self.ip = ip
@@ -19,7 +21,7 @@ class Remote:
         self.password = ""
         self.disconnect = False
         self.state = State()
-        self.processors ={ "PT": PTProcessor(self.state),
+        self.processors = {"PT": PTProcessor(self.state),
                            "ROB": RobProcessor(self.state),
                            "PHONE": SmartphoneProcessor(self.state),
                            "SOUND": SoundProcessor(self.state),
@@ -53,11 +55,10 @@ class Remote:
         self.ws.close()
         self.connectionState = ConnectionState.DISCONNECTED
 
-
     def wsStartup(self):
         def on_open(ws):
             print("### connection established ###")
-            ws.send("PASSWORD: "+self.password)
+            ws.send("PASSWORD: " + self.password)
             self.connectionState = ConnectionState.CONNECTED
 
         def on_message(ws, message):
@@ -71,10 +72,10 @@ class Remote:
             self.connectionState = ConnectionState.DISCONNECTED
             print("### closed connection ###")
 
-        self.ws = websocket.WebSocketApp('ws://'+self.ip+":40404",
-                                    on_message=on_message,
-                                     on_error=on_error,
-                                    on_close=on_close)
+        self.ws = websocket.WebSocketApp('ws://' + self.ip + ":40404",
+                                         on_message=on_message,
+                                         on_error=on_error,
+                                         on_close=on_close)
 
         self.ws.on_open = on_open
 
@@ -92,11 +93,11 @@ class Remote:
             print("wait")
             time.sleep(0.1)
 
-    def processMessage(self,msg):
+    def processMessage(self, msg):
         status = json.loads(msg)
         name = status["name"]
-        #print(name)
-        #print(status)
+        # print(name)
+        # print(status)
         value = status["value"]
         processed = False
         for key in self.processors.keys():
@@ -112,12 +113,12 @@ class Remote:
             sys.exit("\nError: Establish connection before sending a message")
 
     def moveWheels(self, rspeed, lspeed, duration):
-        if self.filterMovement(abs(rspeed)+abs(lspeed), "wheels"):
+        if self.filterMovement(abs(rspeed) + abs(lspeed), "wheels"):
             msg = self.processors["ROB"].moveWheelsSeparated(lspeed, rspeed, duration)
             self.sendMessage(msg)
 
     def moveWheelsWait(self, rspeed, lspeed, duration):
-        if self.filterMovement(abs(rspeed)+abs(lspeed), "wheels"):
+        if self.filterMovement(abs(rspeed) + abs(lspeed), "wheels"):
             msg = self.processors["ROB"].moveWheelsSeparatedWait(lspeed, rspeed, duration)
             self.sendMessage(msg)
             self.state.wheelLock = True
@@ -141,8 +142,8 @@ class Remote:
         else:
             print('Robobo Warning: Ignored moveWheelsByDegree command. Maybe the client is sending messages too fast?')
 
-    def setLedColor(self,led, color):
-        msg = self.processors["ROB"].setLedColor(led,color)
+    def setLedColor(self, led, color):
+        msg = self.processors["ROB"].setLedColor(led, color)
         self.sendMessage(msg)
 
     def resetEncoders(self):
@@ -191,7 +192,7 @@ class Remote:
             print('Robobo Warning: Ignored moveTilt command. Maybe the client is sending messages too fast?')
 
     def playNote(self, index, duration, wait):
-        msg = self.processors["SOUND"].playNote(index, int(duration*1000))
+        msg = self.processors["SOUND"].playNote(index, int(duration * 1000))
         print(msg.encode())
         self.sendMessage(msg)
         if wait:
@@ -210,6 +211,70 @@ class Remote:
             while self.state.talkLock:
                 time.sleep(0.1)
 
+    def startStream(self):
+        msg = self.processors["VISION"].startStream()
+        self.sendMessage(msg)
+
+    def stopStream(self):
+        msg = self.processors["VISION"].stopStream()
+        self.sendMessage(msg)
+
+    def startCamera(self):
+        msg = self.processors["VISION"].startCamera()
+        self.sendMessage(msg)
+
+    def stopCamera(self):
+        msg = self.processors["VISION"].stopCamera()
+        self.sendMessage(msg)
+
+    def startColorDetection(self):
+        msg = self.processors["VISION"].startColorDetection()
+        self.sendMessage(msg)
+
+    def stopColorDetection(self):
+        msg = self.processors["VISION"].stopColorDetection()
+        self.sendMessage(msg)
+
+    def startColorMeasurement(self):
+        msg = self.processors["VISION"].startColorMeasurement()
+        self.sendMessage(msg)
+
+    def stopColorMeasurement(self):
+        msg = self.processors["VISION"].stopColorMeasurement()
+        self.sendMessage(msg)
+
+    def startFaceDetection(self):
+        msg = self.processors["VISION"].startFaceDetection()
+        self.sendMessage(msg)
+
+    def stopFaceDetection(self):
+        msg = self.processors["VISION"].stopFaceDetection()
+        self.sendMessage(msg)
+
+    def startObjectRecognition(self):
+        msg = self.processors["VISION"].startObjectRecognition()
+        self.sendMessage(msg)
+
+    def stopObjectRecognition(self):
+        msg = self.processors["VISION"].stopObjectRecognition()
+        self.sendMessage(msg)
+
+    def startQrTracking(self):
+        msg = self.processors["VISION"].startQrTracking()
+        self.sendMessage(msg)
+
+    def stopQrTracking(self):
+        msg = self.processors["VISION"].stopQrTracking()
+        self.sendMessage(msg)
+
+    def startTag(self):
+        msg = self.processors["VISION"].startTag()
+        self.sendMessage(msg)
+
+    def stopTag(self):
+        msg = self.processors["VISION"].stopTag()
+        self.sendMessage(msg)
+
     def resetClaps(self):
         self.processors["SOUND"].resetClaps()
 
@@ -225,56 +290,49 @@ class Remote:
     def resetFace(self):
         self.processors["VISION"].resetFace()
 
-
     def setEmotionTo(self, emotion):
         msg = self.processors["PHONE"].setEmotion(emotion)
         self.sendMessage(msg)
-
 
     def configureBlobTracking(self, red, green, blue, custom):
         msg = self.processors["VISION"].configureBlobTracking(red, green, blue, custom)
         self.sendMessage(msg)
 
-
     def setClapCallback(self, callback):
         self.processors["SOUND"].callbacks["clap"] = callback
 
     def setNoteCallback(self, callback):
-            self.processors["SOUND"].callbacks["note"] = callback
+        self.processors["SOUND"].callbacks["note"] = callback
 
     def setTalkCallback(self, callback):
-            self.processors["SOUND"].callbacks["talk"]= callback
-
+        self.processors["SOUND"].callbacks["talk"] = callback
 
     def setFaceCallback(self, callback):
-            self.processors["VISION"].callbacks["face"] = callback
+        self.processors["VISION"].callbacks["face"] = callback
 
     def setLostFaceCallback(self, callback):
-            self.processors["VISION"].callbacks["lostface"] = callback
+        self.processors["VISION"].callbacks["lostface"] = callback
 
     def setBlobCallback(self, callback):
-            self.processors["VISION"].callbacks["blob"] = callback
+        self.processors["VISION"].callbacks["blob"] = callback
 
     def setQRCallback(self, callback):
-            self.processors["VISION"].callbacks["qr"] = callback
+        self.processors["VISION"].callbacks["qr"] = callback
 
     def setNewQRCallback(self, callback):
-            self.processors["VISION"].callbacks["newqr"] = callback
+        self.processors["VISION"].callbacks["newqr"] = callback
 
     def setLostQRCallback(self, callback):
-            self.processors["VISION"].callbacks["lostqr"] = callback
-
+        self.processors["VISION"].callbacks["lostqr"] = callback
 
     def setTapCallback(self, callback):
-            self.processors["PHONE"].callbacks["tap"] = callback
+        self.processors["PHONE"].callbacks["tap"] = callback
 
     def setFlingCallback(self, callback):
-            self.processors["PHONE"].callbacks["fling"] = callback
+        self.processors["PHONE"].callbacks["fling"] = callback
 
     def setTagCallback(self, callback):
-            self.processors["VISION"].callbacks["tag"] = callback
+        self.processors["VISION"].callbacks["tag"] = callback
 
     def setDetectedObjectCallback(self, callback):
-            self.processors["VISION"].callbacks["detectedobject"] = callback
-
-
+        self.processors["VISION"].callbacks["detectedobject"] = callback
