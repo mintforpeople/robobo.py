@@ -197,6 +197,18 @@ class Robobo:
         """
         self.rem.talk(speech, wait)
 
+    def setStreamFps(self, fps):
+        """
+        Commands the robot to change the stream fps
+        """
+        self.rem.setStreamFps(fps)
+
+    def setCameraFps(self, fps):
+        """
+        Commands the robot to change the camera fps
+        """
+        self.rem.setCameraFps(fps)
+
     def startStream(self):
         """
         Commands the robot to start the camera streaming
