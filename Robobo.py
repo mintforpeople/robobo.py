@@ -200,12 +200,18 @@ class Robobo:
     def setStreamFps(self, fps):
         """
         Commands the robot to change the stream fps
+
+        :param fps: Upper limit of the stream's fps
+        :type fps: int
         """
         self.rem.setStreamFps(fps)
 
     def setCameraFps(self, fps):
         """
         Commands the robot to change the camera fps
+
+        :param fps: Upper limit of the camera's fps
+        :type fps: int
         """
         self.rem.setCameraFps(fps)
 
