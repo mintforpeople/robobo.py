@@ -9,7 +9,7 @@ from utils.Color import Color
 
 from Robobo import Robobo
 
-rob = Robobo("10.113.36.177")
+rob = Robobo("192.168.1.58")
 rob.connect()
 
 rob.moveWheelsByDegrees(Wheels.BOTH,90,50)
@@ -49,3 +49,5 @@ print("You clapped " + str(rob.readClapCounter()) + " times")
 for element in IR:
     print("IR " + element.name + " value: " + str(rob.readIRSensor(element)))
 print(rob.readColorBlob("green"))
+
+rob.disconnect()

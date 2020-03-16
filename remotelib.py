@@ -19,7 +19,7 @@ class Remote:
         self.ip = ip
         self.ws = None
         self.password = ""
-        self.disconnect = False
+        #self.disconnect = False
         self.state = State()
         self.processors = {"PT": PTProcessor(self.state),
                            "ROB": RobProcessor(self.state),
