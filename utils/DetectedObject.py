@@ -1,6 +1,14 @@
 class DetectedObject:
     """
     Represents a detected object
+
+    Attributes:
+        - x: x coordinate of the bounding box.
+        - y: x coordinate of the bounding box.
+        - width: width of the bounding box.
+        - height: height of the bounding box.
+        - label: class of the identified object.
+        - confidence: confidence or score of the class of the object.
     """
 
     def __init__(self, x, y, width, height, confidence, label):
