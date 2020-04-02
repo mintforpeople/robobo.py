@@ -1,6 +1,8 @@
 import json
 from utils.Blob import Blob
 from utils.DetectedObject import DetectedObject
+from utils.Lanes import LanePro, LaneBasic
+from utils.Lines import Lines
 from utils.QRCode import QRCode
 from utils.Face import Face
 from utils.Tag import Tag
@@ -68,6 +70,11 @@ class State:
         self.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "")
         self.tag = Tag(0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, "")
 
+        self.lines = Lines([], 0)
+        self.lanePro = LanePro(0, 0, 0, 0, 0, 0, [], 0)
+        self.laneBasic = LaneBasic(0, 0, 0, 0, 0)
+
+
     def getId(self):
         retId = self.id
         self.id += 1
@@ -114,6 +121,9 @@ class State:
 
         self.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "")
         self.tag = Tag(0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, "")
+        self.lines = Lines([], 0)
+        self.lanePro = LanePro(0, 0, 0, 0, 0, 0, [], 0)
+        self.laneBasic = LaneBasic(0, 0, 0, 0, 0)
 
         self.lastNote = 0
         self.lastNoteDuration = 0

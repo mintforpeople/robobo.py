@@ -283,6 +283,30 @@ class Remote:
         msg = self.processors["VISION"].stopTag()
         self.sendMessage(msg)
 
+    def startLane(self):
+        msg = self.processors["VISION"].startLane()
+        self.sendMessage(msg)
+
+    def stopLane(self):
+        msg = self.processors["VISION"].stopLane()
+        self.sendMessage(msg)
+
+    def startLine(self):
+        msg = self.processors["VISION"].startLine()
+        self.sendMessage(msg)
+
+    def stopLine(self):
+        msg = self.processors["VISION"].stopLine()
+        self.sendMessage(msg)
+
+    def startLineStats(self):
+        msg = self.processors["VISION"].startLineStats()
+        self.sendMessage(msg)
+
+    def stopLineStats(self):
+        msg = self.processors["VISION"].stopLineStats()
+        self.sendMessage(msg)
+
     def resetClaps(self):
         self.processors["SOUND"].resetClaps()
 
@@ -344,3 +368,12 @@ class Remote:
 
     def setDetectedObjectCallback(self, callback):
         self.processors["VISION"].callbacks["detectedobject"] = callback
+
+    def setLineCallback(self, callback):
+        self.processors["VISION"].callbacks["line"] = callback
+
+    def setLaneBasicCallback(self, callback):
+        self.processors["VISION"].callbacks["lanebasic"] = callback
+
+    def setLaneProCallback(self, callback):
+        self.processors["VISION"].callbacks["lanepro"] = callback

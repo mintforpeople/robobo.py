@@ -1,5 +1,9 @@
+import json
+
 from processors.AbstractProcessor import AbstractProcessor
 from utils.DetectedObject import DetectedObject
+from utils.Lanes import LaneBasic, LanePro
+from utils.Lines import Lines
 from utils.Message import Message
 from utils.QRCode import QRCode
 from utils.Face import Face
@@ -10,7 +14,8 @@ from utils.Tag import Tag
 class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
-        self.supportedMessages = ["QRCODE", "FACE", "BLOB", "QRCODEAPPEAR", "QRCODELOST", "TAG", "DETECTED_OBJECT"]
+        self.supportedMessages = ["QRCODE", "FACE", "BLOB", "QRCODEAPPEAR", "QRCODELOST", "TAG", "DETECTED_OBJECT",
+                                  "LANE_BASIC", "LANE_PRO", "LINE"]
 
         self.callbacklocks = {"qr": False,
                               "newqr": False,
@@ -19,7 +24,10 @@ class VisionProcessor(AbstractProcessor):
                               "lostface": False,
                               "blob": False,
                               "detectedobject": False,
-                              "tag": False}
+                              "tag": False,
+                              "lanepro": False,
+                              "lanebasic": False,
+                              "line": False}
 
         self.callbacks = {"qr": None,
                           "lostqr": None,
@@ -28,7 +36,10 @@ class VisionProcessor(AbstractProcessor):
                           "lostface": None,
                           "blob": None,
                           "tag": None,
-                          "detectedobject": None}
+                          "detectedobject": None,
+                          "lanepro": False,
+                          "lanebasic": False,
+                          "line": False}
 
     def process(self, status):
         name = status["name"]
@@ -114,6 +125,30 @@ class VisionProcessor(AbstractProcessor):
                 float(value["confidence"]),
                 value["label"])
             self.runCallback("detectedobject")
+        elif name == "LANE_BASIC":
+            self.state.laneBasic = LaneBasic(
+                float(value["a1"]),
+                float(value["b1"]),
+                float(value["a2"]),
+                float(value["b2"]),
+                int(value["id"]))
+            self.runCallback("lanebasic")
+        elif name == "LANE_PRO":
+            self.state.lanePro = LanePro(
+                float(value["left_a"]),
+                float(value["left_b"]),
+                float(value["left_c"]),
+                float(value["right_a"]),
+                float(value["right_b"]),
+                float(value["right_c"]),
+                json.loads(value["minv"]),  # todo: evals could be subject to code injection
+                int(value["id"]))
+            self.runCallback("lanepro")
+        elif name == "LINE":
+            self.state.lines = Lines(
+                json.loads(value["mat"]),  # todo: evals could be subject to code injection
+                int(value["id"]))
+            self.runCallback("line")
 
     def configureBlobTracking(self, red, green, blue, custom):
         name = "CONFIGURE-BLOBTRACKING"
@@ -244,3 +279,40 @@ class VisionProcessor(AbstractProcessor):
         id = self.state.getId()
         values = {}
         return Message(name, values, id)
+
+    def startLane(self):
+        name = "START-LANE"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopLane(self):
+        name = "STOP-LANE"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startLine(self):
+        name = "START-LINE"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopLine(self):
+        name = "STOP-LINE"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def startLineStats(self):
+        name = "START-LINE-STATS"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopLineStats(self):
+        name = "STOP-LINE-STATS"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
