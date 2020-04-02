@@ -299,6 +299,42 @@ class Robobo:
         """
         self.rem.stopTag()
 
+    def startLaneDetection(self):
+        """
+        Commands the robot to start the lane detection
+        """
+        self.rem.startLane()
+
+    def stopLaneDetection(self):
+        """
+        Commands the robot to stop the lane detection
+        """
+        self.rem.stopLane()
+
+    def startLineDetection(self):
+        """
+        Commands the robot to start the line detection
+        """
+        self.rem.startLine()
+
+    def stopLineDetection(self):
+        """
+        Commands the robot to stop the line detection
+        """
+        self.rem.stopLine()
+
+    def startLineStats(self):
+        """
+        Commands the robot to start the line detection STATUS report
+        """
+        self.rem.startLineStats()
+
+    def stopLineStats(self):
+        """
+        Commands the robot to stop the line detection STATUS report
+        """
+        self.rem.stopLineStats()
+
     def startCamera(self):
         """
         Commands the robot to start the camera
@@ -461,6 +497,30 @@ class Robobo:
         :return: (QRCode) A QRCode object (see :class:`~utils.QRCode`)
         """
         return self.rem.state.qr
+
+    def readLine(self):
+        """
+        Reads the last detected lines
+
+        :return: (Lanes) A Lanes object (see :class:`~utils.Lanes`)
+        """
+        return self.rem.state.lines
+
+    def readLaneBasic(self):
+        """
+        Reads the last detected basic lane
+
+        :return: (LaneBasic) A LaneBasic object (see :class:`~utils.LaneBasic`)
+        """
+        return self.rem.state.laneBasic
+
+    def readLanePro(self):
+        """
+        Reads the last detected pro lane
+
+        :return: (LanePro) A LanePro object (see :class:`~utils.LanePro`)
+        """
+        return self.rem.state.lanePro
 
     def readOrientationSensor(self):
         """
@@ -734,6 +794,33 @@ class Robobo:
         :type callback: fun
         """
         self.rem.setDetectedObjectCallback(callback)
+
+    def whenALineIsDetected(self, callback):
+        """
+        Configures the callback that is called when a line is detected
+
+        :param callback: The callback function to be called
+        :type callback: fun
+        """
+        self.rem.setLineCallback(callback)
+
+    def whenALaneProDetected(self, callback):
+        """
+        Configures the callback that is called when a pro lane is detected
+
+        :param callback: The callback function to be called
+        :type callback: fun
+        """
+        self.rem.setLaneProCallback(callback)
+
+    def whenALaneBasicDetected(self, callback):
+        """
+        Configures the callback that is called when a basic lane is detected
+
+        :param callback: The callback function to be called
+        :type callback: fun
+        """
+        self.rem.setLaneBasicCallback(callback)
 
     def changeStatusFrequency(self, frequency):
         """
