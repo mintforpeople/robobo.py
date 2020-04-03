@@ -37,9 +37,9 @@ class VisionProcessor(AbstractProcessor):
                           "blob": None,
                           "tag": None,
                           "detectedobject": None,
-                          "lanepro": False,
-                          "lanebasic": False,
-                          "line": False}
+                          "lanepro": None,
+                          "lanebasic": None,
+                          "line": None}
 
     def process(self, status):
         name = status["name"]
@@ -141,12 +141,12 @@ class VisionProcessor(AbstractProcessor):
                 float(value["right_a"]),
                 float(value["right_b"]),
                 float(value["right_c"]),
-                json.loads(value["minv"]),  # todo: evals could be subject to code injection
+                json.loads(value["minv"]),
                 int(value["id"]))
             self.runCallback("lanepro")
         elif name == "LINE":
             self.state.lines = Lines(
-                json.loads(value["mat"]),  # todo: evals could be subject to code injection
+                json.loads(value["mat"]),
                 int(value["id"]))
             self.runCallback("line")
 
