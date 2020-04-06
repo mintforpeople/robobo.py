@@ -306,6 +306,10 @@ class Remote:
         msg = self.processors["VISION"].stopLineStats()
         self.sendMessage(msg)
 
+    def toggleLaneColorInversion(self):
+        msg = self.processors["VISION"].toggleLaneColorInversion()
+        self.sendMessage(msg)
+
     def resetClaps(self):
         self.processors["SOUND"].resetClaps()
 
