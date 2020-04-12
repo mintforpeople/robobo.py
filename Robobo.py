@@ -510,7 +510,7 @@ class Robobo:
         """
         Reads the last detected basic lane
 
-        :return: (LaneBasic) A LaneBasic object (see :class:`~utils.LaneBasic`)
+        :return: (LaneBasic) A LaneBasic object (see :class:`~utils.Lanes.LaneBasic`)
         """
         return self.rem.state.laneBasic
 
@@ -518,7 +518,7 @@ class Robobo:
         """
         Reads the last detected pro lane
 
-        :return: (LanePro) A LanePro object (see :class:`~utils.LanePro`)
+        :return: (LanePro) A LanePro object (see :class:`~utils.Lanes.LanePro`)
         """
         return self.rem.state.lanePro
 
