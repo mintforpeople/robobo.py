@@ -335,6 +335,13 @@ class Robobo:
         """
         self.rem.stopLineStats()
 
+    def toggleLaneColorInversion(self):
+        """
+        Commands the robot to toggle the color inversion.
+        NOTE: this does not affects the yellow detection.
+        """
+        self.rem.toggleLaneColorInversion()
+
     def startCamera(self):
         """
         Commands the robot to start the camera

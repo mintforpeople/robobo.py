@@ -316,3 +316,9 @@ class VisionProcessor(AbstractProcessor):
         values = {}
         return Message(name, values, id)
 
+    def toggleLaneColorInversion(self):
+        name = "INVERT-COLORS-LANE"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
