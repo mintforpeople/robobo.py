@@ -509,13 +509,13 @@ class Robobo:
         """
         Reads the last detected lines
 
-        :return: (Lanes) A Lanes object (see :class:`~utils.Lanes`)
+        :return: (Lines) A Lines object (see :class:`~utils.Lines`)
         """
         return self.rem.state.lines
 
     def readLaneBasic(self):
         """
-        Reads the last detected basic lane
+        Reads the last detected basic lane (straight lines)
 
         :return: (LaneBasic) A LaneBasic object (see :class:`~utils.Lanes.LaneBasic`)
         """
@@ -523,7 +523,7 @@ class Robobo:
 
     def readLanePro(self):
         """
-        Reads the last detected pro lane
+        Reads the last detected pro lane (2nd degree polynomials)
 
         :return: (LanePro) A LanePro object (see :class:`~utils.Lanes.LanePro`)
         """
