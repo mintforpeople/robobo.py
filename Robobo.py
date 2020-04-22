@@ -335,12 +335,19 @@ class Robobo:
         """
         self.rem.stopLineStats()
 
-    def toggleLaneColorInversion(self):
+    def setLaneColorInversion(self, set_on):
         """
-        Commands the robot to toggle the color inversion.
+        Commands the robot to toggle the color inversion for the advanced lane module.
         NOTE: this does not affects the yellow detection.
+
+        :param set_on Boolean to choose if turn it on or off.
+        :type set_on bool
         """
-        self.rem.toggleLaneColorInversion()
+        if set_on:
+            self.rem.setLaneColorInversionOn()
+        else:
+            self.rem.setLaneColorInversionOff()
+
 
     def startCamera(self):
         """
