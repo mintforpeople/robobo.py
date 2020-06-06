@@ -1,16 +1,13 @@
 
-
 # robobo.py
 
 Robobo.py is the library used to create programs for the Robobo educational robot (http://www.theroboboproject.com) in the Python language.
 
-
 ## Installation
 
 To use this library on your project, clone or download this repository and you can use it in two ways:
- 
-* Put your .py files inside of "robobo.py" folder, or
 
+* Put your .py files inside of "robobo.py" folder, or
 * Add the folder "robobo.py" in your project folder and add "robobo.py" to your path as it's shown below:
 
     ```python
@@ -20,7 +17,7 @@ To use this library on your project, clone or download this repository and you c
 
 The library runs with **Python 3** and it must be installed before using the library, which also depends on the **websocket-client** library, that must be installed.
 
-```
+```bash
 pip install websocket-client
 ```
 
@@ -29,7 +26,7 @@ pip install websocket-client
 To use the library within your code you have first to import it and then create a instance of the Robobo class:
 
 ```python
-# This imports the library    
+# This imports the library
 from Robobo import Robobo
 
 # This creates a instance of the Robobo class with the indicated ip address
@@ -52,11 +49,11 @@ The connection methods are used to manage the connection with the robot:
 
 ```python
 # Establishes a remote connection with the Robobo indicated by
-# the IP address associated to this instance. 
-connect() 
+# the IP address associated to this instance.
+connect()
 
-# Disconnects the library from the Robobo robot 
-disconnect() 
+# Disconnects the library from the Robobo robot
+disconnect()
 ```
 
 ### Actuator methods
@@ -64,52 +61,52 @@ disconnect()
 The functions for controlling the effectors on the robot are the following:
 
 ```python
-#Stops the movement of the wheels     
+#Stops the movement of the wheels
 stopMotors()
 
 # Starts moving the wheels of the robot at the specified speed.
 moveWheels(speedR, speedL)
 
 """
-Moves the wheels of the robot at the specified speeds during the specified time. 
+Moves the wheels of the robot at the specified speeds during the specified time.
   - If wait = True: (default value) It waits until the movement finishes.
-  - If wait = False: the movement starts and the execution of the following command is 
-   immediately launched. This implies that the robot can execute the movement of another motor 
+  - If wait = False: the movement starts and the execution of the following command is
+   immediately launched. This implies that the robot can execute the movement of another motor
    while the wheels are running.
 """
 moveWheelsByTime(speedR, speedL, time, wait=True)
 
-""" 
+"""
 Moves the PAN of the base to the specified position at the specified speed.
 - If wait = True: (default value) It waits until the movement finishes.
-- If wait = False: the movement starts and the execution of the following command is 
-  immediately launched.      
+- If wait = False: the movement starts and the execution of the following command is
+  immediately launched.
 """
-movePanTo(position, speed, wait=True) 
+movePanTo(position, speed, wait=True)
 
 
 """
 Moves the TILT of the base to the specified position at the specified speed.
 - If wait = True: (default value) It waits until the movement finishes.
-- If wait = False: The movement starts and the execution of the following command is 
-  immediately launched.   
+- If wait = False: The movement starts and the execution of the following command is
+  immediately launched.
 """
-moveTiltTo(position, speed, wait = True) 
+moveTiltTo(position, speed, wait = True)
 
 
-# Changes the color of a LED of the base*/    
-setLedColorTo(led, color) 
+# Changes the color of a LED of the base*/
+setLedColorTo(led, color)
 
 # Changes the emotion of showed by the face of Robobo
-setEmotionTo(emotion) 
+setEmotionTo(emotion)
 
 """
 Commands the robot to say the specified text
 - If wait = True: (default value) It waits until the robots finishes reading the text
-- If wait = False: It starts reading the text and the execution of the following command is 
-  immediately launched.   
+- If wait = False: It starts reading the text and the execution of the following command is
+  immediately launched.
 """
-sayText(text, wait = True) 
+sayText(text, wait = True)
 
 # Commands the robot to play the specified emotion sound
 playSound(sound)
@@ -117,14 +114,14 @@ playSound(sound)
 """
 Commands the robot to play a musical note.
 - If wait = True: (default value) It waits until the robots finishes
-- If wait = False: It starts playing the note and the execution of the following command is 
-  immediately launched.       
+- If wait = False: It starts playing the note and the execution of the following command is
+  immediately launched.
 """
-playNote(note, time, wait = True) 
+playNote(note, time, wait = True)
 ```
 
 Next we will see a simple program example:
-In this example the robot will move the pan and tilt at the same time, and move forward, wait until the forward 
+In this example the robot will move the pan and tilt at the same time, and move forward, wait until the forward
 movement is completed, say "Hello world" wait until the speech is completed, and move back.
 
 ```python
@@ -147,8 +144,8 @@ robobo.sayText("Hello world")
 
 # Move robot
 robobo.moveWheelsByTime(-40, -40, 3)
-    
 ```
+
 ### Sensor methods
 
 The sensor methods are used to retrieve the information from the different sensors of the robobo platform.
@@ -261,18 +258,19 @@ resetTapSensor()
 resetLastNote()
     
 ```
+
 ### Configuration methods
 
 The configuration methods allow to configure different parameters of the robot:
 
 ```python
 """
-Activates the individual tracking of each color. 
-Warning: Color tracking is a computationally intensive task, activating all the colors may impact performance     
+Activates the individual tracking of each color.
+Warning: Color tracking is a computationally intensive task, activating all the colors may impact performance
 """
 setColorBlobDetectionActive(red, green, blue, custom)
 
-# Changes the frequency of the status (LOW, NORMAL,HIGH, MAX)    
+# Changes the frequency of the status (LOW, NORMAL,HIGH, MAX)
 changeStatusFrequency(freq)
 ```
 
@@ -282,10 +280,10 @@ The last type of methods allow the user to set up callback functions that will b
 
 ```python
 # Configures the callback that is called when a new note is detected
-whenANoteIsDetected(fun) 
+whenANoteIsDetected(fun)
 
 # Configures the callback that is called when a new face is detected
-whenANewFaceIsDetected(fun) 
+whenANewFaceIsDetected(fun)
 
 # Configures the callback that is called when a face is lost
 whenAFaceIsLost(fun)
@@ -294,8 +292,8 @@ whenAFaceIsLost(fun)
 whenANewColorBlobIsDetected(fun)
 
 # Configures the callback that is called when a new tap is detected
-whenATapIsDetected(fun) 
+whenATapIsDetected(fun)
 
 # Configures the callback that is called when a new fling is detected
-whenAFlingIsDetected(fun) 
+whenAFlingIsDetected(fun)
 ```

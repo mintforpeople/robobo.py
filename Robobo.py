@@ -215,6 +215,18 @@ class Robobo:
         """
         self.rem.setCameraFps(fps)
 
+    def setFrontCamera(self):
+        """
+        Commands the robot to use the frontal camera
+        """
+        self.rem.setCamera("front")
+
+    def setBackCamera(self):
+        """
+        Commands the robot to use the back camera
+        """
+        self.rem.setCamera("back")
+
     def startStream(self):
         """
         Commands the robot to start the camera streaming
@@ -292,6 +304,14 @@ class Robobo:
         Commands the robot to start the ArUcoTag detection
         """
         self.rem.startTag()
+
+    def changeTagSize(self, size):
+        """
+        Commands the robot to change the length of the side of the tag
+
+        :param size Size of the side of the aruco tag in milimiters
+        """
+        self.rem.changeTagSize(size)
 
     def stopArUcoTagDetection(self):
         """

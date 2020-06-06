@@ -196,6 +196,12 @@ class VisionProcessor(AbstractProcessor):
         values = {"fps": fps}
         return Message(name, values, id)
 
+    def setCamera(self, camera):
+        name = "SET-CAMERA"
+        id = self.state.getId()
+        values = {"camera": camera}
+        return Message(name, values, id)
+
     def setCameraFps(self, fps):
         name = "SET-CAMERA-FPS"
         id = self.state.getId()
@@ -280,6 +286,14 @@ class VisionProcessor(AbstractProcessor):
         values = {}
         return Message(name, values, id)
 
+    def changeTagSize(self, size):
+        name = "CHANGE-SIZE-TAG"
+        id = self.state.getId()
+        values = {
+            "size": size
+        }
+        return Message(name, values, id)
+
     def startLane(self):
         name = "START-LANE"
         id = self.state.getId()
@@ -327,4 +341,3 @@ class VisionProcessor(AbstractProcessor):
         id = self.state.getId()
         values = {}
         return Message(name, values, id)
-
