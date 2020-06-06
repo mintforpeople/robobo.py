@@ -18,7 +18,6 @@ class SoundProcessor(AbstractProcessor):
                           "note": None,
                           "talk": None}
 
-
         self.supportedMessages = ["NOTE", "CLAP", "UNLOCK-TALK", "NOISE"]
 
     def process(self, status):
