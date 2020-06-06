@@ -217,19 +217,13 @@ class Robobo:
 
     def setFrontCamera(self):
         """
-        Commands the robot to change the camera fps
-
-        :param fps: Upper limit of the camera's fps
-        :type fps: int
+        Commands the robot to use the frontal camera
         """
         self.rem.setCamera("front")
 
     def setBackCamera(self):
         """
-        Commands the robot to change the camera fps
-
-        :param fps: Upper limit of the camera's fps
-        :type fps: int
+        Commands the robot to use the back camera
         """
         self.rem.setCamera("back")
 
