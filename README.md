@@ -1,16 +1,13 @@
 
-
 # robobo.py
 
 Robobo.py is the library used to create programs for the Robobo educational robot (http://www.theroboboproject.com) in the Python language.
 
-
 ## Installation
 
 To use this library on your project, clone or download this repository and you can use it in two ways:
- 
-* Put your .py files inside of "robobo.py" folder, or
 
+* Put your .py files inside of "robobo.py" folder, or
 * Add the folder "robobo.py" in your project folder and add "robobo.py" to your path as it's shown below:
 
     ```python
@@ -20,7 +17,7 @@ To use this library on your project, clone or download this repository and you c
 
 The library runs with **Python 3** and it must be installed before using the library, which also depends on the **websocket-client** library, that must be installed.
 
-```
+```bash
 pip install websocket-client
 ```
 
@@ -29,7 +26,7 @@ pip install websocket-client
 To use the library within your code you have first to import it and then create a instance of the Robobo class:
 
 ```python
-# This imports the library    
+# This imports the library
 from Robobo import Robobo
 
 # This creates a instance of the Robobo class with the indicated ip address
@@ -52,11 +49,11 @@ The connection methods are used to manage the connection with the robot:
 
 ```python
 # Establishes a remote connection with the Robobo indicated by
-# the IP address associated to this instance. 
-connect() 
+# the IP address associated to this instance.
+connect()
 
-# Disconnects the library from the Robobo robot 
-disconnect() 
+# Disconnects the library from the Robobo robot
+disconnect()
 ```
 
 ### Actuator methods
