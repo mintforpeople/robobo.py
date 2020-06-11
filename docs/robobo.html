@@ -161,6 +161,13 @@ a higher frequency reduces the filters.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="Robobo.Robobo.changeTagSize">
+<code class="sig-name descname">changeTagSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.changeTagSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.changeTagSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commands the robot to change the length of the side of the tag</p>
+<p>:param size Size of the side of the aruco tag in milimiters</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="Robobo.Robobo.connect">
 <code class="sig-name descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Establishes a remote connection with the Robobo indicated by the IP address associated to this instance.</p>
@@ -407,7 +414,7 @@ a higher frequency reduces the filters.</p>
 <dd class="field-odd"><p>A DetectedObject object</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>DetectedObject</p>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.DetectedObject.DetectedObject" title="utils.DetectedObject.DetectedObject">DetectedObject</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -477,7 +484,7 @@ a higher frequency reduces the filters.</p>
 <dl class="py method">
 <dt id="Robobo.Robobo.readLaneBasic">
 <code class="sig-name descname">readLaneBasic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLaneBasic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readLaneBasic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the last detected basic lane</p>
+<dd><p>Reads the last detected basic lane (straight lines)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>(LaneBasic) A LaneBasic object (see <a class="reference internal" href="utils.html#utils.Lanes.LaneBasic" title="utils.Lanes.LaneBasic"><code class="xref py py-class docutils literal notranslate"><span class="pre">LaneBasic</span></code></a>)</p>
@@ -488,7 +495,7 @@ a higher frequency reduces the filters.</p>
 <dl class="py method">
 <dt id="Robobo.Robobo.readLanePro">
 <code class="sig-name descname">readLanePro</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLanePro"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readLanePro" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the last detected pro lane</p>
+<dd><p>Reads the last detected pro lane (2nd degree polynomials)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>(LanePro) A LanePro object (see <a class="reference internal" href="utils.html#utils.Lanes.LanePro" title="utils.Lanes.LanePro"><code class="xref py py-class docutils literal notranslate"><span class="pre">LanePro</span></code></a>)</p>
@@ -516,7 +523,7 @@ a higher frequency reduces the filters.</p>
 <dd><p>Reads the last detected lines</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>(Lanes) A Lanes object (see <a class="reference internal" href="utils.html#module-utils.Lanes" title="utils.Lanes"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lanes</span></code></a>)</p>
+<dd class="field-odd"><p>(Lines) A Lines object (see <a class="reference internal" href="utils.html#module-utils.Lines" title="utils.Lines"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lines</span></code></a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -710,6 +717,12 @@ a higher frequency reduces the filters.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="Robobo.Robobo.setBackCamera">
+<code class="sig-name descname">setBackCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setBackCamera"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setBackCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commands the robot to use the back camera</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="Robobo.Robobo.setCameraFps">
 <code class="sig-name descname">setCameraFps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fps</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setCameraFps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setCameraFps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Commands the robot to change the camera fps</p>
@@ -729,6 +742,21 @@ a higher frequency reduces the filters.</p>
 <dd class="field-odd"><p><strong>emotion</strong> (<a class="reference internal" href="utils.html#utils.Emotions.Emotions" title="utils.Emotions.Emotions"><em>Emotions</em></a>) – One value of the Emotion enumeration</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setFrontCamera">
+<code class="sig-name descname">setFrontCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setFrontCamera"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setFrontCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commands the robot to use the frontal camera</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setLaneColorInversion">
+<code class="sig-name descname">setLaneColorInversion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">set_on</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setLaneColorInversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setLaneColorInversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commands the robot to toggle the color inversion for the advanced lane module.
+NOTE: this does not affects the yellow detection.</p>
+<p>:param set_on Boolean to choose if turn it on or off.
+:type set_on bool</p>
 </dd></dl>
 
 <dl class="py method">

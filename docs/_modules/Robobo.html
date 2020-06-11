@@ -327,6 +327,18 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCameraFps</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Robobo.setFrontCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setFrontCamera">[docs]</a>    <span class="k">def</span> <span class="nf">setFrontCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commands the robot to use the frontal camera</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robobo.setBackCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setBackCamera">[docs]</a>    <span class="k">def</span> <span class="nf">setBackCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commands the robot to use the back camera</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;back&quot;</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Robobo.startStream"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startStream">[docs]</a>    <span class="k">def</span> <span class="nf">startStream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Commands the robot to start the camera streaming</span>
@@ -405,6 +417,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startTag</span><span class="p">()</span></div>
 
+<div class="viewcode-block" id="Robobo.changeTagSize"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.changeTagSize">[docs]</a>    <span class="k">def</span> <span class="nf">changeTagSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commands the robot to change the length of the side of the tag</span>
+
+<span class="sd">        :param size Size of the side of the aruco tag in milimiters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeTagSize</span><span class="p">(</span><span class="n">size</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Robobo.stopArUcoTagDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopArUcoTagDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopArUcoTagDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Commands the robot to stop the ArucoTag detection</span>
@@ -446,6 +466,20 @@
 <span class="sd">        Commands the robot to stop the line detection STATUS report</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopLineStats</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Robobo.setLaneColorInversion"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setLaneColorInversion">[docs]</a>    <span class="k">def</span> <span class="nf">setLaneColorInversion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">set_on</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commands the robot to toggle the color inversion for the advanced lane module.</span>
+<span class="sd">        NOTE: this does not affects the yellow detection.</span>
+
+<span class="sd">        :param set_on Boolean to choose if turn it on or off.</span>
+<span class="sd">        :type set_on bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">set_on</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneColorInversionOn</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneColorInversionOff</span><span class="p">()</span></div>
+
 
 <div class="viewcode-block" id="Robobo.startCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startCamera">[docs]</a>    <span class="k">def</span> <span class="nf">startCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -614,13 +648,13 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the last detected lines</span>
 
-<span class="sd">        :return: (Lanes) A Lanes object (see :class:`~utils.Lanes`)</span>
+<span class="sd">        :return: (Lines) A Lines object (see :class:`~utils.Lines`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lines</span></div>
 
 <div class="viewcode-block" id="Robobo.readLaneBasic"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLaneBasic">[docs]</a>    <span class="k">def</span> <span class="nf">readLaneBasic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last detected basic lane</span>
+<span class="sd">        Reads the last detected basic lane (straight lines)</span>
 
 <span class="sd">        :return: (LaneBasic) A LaneBasic object (see :class:`~utils.Lanes.LaneBasic`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -628,7 +662,7 @@
 
 <div class="viewcode-block" id="Robobo.readLanePro"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLanePro">[docs]</a>    <span class="k">def</span> <span class="nf">readLanePro</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last detected pro lane</span>
+<span class="sd">        Reads the last detected pro lane (2nd degree polynomials)</span>
 
 <span class="sd">        :return: (LanePro) A LanePro object (see :class:`~utils.Lanes.LanePro`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>

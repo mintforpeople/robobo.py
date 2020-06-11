@@ -14,6 +14,10 @@ Classes
     :members:
     :show-inheritance:
 
+.. automodule:: utils.DetectedObject
+    :members:
+    :show-inheritance:
+
 .. automodule:: utils.Face
     :members:
     :show-inheritance:
