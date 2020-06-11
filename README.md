@@ -23,7 +23,7 @@ pip install websocket-client
 
 ## Basic usage
 
-In this section, you can find basic documentation to install and start using the Robobo.py library. For further information you can read the Robobo.py library reference (https://mintforpeople.github.io/robobo.py/index.html).
+In this section, you can find basic documentation to install and start using the Robobo.py library. Further information can be found at the Robobo.py library reference (https://mintforpeople.github.io/robobo.py/index.html).
 
 To use the library within your code you have first to import it and then create a instance of the Robobo class:
 
