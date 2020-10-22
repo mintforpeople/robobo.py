@@ -1,13 +1,13 @@
 import json
 
 from processors.AbstractProcessor import AbstractProcessor
+from utils.Blob import Blob
 from utils.DetectedObject import DetectedObject
+from utils.Face import Face
 from utils.Lanes import LaneBasic, LanePro
 from utils.Lines import Lines
 from utils.Message import Message
 from utils.QRCode import QRCode
-from utils.Face import Face
-from utils.Blob import Blob
 from utils.Tag import Tag
 
 
@@ -63,23 +63,20 @@ class VisionProcessor(AbstractProcessor):
 
             self.runCallback("blob")
 
-        elif (name == "QRCODEAPPEAR"):
-
+        elif name == "QRCODEAPPEAR":
             self.state.qr = QRCode(float(value["coordx"]),
                                    float(value["coordy"]),
                                    float(value["distance"]),
-                                   float(value["p1x"]),
-                                   float(value["p1y"]),
-                                   float(value["p2x"]),
-                                   float(value["p2y"]),
-                                   float(value["p3x"]),
-                                   float(value["p3y"]),
+                                   float(0),
+                                   float(0),
+                                   float(0),
+                                   float(0),
+                                   float(0),
+                                   float(0),
                                    value["id"])
-
             self.runCallback("newqr")
 
-
-        elif (name == "QRCODE"):
+        elif name == "QRCODE":
             self.state.qr = QRCode(float(value["coordx"]),
                                    float(value["coordy"]),
                                    float(value["distance"]),
@@ -92,9 +89,7 @@ class VisionProcessor(AbstractProcessor):
                                    value["id"])
             self.runCallback("qr")
 
-
-
-        elif (name == "QRCODELOST"):
+        elif name == "QRCODELOST":
             self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
             self.runCallback("lostqr")
 
