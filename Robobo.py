@@ -404,6 +404,23 @@ class Robobo:
         """
         self.rem.configureBlobTracking(red, green, blue, custom)
 
+    def setAdvancedLostBlobParameters(self,  frames = 5, minarea = 1000, max_count = 1, epsilon = 0):
+        """
+        Sets advanced parameters for the blob tracker.
+
+        **Warning**: Only use this function if you know what are yo doing. A fad configuration might have unexpected consecuences
+
+        :param frames: Number of frames passed to consider a lost blob
+        :param minarea: Minimum area to consdider a Blob as a Blob
+        :param max_count: max_count parameter of the termcriteria
+        :param epsilon: epsilon parameter of the termcriteria
+        :type frames:int
+        :type minarea: int
+        :type max_count: int
+        :type epsilon :int
+        """
+        self.rem.advancedLostBlobConfiguration(frames, minarea, max_count, epsilon)
+
     def readClapCounter(self):
         """
         Returns the number of claps registered since the last reset

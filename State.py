@@ -44,10 +44,10 @@ class State:
         self.tiltPos = 0
 
         self.blobs = {
-            "red": Blob("red", 0, 0, 0),
-            "green": Blob("green", 0, 0, 0),
-            "blue": Blob("blue", 0, 0, 0),
-            "custom": Blob("custom", 0, 0, 0)}
+            "red": Blob("red", 0, 0, 0, 0, 0),
+            "green": Blob("green", 0, 0, 0, 0, 0),
+            "blue": Blob("blue", 0, 0, 0, 0, 0),
+            "custom": Blob("custom", 0, 0, 0, 0, 0)}
 
         self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
 
@@ -110,10 +110,10 @@ class State:
         self.tiltPos = 0
 
         self.blobs = {
-            "red": Blob("red", 0, 0, 0),
-            "green": Blob("green", 0, 0, 0),
-            "blue": Blob("blue", 0, 0, 0),
-            "custom": Blob("custom", 0, 0, 0),
+            "red": Blob("red", 0, 0, 0, 0, 0),
+            "green": Blob("green", 0, 0, 0, 0, 0),
+            "blue": Blob("blue", 0, 0, 0, 0, 0),
+            "custom": Blob("custom", 0, 0, 0, 0, 0),
 
         }
 

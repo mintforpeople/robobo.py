@@ -329,6 +329,10 @@ class Remote:
         msg = self.processors["VISION"].configureBlobTracking(red, green, blue, custom)
         self.sendMessage(msg)
 
+    def advancedLostBlobConfiguration(self,  frames, minarea, max_count, epsilon):
+        msg = self.processors["VISION"].advancedLostBlobConfiguration(frames, minarea, max_count, epsilon)
+        self.sendMessage(msg)
+
     def setClapCallback(self, callback):
         self.processors["SOUND"].callbacks["clap"] = callback
 

@@ -61,6 +61,10 @@ class VisionProcessor(AbstractProcessor):
 
             self.state.blobs[value["color"]].size = int(value["size"])
 
+            self.state.blobs[value["color"]].status_timestamp = int(value["timestamp"])
+
+            self.state.blobs[value["color"]].frame_timestamp = int(value["frame_timestamp"])
+
             self.runCallback("blob")
 
         elif (name == "QRCODEAPPEAR"):
@@ -160,12 +164,22 @@ class VisionProcessor(AbstractProcessor):
 
         return Message(name, values, id)
 
+    def advancedLostBlobConfiguration(self, frames, minarea, max_count, epsilon):
+        name = "CONFIGURE-LOSTBLOB"
+        id = self.state.getId()
+        values = {"frames": frames,
+                  "minarea": minarea,
+                  "max_count": max_count,
+                  "epsilon": epsilon}
+
+        return Message(name, values, id)
+
     def resetBlobs(self):
         self.state.blobs = {
-            "red": Blob("red", 0, 0, 0),
-            "green": Blob("green", 0, 0, 0),
-            "blue": Blob("blue", 0, 0, 0),
-            "custom": Blob("custom", 0, 0, 0)}
+            "red": Blob("red", 0, 0, 0, 0, 0),
+            "green": Blob("green", 0, 0, 0, 0, 0),
+            "blue": Blob("blue", 0, 0, 0, 0, 0),
+            "custom": Blob("custom", 0, 0, 0, 0, 0)}
 
     def resetFace(self):
         self.state.face = Face(0, 0, -1)
