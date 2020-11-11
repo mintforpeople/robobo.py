@@ -14,7 +14,19 @@ Classes
     :members:
     :show-inheritance:
 
+.. automodule:: utils.DetectedObject
+    :members:
+    :show-inheritance:
+
 .. automodule:: utils.Face
+    :members:
+    :show-inheritance:
+
+.. automodule:: utils.Lanes
+    :members:
+    :show-inheritance:
+
+.. automodule:: utils.Lines
     :members:
     :show-inheritance:
 
@@ -27,6 +39,10 @@ Classes
     :show-inheritance:
 
 .. automodule:: utils.QRCode
+    :members:
+    :show-inheritance:
+
+.. automodule:: utils.Tag
     :members:
     :show-inheritance:
 

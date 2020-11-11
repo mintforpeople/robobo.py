@@ -215,6 +215,18 @@ class Robobo:
         """
         self.rem.setCameraFps(fps)
 
+    def setFrontCamera(self):
+        """
+        Commands the robot to use the frontal camera
+        """
+        self.rem.setCamera("front")
+
+    def setBackCamera(self):
+        """
+        Commands the robot to use the back camera
+        """
+        self.rem.setCamera("back")
+
     def startStream(self):
         """
         Commands the robot to start the camera streaming
@@ -293,6 +305,14 @@ class Robobo:
         """
         self.rem.startTag()
 
+    def changeTagSize(self, size):
+        """
+        Commands the robot to change the length of the side of the tag
+
+        :param size Size of the side of the aruco tag in milimiters
+        """
+        self.rem.changeTagSize(size)
+
     def stopArUcoTagDetection(self):
         """
         Commands the robot to stop the ArucoTag detection
@@ -334,6 +354,20 @@ class Robobo:
         Commands the robot to stop the line detection STATUS report
         """
         self.rem.stopLineStats()
+
+    def setLaneColorInversion(self, set_on):
+        """
+        Commands the robot to toggle the color inversion for the advanced lane module.
+        NOTE: this does not affects the yellow detection.
+
+        :param set_on Boolean to choose if turn it on or off.
+        :type set_on bool
+        """
+        if set_on:
+            self.rem.setLaneColorInversionOn()
+        else:
+            self.rem.setLaneColorInversionOff()
+
 
     def startCamera(self):
         """
@@ -519,23 +553,23 @@ class Robobo:
         """
         Reads the last detected lines
 
-        :return: (Lanes) A Lanes object (see :class:`~utils.Lanes`)
+        :return: (Lines) A Lines object (see :class:`~utils.Lines`)
         """
         return self.rem.state.lines
 
     def readLaneBasic(self):
         """
-        Reads the last detected basic lane
+        Reads the last detected basic lane (straight lines)
 
-        :return: (LaneBasic) A LaneBasic object (see :class:`~utils.LaneBasic`)
+        :return: (LaneBasic) A LaneBasic object (see :class:`~utils.Lanes.LaneBasic`)
         """
         return self.rem.state.laneBasic
 
     def readLanePro(self):
         """
-        Reads the last detected pro lane
+        Reads the last detected pro lane (2nd degree polynomials)
 
-        :return: (LanePro) A LanePro object (see :class:`~utils.LanePro`)
+        :return: (LanePro) A LanePro object (see :class:`~utils.Lanes.LanePro`)
         """
         return self.rem.state.lanePro
 

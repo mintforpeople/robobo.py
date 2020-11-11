@@ -230,6 +230,10 @@ class Remote:
         msg = self.processors["VISION"].setCameraFps(fps)
         self.sendMessage(msg)
 
+    def setCamera(self, camera):
+        msg = self.processors["VISION"].setCamera(camera)
+        self.sendMessage(msg)
+
     def stopCamera(self):
         msg = self.processors["VISION"].stopCamera()
         self.sendMessage(msg)
@@ -282,6 +286,10 @@ class Remote:
         msg = self.processors["VISION"].stopTag()
         self.sendMessage(msg)
 
+    def changeTagSize(self, size):
+        msg = self.processors["VISION"].changeTagSize(size)
+        self.sendMessage(msg)
+
     def startLane(self):
         msg = self.processors["VISION"].startLane()
         self.sendMessage(msg)
@@ -304,6 +312,14 @@ class Remote:
 
     def stopLineStats(self):
         msg = self.processors["VISION"].stopLineStats()
+        self.sendMessage(msg)
+
+    def setLaneColorInversionOn(self):
+        msg = self.processors["VISION"].setLaneColorInversionOn()
+        self.sendMessage(msg)
+
+    def setLaneColorInversionOff(self):
+        msg = self.processors["VISION"].setLaneColorInversionOff()
         self.sendMessage(msg)
 
     def resetClaps(self):
