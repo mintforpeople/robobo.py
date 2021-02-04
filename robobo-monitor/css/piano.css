@@ -1,0 +1,118 @@
+
+/* Descargado desde https://www.codeseek.co/ */
+* {
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+}
+
+.clear {
+ clear: both;
+}
+
+.clearfix {
+ overflow: auto;
+}
+
+body {
+ background: #fafafa;
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ color: #333;
+ user-select: none;
+}
+
+h1 {
+ font-size: 1.8rem;
+ line-height: 1;
+ letter-spacing: -1px;
+ text-align: center;
+}
+
+.container {
+ max-width: 800px;
+ margin: 0 auto;
+ padding-top: 0px;
+ height: 100%;
+}
+
+#keyboard {
+ max-width: 900px;
+ width: 90%;
+ background: #000000;
+ margin: 0 auto;
+ user-select: none;
+}
+
+.key-white {
+ float: left;
+ position: relative;
+ width: 14.28571%;
+ height: 100%;
+ border: 1px solid #ccc;
+ border-radius: 0 0 5px 5px;
+ padding-bottom: 33%;
+}
+
+.key-white-unselected {
+  background: #fff;
+}
+
+.key-white-selected {
+  background: red;
+}
+
+.key-white .key-black {
+ position: absolute;
+ z-index: 10;
+ width: 50%;
+ height: 66%;
+ border: 1px solid #ccc;
+ border-radius: 0 0 8px 8px;
+ margin-left: 75%;
+}
+
+.key-black-unselected {
+  background: #000;
+}
+
+.key-black-selected {
+  background: red;
+}
+
+
+.key-white .key-black span {
+ color: #ffffff;
+}
+
+.key-white, .key-black {
+ cursor: pointer;
+}
+
+.hover {
+ background-color: #dddddd;
+}
+
+span.music-note {
+ position: absolute;
+ bottom: 5%;
+ left: 30%;
+ font-size: 0.8em;
+ color: #000000;
+}
+
+.mainBtn {
+ display: block;
+ width: 50%;
+ padding: .5rem 1.5rem;
+ margin: 3rem auto;
+}
+
+code {
+ text-align: center;
+}
+
+@media (min-width: 600px) {
+ h1 {
+   font-size: 3.2rem;
+ }
+}
