@@ -208,6 +208,12 @@ class VisionProcessor(AbstractProcessor):
         values = {"fps": fps}
         return Message(name, values, id)
 
+    def sendSync(self,syncId):
+        name = "SYNC"
+        id = self.state.getId()
+        values = {"id":syncId}
+        return Message(name, values, id)
+
     def stopCamera(self):
         name = "STOP-CAMERA"
         id = self.state.getId()

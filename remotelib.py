@@ -95,8 +95,8 @@ class Remote:
     def processMessage(self, msg):
         status = json.loads(msg)
         name = status["name"]
-        # print(name)
-        # print(status)
+        #print(name)
+        #print(status)
         value = status["value"]
         processed = False
         for key in self.processors.keys():
@@ -216,6 +216,10 @@ class Remote:
 
     def stopStream(self):
         msg = self.processors["VISION"].stopStream()
+        self.sendMessage(msg)
+
+    def sendSync(self, syncId):
+        msg = self.processors["VISION"].sendSync(syncId)
         self.sendMessage(msg)
 
     def startCamera(self):

@@ -866,3 +866,12 @@ class Robobo:
         :type frequency: StatusFrequency
         """
         self.rem.changeStatusFrequency(frequency)
+
+    def sendSync(self, syncId):
+        """
+        Send a sync identifier to label the next frame sent through the camera stream
+
+        :param syncId: Label to be applied to the frame
+        :type frequency: int
+        """
+        self.rem.sendSync(syncId)
