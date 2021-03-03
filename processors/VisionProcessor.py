@@ -61,6 +61,10 @@ class VisionProcessor(AbstractProcessor):
 
             self.state.blobs[value["color"]].size = int(value["size"])
 
+            self.state.blobs[value["color"]].status_timestamp = int(value["timestamp"])
+
+            self.state.blobs[value["color"]].frame_timestamp = int(value["frame_timestamp"])
+
             self.runCallback("blob")
 
         elif (name == "QRCODEAPPEAR"):
