@@ -4,14 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.Lines &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -86,7 +86,8 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Lines</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -112,10 +113,11 @@
   <h1>Source code for utils.Lines</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="Lines"><a class="viewcode-back" href="../../utils.html#utils.Lines.Lines">[docs]</a><span></span><span class="k">class</span> <span class="nc">Lines</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a detected straight line</span>
+<span class="sd">    Represents a set of straight lines detected by Robobo in a frame.</span>
+<span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">        - lines: array of shape (n, 4) where each row its a line with the values (x1, y1, x2, y2)</span>
-<span class="sd">        - id: frame number</span>
+<span class="sd">        - lines (array): Array with n rows and 4 columns, being n the number of lines detected. Each row has the values &#39;x1&#39;, &#39;y1&#39;, &#39;x2&#39;, &#39;y2&#39;, representing the x and y coordinates of the points 1 and 2 that form the detected line. These coordinates takes positive values.</span>
+<span class="sd">        - id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">lines</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
@@ -126,6 +128,7 @@
         <span class="k">return</span> <span class="s2">&quot;Lane, Id:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; lines:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="p">)</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -146,12 +149,13 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Lines</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

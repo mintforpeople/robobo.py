@@ -4,14 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.Lanes &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -86,7 +86,8 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Lanes</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -112,12 +113,13 @@
   <h1>Source code for utils.Lanes</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="LanePro"><a class="viewcode-back" href="../../utils.html#utils.Lanes.LanePro">[docs]</a><span></span><span class="k">class</span> <span class="nc">LanePro</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a detected lane</span>
+<span class="sd">    Represents a lane detected by Robobo, formed by two second degree polynomials.</span>
+<span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">        - coeffs1: Dictionary with &#39;a&#39;,&#39;b&#39; and &#39;c&#39; (ax^2 + bx +c) coefficients of the left line.</span>
-<span class="sd">        - coeffs2: Dictionary with &#39;a&#39;,&#39;b&#39; and &#39;c&#39; (ax^2 + bx +c) coefficients of the right line.</span>
-<span class="sd">        - minv: Transformation matrix to get to the original perspective.</span>
-<span class="sd">        - id: Frame number</span>
+<span class="sd">        - coeffs1 (dict): Dictionary with &#39;a&#39;,&#39;b&#39; and &#39;c&#39; (ax^2 + bx +c) coefficients of the left line.</span>
+<span class="sd">        - coeffs2 (dict): Dictionary with &#39;a&#39;,&#39;b&#39; and &#39;c&#39; (ax^2 + bx +c) coefficients of the right line.</span>
+<span class="sd">        - minv (array): Transformation matrix to get to the original perspective.</span>
+<span class="sd">        - id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -147,12 +149,12 @@
 
 <div class="viewcode-block" id="LaneBasic"><a class="viewcode-back" href="../../utils.html#utils.Lanes.LaneBasic">[docs]</a><span class="k">class</span> <span class="nc">LaneBasic</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a detected lane</span>
+<span class="sd">    Represents a lane detected by Robobo, formed by two straight lines.</span>
+<span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">        - coeffs1: Dictionary with &#39;a&#39; and &#39;b&#39; (ax + b) coefficients of the left line.</span>
-<span class="sd">        - coeffs2: Dictionary with &#39;a&#39; and &#39;b&#39; (ax + b) coefficients of the right line.</span>
-<span class="sd">        - id: Frame number</span>
-
+<span class="sd">        - coeffs1 (dict): Dictionary with &#39;a&#39; and &#39;b&#39; (ax + b) coefficients of the left line.</span>
+<span class="sd">        - coeffs2 (dict): Dictionary with &#39;a&#39; and &#39;b&#39; (ax + b) coefficients of the right line.</span>
+<span class="sd">        - id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -172,6 +174,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">coeffs2</span><span class="p">)</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -192,12 +195,13 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Lanes</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

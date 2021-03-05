@@ -4,14 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.Face &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -86,7 +86,8 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Face</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -113,11 +114,12 @@
 <span></span>
 <div class="viewcode-block" id="Face"><a class="viewcode-back" href="../../utils.html#utils.Face.Face">[docs]</a><span class="k">class</span> <span class="nc">Face</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents the last face detected by Robobo (front camera):</span>
-
-<span class="sd">    - posX: (int) Returns the x position in which a face is detected.</span>
-<span class="sd">    - posY: (int) Returns the y position in which a face is detected.</span>
-<span class="sd">    - distance: (int) the distance at which the SmartPhone front camera detects a face.</span>
+<span class="sd">    Represents a face detected by Robobo using the front camera of the smartphone.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        - posx (int): The x coordinate of the center of the face. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.</span>
+<span class="sd">        - posy (int): The y coordinate of the center of the face. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.</span>
+<span class="sd">        - distance (int): The rounded distance between the eyes of the person, measured in pixels. The values obtained when the person is near the camera are higher than those obtained when the person is far. Takes positive values.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -130,6 +132,7 @@
         <span class="k">return</span> <span class="s2">&quot;Face,  x: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">posx</span> <span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; y: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">posy</span> <span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; distance: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -150,12 +153,13 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Face</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>
