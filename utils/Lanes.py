@@ -1,11 +1,12 @@
 class LanePro:
     """
-    Represents a detected lane
+    Represents a lane detected by Robobo, formed by two second degree polynomials.
+    
     Attributes:
-        - coeffs1: Dictionary with 'a','b' and 'c' (ax^2 + bx +c) coefficients of the left line.
-        - coeffs2: Dictionary with 'a','b' and 'c' (ax^2 + bx +c) coefficients of the right line.
-        - minv: Transformation matrix to get to the original perspective.
-        - id: Frame number
+        - coeffs1 (dict): Dictionary with 'a','b' and 'c' (ax^2 + bx +c) coefficients of the left line.
+        - coeffs2 (dict): Dictionary with 'a','b' and 'c' (ax^2 + bx +c) coefficients of the right line.
+        - minv (array): Transformation matrix to get to the original perspective.
+        - id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.
 
     """
 
@@ -35,12 +36,12 @@ class LanePro:
 
 class LaneBasic:
     """
-    Represents a detected lane
+    Represents a lane detected by Robobo, formed by two straight lines.
+    
     Attributes:
-        - coeffs1: Dictionary with 'a' and 'b' (ax + b) coefficients of the left line.
-        - coeffs2: Dictionary with 'a' and 'b' (ax + b) coefficients of the right line.
-        - id: Frame number
-
+        - coeffs1 (dict): Dictionary with 'a' and 'b' (ax + b) coefficients of the left line.
+        - coeffs2 (dict): Dictionary with 'a' and 'b' (ax + b) coefficients of the right line.
+        - id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.
     """
 
     def __init__(self,
