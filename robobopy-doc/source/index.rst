@@ -15,6 +15,7 @@ Python programming library for the Robobo educational robot
    :maxdepth: 2
    :caption: Contents:
 
+   introduction.rst
    robobo.rst
    utils.rst
 

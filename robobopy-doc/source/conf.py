@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 # -- Project information -----------------------------------------------------
 
 project = 'Robobo.py'
-copyright = '2019, MINT'
+copyright = '2010, MINT'
 author = 'MINT'
 
 # The short X.Y version
