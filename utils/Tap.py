@@ -8,11 +8,13 @@ class Tap:
         - y (int): The y coordinate of the tap. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.
 
         .. image:: _static/tap_position.jpg
+            :alt: Image showing the two coordinate axis: The x axis follows the upper side of the screen, from left to right. The y axis follows the left side of the screen, from top to bottom.
 
         - zone (string): Returns the area of the smartphone screen. Takes one of the following values: 'forehead', 'eye', 'right', 'left', 'mouth' or 'chin'.
 
         .. image:: _static/tap_areas.jpg
             :scale: 50 %
+            :alt: Image showing the different possible tap areas on the screen, each one of them being a square or a rectangle. The upper part is the 'forehead'. Excluding the forehead, the right part is 'right' and the left part is 'left'. Excluding those parts, there are four zones remaining. From top to bottom, they are: the 'eye', which is the biggest of all zones, an undefined zone, the 'mouth' and the 'chin'.
     """
 
     def __init__(self, x, y):

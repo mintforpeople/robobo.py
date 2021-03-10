@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Robobo.py &#8212; Robobo.py  documentation</title>
+    <title>General features &#8212; Robobo.py  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,9 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="General features" href="features.html" />
-    <link rel="canonical" href="http://www.sphinx-doc.org/en/master/index.html" />
+    <link rel="next" title="Robobo.py" href="robobo.html" />
+    <link rel="prev" title="Robobo.py" href="index.html" />
+    <link rel="canonical" href="http://www.sphinx-doc.org/en/master/introduction.html" />
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
@@ -24,8 +25,6 @@
     <style type="text/css">
       table.right { float: right; margin-left: 20px; }
       table.right td { border: 1px solid #ccc; }
-      
-      .related { display: none; }
       
     </style>
     <script type="text/javascript">
@@ -61,14 +60,14 @@
 <div class="pageheader">
 <!--
   <ul>
-    <li><a href="#">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="usage/installation.html">Get it</a></li>
     <li><a href="contents.html">Docs</a></li>
     <li><a href="develop.html">Extend/Develop</a></li>
   </ul>
 -->
   <div>
-    <a href="#">
+    <a href="index.html">
       <img src="_static/logo_robobo.png" alt="Robobo" />
     </a>
   </div>
@@ -84,19 +83,46 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="features.html" title="General features"
+          <a href="robobo.html" title="Robobo.py"
              accesskey="N">next</a> |</li>
-        <li><a href="#">Home</a></li>
+        <li class="right" >
+          <a href="index.html" title="Robobo.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Home</a></li>
 <!--
-        <li><a href="#">Home</a>&#160;|</li>
+        <li><a href="index.html">Home</a>&#160;|</li>
         <li><a href="contents.html">Documentation</a> &#187;</li>
 -->
 
-        <li class="nav-item nav-item-this"><a href="">Robobo.py</a></li> 
+        <li class="nav-item nav-item-this"><a href="">General features</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">General features</a><ul>
+<li><a class="reference internal" href="#blocking-instructions">Blocking instructions</a></li>
+<li><a class="reference internal" href="#persistent-changes">Persistent changes</a></li>
+<li><a class="reference internal" href="#tilt-positions">Tilt positions</a></li>
+<li><a class="reference internal" href="#pan-positions">Pan positions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Robobo.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="robobo.html"
+                        title="next chapter">Robobo.py</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/introduction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -107,36 +133,6 @@
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
-
-<h3>Meet Robobo</h3>
-<p>
-   You can find more useful documentation:
-</p>
-
-<ul style="list-style-type: disc; margin-left: 20px;">
-   <li>
-      <a target="_blank" href="http://education.theroboboproject.com">
-         Robobo educational Portal
-      </a>
-   </li>
-   <li>
-      <a target="_blank" href="https://bitbucket.org/mytechia/robobo-programming/wiki/Home">
-         Robobo Wiki
-      </a>
-   </li>
-</ul>
-
-<p>
-   And more information:
-</p>
-<center>
-   <a target="_blank" href="https://theroboboproject.com">
-      <img src="_static/logo_robobo_azul.png" alt="Robobo" />
-      theroboboproject.com
-   </a>
-</center>
-
-</div>
         </div>
       </div>
 
@@ -145,35 +141,30 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="robobo-py">
-<h1>Robobo.py<a class="headerlink" href="#robobo-py" title="Permalink to this headline">¶</a></h1>
-<p>Python programming library for the Robobo educational robot.</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="features.html">General features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="features.html#blocking-instructions">Blocking instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#persistent-changes">Persistent changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#tilt-positions">Tilt positions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#pan-positions">Pan positions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="robobo.html">Robobo.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.Acceleration">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.BlobColor">Enumerations</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="general-features">
+<span id="features"></span><h1>General features<a class="headerlink" href="#general-features" title="Permalink to this headline">¶</a></h1>
+<p>In this section, some particularities of Robobo which are common to several functions and classes are explained.</p>
+<div class="section" id="blocking-instructions">
+<span id="blocking"></span><h2>Blocking instructions<a class="headerlink" href="#blocking-instructions" title="Permalink to this headline">¶</a></h2>
+<p>A blocking instruction prevents Robobo from executing other instructions until it has finished.
+A non blocking instruction, once executed, allows other instructions to be executed simultaneously.
+Some instructions can be executed both in blocking and non blocking mode.</p>
 </div>
+<div class="section" id="persistent-changes">
+<span id="persistent"></span><h2>Persistent changes<a class="headerlink" href="#persistent-changes" title="Permalink to this headline">¶</a></h2>
+<p>Some of the functions called affect Robobo hardware.
+Persistent changes remain even if the program finishes and until Robobo is restarted, when it takes all the default values again.</p>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+<div class="section" id="tilt-positions">
+<span id="tilt"></span><h2>Tilt positions<a class="headerlink" href="#tilt-positions" title="Permalink to this headline">¶</a></h2>
+<p>The following image shows the different positions of the tilt, which can take angles between 5 and 105 degrees.</p>
+<a class="reference internal image-reference" href="_images/tilt.PNG"><img alt="Image showing standard smartphone position at 75 degrees, and indicating that lower values mean it rotated backwards while higher values mean it rotated forwards." src="_images/tilt.PNG" style="width: 384.0px; height: 400.0px;" /></a>
+</div>
+<div class="section" id="pan-positions">
+<span id="pan"></span><h2>Pan positions<a class="headerlink" href="#pan-positions" title="Permalink to this headline">¶</a></h2>
+<p>The following image shows the different positions of the pan, which can take angles between -160 and 160 degrees.</p>
+<a class="reference internal image-reference" href="_images/pan.PNG"><img alt="Image showing standard smartphone position at 0 degrees, and indicating that lower values mean it rotated left while higher values mean it rotated right." src="_images/pan.PNG" style="width: 384.0px; height: 444.5px;" /></a>
+</div>
 </div>
 
 
@@ -193,15 +184,18 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="features.html" title="General features"
+          <a href="robobo.html" title="Robobo.py"
              >next</a> |</li>
-        <li><a href="#">Home</a></li>
+        <li class="right" >
+          <a href="index.html" title="Robobo.py"
+             >previous</a> |</li>
+        <li><a href="index.html">Home</a></li>
 <!--
-        <li><a href="#">Home</a>&#160;|</li>
+        <li><a href="index.html">Home</a>&#160;|</li>
         <li><a href="contents.html">Documentation</a> &#187;</li>
 -->
 
-        <li class="nav-item nav-item-this"><a href="">Robobo.py</a></li> 
+        <li class="nav-item nav-item-this"><a href="">General features</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

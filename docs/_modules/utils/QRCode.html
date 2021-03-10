@@ -116,13 +116,16 @@
 <span class="sd">    Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para saber si te acercas o te alejas, no la distancia exacta.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        - x (int): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</span>
-<span class="sd">        - y (int): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</span>
+<span class="sd">        - x (float): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</span>
+<span class="sd">        - y (float): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</span>
 <span class="sd">        - distance (int): Approximated distance between Robobo and the QRCode, measured in meters.</span>
-<span class="sd">        - p1 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the first point of interest.</span>
-<span class="sd">        - p2 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the second point of interest.</span>
-<span class="sd">        - p3 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the third point of interest.</span>
+<span class="sd">        - p1 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the first point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
+<span class="sd">        - p2 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the second point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
+<span class="sd">        - p3 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the third point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
 <span class="sd">        - id (int): QRCode identifier.</span>
+
+<span class="sd">        .. image:: _static/qr.PNG</span>
+<span class="sd">            :alt: Image showing an standard QR code, which has three of its corners marked. From the not marked corner and clockwise, the other corners are numbered as p1, p2 and p3.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">p1x</span><span class="p">,</span> <span class="n">p1y</span><span class="p">,</span> <span class="n">p2x</span><span class="p">,</span> <span class="n">p2y</span><span class="p">,</span> <span class="n">p3x</span><span class="p">,</span> <span class="n">p3y</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
@@ -171,7 +174,7 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MINT.
+        &#169; Copyright 2010, MINT.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>

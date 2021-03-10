@@ -67,7 +67,7 @@ class Robobo:
         :param rSpeed: Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
         :param lSpeed: Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
         :param duration: Duration of the movement in seconds (>0). Decimals like 0.2 are allowed.
-        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
 
         :type rSpeed: int
         :type lSpeed: int
@@ -119,9 +119,9 @@ class Robobo:
         """
         Moves the PAN of the base to the specified position at the specified speed.
 
-        :param degrees: Position in degress of the PAN [-160..160].
+        :param degrees: Position in degress of the PAN [-160..160]. See: :ref:`pan`.
         :param speed: Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.
-        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
 
         :type degrees: int
         :type speed: int
@@ -137,9 +137,9 @@ class Robobo:
         """
         Moves the TILT of the base to the specified position at the specified speed.
 
-        :param degrees: Position in degrees of the TILT [5..105].
+        :param degrees: Position in degrees of the TILT [5..105]. See: :ref:`tilt`.
         :param speed: Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.
-        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
             
         :type degrees: int
         :type speed: int
@@ -177,7 +177,7 @@ class Robobo:
 
         :param note: Note to play index following the Anglo-Saxon notation [48..72].
         :param duration: Duration of the note in seconds (decimals like 0.2 are allowed).
-        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
 
         :type note: int
         :type duration: float
@@ -202,7 +202,7 @@ class Robobo:
         Makes Robobo say the specified text.
 
         :param speech: The text to say.
-        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
 
         :type speech: string
         :type wait: bool
@@ -212,10 +212,11 @@ class Robobo:
 
     def setStreamFps(self, fps):
         """
-        Sets the stream fps. These are the number of frames per second received from the smartphone camera.
-        Changes are persistent.
+        Sets the stream fps. These are the number of frames per second sent from the smartphone to the computer.
+        Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.
+        This change is persistent (see: :ref:`persistent`).
 
-        :param fps: New upper limit of the stream fps. Takes positive values, and the maximum value taken depends on the smartphone, but it is usually around 20.
+        :param fps: New upper limit of the stream fps. Takes positive values.
 
         :type fps: int
 
@@ -225,9 +226,10 @@ class Robobo:
     def setCameraFps(self, fps):
         """
         Sets the camera fps. These are the number of frames per second read by the smartphone camera.
-        Changes are persistent.
+        Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.
+        This change is persistent (see: :ref:`persistent`).
 
-        :param fps: New upper limit of the camera fps. Takes positive values, and the maximum value taken depends on the smartphone, but it is usually around 20.
+        :param fps: New upper limit of the camera fps. Takes positive values.
 
         :type fps: int
         """
@@ -236,83 +238,94 @@ class Robobo:
 
     def setFrontCamera(self):
         """
-        Makes Robobo use the frontal camera.
+        Makes Robobo use the frontal camera. This change is persistent (see: :ref:`persistent`).
         """
 
         self.rem.setCamera("front")
 
     def setBackCamera(self):
         """
-        Makes Robobo use the back camera.
+        Makes Robobo use the back camera. This change is persistent (see: :ref:`persistent`).
         """
 
         self.rem.setCamera("back")
 
     def startStream(self):
         """
-        Starts the camera streaming. Camera streaming is stopped by default. This change is persistant.
+        Starts the camera streaming. Camera streaming is stopped by default. This change is persistent (see: :ref:`persistent`).
         """
 
         self.rem.startStream()
 
     def stopStream(self):
         """
-        Stops the camera streaming. Camera streaming is stopped by default. This change is persistant.
+        Stops the camera streaming. Camera streaming is stopped by default. This change is persistent (see: :ref:`persistent`).
         """
 
         self.rem.stopStream()
 
     def startFaceDetection(self):
         """
-        Starts the face detection. Face detection is started by default. This change is persistant.
+        Starts the face detection. Face detection is started by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.stopFaceDetection`, :class:`~Robobo.readFaceSensor`, :class:`~Robobo.resetFaceSensor`, :class:`~Robobo.whenAFaceIsLost`, :class:`~Robobo.whenANewFaceIsDetected`.
         """ 
         self.rem.startFaceDetection()
 
     def stopFaceDetection(self):
         """
-        Stops the face detection. Face detection is started by default. This change is persistant.
+        Stops the face detection. Face detection is started by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startFaceDetection`.
         """ 
         self.rem.stopFaceDetection()
 
     def startObjectRecognition(self):
         """
-        Starts the object recognition. Object recognition is stopped by default. This change is persistant.
+        Starts the object recognition. Object recognition is stopped by default. This change is persistent (see: :ref:`persistent`).
+        For more information, check the `Object Recognition Wiki <https://github.com/mintforpeople/robobo-programming/wiki/Real-time-object-identification>`_.
+        See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObject`, :class:`~Robobo.whenAnObjectIsDetected`.        
         """
 
         self.rem.startObjectRecognition()
 
     def stopObjectRecognition(self):
         """
-        Stops the object recognition. Object recognition is stopped by default. This change is persistant.
+        Stops the object recognition. Object recognition is stopped by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startObjectRecognition`.
         """
 
         self.rem.stopObjectRecognition()
 
     def startQrTracking(self):
         """
-        Starts the QR tracking. QR tracking is started by default. This change is persistant.
+        Starts the QR tracking. QR tracking is started by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.stopQrTracking`, :class:`~Robobo.readQR`, :class:`~Robobo.whenANewQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsLost`.
         """
 
         self.rem.startQrTracking()
 
     def stopQrTracking(self):
         """
-        Stops the QR tracking. QR tracking is started by default. This change is persistant.
+        Stops the QR tracking. QR tracking is started by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startQrTracking`.
         """
 
         self.rem.stopQrTracking()
 
     def startArUcoTagDetection(self):
         """
-        Starts the ArUcoTag detection.
+        Starts the ArUcoTag detection. This change is persistent (see: :ref:`persistent`).
+        For more information, check the `ArUco Tag Detection Wiki <https://github.com/mintforpeople/robobo-programming/wiki/ArUco-marker-detection>`_.
+        See also: :class:`~Robobo.stopArUcoTagDetection`, :class:`~Robobo.setArucoTagSize`, :class:`~Robobo.readArucoTag`, :class:`~Robobo.whenArucoTagIsDetected`.
         """
 
         self.rem.startTag()
 
     def setArucoTagSize(self, size):
         """
-        Sets the length of the side of the ArUco tag to be detected. It is important that this value fits the real tag size used, because it is used to calculate the distance from Robobo to the tag.
-        This change is persistent.
+        Sets the length of the side of the ArUco tag to be detected.
+        It is important that this value fits the real tag size used, because it is used to calculate the distance from Robobo to the tag.
+        This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startArUcoTagDetection`.
 
         :param size: Size of the side of the ArUco tag in milimiters.
 
@@ -324,42 +337,52 @@ class Robobo:
     def stopArUcoTagDetection(self):
         """
         Stops the ArUco tag detection.
+        This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startArUcoTagDetection`.
         """
 
         self.rem.stopTag()
 
     def startLaneDetection(self):
         """
-        Starts the lane detection. Lane detection is stopped by default. This change is persistant.
+        Starts the lane detection. Lane detection is stopped by default. This change is persistent (see: :ref:`persistent`).
+        For more information, check the `Lane Detection Wiki <https://github.com/mintforpeople/robobo-programming/wiki/Lane-detection-library>`_.
+        See also: :class:`~Robobo.stopLaneDetection`, :class:`~Robobo.setLaneColorInversion`, :class:`~Robobo.readLaneBasic`, :class:`~Robobo.readLanePro`, :class:`~Robobo.whenALaneBasicDetected`, :class:`~Robobo.whenALaneProDetected`.
         """
 
         self.rem.startLane()
 
     def stopLaneDetection(self):
         """
-        Stops the lane detection. Lane detection is stopped by default. This change is persistant.
+        Stops the lane detection. Lane detection is stopped by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startLaneDetection`.
+        
         """
 
         self.rem.stopLane()
 
     def startLineDetection(self):
         """
-        Starts the line detection. Line detection is stopped by default. This change is persistant.
+        Starts the line detection. Line detection is stopped by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~utils.Lines.Lines`, :class:`~Robobo.stopLineDetection`, :class:`~Robobo.readLine`, :class:`~Robobo.whenALineIsDetected`.
         """
 
         self.rem.startLine()
 
     def stopLineDetection(self):
         """
-        Stops the line detection. Line detection is stopped by default. This change is persistant.
+        Stops the line detection. Line detection is stopped by default. This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startLineDetection`.
         """
 
         self.rem.stopLine()
 
     def setLaneColorInversion(self, set_on):
         """
-        Toggles the color inversion for the advanced lane module. Usually, light lanes are detected against a dark background, but it is also possible to detect dark lanes against light backgrounds.
-        Changes are persistent.
+        Toggles the color inversion for the advanced lane module.
+        Usually, light lanes are detected against a dark background, but it is also possible to detect dark lanes against light backgrounds.
+        This change is persistent (see: :ref:`persistent`).
+        See also: :class:`~Robobo.startLaneDetection`.
 
         :param set_on: Boolean to choose if turn it on or off.
 
@@ -408,14 +431,18 @@ class Robobo:
 
     def resetColorBlobs(self):
         """
-        Resets the color blob detector. This sets to 0 the attributes of the last color blobs detected, but keeps the enabled and disabled colors the same.
+        Resets the color blob detector.
+        This sets to 0 the attributes of the last color blobs detected, but keeps the enabled and disabled colors the same.
+        See also: :class:`~Robobo.setActiveBlobs`.
         """
 
         self.rem.resetBlobs()
 
     def resetFaceSensor(self):
         """
-        Resets the face sensor. After this function, and until a new face is detected, the face sensor will return 0 for each attribute of the face object.
+        Resets the face sensor.
+        After this function, and until a new face is detected, the face sensor will return 0 for each attribute of the face object.
+        See also: :class:`~Robobo.startFaceDetection`.
         """
 
         self.rem.resetFace()
@@ -433,7 +460,9 @@ class Robobo:
 
     def setActiveBlobs(self, red, green, blue, custom):
         """
-        Enables or disables the individual tracking of each color. By default, green tracking is enabled and the rest are disabled.
+        Enables or disables the individual tracking of each color.
+        By default, green tracking is enabled and the rest are disabled.
+        See also: :class:`~Robobo.readAllColorBlobs`, :class:`~Robobo.readColorBlob`, :class:`~Robobo.resetColorBlobs`, :class:`~Robobo.whenANewColorBlobIsDetected`.
 
         **Warning**: Color tracking is a computationally intensive task, activating all the colors may impact performance.
 
@@ -454,17 +483,18 @@ class Robobo:
         """
         Sets advanced parameters for the blob tracker.
 
-        **Warning**: Only use this function if you know what you are doing. A bad configuration might have unexpected consecuences.
+        **Warning**: Only use this function if you know what you are doing.
+        A bad configuration might have unexpected consecuences.
 
         :param frames: Number of frames passed to consider a blob lost.
         :param minarea: Minimum area to consdider a Blob as a Blob.
         :param max_count: max_count parameter of the termcriteria.
         :param epsilon: epsilon parameter of the termcriteria.
 
-        :type frames:int
+        :type frames: int
         :type minarea: int
         :type max_count: int
-        :type epsilon :int
+        :type epsilon: int
         """
 
         self.rem.advancedLostBlobConfiguration(frames, minarea, max_count, epsilon)
@@ -493,7 +523,9 @@ class Robobo:
 
     def readIRSensor(self, id):
         """
-        Reads the current value sensed by the specified IR. This value depends on the distance to nearby objects, being larger for shorter distances. This value also depends on ambient conditions, such as the lighting.
+        Reads the current value sensed by the specified IR.
+        This value depends on the distance to nearby objects, being larger for shorter distances.
+        This value also depends on ambient conditions, such as the lighting.
 
         :param id: The IR to read the value sensed from.
         :return: The value of the IR read.
@@ -531,6 +563,7 @@ class Robobo:
     def readColorBlob(self, color):
         """
         Reads the last detected blob of the indicated color.
+        See also: :class:`~Robobo.setActiveBlobs`.
          
         :param color: Color of the blob, one of the following: 'red','green','blue','custom'.
         :type color: string
@@ -544,6 +577,7 @@ class Robobo:
     def readAllColorBlobs(self):
         """
         Reads all the color blob data.
+        See also: :class:`~Robobo.setActiveBlobs`.
 
         Example of use:
 
@@ -568,6 +602,7 @@ class Robobo:
     def readQR(self):
         """
         Reads the last detected QR code.
+        See also: :class:`~Robobo.startQrTracking`.
 
         :return: The QR code read.
 
@@ -579,6 +614,7 @@ class Robobo:
     def readLine(self):
         """
         Reads the last detected line.
+        See also: :class:`~Robobo.startLineDetection`.
 
         :return: The line read.
 
@@ -590,6 +626,7 @@ class Robobo:
     def readLaneBasic(self):
         """
         Reads the last detected basic lane (straight lines).
+        See also: :class:`~Robobo.startLaneDetection`.
 
         :return: The lane read.
 
@@ -601,6 +638,7 @@ class Robobo:
     def readLanePro(self):
         """
         Reads the last detected pro lane (Degree 2 polynomials).
+        See also: :class:`~Robobo.startLaneDetection`.
 
         :return: The pro lane read.
         
@@ -648,7 +686,7 @@ class Robobo:
         """
         Reads the current position of the PAN.
 
-        :return: The position in degrees, taking values in range [-160..160].
+        :return: The position in degrees, taking values in range [-160..160]. See: :ref:`tilt`.
 
         :rtype: int
         """
@@ -659,7 +697,7 @@ class Robobo:
         """
         Reads the current position of the TILT.
 
-        :return: The position in degrees, taking values in range [-90..90]
+        :return: The position in degrees, taking values in range [5..105]. See: :ref:`tilt`.
 
         :rtype: int
         """
@@ -715,9 +753,22 @@ class Robobo:
         return self.rem.state.flingAngle
 
     def readFlingDistance(self):
+        """
+        Reads the length of the last fling detected by Robobo.
+
+        :return: The length of the fling in pixels.
+        :rtype: float
+        """
         return self.rem.state.flingDistance
 
     def readFlingTime(self):
+        """
+        Reads the duration of the last fling detected by Robobo.
+
+        :return: The duration of the fling in milliseconds.
+        :rtype: float
+        """
+
         return self.rem.state.flingTime
 
     def readBatteryLevel(self, device):
@@ -737,6 +788,14 @@ class Robobo:
             return self.rem.state.baseBattery
 
     def readNoiseLevel(self):
+        """
+        Reads the SPL (Sound Pressure Level) value, which is a measurement of the ambient noise.
+
+        :return: The SPL value in decibels.
+
+        :rtype: float
+        """
+
         return self.rem.state.noise
 
     def readBrightnessSensor(self):
@@ -753,6 +812,7 @@ class Robobo:
     def readFaceSensor(self):
         """
         Returns the position and distance of the last face detected by Robobo.
+        See also: :class:`~Robobo.startFaceDetection`.
 
         Example of use:
 
@@ -772,6 +832,7 @@ class Robobo:
     def readArucoTag(self):
         """
         Reads the last ArUco Tag detected by Robobo.
+        See also: :class:`~Robobo.startArUcoTagDetection`.
 
         :return: The Tag.
 
@@ -783,6 +844,7 @@ class Robobo:
     def readDetectedObject(self):
         """
         Reads the last object detected by Robobo.
+        See also: :class:`~Robobo.startObjectRecognition`.
 
         :return: The object.
 
@@ -816,6 +878,7 @@ class Robobo:
     def whenANewFaceIsDetected(self, callback):
         """
         Configures the callback that is called when a new face is detected.
+        See also: :class:`~Robobo.startFaceDetection`.
 
         :param callback: The callback function to be called.
 
@@ -827,6 +890,7 @@ class Robobo:
     def whenANewColorBlobIsDetected(self, callback):
         """
         Configures the callback that is called when a new color blob is detected.
+        See also: :class:`~Robobo.setActiveBlobs`.
 
         :param callback: The callback function to be called.
 
@@ -838,6 +902,7 @@ class Robobo:
     def whenANewQRCodeIsDetected(self, callback):
         """
         Configures the callback that is called when a new QR is detected.
+        See also: :class:`~Robobo.startQrTracking`.
 
         :param callback: The callback function to be called.
 
@@ -871,6 +936,7 @@ class Robobo:
     def whenAFaceIsLost(self, callback):
         """
         Configures the callback that is called when a face is lost.
+        See also: :class:`~Robobo.startFaceDetection`.
 
         :param callback: The callback function to be called.
 
@@ -882,6 +948,7 @@ class Robobo:
     def whenAQRCodeIsDetected(self, callback):
         """
         Configures the callback that is called when a QR is detected.
+        See also: :class:`~Robobo.startQrTracking`.
 
         :param callback: The callback function to be called.
 
@@ -893,6 +960,7 @@ class Robobo:
     def whenAQRCodeIsLost(self, callback):
         """
         Configures the callback that is called when a QR is lost.
+        See also: :class:`~Robobo.startQrTracking`.
 
         :param callback: The callback function to be called.
 
@@ -904,6 +972,7 @@ class Robobo:
     def whenArucoTagIsDetected(self, callback):
         """
         Configures the callback that is called when a Tag is detected.
+        See also: :class:`~Robobo.startArUcoTagDetection`.
 
         :param callback: The callback function to be called.
 
@@ -915,6 +984,7 @@ class Robobo:
     def whenAnObjectIsDetected(self, callback):
         """
         Configures the callback that is called when an object is detected.
+        See also: :class:`~Robobo.startObjectRecognition`.
 
         :param callback: The callback function to be called.
 
@@ -926,6 +996,7 @@ class Robobo:
     def whenALineIsDetected(self, callback):
         """
         Configures the callback that is called when a line is detected.
+        See also: :class:`~Robobo.startLineDetection`.
 
         :param callback: The callback function to be called.
 
@@ -937,6 +1008,7 @@ class Robobo:
     def whenALaneProDetected(self, callback):
         """
         Configures the callback that is called when a pro lane is detected.
+        See also: :class:`~Robobo.startLaneDetection`.
 
         :param callback: The callback function to be called.
 
@@ -948,6 +1020,7 @@ class Robobo:
     def whenALaneBasicDetected(self, callback):
         """
         Configures the callback that is called when a basic lane is detected.
+        See also: :class:`~Robobo.startLaneDetection`.
 
         :param callback: The callback function to be called.
 
@@ -959,8 +1032,9 @@ class Robobo:
     def setStatusFrequency(self, frequency):
         """
         Sets the frequency of the status messages coming from Robobo.
-        Status messages are filtered by default in order to reduce network bandwidth. A higher frequency reduces the filters, so more status messages are sent and more network bandwidth is used.
-        This change is persistent.
+        Status messages are filtered by default in order to reduce network bandwidth.
+        A higher frequency reduces the filters, so more status messages are sent and more network bandwidth is used.
+        This change is persistent (see: :ref:`persistent`).
 
         :param frequency: New frequency of the status messages.
 

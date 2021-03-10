@@ -8,15 +8,15 @@
 Robobo.py
 ==================
 
-Python programming library for the Robobo educational robot
+Python programming library for the Robobo educational robot.
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   introduction.rst
-   robobo.rst
+   features.rst
+   robobo.rst   
    utils.rst
 
 ==================

@@ -318,7 +318,7 @@
 <li><p>pitch (float): Rotation in degrees around the Y axis. Takes values between -180 and 180. The pitch angle turn is achieved by using the TILT motor or moving the robot through a frontally inclined plane.</p></li>
 <li><p>roll (float): Rotation in degrees around the X axis. Takes values between -180 and 180. The turn in the roll angle cannot be achieved by Robobo, but if the surface on which it moves has a lateral inclination, it will change.</p></li>
 </ul>
-<img alt="_images/orientation.jpg" src="_images/orientation.jpg" />
+<img alt="Image showing Robobo three main axes. Yaw is the vertical axis, positive upwards. Roll is the longitudinal axis, positive forward. Pitch is the transversal axis, positive to Robobo's right." src="_images/orientation.jpg" />
 </dd>
 </dl>
 </dd></dl>
@@ -328,16 +328,17 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.QRCode.</span></code><code class="sig-name descname"><span class="pre">QRCode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/QRCode.html#QRCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.QRCode.QRCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para saber si te acercas o te alejas, no la distancia exacta.</p>
-<dl class="simple">
+<dl>
 <dt>Attributes:</dt><dd><ul class="simple">
-<li><p>x (int): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</p></li>
-<li><p>y (int): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</p></li>
+<li><p>x (float): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</p></li>
+<li><p>y (float): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</p></li>
 <li><p>distance (int): Approximated distance between Robobo and the QRCode, measured in meters.</p></li>
-<li><p>p1 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the first point of interest.</p></li>
-<li><p>p2 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the second point of interest.</p></li>
-<li><p>p3 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the third point of interest.</p></li>
+<li><p>p1 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the first point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
+<li><p>p2 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the second point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
+<li><p>p3 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the third point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
 <li><p>id (int): QRCode identifier.</p></li>
 </ul>
+<img alt="Image showing an standard QR code, which has three of its corners marked. From the not marked corner and clockwise, the other corners are numbered as p1, p2 and p3." src="_images/qr.PNG" />
 </dd>
 </dl>
 </dd></dl>
@@ -371,11 +372,11 @@
 <li><p>x (int): The x coordinate of the tap. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.</p></li>
 <li><p>y (int): The y coordinate of the tap. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.</p></li>
 </ul>
-<img alt="_images/tap_position.jpg" src="_images/tap_position.jpg" />
+<img alt="Image showing the two coordinate axis: The x axis follows the upper side of the screen, from left to right. The y axis follows the left side of the screen, from top to bottom." src="_images/tap_position.jpg" />
 <ul class="simple">
 <li><p>zone (string): Returns the area of the smartphone screen. Takes one of the following values: ‘forehead’, ‘eye’, ‘right’, ‘left’, ‘mouth’ or ‘chin’.</p></li>
 </ul>
-<a class="reference internal image-reference" href="_images/tap_areas.jpg"><img alt="_images/tap_areas.jpg" src="_images/tap_areas.jpg" style="width: 350.0px; height: 256.0px;" /></a>
+<a class="reference internal image-reference" href="_images/tap_areas.jpg"><img alt="Image showing the different possible tap areas on the screen, each one of them being a square or a rectangle. The upper part is the 'forehead'. Excluding the forehead, the right part is 'right' and the left part is 'left'. Excluding those parts, there are four zones remaining. From top to bottom, they are: the 'eye', which is the biggest of all zones, an undefined zone, the 'mouth' and the 'chin'." src="_images/tap_areas.jpg" style="width: 350.0px; height: 256.0px;" /></a>
 </dd>
 </dl>
 </dd></dl>
@@ -467,7 +468,7 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Emotions.</span></code><code class="sig-name descname"><span class="pre">Emotions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Emotions.html#Emotions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Emotions.Emotions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>Represents the list of emotions Robobo’s face can show.</p>
-<a class="reference internal image-reference" href="_images/emotions.jpg"><img alt="_images/emotions.jpg" src="_images/emotions.jpg" style="width: 686.4000000000001px; height: 288.0px;" /></a>
+<a class="reference internal image-reference" href="_images/emotions.jpg"><img alt="Image showing how Robobo looks for each emotion: happy, laughung, surprised, sad, angry, normal, sleeping, tired or afraid." src="_images/emotions.jpg" style="width: 686.4000000000001px; height: 288.0px;" /></a>
 <dl class="py attribute">
 <dt id="utils.Emotions.Emotions.AFRAID">
 <code class="sig-name descname"><span class="pre">AFRAID</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'afraid'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.AFRAID" title="Permalink to this definition">¶</a></dt>
@@ -521,7 +522,7 @@
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>This enumeration represents the list of Robobo base’s IR</p>
 <blockquote>
-<div><img alt="_images/irs.jpg" src="_images/irs.jpg" />
+<div><img alt="One image from Robobo frontal part, showing five IR sensors, named from left to right: Front-RR, Front-R, Front-C, Front-L and Front-LL. Another image from Robobo rear part, showing three IR sensors, named from left to right: Back-L, Back-C, Back-R." src="_images/irs.jpg" />
 </div></blockquote>
 <dl class="py attribute">
 <dt id="utils.IR.IR.BackC">
@@ -571,7 +572,7 @@
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>This enumeration represents the list of Robobo base’s LEDs</p>
 <blockquote>
-<div><a class="reference internal image-reference" href="_images/leds.jpg"><img alt="_images/leds.jpg" src="_images/leds.jpg" style="width: 460.79999999999995px; height: 357.59999999999997px;" /></a>
+<div><a class="reference internal image-reference" href="_images/leds.jpg"><img alt="Top view of Robobo. There are five IR sensors forming a pentagon on the frontal part: Front-C on the upper and central part, Front-RR to the left and Front-LL to the right (from the viewer's point of view) of the first one, and finally Front-R on the left and Front-L on the right of the lower part of the pentagon. There are two IR sensors on the rear part: Back-R on the right and Back-L on the left." src="_images/leds.jpg" style="width: 460.79999999999995px; height: 357.59999999999997px;" /></a>
 </div></blockquote>
 <dl class="py attribute">
 <dt id="utils.LED.LED.All">
@@ -768,7 +769,7 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MINT.
+        &#169; Copyright 2010, MINT.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>

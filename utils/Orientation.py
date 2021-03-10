@@ -8,6 +8,7 @@ class Orientation:
         - roll (float): Rotation in degrees around the X axis. Takes values between -180 and 180. The turn in the roll angle cannot be achieved by Robobo, but if the surface on which it moves has a lateral inclination, it will change.
 
         .. image:: _static/orientation.jpg
+            :alt: Image showing Robobo three main axes. Yaw is the vertical axis, positive upwards. Roll is the longitudinal axis, positive forward. Pitch is the transversal axis, positive to Robobo's right.
 
     """
     
