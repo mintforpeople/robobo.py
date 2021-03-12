@@ -4,8 +4,8 @@ class Blob:
     
     Attributes:
         - color (string): The color of the blob.
-        - posx (int): The x coordinate of the center of the blob area. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.
-        - posy (int): The y coordinate of the center of the blob area. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.
+        - posx (int): The x coordinate of the tap [0..100]. See: :ref:`screen`.
+        - posy (int): The y coordinate of the tap [0..100]. See: :ref:`screen`.
         - size (int): The area of the blob measured in pixels.
         - frame_timestamp (long): The time when the frame started processing.
         - status_timestamp (long): The time when the status was sent.

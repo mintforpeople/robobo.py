@@ -4,12 +4,8 @@ class Tap:
     Represents a tap detected on the smartphone screen.
     
     Attributes:
-        - x (int): The x coordinate of the tap. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.
-        - y (int): The y coordinate of the tap. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.
-
-        .. image:: _static/tap_position.jpg
-            :alt: Image showing the two coordinate axis: The x axis follows the upper side of the screen, from left to right. The y axis follows the left side of the screen, from top to bottom.
-
+        - x (int): The x coordinate of the tap [0..100]. See: :ref:`screen`.
+        - y (int): The y coordinate of the tap [0..100]. See: :ref:`screen`.
         - zone (string): Returns the area of the smartphone screen. Takes one of the following values: 'forehead', 'eye', 'right', 'left', 'mouth' or 'chin'.
 
         .. image:: _static/tap_areas.jpg
