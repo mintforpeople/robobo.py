@@ -10,7 +10,6 @@ Robobo.py
 
 Python programming library for the Robobo educational robot.
 
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
