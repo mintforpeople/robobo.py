@@ -19,6 +19,7 @@ class RobProcessor(AbstractProcessor):
             self.state.wheelPosL = int(value["wheelPosL"])
             self.state.wheelSpeedR = int(value["wheelSpeedR"])
             self.state.wheelSpeedL = int(value["wheelSpeedL"])
+            self.state.lastWheelsTimestamp = int(value["timestamp"])
 
         elif name == "IRS":
             self.state.irs = value

@@ -78,7 +78,7 @@ class VisionProcessor(AbstractProcessor):
                                    float(value["p2y"]),
                                    float(value["p3x"]),
                                    float(value["p3y"]),
-                                   value["id"])
+                                   value["id"],int(value["timestamp"]))
 
             self.runCallback("newqr")
 
@@ -93,13 +93,13 @@ class VisionProcessor(AbstractProcessor):
                                    float(value["p2y"]),
                                    float(value["p3x"]),
                                    float(value["p3y"]),
-                                   value["id"])
+                                   value["id"],int(value["timestamp"]))
             self.runCallback("qr")
 
 
 
         elif (name == "QRCODELOST"):
-            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
+            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None",0)
             self.runCallback("lostqr")
 
         elif name == "TAG":
@@ -117,7 +117,7 @@ class VisionProcessor(AbstractProcessor):
                                  float(value["tvec_0"]),
                                  float(value["tvec_1"]),
                                  float(value["tvec_2"]),
-                                 value["id"])
+                                 value["id"],int(value["timestamp"]))
             self.runCallback("tag")
 
         elif name == "DETECTED_OBJECT":
@@ -127,7 +127,7 @@ class VisionProcessor(AbstractProcessor):
                 int(value["width"]),
                 int(value["height"]),
                 float(value["confidence"]),
-                value["label"])
+                value["label"],int(value["timestamp"]))
             self.runCallback("detectedobject")
         elif name == "LANE_BASIC":
             self.state.laneBasic = LaneBasic(
@@ -166,10 +166,10 @@ class VisionProcessor(AbstractProcessor):
 
     def resetBlobs(self):
         self.state.blobs = {
-            "red": Blob("red", 0, 0, 0),
-            "green": Blob("green", 0, 0, 0),
-            "blue": Blob("blue", 0, 0, 0),
-            "custom": Blob("custom", 0, 0, 0)}
+            "red": Blob("red", 0, 0, 0,0,0),
+            "green": Blob("green", 0, 0, 0,0,0),
+            "blue": Blob("blue", 0, 0, 0,0,0),
+            "custom": Blob("custom", 0, 0, 0,0,0)}
 
     def resetFace(self):
         self.state.face = Face(0, 0, -1)

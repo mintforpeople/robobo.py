@@ -9,9 +9,10 @@ class QRCode():
         - p2: Dictionary with 'x' and 'y' coordinates of the second point of interest (Result point).
         - p3: Dictionary with 'x' and 'y' coordinates of the third point of interest (Result point).
         - id: QRCode identifier.
+        - timestamp: Timestamp of the status
     """
 
-    def __init__(self, x, y, dist, p1x, p1y, p2x, p2y, p3x, p3y, id):
+    def __init__(self, x, y, dist, p1x, p1y, p2x, p2y, p3x, p3y, id, statusTimestamp):
         self.x = x
         self.y = y
         self.distance = dist
@@ -26,6 +27,7 @@ class QRCode():
                    "y": p3y}
 
         self.id = id
+        self.timestamp = statusTimestamp
 
     def __str__(self):
-        return "QR, Id:" + self.id + " x:" + str(self.x) + " y:" + str(self.y) + " distance:" + str(self.distance)
+        return "QR, Id:" + self.id + " x:" + str(self.x) + " y:" + str(self.y) + " distance:" + str(self.distance) + " timestamp:" + str(self.timestamp)

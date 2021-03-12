@@ -637,6 +637,16 @@ class Robobo:
             print("Wheel id not valid")
             return 0
 
+    def readWheelLastTime(self):
+        """
+                Returns the timestamp of the last received
+                wheel status
+
+                :return: Time in milliseconds
+                :rtype: int
+                """
+        return self.rem.state.lastWheelsTimestamp
+
     def readFlingAngle(self):
         """
         Returns the angle detected on the fling sensor
