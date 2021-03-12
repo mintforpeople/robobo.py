@@ -41,8 +41,9 @@ class State:
         self.accelz = 0
 
         self.panPos = 0
+        self.lastPanTimestamp = 0
         self.tiltPos = 0
-
+        self.lastTiltTimestamp = 0
         self.blobs = {
             "red": Blob("red", 0, 0, 0,-1,-1),
             "green": Blob("green", 0, 0, 0,-1,-1),
@@ -118,7 +119,9 @@ class State:
         self.accelz = 0
 
         self.panPos = 0
+        self.lastPanTimestamp = 0
         self.tiltPos = 0
+        self.lastTiltTimestamp = 0
 
         self.blobs = {
             "red": Blob("red", 0, 0, 0, 0, 0),

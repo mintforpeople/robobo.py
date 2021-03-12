@@ -594,6 +594,16 @@ class Robobo:
         """
         return self.rem.state.panPos
 
+    def readPanLastTime(self):
+        """
+                Returns the timestamp of the last received
+                pan status
+
+                :return: Time in milliseconds
+                :rtype: int
+                """
+        return self.rem.state.lastPanTimestamp
+
     def readTiltPosition(self):
         """
         Returns the current position of the TILT
@@ -602,6 +612,16 @@ class Robobo:
         :rtype: int
         """
         return self.rem.state.tiltPos
+
+    def readTiltLastTime(self):
+        """
+                Returns the timestamp of the last received
+                tilt status
+
+                :return: Time in milliseconds
+                :rtype: int
+                """
+        return self.rem.state.lastTiltTimestamp
 
     def readWheelPosition(self, wheel):
         """
