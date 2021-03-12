@@ -66,6 +66,7 @@ To create a Robobo instance:
     Smartphone sensing methods
     ==========================
 
+    .. automethod:: Robobo.readBatteryLevel
     .. automethod:: Robobo.setStatusFrequency
 
     .. automethod:: Robobo.setStreamFps

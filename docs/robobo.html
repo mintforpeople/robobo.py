@@ -406,7 +406,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd><p>Makes Robobo play a musical note.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>note</strong> – Note to play index following the Anglo-Saxon notation [48..72]. The following scheme shows the equivalency in the range 48 to 59:</p>
+<dd class="field-odd"><p><strong>note</strong> – Note to play index following the Anglo-Saxon notation, allowing 133 possible notes. The following scheme shows the equivalency in the range 48 to 59:</p>
 </dd>
 </dl>
 <table class="docutils align-default">
@@ -515,6 +515,23 @@ This value also depends on ambient conditions, such as the lighting.</p>
 </div>
 <div class="section" id="smartphone-sensing-methods">
 <h2>Smartphone sensing methods<a class="headerlink" href="#smartphone-sensing-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="id0">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readBatteryLevel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readBatteryLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the battery level of the base or the smartphone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<em>string</em>) – One of ‘base’ or ‘phone’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The battery level of the specified device.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="Robobo.Robobo.setStatusFrequency">
 <code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setStatusFrequency</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setStatusFrequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setStatusFrequency" title="Permalink to this definition">¶</a></dt>

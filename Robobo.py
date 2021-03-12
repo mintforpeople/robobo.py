@@ -160,7 +160,7 @@ class Robobo:
         """
         Makes Robobo play a musical note.
 
-        :param note: Note to play index following the Anglo-Saxon notation [48..72]. The following scheme shows the equivalency in the range 48 to 59:
+        :param note: Note to play index following the Anglo-Saxon notation, allowing 133 possible notes. The following scheme shows the equivalency in the range 48 to 59:
 
         ====  ==== ====  ==== ====  ====  ==== ==== ==== ====  ====  ====
         DO    DO#  RE    RE#  MI    FA    FA#  SOL  SOL# LA    LA#   SI
