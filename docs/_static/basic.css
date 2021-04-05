@@ -15,6 +15,10 @@ div.clearer {
     clear: both;
 }
 
+div.section {
+    overflow: hidden;
+}
+
 div.section::after {
     display: block;
     content: '';

@@ -119,23 +119,8 @@
 <span class="kn">from</span> <span class="nn">utils.Tap</span> <span class="kn">import</span> <span class="n">Tap</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<div class="viewcode-block" id="Robobo"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo">[docs]</a><span class="k">class</span> <span class="nc">Robobo</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Robobo.py is the library used to create programs for the Robobo educational</span>
-<span class="sd">    robot in the Python language.</span>
+<span class="k">class</span> <span class="nc">Robobo</span><span class="p">:</span>
 
-<span class="sd">    To create a Robobo instance:</span>
-
-<span class="sd">    .. code-block:: python</span>
-
-<span class="sd">        from Robobo import Robobo</span>
-
-<span class="sd">        rob = Robobo (&#39;10.113.36.150&#39;)</span>
-
-<span class="sd">    **Parameters:**</span>
-
-<span class="sd">    - **ip:** (string) The IP address of the Robobo robot.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -288,8 +273,15 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Makes Robobo play a musical note.</span>
 
-<span class="sd">        :param note: Note to play index following the Anglo-Saxon notation [48..72].</span>
-<span class="sd">        :param duration: Duration of the note in seconds (decimals like 0.2 are allowed).</span>
+<span class="sd">        :param note: Note to play index following the Anglo-Saxon notation, allowing 133 possible notes. The following scheme shows the equivalency in the range 48 to 59:</span>
+
+<span class="sd">        ====  ==== ====  ==== ====  ====  ==== ==== ==== ====  ====  ====</span>
+<span class="sd">        DO    DO#  RE    RE#  MI    FA    FA#  SOL  SOL# LA    LA#   SI</span>
+<span class="sd">        C     Cs   D     Ds   E     F     Fs   G    Gs   A     As    B</span>
+<span class="sd">        48    49   50    51   52    53    54   55   56   57    58    59</span>
+<span class="sd">        ====  ==== ====  ==== ====  ====  ==== ==== ==== ====  ====  ====</span>
+
+<span class="sd">        :param duration: Duration of the note in seconds (&gt;0). Decimals like 0.2 are allowed.</span>
 <span class="sd">        :param wait: If true, the instruction is executed in blocking mode. If false, it&#39;s executed in non-blocking mode. For more information, see: :ref:`blocking`.</span>
 
 <span class="sd">        :type note: int</span>
@@ -325,9 +317,8 @@
 
 <div class="viewcode-block" id="Robobo.setStreamFps"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setStreamFps">[docs]</a>    <span class="k">def</span> <span class="nf">setStreamFps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fps</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets the stream fps. These are the number of frames per second sent from the smartphone to the computer.</span>
-<span class="sd">        Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</span>
-<span class="sd">        This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | Sets the stream fps. These are the number of frames per second sent from the smartphone to the computer. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 
 <span class="sd">        :param fps: New upper limit of the stream fps. Takes positive values.</span>
 
@@ -338,9 +329,8 @@
 
 <div class="viewcode-block" id="Robobo.setCameraFps"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setCameraFps">[docs]</a>    <span class="k">def</span> <span class="nf">setCameraFps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fps</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets the camera fps. These are the number of frames per second read by the smartphone camera.</span>
-<span class="sd">        Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</span>
-<span class="sd">        This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | Sets the camera fps. These are the number of frames per second read by the smartphone camera. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 
 <span class="sd">        :param fps: New upper limit of the camera fps. Takes positive values.</span>
 
@@ -351,94 +341,114 @@
 
 <div class="viewcode-block" id="Robobo.setFrontCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setFrontCamera">[docs]</a>    <span class="k">def</span> <span class="nf">setFrontCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Makes Robobo use the frontal camera. This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | Makes Robobo use the frontal camera.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Robobo.setBackCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setBackCamera">[docs]</a>    <span class="k">def</span> <span class="nf">setBackCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Makes Robobo use the back camera. This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | Makes Robobo use the back camera.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;back&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Robobo.startStream"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startStream">[docs]</a>    <span class="k">def</span> <span class="nf">startStream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Starts the camera streaming. Camera streaming is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | Starts the camera streaming.</span>
+<span class="sd">        | Camera streaming is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | In order to use this function, it&#39;s neccesary to download the project and follow the instructions from the `stream repository &lt;https://github.com/mintforpeople/robobo-python-video-stream&gt;`_.</span>
+<span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startStream</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.stopStream"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopStream">[docs]</a>    <span class="k">def</span> <span class="nf">stopStream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the camera streaming. Camera streaming is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | Stops the camera streaming.</span>
+<span class="sd">        | Camera streaming is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopStream</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.startFaceDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startFaceDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startFaceDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Starts the face detection. Face detection is started by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.stopFaceDetection`, :class:`~Robobo.readFaceSensor`, :class:`~Robobo.resetFaceSensor`, :class:`~Robobo.whenAFaceIsLost`, :class:`~Robobo.whenANewFaceIsDetected`.</span>
+<span class="sd">        | Starts the face detection.</span>
+<span class="sd">        | Face detection is started by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.stopFaceDetection`, :class:`~Robobo.readFaceSensor`, :class:`~Robobo.resetFaceSensor`, :class:`~Robobo.whenAFaceIsLost`, :class:`~Robobo.whenANewFaceIsDetected`.</span>
 <span class="sd">        &quot;&quot;&quot;</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startFaceDetection</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.stopFaceDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopFaceDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopFaceDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the face detection. Face detection is started by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startFaceDetection`.</span>
+<span class="sd">        | Stops the face detection.</span>
+<span class="sd">        | Face detection is started by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopFaceDetection</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.startObjectRecognition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startObjectRecognition">[docs]</a>    <span class="k">def</span> <span class="nf">startObjectRecognition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Starts the object recognition. Object recognition is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        For more information, check the `Object Recognition Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/Real-time-object-identification&gt;`_.</span>
-<span class="sd">        See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObject`, :class:`~Robobo.whenAnObjectIsDetected`.        </span>
+<span class="sd">        | Starts the object recognition.</span>
+<span class="sd">        | Object recognition is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObject`, :class:`~Robobo.whenAnObjectIsDetected`.        </span>
+<span class="sd">        | For more information, check the `Object Recognition Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/Real-time-object-identification&gt;`_.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startObjectRecognition</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.stopObjectRecognition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopObjectRecognition">[docs]</a>    <span class="k">def</span> <span class="nf">stopObjectRecognition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the object recognition. Object recognition is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startObjectRecognition`.</span>
+<span class="sd">        | Stops the object recognition.</span>
+<span class="sd">        | Object recognition is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopObjectRecognition</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.startQrTracking"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startQrTracking">[docs]</a>    <span class="k">def</span> <span class="nf">startQrTracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Starts the QR tracking. QR tracking is started by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.stopQrTracking`, :class:`~Robobo.readQR`, :class:`~Robobo.whenANewQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsLost`.</span>
+<span class="sd">        | Starts the QR tracking.</span>
+<span class="sd">        | QR tracking is started by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.stopQrTracking`, :class:`~Robobo.readQR`, :class:`~Robobo.whenANewQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsLost`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startQrTracking</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.stopQrTracking"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopQrTracking">[docs]</a>    <span class="k">def</span> <span class="nf">stopQrTracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the QR tracking. QR tracking is started by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startQrTracking`.</span>
+<span class="sd">        | Stops the QR tracking.</span>
+<span class="sd">        | QR tracking is started by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopQrTracking</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.startArUcoTagDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startArUcoTagDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startArUcoTagDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Starts the ArUcoTag detection. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        For more information, check the `ArUco Tag Detection Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/ArUco-marker-detection&gt;`_.</span>
-<span class="sd">        See also: :class:`~Robobo.stopArUcoTagDetection`, :class:`~Robobo.setArucoTagSize`, :class:`~Robobo.readArucoTag`, :class:`~Robobo.whenArucoTagIsDetected`.</span>
+<span class="sd">        | Starts the ArUcoTag detection.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.stopArUcoTagDetection`, :class:`~Robobo.setArucoTagSize`, :class:`~Robobo.readArucoTag`, :class:`~Robobo.whenArucoTagIsDetected`.</span>
+<span class="sd">        | For more information, check the `ArUco Tag Detection Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/ArUco-marker-detection&gt;`_.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startTag</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.setArucoTagSize"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setArucoTagSize">[docs]</a>    <span class="k">def</span> <span class="nf">setArucoTagSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets the length of the side of the ArUco tag to be detected.</span>
-<span class="sd">        It is important that this value fits the real tag size used, because it is used to calculate the distance from Robobo to the tag.</span>
-<span class="sd">        This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startArUcoTagDetection`.</span>
+<span class="sd">        | Sets the length of the side of the ArUco tag to be detected. It is important that this value fits the real tag size used, because it is used to calculate the distance from Robobo to the tag.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startArUcoTagDetection`.</span>
 
 <span class="sd">        :param size: Size of the side of the ArUco tag in milimiters.</span>
 
@@ -449,26 +459,30 @@
 
 <div class="viewcode-block" id="Robobo.stopArUcoTagDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopArUcoTagDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopArUcoTagDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the ArUco tag detection.</span>
-<span class="sd">        This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startArUcoTagDetection`.</span>
+<span class="sd">        | Stops the ArUco tag detection.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startArUcoTagDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopTag</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.startLaneDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startLaneDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startLaneDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Starts the lane detection. Lane detection is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        For more information, check the `Lane Detection Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/Lane-detection-library&gt;`_.</span>
-<span class="sd">        See also: :class:`~Robobo.stopLaneDetection`, :class:`~Robobo.setLaneColorInversion`, :class:`~Robobo.readLaneBasic`, :class:`~Robobo.readLanePro`, :class:`~Robobo.whenALaneBasicDetected`, :class:`~Robobo.whenALaneProDetected`.</span>
+<span class="sd">        | Starts the lane detection.</span>
+<span class="sd">        | Lane detection is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.stopLaneDetection`, :class:`~Robobo.setLaneColorInversion`, :class:`~Robobo.readLaneBasic`, :class:`~Robobo.readLanePro`, :class:`~Robobo.whenALaneBasicDetected`, :class:`~Robobo.whenALaneProDetected`.</span>
+<span class="sd">        | For more information, check the `Lane Detection Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/Lane-detection-library&gt;`_.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startLane</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.stopLaneDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopLaneDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopLaneDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the lane detection. Lane detection is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startLaneDetection`.</span>
+<span class="sd">        | Stops the lane detection.</span>
+<span class="sd">        | Lane detection is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -476,26 +490,29 @@
 
 <div class="viewcode-block" id="Robobo.startLineDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startLineDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startLineDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Starts the line detection. Line detection is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~utils.Lines.Lines`, :class:`~Robobo.stopLineDetection`, :class:`~Robobo.readLine`, :class:`~Robobo.whenALineIsDetected`.</span>
+<span class="sd">        | Starts the line detection.</span>
+<span class="sd">        | Line detection is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~utils.Lines.Lines`, :class:`~Robobo.stopLineDetection`, :class:`~Robobo.readLine`, :class:`~Robobo.whenALineIsDetected`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startLine</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.stopLineDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopLineDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopLineDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the line detection. Line detection is stopped by default. This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startLineDetection`.</span>
+<span class="sd">        | Stops the line detection.</span>
+<span class="sd">        | Line detection is stopped by default.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startLineDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopLine</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.setLaneColorInversion"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setLaneColorInversion">[docs]</a>    <span class="k">def</span> <span class="nf">setLaneColorInversion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">set_on</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Toggles the color inversion for the advanced lane module.</span>
-<span class="sd">        Usually, light lanes are detected against a dark background, but it is also possible to detect dark lanes against light backgrounds.</span>
-<span class="sd">        This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        See also: :class:`~Robobo.startLaneDetection`.</span>
+<span class="sd">        | Toggles the color inversion for the advanced lane module. Usually, light lanes are detected against a dark background, but it is also possible to detect dark lanes against light backgrounds.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
 
 <span class="sd">        :param set_on: Boolean to choose if turn it on or off.</span>
 
@@ -516,7 +533,9 @@
 
 <div class="viewcode-block" id="Robobo.stopCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopCamera">[docs]</a>    <span class="k">def</span> <span class="nf">stopCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Stops the camera.</span>
+<span class="sd">        | Stops the camera.</span>
+<span class="sd">        | **Warning**: Other modules depend on the camera, so it&#39;s necessary to start it again to make use of them.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopCamera</span><span class="p">()</span></div>
@@ -544,18 +563,17 @@
 
 <div class="viewcode-block" id="Robobo.resetColorBlobs"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetColorBlobs">[docs]</a>    <span class="k">def</span> <span class="nf">resetColorBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Resets the color blob detector.</span>
-<span class="sd">        This sets to 0 the attributes of the last color blobs detected, but keeps the enabled and disabled colors the same.</span>
-<span class="sd">        See also: :class:`~Robobo.setActiveBlobs`.</span>
+<span class="sd">        | Resets the color blob detector. This sets to 0 the attributes of the last color blobs detected, but keeps the enabled and disabled colors the same.</span>
+<span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetBlobs</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Robobo.resetFaceSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetFaceSensor">[docs]</a>    <span class="k">def</span> <span class="nf">resetFaceSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Resets the face sensor.</span>
-<span class="sd">        After this function, and until a new face is detected, the face sensor will return 0 for each attribute of the face object.</span>
-<span class="sd">        See also: :class:`~Robobo.startFaceDetection`.</span>
+<span class="sd">        | Resets the face sensor. After this function, and until a new face is detected, the face sensor will return 0 for each attribute of the face object.</span>
+<span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetFace</span><span class="p">()</span></div>
@@ -573,11 +591,11 @@
 
 <div class="viewcode-block" id="Robobo.setActiveBlobs"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setActiveBlobs">[docs]</a>    <span class="k">def</span> <span class="nf">setActiveBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">custom</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Enables or disables the individual tracking of each color.</span>
-<span class="sd">        By default, green tracking is enabled and the rest are disabled.</span>
-<span class="sd">        See also: :class:`~Robobo.readAllColorBlobs`, :class:`~Robobo.readColorBlob`, :class:`~Robobo.resetColorBlobs`, :class:`~Robobo.whenANewColorBlobIsDetected`.</span>
-
-<span class="sd">        **Warning**: Color tracking is a computationally intensive task, activating all the colors may impact performance.</span>
+<span class="sd">        | **Note**: Before tracking blobs, it is highly recommended to follow the `camera calibration tutorial &lt;https://github.com/mintforpeople/robobo-programming/wiki/camera-calibration-tutorial_en&gt;`_.</span>
+<span class="sd">        | Enables or disables the individual tracking of each color.</span>
+<span class="sd">        | By default, green tracking is enabled and the rest are disabled.</span>
+<span class="sd">        | **Warning**: Color tracking is a computationally intensive task, activating all the colors may impact performance.</span>
+<span class="sd">        | See also: :class:`~Robobo.readAllColorBlobs`, :class:`~Robobo.readColorBlob`, :class:`~Robobo.resetColorBlobs`, :class:`~Robobo.whenANewColorBlobIsDetected`.</span>
 
 <span class="sd">        :param red: If true, enables red blob tracking.</span>
 <span class="sd">        :param green: If true, enables green blob tracking.</span>
@@ -594,10 +612,9 @@
 
 <div class="viewcode-block" id="Robobo.setAdvancedLostBlobParameters"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setAdvancedLostBlobParameters">[docs]</a>    <span class="k">def</span> <span class="nf">setAdvancedLostBlobParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">frames</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">minarea</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">max_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets advanced parameters for the blob tracker.</span>
+<span class="sd">        | Sets advanced parameters for the blob tracker.</span>
 
-<span class="sd">        **Warning**: Only use this function if you know what you are doing.</span>
-<span class="sd">        A bad configuration might have unexpected consecuences.</span>
+<span class="sd">        | **Warning**: Only use this function if you know what you are doing. A bad configuration might have unexpected consecuences.</span>
 
 <span class="sd">        :param frames: Number of frames passed to consider a blob lost.</span>
 <span class="sd">        :param minarea: Minimum area to consdider a Blob as a Blob.</span>
@@ -675,22 +692,22 @@
 
 <div class="viewcode-block" id="Robobo.readColorBlob"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readColorBlob">[docs]</a>    <span class="k">def</span> <span class="nf">readColorBlob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last detected blob of the indicated color.</span>
-<span class="sd">        See also: :class:`~Robobo.setActiveBlobs`.</span>
+<span class="sd">        | Reads the last detected blob of the indicated color.</span>
+<span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
 <span class="sd">         </span>
-<span class="sd">        :param color: Color of the blob, one of the following: &#39;red&#39;,&#39;green&#39;,&#39;blue&#39;,&#39;custom&#39;.</span>
-<span class="sd">        :type color: string</span>
+<span class="sd">        :param color: Color of the blob.</span>
+<span class="sd">        :type color: BlobColor</span>
 
 <span class="sd">        :return:  The blob read.</span>
 <span class="sd">        :rtype: Blob</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="n">color</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">value</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Robobo.readAllColorBlobs"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readAllColorBlobs">[docs]</a>    <span class="k">def</span> <span class="nf">readAllColorBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads all the color blob data.</span>
-<span class="sd">        See also: :class:`~Robobo.setActiveBlobs`.</span>
+<span class="sd">        | Reads all the color blob data.</span>
+<span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
 
 <span class="sd">        Example of use:</span>
 
@@ -705,7 +722,7 @@
 <span class="sd">                print(blob.size)</span>
 
 <span class="sd">        :return: A dictionary returning the individual blob information. \</span>
-<span class="sd">                 Dictionary keys: &#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;custom&#39;. Dictionary values: Blob object (see :class:`~utils.Blob`).</span>
+<span class="sd">                Dictionary keys (:class:`~utils.BlobColor`): the possible colors. Dictionary values (:class:`~utils.Blob`): the blobs.</span>
 
 <span class="sd">        :rtype: dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -714,8 +731,8 @@
 
 <div class="viewcode-block" id="Robobo.readQR"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readQR">[docs]</a>    <span class="k">def</span> <span class="nf">readQR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last detected QR code.</span>
-<span class="sd">        See also: :class:`~Robobo.startQrTracking`.</span>
+<span class="sd">        | Reads the last detected QR code.</span>
+<span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
 
 <span class="sd">        :return: The QR code read.</span>
 
@@ -726,8 +743,8 @@
 
 <div class="viewcode-block" id="Robobo.readLine"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLine">[docs]</a>    <span class="k">def</span> <span class="nf">readLine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last detected line.</span>
-<span class="sd">        See also: :class:`~Robobo.startLineDetection`.</span>
+<span class="sd">        | Reads the last detected line.</span>
+<span class="sd">        | See also: :class:`~Robobo.startLineDetection`.</span>
 
 <span class="sd">        :return: The line read.</span>
 
@@ -738,8 +755,8 @@
 
 <div class="viewcode-block" id="Robobo.readLaneBasic"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLaneBasic">[docs]</a>    <span class="k">def</span> <span class="nf">readLaneBasic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last detected basic lane (straight lines).</span>
-<span class="sd">        See also: :class:`~Robobo.startLaneDetection`.</span>
+<span class="sd">        | Reads the last detected basic lane (straight lines).</span>
+<span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
 
 <span class="sd">        :return: The lane read.</span>
 
@@ -750,8 +767,8 @@
 
 <div class="viewcode-block" id="Robobo.readLanePro"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLanePro">[docs]</a>    <span class="k">def</span> <span class="nf">readLanePro</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last detected pro lane (Degree 2 polynomials).</span>
-<span class="sd">        See also: :class:`~Robobo.startLaneDetection`.</span>
+<span class="sd">        | Reads the last detected pro lane (Degree 2 polynomials).</span>
+<span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
 
 <span class="sd">        :return: The pro lane read.</span>
 <span class="sd">        </span>
@@ -762,9 +779,9 @@
 
 <div class="viewcode-block" id="Robobo.readOrientationSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readOrientationSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readOrientationSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the orientation sensor.</span>
+<span class="sd">        | Reads the orientation sensor.</span>
 
-<span class="sd">        **Warning**: This sensor may not be available on all the devices.</span>
+<span class="sd">        | **Warning**: This sensor may not be available on all the devices.</span>
 
 <span class="sd">        :return: The orientation read.</span>
 
@@ -799,7 +816,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the current position of the PAN.</span>
 
-<span class="sd">        :return: The position in degrees, taking values in range [-160..160]. See: :ref:`tilt`.</span>
+<span class="sd">        :return: The position in degrees, taking values in range [-160..160]. See: :ref:`pan`.</span>
 
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -856,7 +873,7 @@
 
 <div class="viewcode-block" id="Robobo.readFlingAngle"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readFlingAngle">[docs]</a>    <span class="k">def</span> <span class="nf">readFlingAngle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last angle detected on the fling sensor.</span>
+<span class="sd">        Reads the last angle detected on the fling sensor. This angle is formed by a horizontal line and the first and last points where the finger touched the screen.</span>
 
 <span class="sd">        :return: The angle detected in degrees.</span>
 
@@ -913,9 +930,10 @@
 
 <div class="viewcode-block" id="Robobo.readBrightnessSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readBrightnessSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readBrightnessSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the brightness detected by the smartphone light sensor.</span>
+<span class="sd">        | Reads the ambient light level detected by the smartphone.</span>
+<span class="sd">        | **Warning**: The light sensor may not be available on all the devices.</span>
 
-<span class="sd">        :return: The brightness value.</span>
+<span class="sd">        :return: The brightness value in lux. It&#39;s a positive value.</span>
 
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -924,8 +942,8 @@
 
 <div class="viewcode-block" id="Robobo.readFaceSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readFaceSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readFaceSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the position and distance of the last face detected by Robobo.</span>
-<span class="sd">        See also: :class:`~Robobo.startFaceDetection`.</span>
+<span class="sd">        | Reads the last face detected by Robobo.</span>
+<span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
 
 <span class="sd">        Example of use:</span>
 
@@ -944,8 +962,8 @@
 
 <div class="viewcode-block" id="Robobo.readArucoTag"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readArucoTag">[docs]</a>    <span class="k">def</span> <span class="nf">readArucoTag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last ArUco Tag detected by Robobo.</span>
-<span class="sd">        See also: :class:`~Robobo.startArUcoTagDetection`.</span>
+<span class="sd">        | Reads the last ArUco Tag detected by Robobo.</span>
+<span class="sd">        | See also: :class:`~Robobo.startArUcoTagDetection`.</span>
 
 <span class="sd">        :return: The Tag.</span>
 
@@ -956,8 +974,8 @@
 
 <div class="viewcode-block" id="Robobo.readDetectedObject"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readDetectedObject">[docs]</a>    <span class="k">def</span> <span class="nf">readDetectedObject</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads the last object detected by Robobo.</span>
-<span class="sd">        See also: :class:`~Robobo.startObjectRecognition`.</span>
+<span class="sd">        | Reads the last object detected by Robobo.</span>
+<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
 
 <span class="sd">        :return: The object.</span>
 
@@ -990,8 +1008,8 @@
 
 <div class="viewcode-block" id="Robobo.whenANewFaceIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenANewFaceIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenANewFaceIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a new face is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startFaceDetection`.</span>
+<span class="sd">        | Configures the callback that is called when a new face is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1002,8 +1020,8 @@
 
 <div class="viewcode-block" id="Robobo.whenANewColorBlobIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenANewColorBlobIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenANewColorBlobIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a new color blob is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.setActiveBlobs`.</span>
+<span class="sd">        | Configures the callback that is called when a new color blob is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1014,8 +1032,8 @@
 
 <div class="viewcode-block" id="Robobo.whenANewQRCodeIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenANewQRCodeIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenANewQRCodeIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a new QR is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startQrTracking`.</span>
+<span class="sd">        | Configures the callback that is called when a new QR is detected. A QR is considered to be new if it&#39;s different to the last one detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1048,8 +1066,8 @@
 
 <div class="viewcode-block" id="Robobo.whenAFaceIsLost"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAFaceIsLost">[docs]</a>    <span class="k">def</span> <span class="nf">whenAFaceIsLost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a face is lost.</span>
-<span class="sd">        See also: :class:`~Robobo.startFaceDetection`.</span>
+<span class="sd">        | Configures the callback that is called when a face is lost.</span>
+<span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1060,8 +1078,8 @@
 
 <div class="viewcode-block" id="Robobo.whenAQRCodeIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAQRCodeIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenAQRCodeIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a QR is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startQrTracking`.</span>
+<span class="sd">        | Configures the callback that is called when a QR is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1072,8 +1090,8 @@
 
 <div class="viewcode-block" id="Robobo.whenAQRCodeIsLost"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAQRCodeIsLost">[docs]</a>    <span class="k">def</span> <span class="nf">whenAQRCodeIsLost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a QR is lost.</span>
-<span class="sd">        See also: :class:`~Robobo.startQrTracking`.</span>
+<span class="sd">        | Configures the callback that is called when a QR is lost.</span>
+<span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1084,8 +1102,8 @@
 
 <div class="viewcode-block" id="Robobo.whenArucoTagIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenArucoTagIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenArucoTagIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a Tag is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startArUcoTagDetection`.</span>
+<span class="sd">        | Configures the callback that is called when a Tag is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startArUcoTagDetection`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1096,8 +1114,8 @@
 
 <div class="viewcode-block" id="Robobo.whenAnObjectIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAnObjectIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenAnObjectIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when an object is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startObjectRecognition`.</span>
+<span class="sd">        | Configures the callback that is called when an object is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1108,8 +1126,8 @@
 
 <div class="viewcode-block" id="Robobo.whenALineIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenALineIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenALineIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a line is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startLineDetection`.</span>
+<span class="sd">        | Configures the callback that is called when a line is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startLineDetection`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1120,8 +1138,8 @@
 
 <div class="viewcode-block" id="Robobo.whenALaneProDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenALaneProDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenALaneProDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a pro lane is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startLaneDetection`.</span>
+<span class="sd">        | Configures the callback that is called when a pro lane is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1132,8 +1150,8 @@
 
 <div class="viewcode-block" id="Robobo.whenALaneBasicDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenALaneBasicDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenALaneBasicDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the callback that is called when a basic lane is detected.</span>
-<span class="sd">        See also: :class:`~Robobo.startLaneDetection`.</span>
+<span class="sd">        | Configures the callback that is called when a basic lane is detected.</span>
+<span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1144,17 +1162,15 @@
 
 <div class="viewcode-block" id="Robobo.setStatusFrequency"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setStatusFrequency">[docs]</a>    <span class="k">def</span> <span class="nf">setStatusFrequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets the frequency of the status messages coming from Robobo.</span>
-<span class="sd">        Status messages are filtered by default in order to reduce network bandwidth.</span>
-<span class="sd">        A higher frequency reduces the filters, so more status messages are sent and more network bandwidth is used.</span>
-<span class="sd">        This change is persistent (see: :ref:`persistent`).</span>
+<span class="sd">        | Sets the frequency of the status messages coming from Robobo. Status messages are filtered by default in order to reduce network bandwidth. A higher frequency reduces the filters, so more status messages are sent and more network bandwidth is used.</span>
+<span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 
 <span class="sd">        :param frequency: New frequency of the status messages.</span>
 
 <span class="sd">        :type frequency: StatusFrequency</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeStatusFrequency</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeStatusFrequency</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span></div>
 </pre></div>
 
             <div class="clearer"></div>

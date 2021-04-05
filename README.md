@@ -1,4 +1,3 @@
-
 # robobo.py
 
 Robobo.py is the library used to create programs for the Robobo educational robot (http://www.theroboboproject.com) in the Python language.

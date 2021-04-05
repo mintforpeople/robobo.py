@@ -159,8 +159,8 @@
 <dl class="simple">
 <dt>Attributes:</dt><dd><ul class="simple">
 <li><p>color (string): The color of the blob.</p></li>
-<li><p>posx (int): The x coordinate of the center of the blob area. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.</p></li>
-<li><p>posy (int): The y coordinate of the center of the blob area. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.</p></li>
+<li><p>posx (int): The x coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
+<li><p>posy (int): The y coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
 <li><p>size (int): The area of the blob measured in pixels.</p></li>
 <li><p>frame_timestamp (long): The time when the frame started processing.</p></li>
 <li><p>status_timestamp (long): The time when the status was sent.</p></li>
@@ -194,8 +194,8 @@
 <p>Represents a face detected by Robobo using the front camera of the smartphone.</p>
 <dl class="simple">
 <dt>Attributes:</dt><dd><ul class="simple">
-<li><p>posx (int): The x coordinate of the center of the face. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.</p></li>
-<li><p>posy (int): The y coordinate of the center of the face. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.</p></li>
+<li><p>posx (int): The x coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
+<li><p>posy (int): The y coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
 <li><p>distance (int): The rounded distance between the eyes of the person, measured in pixels. The values obtained when the person is near the camera are higher than those obtained when the person is far. Takes positive values.</p></li>
 </ul>
 </dd>
@@ -203,21 +203,6 @@
 </dd></dl>
 
 <span class="target" id="module-utils.Lanes"></span><dl class="py class">
-<dt id="utils.Lanes.LaneBasic">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Lanes.</span></code><code class="sig-name descname"><span class="pre">LaneBasic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Lanes.html#LaneBasic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lanes.LaneBasic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a lane detected by Robobo, formed by two straight lines.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>coeffs1 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the left line.</p></li>
-<li><p>coeffs2 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the right line.</p></li>
-<li><p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
 <dt id="utils.Lanes.LanePro">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Lanes.</span></code><code class="sig-name descname"><span class="pre">LanePro</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Lanes.html#LanePro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lanes.LanePro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
@@ -227,6 +212,21 @@
 <li><p>coeffs1 (dict): Dictionary with ‘a’,’b’ and ‘c’ (ax^2 + bx +c) coefficients of the left line.</p></li>
 <li><p>coeffs2 (dict): Dictionary with ‘a’,’b’ and ‘c’ (ax^2 + bx +c) coefficients of the right line.</p></li>
 <li><p>minv (array): Transformation matrix to get to the original perspective.</p></li>
+<li><p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="utils.Lanes.LaneBasic">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Lanes.</span></code><code class="sig-name descname"><span class="pre">LaneBasic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Lanes.html#LaneBasic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lanes.LaneBasic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Represents a lane detected by Robobo, formed by two straight lines.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><ul class="simple">
+<li><p>coeffs1 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the left line.</p></li>
+<li><p>coeffs2 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the right line.</p></li>
 <li><p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</p></li>
 </ul>
 </dd>
@@ -369,11 +369,8 @@
 <p>Represents a tap detected on the smartphone screen.</p>
 <dl>
 <dt>Attributes:</dt><dd><ul class="simple">
-<li><p>x (int): The x coordinate of the tap. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.</p></li>
-<li><p>y (int): The y coordinate of the tap. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.</p></li>
-</ul>
-<img alt="Image showing the two coordinate axis: The x axis follows the upper side of the screen, from left to right. The y axis follows the left side of the screen, from top to bottom." src="_images/tap_position.jpg" />
-<ul class="simple">
+<li><p>x (int): The x coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
+<li><p>y (int): The y coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
 <li><p>zone (string): Returns the area of the smartphone screen. Takes one of the following values: ‘forehead’, ‘eye’, ‘right’, ‘left’, ‘mouth’ or ‘chin’.</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/tap_areas.jpg"><img alt="Image showing the different possible tap areas on the screen, each one of them being a square or a rectangle. The upper part is the 'forehead'. Excluding the forehead, the right part is 'right' and the left part is 'left'. Excluding those parts, there are four zones remaining. From top to bottom, they are: the 'eye', which is the biggest of all zones, an undefined zone, the 'mouth' and the 'chin'." src="_images/tap_areas.jpg" style="width: 350.0px; height: 256.0px;" /></a>
@@ -390,13 +387,13 @@
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>This enumeration represents the list of colors Robobo can detect</p>
 <dl class="py attribute">
-<dt id="utils.BlobColor.BlobColor.BLUE">
-<code class="sig-name descname"><span class="pre">BLUE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'blue'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.BLUE" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.BlobColor.BlobColor.RED">
+<code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.RED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.BlobColor.BlobColor.CUSTOM">
-<code class="sig-name descname"><span class="pre">CUSTOM</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'custom'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.CUSTOM" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.BlobColor.BlobColor.BLUE">
+<code class="sig-name descname"><span class="pre">BLUE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'blue'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.BLUE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -405,8 +402,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.BlobColor.BlobColor.RED">
-<code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.RED" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.BlobColor.BlobColor.CUSTOM">
+<code class="sig-name descname"><span class="pre">CUSTOM</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'custom'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.CUSTOM" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -416,6 +413,21 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Color.</span></code><code class="sig-name descname"><span class="pre">Color</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Color.html#Color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Color.Color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>This enumeration represents the list of colors Robobo’s LEDs can show.</p>
+<dl class="py attribute">
+<dt id="utils.Color.Color.OFF">
+<code class="sig-name descname"><span class="pre">OFF</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'off'</span></em><a class="headerlink" href="#utils.Color.Color.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.Color.Color.WHITE">
+<code class="sig-name descname"><span class="pre">WHITE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'white'</span></em><a class="headerlink" href="#utils.Color.Color.WHITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.Color.Color.RED">
+<code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink" href="#utils.Color.Color.RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt id="utils.Color.Color.BLUE">
 <code class="sig-name descname"><span class="pre">BLUE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'blue'</span></em><a class="headerlink" href="#utils.Color.Color.BLUE" title="Permalink to this definition">¶</a></dt>
@@ -427,38 +439,23 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.Color.Color.GREEN">
-<code class="sig-name descname"><span class="pre">GREEN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'green'</span></em><a class="headerlink" href="#utils.Color.Color.GREEN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="utils.Color.Color.MAGENTA">
 <code class="sig-name descname"><span class="pre">MAGENTA</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'magenta'</span></em><a class="headerlink" href="#utils.Color.Color.MAGENTA" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.Color.Color.OFF">
-<code class="sig-name descname"><span class="pre">OFF</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'off'</span></em><a class="headerlink" href="#utils.Color.Color.OFF" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.Color.Color.YELLOW">
+<code class="sig-name descname"><span class="pre">YELLOW</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'yellow'</span></em><a class="headerlink" href="#utils.Color.Color.YELLOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.Color.Color.GREEN">
+<code class="sig-name descname"><span class="pre">GREEN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'green'</span></em><a class="headerlink" href="#utils.Color.Color.GREEN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="utils.Color.Color.ORANGE">
 <code class="sig-name descname"><span class="pre">ORANGE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'orange'</span></em><a class="headerlink" href="#utils.Color.Color.ORANGE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.RED">
-<code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink" href="#utils.Color.Color.RED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.WHITE">
-<code class="sig-name descname"><span class="pre">WHITE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'white'</span></em><a class="headerlink" href="#utils.Color.Color.WHITE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.YELLOW">
-<code class="sig-name descname"><span class="pre">YELLOW</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'yellow'</span></em><a class="headerlink" href="#utils.Color.Color.YELLOW" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -470,16 +467,6 @@
 <p>Represents the list of emotions Robobo’s face can show.</p>
 <a class="reference internal image-reference" href="_images/emotions.jpg"><img alt="Image showing how Robobo looks for each emotion: happy, laughung, surprised, sad, angry, normal, sleeping, tired or afraid." src="_images/emotions.jpg" style="width: 686.4000000000001px; height: 288.0px;" /></a>
 <dl class="py attribute">
-<dt id="utils.Emotions.Emotions.AFRAID">
-<code class="sig-name descname"><span class="pre">AFRAID</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'afraid'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.AFRAID" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.ANGRY">
-<code class="sig-name descname"><span class="pre">ANGRY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'angry'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.ANGRY" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="utils.Emotions.Emotions.HAPPY">
 <code class="sig-name descname"><span class="pre">HAPPY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'happy'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.HAPPY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -490,8 +477,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.Emotions.Emotions.NORMAL">
-<code class="sig-name descname"><span class="pre">NORMAL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'normal'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.NORMAL" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.Emotions.Emotions.SURPRISED">
+<code class="sig-name descname"><span class="pre">SURPRISED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'surprised'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.SURPRISED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -500,18 +487,28 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="utils.Emotions.Emotions.ANGRY">
+<code class="sig-name descname"><span class="pre">ANGRY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'angry'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.ANGRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.Emotions.Emotions.NORMAL">
+<code class="sig-name descname"><span class="pre">NORMAL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'normal'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.NORMAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="utils.Emotions.Emotions.SLEEPING">
 <code class="sig-name descname"><span class="pre">SLEEPING</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'sleeping'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.SLEEPING" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.Emotions.Emotions.SURPRISED">
-<code class="sig-name descname"><span class="pre">SURPRISED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'surprised'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.SURPRISED" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.Emotions.Emotions.TIRED">
+<code class="sig-name descname"><span class="pre">TIRED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'tired'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.TIRED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.Emotions.Emotions.TIRED">
-<code class="sig-name descname"><span class="pre">TIRED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'tired'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.TIRED" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.Emotions.Emotions.AFRAID">
+<code class="sig-name descname"><span class="pre">AFRAID</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'afraid'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.AFRAID" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -525,18 +522,23 @@
 <div><img alt="One image from Robobo frontal part, showing five IR sensors, named from left to right: Front-RR, Front-R, Front-C, Front-L and Front-LL. Another image from Robobo rear part, showing three IR sensors, named from left to right: Back-L, Back-C, Back-R." src="_images/irs.jpg" />
 </div></blockquote>
 <dl class="py attribute">
+<dt id="utils.IR.IR.BackR">
+<code class="sig-name descname"><span class="pre">BackR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-R'</span></em><a class="headerlink" href="#utils.IR.IR.BackR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="utils.IR.IR.BackC">
 <code class="sig-name descname"><span class="pre">BackC</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-C'</span></em><a class="headerlink" href="#utils.IR.IR.BackC" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.IR.IR.BackL">
-<code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink" href="#utils.IR.IR.BackL" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.IR.IR.FrontR">
+<code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink" href="#utils.IR.IR.FrontR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.IR.IR.BackR">
-<code class="sig-name descname"><span class="pre">BackR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-R'</span></em><a class="headerlink" href="#utils.IR.IR.BackR" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.IR.IR.FrontRR">
+<code class="sig-name descname"><span class="pre">FrontRR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink" href="#utils.IR.IR.FrontRR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -555,13 +557,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.IR.IR.FrontR">
-<code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink" href="#utils.IR.IR.FrontR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.FrontRR">
-<code class="sig-name descname"><span class="pre">FrontRR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink" href="#utils.IR.IR.FrontRR" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.IR.IR.BackL">
+<code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink" href="#utils.IR.IR.BackL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -575,18 +572,18 @@
 <div><a class="reference internal image-reference" href="_images/leds.jpg"><img alt="Top view of Robobo. There are five IR sensors forming a pentagon on the frontal part: Front-C on the upper and central part, Front-RR to the left and Front-LL to the right (from the viewer's point of view) of the first one, and finally Front-R on the left and Front-L on the right of the lower part of the pentagon. There are two IR sensors on the rear part: Back-R on the right and Back-L on the left." src="_images/leds.jpg" style="width: 460.79999999999995px; height: 357.59999999999997px;" /></a>
 </div></blockquote>
 <dl class="py attribute">
-<dt id="utils.LED.LED.All">
-<code class="sig-name descname"><span class="pre">All</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'all'</span></em><a class="headerlink" href="#utils.LED.LED.All" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.BackL">
-<code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink" href="#utils.LED.LED.BackL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="utils.LED.LED.BackR">
 <code class="sig-name descname"><span class="pre">BackR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-R'</span></em><a class="headerlink" href="#utils.LED.LED.BackR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.LED.LED.FrontR">
+<code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink" href="#utils.LED.LED.FrontR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.LED.LED.FrontRE">
+<code class="sig-name descname"><span class="pre">FrontRE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink" href="#utils.LED.LED.FrontRE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -605,13 +602,13 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.LED.LED.FrontR">
-<code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink" href="#utils.LED.LED.FrontR" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.LED.LED.BackL">
+<code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink" href="#utils.LED.LED.BackL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.LED.LED.FrontRE">
-<code class="sig-name descname"><span class="pre">FrontRE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink" href="#utils.LED.LED.FrontRE" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.LED.LED.All">
+<code class="sig-name descname"><span class="pre">All</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'all'</span></em><a class="headerlink" href="#utils.LED.LED.All" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -621,6 +618,16 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Sounds.</span></code><code class="sig-name descname"><span class="pre">Sounds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Sounds.html#Sounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Sounds.Sounds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>This enumeration lists the emotion sound Robobo can play.</p>
+<dl class="py attribute">
+<dt id="utils.Sounds.Sounds.PURR">
+<code class="sig-name descname"><span class="pre">PURR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'purr'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.PURR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.Sounds.Sounds.MOAN">
+<code class="sig-name descname"><span class="pre">MOAN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'moan'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.MOAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt id="utils.Sounds.Sounds.ANGRY">
 <code class="sig-name descname"><span class="pre">ANGRY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'angry'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.ANGRY" title="Permalink to this definition">¶</a></dt>
@@ -657,11 +664,6 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.Sounds.Sounds.MOAN">
-<code class="sig-name descname"><span class="pre">MOAN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'moan'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.MOAN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="utils.Sounds.Sounds.MUMBLE">
 <code class="sig-name descname"><span class="pre">MUMBLE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'mumble'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.MUMBLE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -669,11 +671,6 @@
 <dl class="py attribute">
 <dt id="utils.Sounds.Sounds.OUCH">
 <code class="sig-name descname"><span class="pre">OUCH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'ouch'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.OUCH" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.PURR">
-<code class="sig-name descname"><span class="pre">PURR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'purr'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.PURR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -694,23 +691,23 @@
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>This enumeration lists the possible values for setting the frequency of the status messages coming from the robot.</p>
 <dl class="py attribute">
-<dt id="utils.StatusFrequency.StatusFrequency.High">
-<code class="sig-name descname"><span class="pre">High</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'HIGH'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.High" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="utils.StatusFrequency.StatusFrequency.Low">
 <code class="sig-name descname"><span class="pre">Low</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'LOW'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Low" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.StatusFrequency.StatusFrequency.Max">
-<code class="sig-name descname"><span class="pre">Max</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'MAX'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Max" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.StatusFrequency.StatusFrequency.Normal">
+<code class="sig-name descname"><span class="pre">Normal</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'NORMAL'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Normal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.StatusFrequency.StatusFrequency.Normal">
-<code class="sig-name descname"><span class="pre">Normal</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'NORMAL'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Normal" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.StatusFrequency.StatusFrequency.High">
+<code class="sig-name descname"><span class="pre">High</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'HIGH'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.High" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="utils.StatusFrequency.StatusFrequency.Max">
+<code class="sig-name descname"><span class="pre">Max</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'MAX'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Max" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -721,8 +718,8 @@
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
 <p>This enumeration represents the list of possible values for the wheels of Robobo</p>
 <dl class="py attribute">
-<dt id="utils.Wheels.Wheels.BOTH">
-<code class="sig-name descname"><span class="pre">BOTH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'both'</span></em><a class="headerlink" href="#utils.Wheels.Wheels.BOTH" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.Wheels.Wheels.R">
+<code class="sig-name descname"><span class="pre">R</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'right'</span></em><a class="headerlink" href="#utils.Wheels.Wheels.R" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -731,8 +728,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="utils.Wheels.Wheels.R">
-<code class="sig-name descname"><span class="pre">R</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'right'</span></em><a class="headerlink" href="#utils.Wheels.Wheels.R" title="Permalink to this definition">¶</a></dt>
+<dt id="utils.Wheels.Wheels.BOTH">
+<code class="sig-name descname"><span class="pre">BOTH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'both'</span></em><a class="headerlink" href="#utils.Wheels.Wheels.BOTH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

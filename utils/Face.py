@@ -4,8 +4,8 @@ class Face:
     Represents a face detected by Robobo using the front camera of the smartphone.
     
     Attributes:
-        - posx (int): The x coordinate of the center of the face. Takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.
-        - posy (int): The y coordinate of the center of the face. Takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.
+        - posx (int): The x coordinate of the tap [0..100]. See: :ref:`screen`.
+        - posy (int): The y coordinate of the tap [0..100]. See: :ref:`screen`.
         - distance (int): The rounded distance between the eyes of the person, measured in pixels. The values obtained when the person is near the camera are higher than those obtained when the person is far. Takes positive values.
 
     """

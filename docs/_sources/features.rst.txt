@@ -14,6 +14,28 @@ A blocking instruction prevents Robobo from executing other instructions until i
 A non blocking instruction, once executed, allows other instructions to be executed simultaneously.
 Some instructions can be executed both in blocking and non blocking mode.
 
+.. _modules:
+
+Enabled and disabled modules
+----------------------------
+
+For better performance, some modules are disabled by default. In order to use this modules, it's necessary to start them. After using this modules, it's recommended to stop them.
+This are the modules enabled by default: face detection, color blob detection and QR tracking.
+This are the modules disabled by default: camera stream, line detection, lane detection, object recognition, ArUco tag detection.
+
+.. _screen:
+
+Screen coordinates
+------------------
+
+Screen coordinates have their origin at the upper left corner of the screen.
+The x axis follows the upper side of the screen, from left to right. It takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.
+The y axis follows the left side of the screen, from top to bottom. It takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.
+
+.. image:: _static/tap_position.jpg
+    :alt: Image showing the two coordinate axes on the screen of the smartphone, which is showing Robobo face.
+
+
 .. _persistent:
 
 Persistent changes
