@@ -4,14 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.Tag &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -86,7 +86,8 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Tag</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -112,15 +113,16 @@
   <h1>Source code for utils.Tag</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="Tag"><a class="viewcode-back" href="../../utils.html#utils.Tag.Tag">[docs]</a><span></span><span class="k">class</span> <span class="nc">Tag</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a detected Aruco Tag</span>
+<span class="sd">    Represents an ArUco Tag detected by Robobo, and defined by four corners read clockwise.</span>
+
 <span class="sd">    Attributes:</span>
-<span class="sd">        - cor1: Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the first corner.</span>
-<span class="sd">        - cor2: Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the second corner.</span>
-<span class="sd">        - cor3: Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the third corner.</span>
-<span class="sd">        - cor4: Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the fourth corner.</span>
-<span class="sd">        - tvecs: Dictionary with the &#39;x&#39;, &#39;y&#39; and &#39;z&#39; components of the translation vector.</span>
-<span class="sd">        - tvecs: Dictionary with the &#39;x&#39;, &#39;y&#39; and &#39;z&#39; components of the rotation vector.</span>
-<span class="sd">        - id: ArUco identifier.</span>
+<span class="sd">        - cor1 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the first corner.</span>
+<span class="sd">        - cor2 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the second corner.</span>
+<span class="sd">        - cor3 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the third corner.</span>
+<span class="sd">        - cor4 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the fourth corner.</span>
+<span class="sd">        - tvecs (dict): Dictionary with the &#39;x&#39;, &#39;y&#39; and &#39;z&#39; components of the translation vector.</span>
+<span class="sd">        - rvecs (dict): Dictionary with the &#39;x&#39;, &#39;y&#39; and &#39;z&#39; components of the rotation vector.</span>
+<span class="sd">        - id (int): The ArUco identifier.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cor1x</span><span class="p">,</span> <span class="n">cor1y</span><span class="p">,</span> <span class="n">cor2x</span><span class="p">,</span> <span class="n">cor2y</span><span class="p">,</span> <span class="n">cor3x</span><span class="p">,</span> <span class="n">cor3y</span><span class="p">,</span> <span class="n">cor4x</span><span class="p">,</span> <span class="n">cor4y</span><span class="p">,</span> <span class="n">rvec_0</span><span class="p">,</span> <span class="n">rvec_1</span><span class="p">,</span> <span class="n">rvec_2</span><span class="p">,</span> <span class="n">tvec_0</span><span class="p">,</span> <span class="n">tvec_1</span><span class="p">,</span>
@@ -152,6 +154,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">cor3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; cor4:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cor4</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; tvecs:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tvecs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; rvecs:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rvecs</span><span class="p">)</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -172,12 +175,13 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Tag</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+        &#169; Copyright 2010, MINT.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

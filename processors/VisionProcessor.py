@@ -1,13 +1,13 @@
 import json
 
 from processors.AbstractProcessor import AbstractProcessor
+from utils.Blob import Blob
 from utils.DetectedObject import DetectedObject
+from utils.Face import Face
 from utils.Lanes import LaneBasic, LanePro
 from utils.Lines import Lines
 from utils.Message import Message
 from utils.QRCode import QRCode
-from utils.Face import Face
-from utils.Blob import Blob
 from utils.Tag import Tag
 
 
@@ -63,12 +63,12 @@ class VisionProcessor(AbstractProcessor):
 
             self.state.blobs[value["color"]].status_timestamp = int(value["timestamp"])
 
+
             self.state.blobs[value["color"]].frame_timestamp = int(value["frame_timestamp"])
 
             self.runCallback("blob")
 
-        elif (name == "QRCODEAPPEAR"):
-
+        elif name == "QRCODEAPPEAR":
             self.state.qr = QRCode(float(value["coordx"]),
                                    float(value["coordy"]),
                                    float(value["distance"]),
@@ -82,8 +82,7 @@ class VisionProcessor(AbstractProcessor):
 
             self.runCallback("newqr")
 
-
-        elif (name == "QRCODE"):
+        elif name == "QRCODE":
             self.state.qr = QRCode(float(value["coordx"]),
                                    float(value["coordy"]),
                                    float(value["distance"]),
@@ -98,8 +97,10 @@ class VisionProcessor(AbstractProcessor):
 
 
 
+
         elif (name == "QRCODELOST"):
             self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None",0)
+
             self.runCallback("lostqr")
 
         elif name == "TAG":
@@ -164,12 +165,24 @@ class VisionProcessor(AbstractProcessor):
 
         return Message(name, values, id)
 
+    def advancedLostBlobConfiguration(self, frames, minarea, max_count, epsilon):
+        name = "CONFIGURE-LOSTBLOB"
+        id = self.state.getId()
+        values = {"frames": frames,
+                  "minarea": minarea,
+                  "max_count": max_count,
+                  "epsilon": epsilon}
+
+        return Message(name, values, id)
+
     def resetBlobs(self):
         self.state.blobs = {
-            "red": Blob("red", 0, 0, 0,0,0),
-            "green": Blob("green", 0, 0, 0,0,0),
-            "blue": Blob("blue", 0, 0, 0,0,0),
-            "custom": Blob("custom", 0, 0, 0,0,0)}
+
+            "red": Blob("red", 0, 0, 0, 0, 0),
+            "green": Blob("green", 0, 0, 0, 0, 0),
+            "blue": Blob("blue", 0, 0, 0, 0, 0),
+            "custom": Blob("custom", 0, 0, 0, 0, 0)}
+
 
     def resetFace(self):
         self.state.face = Face(0, 0, -1)

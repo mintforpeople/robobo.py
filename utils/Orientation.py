@@ -1,10 +1,14 @@
-
-
 class Orientation:
     """
-    Represents the current orientation of the Smartphone. Attributes: yaw, pitch and roll.
+    Represents the orientation of the Smartphone.
+    
+    Attributes:
+        - yaw (float): Rotation in degrees around the Z axis. Takes values between -180 and 180. The yaw angle turn is achieved by turning the base with the wheel motors and the PAN motor.
+        - pitch (float): Rotation in degrees around the Y axis. Takes values between -180 and 180. The pitch angle turn is achieved by using the TILT motor or moving the robot through a frontally inclined plane.
+        - roll (float): Rotation in degrees around the X axis. Takes values between -180 and 180. The turn in the roll angle cannot be achieved by Robobo, but if the surface on which it moves has a lateral inclination, it will change.
 
         .. image:: _static/orientation.jpg
+            :alt: Image showing Robobo three main axes. Yaw is the vertical axis, positive upwards. Roll is the longitudinal axis, positive forward. Pitch is the transversal axis, positive to Robobo's right.
 
     """
     

@@ -4,14 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.QRCode &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -86,7 +86,8 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.QRCode</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -112,15 +113,19 @@
   <h1>Source code for utils.QRCode</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="QRCode"><a class="viewcode-back" href="../../utils.html#utils.QRCode.QRCode">[docs]</a><span></span><span class="k">class</span> <span class="nc">QRCode</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a QRCode detected</span>
+<span class="sd">    Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para saber si te acercas o te alejas, no la distancia exacta.</span>
+
 <span class="sd">    Attributes:</span>
-<span class="sd">        - x: x coordinate.</span>
-<span class="sd">        - y: x coordinate.</span>
-<span class="sd">        - distance: Approximated distance of the QRCode.</span>
-<span class="sd">        - p1: Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the first point of interest (Result point).</span>
-<span class="sd">        - p2: Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the second point of interest (Result point).</span>
-<span class="sd">        - p3: Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the third point of interest (Result point).</span>
-<span class="sd">        - id: QRCode identifier.</span>
+<span class="sd">        - x (float): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</span>
+<span class="sd">        - y (float): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</span>
+<span class="sd">        - distance (int): Approximated distance between Robobo and the QRCode, measured in meters.</span>
+<span class="sd">        - p1 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the first point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
+<span class="sd">        - p2 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the second point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
+<span class="sd">        - p3 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the third point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
+<span class="sd">        - id (int): QRCode identifier.</span>
+
+<span class="sd">        .. image:: _static/qr.PNG</span>
+<span class="sd">            :alt: Image showing an standard QR code, which has three of its corners marked. From the not marked corner and clockwise, the other corners are numbered as p1, p2 and p3.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">p1x</span><span class="p">,</span> <span class="n">p1y</span><span class="p">,</span> <span class="n">p2x</span><span class="p">,</span> <span class="n">p2y</span><span class="p">,</span> <span class="n">p3x</span><span class="p">,</span> <span class="n">p3y</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
@@ -143,6 +148,7 @@
         <span class="k">return</span> <span class="s2">&quot;QR, Id:&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s2">&quot; x:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; y:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; distance:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -163,12 +169,13 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.QRCode</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+        &#169; Copyright 2010, MINT.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

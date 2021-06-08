@@ -1,0 +1,356 @@
+<!-- Robobo Monitor v1.0.0 -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Robobo Monitor</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/robobo-monitor-grid.css">
+    <link rel="stylesheet" href="css/piano.css">
+  </head>
+  <body onLoad="createElements()">
+    <section id ="monitor" class="monitor">
+      <div class="grid">
+
+        <div class="item" data-id="1" id="connection-block">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">ROBOBO CONNECTION</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content card-content-expanded">
+              <div class="label-value">
+                <center>
+                  IP: <input type="text" size = "15" id="roboboip"> <button id="connectionButton" onclick="connectToRobobo()">Connect</button>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="item" data-id="2">
+          <div class="item-content">
+            <div class="card">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+              <div class="card-title">WHEELS</div>
+              <div class="card-icon">R</div>
+              <div class ="card-content card-content-expanded">
+                <i id="wheel"></i>
+                <div class="wheel-block-container">
+                    <div class="wheel-block">
+                      LEFT
+                      <div>
+                        <canvas width="90" height="55" id="wheel-left-speed-gauge"></canvas>
+                        <div id="wheel-left-speed" class="wheel-speed-txt">50</div>
+                      </div>
+                      <!--Speed: <span id="wheel-left-speed"></span>-->
+                      <div class="wheel-position">Pos: <span class="value" id="wheel-left-position"></span></div>
+                    </div>
+                    <div class="wheel-block">
+                      RIGHT
+                      <div>
+                        <canvas width="90" height="55" id="wheel-right-speed-gauge"></canvas>
+                        <div id="wheel-right-speed" class="wheel-speed-txt">50</div>
+                      </div>
+                      <div class="wheel-position">Pos: <span class="value" id="wheel-right-position"></span><br></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item" data-id="3">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">PAN & TILT</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content card-content-expanded">
+              <div class="label-value">Pan: <id id="pan-sensor"> <span class="value" id="pan-sensor-value"></span></id></div>
+              <div class="label-value">Tilt: <id id="tilt-sensor"><span class="value" id="tilt-sensor-value"></span></id></div>
+            </div>
+          </div>
+        </div>
+        <div class="item" data-id="4">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">IR SENSORS RAW</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <i id = "ir-sensor-raw">
+                <div class="ir-block-container">
+                    <div class="ir-block-large">
+                      Front-C: <span class="value" id="ir-sensor-raw-front-c"></span>
+                    </div>
+                    <div class="ir-block">
+                        Front-R: <span class="value" id="ir-sensor-raw-front-r"></span>
+                      </div>
+                    <div class="ir-block">
+                      Front-L: <span class="value" id="ir-sensor-raw-front-l"></span>
+                    </div>
+                    <div class="ir-block">
+                        Front-RR: <span class="value" id="ir-sensor-raw-front-rr"></span>
+                    </div>
+                    <div class="ir-block">
+                      Front-LL: <span class="value" id="ir-sensor-raw-front-ll"></span>
+                    </div>
+                    <div class="ir-block">
+                        Back-R: <span class="value" id="ir-sensor-raw-back-r"></span>
+                      </div>
+                      <div class="ir-block">
+                      Back-L: <span class="value" id="ir-sensor-raw-back-l"></span>
+                    </div>
+                    <div class="ir-block-large">
+                      Back-C: <span class="value" id="ir-sensor-raw-back-c"></span>
+                    </div>
+                </div>
+              </i>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="5">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">BATTERY</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <div class="battery-block-container">
+                  <div class="battery-block">
+                    BASE<br>
+                    <div id="rob-battery-icon" class="fa fa-5 battery battery-no-value">&#xf244</div>
+                    <span id="rob-battery-value">-</span>%
+                  </div>
+                  <div class="battery-block">
+                    SMARTPHONE<br>
+                    <div id="obo-battery-icon" class="fa fa-5 battery battery-no-value">&#xf244</div>
+                    <span id="obo-battery-value">-</span> %
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="6">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">AUDIO SENSORS</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <id id="audio-sensor">
+
+              <div class="container">
+                    <div id="keyboard">
+                        <div id="C" class="key-white key-white-unselected"><span class="music-note">C</span><div id="Cs" class="key-black key-black-unselected"><span class="music-note"></span></div></div>
+                        <div id="D" class="key-white key-white-unselected"><span class="music-note">D</span><div id="Ds" class="key-black key-black-unselected"><span></span></div></div>
+                        <div id="E" class="key-white key-white-unselected"><span class="music-note">E</span></div>
+                        <div id="F" class="key-white key-white-unselected"><span class="music-note">F</span><div id="Fs" class="key-black key-black-unselected"><span></span></div></div>
+                        <div id="G" class="key-white key-white-unselected"><span class="music-note">G</span><div id="Gs" class="key-black key-black-unselected"><span></span></div></div>
+                        <div id="A" class="key-white key-white-unselected"><span class="music-note">A</span><div id="As" class="key-black key-black-unselected"><span></span></div></div>
+                        <div id="B" class="key-white key-white-unselected"><span class="music-note">B</span></div>
+                </div>
+              </div>
+              <br>
+                <div class="label-value claps">
+                    <div style="float:left; height:14px;">
+                      Claps:
+                    </div> <!-- <span class="value" id="audio-sensor-claps"></span> -->
+                    <div style="float:left; height: 14px; margin-left: 2px;">
+                      <svg height="14" width="14">
+                        <circle id="audio-sensor-claps-svg" cx="7" cy="7" r="7" stroke-width="0" fill="#c4e8fe" />
+                      </svg>                      
+                    </div>
+                    <br>
+                </div>
+              </id>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="7">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">FACE SENSOR</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+               <div class="label-value"><id id="facedist-sensor">Distance: <span class="value" id="facedist-sensor-value"></span></id></div>
+               <id id="facepos-sensor">
+                 <div class="label-value">Position (x,y): <span class="value" id="facepos-sensor-value"></span></div>
+               </id>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="8">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">BLOB SENSOR</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <div class="blob-color-container">
+                <div class="blob-color blob-green">
+                  <span id="color-sensor-green-size">-</span><br>
+                  x,y: <span id="color-sensor-green-x">-</span>, <span id="color-sensor-green-y">-</span>
+                </div>
+                <div class="blob-color blob-blue">
+                  <span id="color-sensor-blue-size">-</span><br>
+                  x,y: <span id="color-sensor-blue-x">-</span>, <span id="color-sensor-blue-y">-</span>
+                </div>
+                <div class="blob-color blob-red">
+                  <span id="color-sensor-red-size">-</span><br>
+                  x,y: <span id="color-sensor-red-x">-</span>, <span id="color-sensor-red-y">-</span>
+                </div>
+                <div class="blob-color blob-custom">
+                  <span id="color-sensor-custom-size">-</span><br>
+                  x,y: <span id="color-sensor-custom-x">-</span>, <span id="color-sensor-custom-y">-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="item" data-id="9">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">QR SENSOR</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <div class="qr">
+                <id id="qr-sensor">
+                  <div class="label-value">ID: <span class="value" id="qr-sensor-id">-</span></div>
+                  <div class="label-value">x,y: <span class="value" id="qr-sensor-x">-</span> , <span class="value" id="qr-sensor-y">-</span></div>
+                  <div class="label-value">Size: <span class="value" id="qr-sensor-size">-</span></div>
+                </id>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="10">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">ORIENTATION SENSOR</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <id id="orientation-sensor">
+                <div class="label-value">
+                  Yaw, Pitch, Roll: <span class="value" id="orientation-sensor-value">
+                </div>
+              </id>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="11">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">ACCELERATION SENSOR</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <div class="accel">
+                <id id="accel-sensor">
+                  <div class="label-value">x: <span class="value" id="accel-sensor-x"></span></div>
+                  <div class="label-value">y: <span class="value" id="accel-sensor-y"></span></div>
+                  <div class="label-value">z: <span class="value" id="accel-sensor-z"></span></div>
+                </id>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="12">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">TOUCH SENSOR</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <id id="tap-sensor">
+                  <div class="label-value">Tap x,y: <span class="value" id="tap-sensor-value"></span></div>
+                  <div class="label-value">Tap zone: <span class="value" id="tap-zone-value"></span></div>
+              </id>
+              <id id="fling-sensor">
+                  <div class="label-value">Fling angle: <span class="value" id="fling-sensor-value"></span></div>
+              </id>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-id="13">
+          <div class="item-content">
+            <div class="card-left-icon"><img src="img/icon.png"></div>
+            <div class="card-title">ENVIROMENT LIGHT SENSOR</div>
+            <div class="card-icon">R</div>
+            <div class ="card-content">
+              <id id="brightness-sensor">
+                <div class="label-value">Brightness: <span class="value" id="brightness-sensor-value"></span></div>
+              </id>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <script type="text/javascript" src="lib/vendor/velocity.min.js"></script>
+    <script type="text/javascript" src="lib/vendor/hammer.js"></script>
+    <script type="text/javascript" src="lib/vendor/muuri.js"></script>
+    <script type="text/javascript" src="lib/vendor/gauge.min.js"></script>
+    <script type="text/javascript" src="lib/robobo-monitor-grid.js"></script>
+    <script type="text/javascript" src="lib/remotelib.js"></script>
+    <!--
+        <script type="text/javascript" src="https://mytechia.github.io/robobo-scratch-extension/2/utilities.js"></script>    
+    -->
+    <script type="text/javascript" src="lib/robobo-monitor.js"></script>
+
+    <script>
+        //Lets create a new instance of the Robobo Remote JS Library and connect it to a Robobo
+        var params = getAllUrlParams(),
+            rem = undefined;
+
+        if (params.status != undefined) {
+          if (params.status == 'disconnected') {
+            document.getElementById('monitor').classList.add('disconnected');
+          }
+        }else {
+          document.getElementById('monitor').classList.remove('disconnected')
+        }
+
+        if (params.ip != undefined) {  
+          /*               
+          document.getElementById('roboboip').value = params.ip;
+          document.getElementById('roboboip').disabled = true;
+          document.getElementById('connectionButton').disabled = true;
+          */
+          rem = doConnection(params.ip);
+        }
+
+        function doConnection(ip,rem) {
+          rem = new Remote(ip,"");
+
+          //connect to the remote Robobo
+          rem.connect();
+
+          //wait until the connection is stablished
+          rem.waitForConnection();
+
+          //register status callbacks
+          registerRemoteCallbacks(rem);
+
+          //start polling status values
+          setInterval(updateSensors, 100); //10 per second
+
+          return rem;
+        }
+
+        function connectToRobobo() {
+          if(document.getElementById('roboboip').value == '') {
+              alert('Intro the Robobo IP');
+          }else { 
+             rem = doConnection(document.getElementById('roboboip').value);
+          }
+        }
+    </script>
+
+  </body>
+
+</html>

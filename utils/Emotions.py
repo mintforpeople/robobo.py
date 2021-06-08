@@ -7,7 +7,7 @@ class Emotions(Enum):
 
     .. image:: _static/emotions.jpg
         :scale: 80 %
-
+        :alt: Image showing how Robobo looks for each emotion: happy, laughung, surprised, sad, angry, normal, sleeping, tired or afraid.
     """
     HAPPY = "happy"
     LAUGHING = "laughing"

@@ -45,10 +45,12 @@ class State:
         self.tiltPos = 0
         self.lastTiltTimestamp = 0
         self.blobs = {
+
             "red": Blob("red", 0, 0, 0,-1,-1),
             "green": Blob("green", 0, 0, 0,-1,-1),
             "blue": Blob("blue", 0, 0, 0,-1,-1),
             "custom": Blob("custom", 0, 0, 0,-1,-1)}
+
 
         self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None",0)
 

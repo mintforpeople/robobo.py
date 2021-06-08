@@ -1,15 +1,20 @@
 class QRCode():
     """
-    Represents a QRCode detected
+    Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para saber si te acercas o te alejas, no la distancia exacta.
+
     Attributes:
-        - x: x coordinate.
-        - y: x coordinate.
-        - distance: Approximated distance of the QRCode.
-        - p1: Dictionary with 'x' and 'y' coordinates of the first point of interest (Result point).
-        - p2: Dictionary with 'x' and 'y' coordinates of the second point of interest (Result point).
-        - p3: Dictionary with 'x' and 'y' coordinates of the third point of interest (Result point).
-        - id: QRCode identifier.
-        - timestamp: Timestamp of the status
+
+        - x (float): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.
+        - y (float): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.
+        - distance (int): Approximated distance between Robobo and the QRCode, measured in meters.
+        - p1 (dict): Dictionary with 'x' and 'y' coordinates of the first point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.
+        - p2 (dict): Dictionary with 'x' and 'y' coordinates of the second point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.
+        - p3 (dict): Dictionary with 'x' and 'y' coordinates of the third point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.
+        - id (int): QRCode identifier.
+        - timestamp (int): timestamp of the message
+
+        .. image:: _static/qr.PNG
+            :alt: Image showing an standard QR code, which has three of its corners marked. From the not marked corner and clockwise, the other corners are numbered as p1, p2 and p3.
     """
 
     def __init__(self, x, y, dist, p1x, p1y, p2x, p2y, p3x, p3y, id, statusTimestamp):

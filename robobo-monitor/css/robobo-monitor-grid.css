@@ -1,0 +1,355 @@
+
+/* Controls */
+
+.controls {
+  margin: 30px -10px;
+}
+.control {
+  position: relative;
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+@media (max-width: 600px) {
+  .control {
+    float: none;
+    width: auto;
+    margin: 0 0 15px 0;
+  }
+  .control.layout {
+    margin: 0;
+  }
+}
+.control-icon {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+}
+.control-field {
+  position: relative;
+  padding-left: 40px;
+  z-index: 1;
+}
+
+/* Grid */
+
+.grid {
+  position: relative;
+  margin: auto;
+  /*margin: 0 -10px;*/
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.item {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  /*line-height: 100px;*/
+  margin: 3px;
+  z-index: 1;
+  will-change: transform;
+}
+.item.muuri-item-positioning {
+  z-index: 2;
+}
+.item.muuri-item-dragging,
+.item.muuri-item-releasing {
+  z-index: 9999;
+}
+.item.muuri-item-dragging {
+  cursor: move;
+}
+.item.muuri-item-hidden {
+  z-index: 0;
+}
+
+
+.item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 25px;
+  border: 0px solid #3ca6ff;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.card-title{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: -5px;
+  height: 30px;
+  text-align: left;
+  padding-left: 25px;
+  font-size: 12px;
+  background-color: #0d2c67;
+  color: rgb(196,232,254);
+  line-height: 25px;
+  border: 1px solid #0d2c67;
+  border-radius: 4px 4px 0 0;
+}
+
+.card-content, .card-content-collapsed, .card-content-expanded{
+  position: relative;
+  width: 100%;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #3ca6ff;
+  border: 1px solid #3ca6ff;
+  border-radius: 4px;
+}
+
+.card-content-expanded {
+  height: 100%;
+  visibility: visible;
+}
+
+.card-content-collapsed {
+  height: 0;
+  visibility: hidden;
+}
+
+
+.card-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  /*line-height: 30px;*/
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  -ms-transition: all 0.15s ease-out;
+  -o-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+  z-index: 10;
+  display: none;
+}
+
+.card-left-icon {
+  position: absolute;
+  left: 3px;
+  top: 4px;
+  width: 17px;
+  height: 17px;
+  z-index: 10;
+}
+
+.card-left-icon img {
+  width: 17px;
+  height: 17px;
+}
+
+/* Styles for the robobo sensors content blocks*/
+
+.value {
+  border-radius: 4px;
+  padding: 2px 2px 2px 2px;
+  color: #002c67;
+  font-size: 11px;
+  width: 100%;
+  margin-left: 1px;
+  background-color: #c4e8fe;
+  border-color: 1px solid #c4e8fe;
+}
+
+.value-error {
+  background-color: #b50909!important;
+  border-color: 1px solid #b50909!important;
+}
+
+
+.label-value {
+  width: 100%;
+  margin-top:  5px;
+}
+
+.claps {
+  padding-left: 10px;
+  margin-top:  50px;
+}
+
+/* BLOB COLOR */
+
+.blob-color-container {
+  height: 130px;
+  width: 170px;
+  margin: auto;
+  text-align: center;
+  padding: auto;
+}
+
+.blob-color {
+   position: relative;
+   width: 70px;
+   height: 50px;
+   float:left;
+   margin: 7px;
+   text-align: center;
+   padding-top: 11px;
+   text-shadow: rgba(0,0,0,0.9) 0px 4px 30px;
+   line-height: 24px;
+}
+
+.blob-green {
+  background: url('../img/blob-green.png') center no-repeat;
+}
+
+.blob-blue {
+  background: url('../img/blob-blue-light.png') center no-repeat;
+}
+
+.blob-red {
+  background: url('../img/blob-red.png') center no-repeat;
+}
+
+.blob-custom {
+  background: url('../img/blob-custom.png') center no-repeat;
+}
+
+/* WHEELS */
+
+.wheel-block-container {
+  height: 120px;
+  width: 190px;
+  margin: auto;
+  text-align: center;
+  padding: auto;
+}
+
+.wheel-block {
+   position: relative;
+   width: 90px;
+   height: 100px;
+   float:left;
+   margin: 2px;
+   text-align: center;
+   padding-top: 0px;
+   padding-left: 0px;
+   line-height: 24px;
+}
+
+.wheel-speed-txt {
+  font-size: 18px;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 0px;
+}
+
+.wheel-position {
+    width:100%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* IR SENSORS */
+
+.ir-block-container {
+  height: 120px;
+  width: 195px;
+  margin: auto;
+  text-align: center;
+  padding: auto;
+}
+
+.ir-block-large {
+  position: relative;
+  width: 190px;
+  height: 20px;
+  float:left;
+  text-align: center;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.ir-block {
+  position: relative;
+  width: 90px;
+  height: 20px;
+  float:left;
+  margin: 2px 2px;
+  text-align: left;
+  padding-top: 0px;
+}
+
+
+/* BATTERY */
+
+.battery {
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+
+.battery-normal {
+  color: #333;
+}
+
+.battery-low {
+  color: red;
+}
+
+.battery-full {
+  color: green;
+}
+
+.battery-no-value {
+  color: #cccccc;
+}
+
+.battery-block-container {
+  height: 70px;
+  width: 190px;
+  margin: auto;
+  text-align: center;
+  padding: auto;
+}
+
+.battery-block {
+   position: relative;
+   width: 80px;
+   height: 50px;
+   float:left;
+   margin: 5px;
+   text-align: center;
+   padding-top: 0px;
+   padding-left: 5px;
+   line-height: 15px;
+}
+
+
+/* acceleration panel */
+.accel {
+  height: 80px;
+}
+
+
+/* qr sensor */
+
+.qr {
+  height: auto;
+}

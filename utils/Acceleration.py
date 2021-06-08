@@ -2,8 +2,14 @@
 
 class Acceleration:
     """
-    Represents the current acceleration of the SmartPhone (x, y, z)
+    Represents the acceleration of the smartphone.
+
+    Attributes:
+        - x (float): acceleration on the X axis (m/s^2).
+        - y (float): acceleration on the Y axis (m/s^2).
+        - z (float): acceleration on the Z axis (m/s^2).
     """
+
     def __init__(self, x, y, z):
         self.x = x
         self.y = y

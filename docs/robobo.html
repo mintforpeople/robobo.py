@@ -4,19 +4,19 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robobo.py &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Utils" href="utils.html" />
-    <link rel="prev" title="Robobo.py" href="index.html" />
+    <link rel="prev" title="General features" href="features.html" />
     <link rel="canonical" href="http://www.sphinx-doc.org/en/master/robobo.html" />
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
@@ -86,21 +86,35 @@
           <a href="utils.html" title="Utils"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Robobo.py"
+          <a href="features.html" title="General features"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Home</a></li>
 <!--
         <li><a href="index.html">Home</a>&#160;|</li>
         <li><a href="contents.html">Documentation</a> &#187;</li>
 -->
- 
+
+        <li class="nav-item nav-item-this"><a href="">Robobo.py</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Robobo.py</a><ul>
+<li><a class="reference internal" href="#connection-methods">Connection methods</a></li>
+<li><a class="reference internal" href="#base-actuation-methods">Base actuation methods</a></li>
+<li><a class="reference internal" href="#base-sensing-methods">Base sensing methods</a></li>
+<li><a class="reference internal" href="#smartphone-actuation-methods">Smartphone actuation methods</a></li>
+<li><a class="reference internal" href="#smartphone-sensing-methods">Smartphone sensing methods</a></li>
+<li><a class="reference internal" href="#other-methods">Other methods</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Robobo.py</a></p>
+  <p class="topless"><a href="features.html"
+                        title="previous chapter">General features</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="utils.html"
                         title="next chapter">Utils</a></p>
@@ -129,12 +143,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-Robobo">
-<span id="robobo-py"></span><h1>Robobo.py<a class="headerlink" href="#module-Robobo" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt id="Robobo.Robobo">
-<em class="property">class </em><code class="sig-prename descclassname">Robobo.</code><code class="sig-name descname">Robobo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ip</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+  <div class="section" id="robobo-py">
+<h1>Robobo.py<a class="headerlink" href="#robobo-py" title="Permalink to this headline">¶</a></h1>
 <p>Robobo.py is the library used to create programs for the Robobo educational
 robot in the Python language.</p>
 <p>To create a Robobo instance:</p>
@@ -145,94 +155,34 @@ robot in the Python language.</p>
 </div>
 <p><strong>Parameters:</strong></p>
 <ul class="simple">
-<li><p><strong>ip:</strong> (string) The IP address of the Robobo robot</p></li>
+<li><p><strong>ip:</strong> (string) The IP address of the Robobo robot.</p></li>
 </ul>
-<dl class="py method">
-<dt id="Robobo.Robobo.changeStatusFrequency">
-<code class="sig-name descname">changeStatusFrequency</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frequency</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.changeStatusFrequency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.changeStatusFrequency" title="Permalink to this definition">¶</a></dt>
-<dd><p>Changes the frequency of the status messages coming from the robot.
-Status messages are filtered by default in order to reduce network bandwidth,
-a higher frequency reduces the filters.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>frequency</strong> (<a class="reference internal" href="utils.html#utils.StatusFrequency.StatusFrequency" title="utils.StatusFrequency.StatusFrequency"><em>StatusFrequency</em></a>) – One value of the StatusFrequency enumeration</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.changeTagSize">
-<code class="sig-name descname">changeTagSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.changeTagSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.changeTagSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to change the length of the side of the tag</p>
-<p>:param size Size of the side of the aruco tag in milimiters</p>
-</dd></dl>
-
+<span class="target" id="module-Robobo"></span><div class="section" id="connection-methods">
+<h2>Connection methods<a class="headerlink" href="#connection-methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="Robobo.Robobo.connect">
-<code class="sig-name descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.connect" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Establishes a remote connection with the Robobo indicated by the IP address associated to this instance.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.disconnect">
-<code class="sig-name descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.disconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.disconnect" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">disconnect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.disconnect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disconnects the library from the Robobo robot.</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="Robobo.Robobo.movePanTo">
-<code class="sig-name descname">movePanTo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">degrees</span></em>, <em class="sig-param"><span class="n">speed</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.movePanTo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.movePanTo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the PAN of the base to the specified position at the specified speed</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Position in degress of the PAN [-160..160]</p></li>
-<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Speed factor [0..100]</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – True: blocking mode, False: non-blocking mode</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.moveTiltTo">
-<code class="sig-name descname">moveTiltTo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">degrees</span></em>, <em class="sig-param"><span class="n">speed</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveTiltTo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.moveTiltTo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the TILT of the base to the specified position at the specified speed</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Position in degrees of the TILT [5..105]</p></li>
-<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Speed factor [0..100]</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – True: blocking mode, False: non-blocking mode</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+</div>
+<div class="section" id="base-actuation-methods">
+<h2>Base actuation methods<a class="headerlink" href="#base-actuation-methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="Robobo.Robobo.moveWheels">
-<code class="sig-name descname">moveWheels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rSpeed</span></em>, <em class="sig-param"><span class="n">lSpeed</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveWheels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.moveWheels" title="Permalink to this definition">¶</a></dt>
-<dd><p>Starts moving the wheels of the robot at the specified speed.</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">moveWheels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rSpeed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lSpeed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveWheels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.moveWheels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves Robobo wheels, each one at the specified speed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – (int) Speed factor for the right wheel [-100 - 100]</p></li>
-<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – (int) Speed factor for the left wheel [-100 - 100]</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.moveWheelsByDegrees">
-<code class="sig-name descname">moveWheelsByDegrees</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wheel</span></em>, <em class="sig-param"><span class="n">degrees</span></em>, <em class="sig-param"><span class="n">speed</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveWheelsByDegrees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.moveWheelsByDegrees" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the wheels of the robot by some degress at the specified speed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>wheel</strong> (<a class="reference internal" href="utils.html#utils.Wheels.Wheels" title="utils.Wheels.Wheels"><em>Wheels</em></a>) – Wheels to move, one value of the Wheels enumeration.</p></li>
-<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Degrees to move the wheel</p></li>
-<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]</p></li>
+<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
 </ul>
 </dd>
 </dl>
@@ -240,34 +190,287 @@ a higher frequency reduces the filters.</p>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.moveWheelsByTime">
-<code class="sig-name descname">moveWheelsByTime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rSpeed</span></em>, <em class="sig-param"><span class="n">lSpeed</span></em>, <em class="sig-param"><span class="n">duration</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveWheelsByTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.moveWheelsByTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the wheels of the robot at the specified speeds during the specified time.</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">moveWheelsByTime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rSpeed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lSpeed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveWheelsByTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.moveWheelsByTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves Robobo wheels during the specified time, each one at the specified speed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]</p></li>
-<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Speed factor for the left wheel [-100..100]</p></li>
-<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Time duration of the movement in seconds</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – <ul>
-<li><p>If wait = True: (default value) it waits until the movement finishes.</p></li>
-<li><p>If wait = False: the movement starts and the execution of the following command is               immediately launched. This implies that the robot can execute the movement of another motor               while the wheels are running.</p></li>
-</ul>
-</p></li>
+<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Duration of the movement in seconds (&gt;0). Decimals like 0.2 are allowed.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.playNote">
-<code class="sig-name descname">playNote</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">note</span></em>, <em class="sig-param"><span class="n">duration</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.playNote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.playNote" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to play a musical note</p>
+<dt id="Robobo.Robobo.moveWheelsByDegrees">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">moveWheelsByDegrees</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wheel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveWheelsByDegrees"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.moveWheelsByDegrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves Robobo wheels by some degrees at the specified speed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>note</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Musical note index [48..72]. Anglo-Saxon notation is used and there are 25 possible notes with the following basic correspondence. Any integer between 48 and 72.</p></li>
-<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Duration of the note in seconds (decimals can be used to used, like 0.2 or 0.5)</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – True: blocking mode, False: non-blocking mode</p></li>
+<li><p><strong>wheel</strong> (<a class="reference internal" href="utils.html#utils.Wheels.Wheels" title="utils.Wheels.Wheels"><em>Wheels</em></a>) – Wheel or wheels to move.</p></li>
+<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Degrees to move the wheel or wheels (&gt;0).</p></li>
+<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Speed factor for the movement [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.stopMotors">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopMotors</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopMotors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopMotors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops the movement of the wheels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.movePanTo">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">movePanTo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degrees</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.movePanTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.movePanTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the PAN of the base to the specified position at the specified speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Position in degress of the PAN [-160..160]. See: <a class="reference internal" href="features.html#pan"><span class="std std-ref">Pan positions</span></a>.</p></li>
+<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.moveTiltTo">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">moveTiltTo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degrees</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.moveTiltTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.moveTiltTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the TILT of the base to the specified position at the specified speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Position in degrees of the TILT [5..105]. See: <a class="reference internal" href="features.html#tilt"><span class="std std-ref">Tilt positions</span></a>.</p></li>
+<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setLedColorTo">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setLedColorTo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">led</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setLedColorTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setLedColorTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the color of a LED of the base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>led</strong> (<a class="reference internal" href="utils.html#utils.LED.LED" title="utils.LED.LED"><em>LED</em></a>) – LED to set the color of.</p></li>
+<li><p><strong>color</strong> (<a class="reference internal" href="utils.html#utils.Color.Color" title="utils.Color.Color"><em>Color</em></a>) – New color of the LED.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="base-sensing-methods">
+<h2>Base sensing methods<a class="headerlink" href="#base-sensing-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="Robobo.Robobo.readBatteryLevel">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readBatteryLevel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readBatteryLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readBatteryLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the battery level of the base or the smartphone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<em>string</em>) – One of ‘base’ or ‘phone’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The battery level of the specified device.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readIRSensor">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readIRSensor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readIRSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readIRSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current value sensed by the specified IR.
+This value depends on the distance to nearby objects, being larger for shorter distances.
+This value also depends on ambient conditions, such as the lighting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference internal" href="utils.html#utils.IR.IR" title="utils.IR.IR"><em>IR</em></a>) – The IR to read the value sensed from.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The value of the IR read.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readAllIRSensor">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readAllIRSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readAllIRSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readAllIRSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the values of all the IR sensors.</p>
+<p>Example of use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">irs</span> <span class="o">=</span> <span class="n">rob</span><span class="o">.</span><span class="n">readAllIRSensor</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">irs</span> <span class="o">!=</span> <span class="p">[]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">irs</span><span class="p">[</span><span class="n">IR</span><span class="o">.</span><span class="n">FrontR</span><span class="o">.</span><span class="n">value</span><span class="p">])</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">irs</span><span class="p">[</span><span class="n">IR</span><span class="o">.</span><span class="n">FrontRR</span><span class="o">.</span><span class="n">value</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary returning the values of all the IR sensors of the base.                  Dictionary keys (string): IR ids (see <a class="reference internal" href="utils.html#utils.IR.IR" title="utils.IR.IR"><code class="xref py py-class docutils literal notranslate"><span class="pre">IR</span></code></a>).                  Dictionary values (float): The value of the IR.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readWheelPosition">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readWheelPosition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wheel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readWheelPosition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readWheelPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current position of the specified wheel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wheel</strong> (<a class="reference internal" href="utils.html#utils.Wheels.Wheels" title="utils.Wheels.Wheels"><em>Wheels</em></a>) – The wheel to read the position of. One of Wheels.L or Wheels.R.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The position of the wheel in degrees.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readWheelSpeed">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readWheelSpeed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wheel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readWheelSpeed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readWheelSpeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current speed of the specified wheel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wheel</strong> (<a class="reference internal" href="utils.html#utils.Wheels.Wheels" title="utils.Wheels.Wheels"><em>Wheels</em></a>) – The wheel to read the position of. One of Wheels.L or Wheels.R</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The current speed of the wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readPanPosition">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readPanPosition</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readPanPosition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readPanPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current position of the PAN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The position in degrees, taking values in range [-160..160]. See: <a class="reference internal" href="features.html#pan"><span class="std std-ref">Pan positions</span></a>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readTiltPosition">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readTiltPosition</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readTiltPosition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readTiltPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current position of the TILT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The position in degrees, taking values in range [5..105]. See: <a class="reference internal" href="features.html#tilt"><span class="std std-ref">Tilt positions</span></a>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.resetWheelEncoders">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">resetWheelEncoders</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetWheelEncoders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.resetWheelEncoders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the encoders of the wheels.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="smartphone-actuation-methods">
+<h2>Smartphone actuation methods<a class="headerlink" href="#smartphone-actuation-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="Robobo.Robobo.playNote">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">playNote</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.playNote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.playNote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes Robobo play a musical note.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>note</strong> – Note to play index following the Anglo-Saxon notation, allowing 133 possible notes. The following scheme shows the equivalency in the range 48 to 59:</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DO</p></td>
+<td><p>DO#</p></td>
+<td><p>RE</p></td>
+<td><p>RE#</p></td>
+<td><p>MI</p></td>
+<td><p>FA</p></td>
+<td><p>FA#</p></td>
+<td><p>SOL</p></td>
+<td><p>SOL#</p></td>
+<td><p>LA</p></td>
+<td><p>LA#</p></td>
+<td><p>SI</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>Cs</p></td>
+<td><p>D</p></td>
+<td><p>Ds</p></td>
+<td><p>E</p></td>
+<td><p>F</p></td>
+<td><p>Fs</p></td>
+<td><p>G</p></td>
+<td><p>Gs</p></td>
+<td><p>A</p></td>
+<td><p>As</p></td>
+<td><p>B</p></td>
+</tr>
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>49</p></td>
+<td><p>50</p></td>
+<td><p>51</p></td>
+<td><p>52</p></td>
+<td><p>53</p></td>
+<td><p>54</p></td>
+<td><p>55</p></td>
+<td><p>56</p></td>
+<td><p>57</p></td>
+<td><p>58</p></td>
+<td><p>59</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Duration of the note in seconds (&gt;0). Decimals like 0.2 are allowed.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -275,33 +478,222 @@ a higher frequency reduces the filters.</p>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.playSound">
-<code class="sig-name descname">playSound</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sound</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.playSound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.playSound" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to play the specified emotion sound</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">playSound</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sound</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.playSound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.playSound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes Robobo play the specified emotion sound.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sound</strong> (<a class="reference internal" href="utils.html#utils.Sounds.Sounds" title="utils.Sounds.Sounds"><em>Sounds</em></a>) – One value of the Sound enumeration.</p>
+<dd class="field-odd"><p><strong>sound</strong> (<a class="reference internal" href="utils.html#utils.Sounds.Sounds" title="utils.Sounds.Sounds"><em>Sounds</em></a>) – The emotion sound to play.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readAccelerationSensor">
-<code class="sig-name descname">readAccelerationSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readAccelerationSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readAccelerationSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the acceleration sensor</p>
+<dt id="Robobo.Robobo.sayText">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">sayText</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speech</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.sayText"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.sayText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes Robobo say the specified text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>speech</strong> (<em>string</em>) – The text to say.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setEmotionTo">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setEmotionTo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emotion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setEmotionTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setEmotionTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the emotion showed by the face of Robobo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>emotion</strong> (<a class="reference internal" href="utils.html#utils.Emotions.Emotions" title="utils.Emotions.Emotions"><em>Emotions</em></a>) – New emotion to show.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="smartphone-sensing-methods">
+<h2>Smartphone sensing methods<a class="headerlink" href="#smartphone-sensing-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="id0">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readBatteryLevel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readBatteryLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the battery level of the base or the smartphone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<em>string</em>) – One of ‘base’ or ‘phone’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The battery level of the specified device.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setStatusFrequency">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setStatusFrequency</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setStatusFrequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setStatusFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Sets the frequency of the status messages coming from Robobo. Status messages are filtered by default in order to reduce network bandwidth. A higher frequency reduces the filters, so more status messages are sent and more network bandwidth is used.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frequency</strong> (<a class="reference internal" href="utils.html#utils.StatusFrequency.StatusFrequency" title="utils.StatusFrequency.StatusFrequency"><em>StatusFrequency</em></a>) – New frequency of the status messages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setStreamFps">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setStreamFps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setStreamFps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setStreamFps" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Sets the stream fps. These are the number of frames per second sent from the smartphone to the computer. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – New upper limit of the stream fps. Takes positive values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setCameraFps">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setCameraFps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setCameraFps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setCameraFps" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Sets the camera fps. These are the number of frames per second read by the smartphone camera. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – New upper limit of the camera fps. Takes positive values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setFrontCamera">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setFrontCamera</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setFrontCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setFrontCamera" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Makes Robobo use the frontal camera.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setBackCamera">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setBackCamera</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setBackCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setBackCamera" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Makes Robobo use the back camera.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.startStream">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startStream</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startStream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startStream" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Starts the camera streaming.</div>
+<div class="line">Camera streaming is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">In order to use this function, it’s neccesary to download the project and follow the instructions from the <a class="reference external" href="https://github.com/mintforpeople/robobo-python-video-stream">stream repository</a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.stopStream">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopStream</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopStream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopStream" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the camera streaming.</div>
+<div class="line">Camera streaming is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.startCamera">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startCamera</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the camera.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.stopCamera">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopCamera</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopCamera" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the camera.</div>
+<div class="line"><strong>Warning</strong>: Other modules depend on the camera, so it’s necessary to start it again to make use of them.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readBrightnessSensor">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readBrightnessSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readBrightnessSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readBrightnessSensor" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the ambient light level detected by the smartphone.</div>
+<div class="line"><strong>Warning</strong>: The light sensor may not be available on all the devices.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>An Acceleration object.</p>
+<dd class="field-odd"><p>The brightness value in lux. It’s a positive value.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Acceleration.Acceleration" title="utils.Acceleration.Acceleration">Acceleration</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setActiveBlobs">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setActiveBlobs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setActiveBlobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setActiveBlobs" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line"><strong>Note</strong>: Before tracking blobs, it is highly recommended to follow the <a class="reference external" href="https://github.com/mintforpeople/robobo-programming/wiki/camera-calibration-tutorial_en">camera calibration tutorial</a>.</div>
+<div class="line">Enables or disables the individual tracking of each color.</div>
+<div class="line">By default, green tracking is enabled and the rest are disabled.</div>
+<div class="line"><strong>Warning</strong>: Color tracking is a computationally intensive task, activating all the colors may impact performance.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.readAllColorBlobs" title="Robobo.Robobo.readAllColorBlobs"><code class="xref py py-class docutils literal notranslate"><span class="pre">readAllColorBlobs</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readColorBlob" title="Robobo.Robobo.readColorBlob"><code class="xref py py-class docutils literal notranslate"><span class="pre">readColorBlob</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.resetColorBlobs" title="Robobo.Robobo.resetColorBlobs"><code class="xref py py-class docutils literal notranslate"><span class="pre">resetColorBlobs</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenANewColorBlobIsDetected" title="Robobo.Robobo.whenANewColorBlobIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenANewColorBlobIsDetected</span></code></a>.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>red</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, enables red blob tracking.</p></li>
+<li><p><strong>green</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, enables green blob tracking.</p></li>
+<li><p><strong>blue</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, enables blue blob tracking.</p></li>
+<li><p><strong>custom</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, enables custom blob tracking.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readColorBlob">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readColorBlob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readColorBlob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readColorBlob" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last detected blob of the indicated color.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.setActiveBlobs" title="Robobo.Robobo.setActiveBlobs"><code class="xref py py-class docutils literal notranslate"><span class="pre">setActiveBlobs</span></code></a>.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>color</strong> (<a class="reference internal" href="utils.html#utils.BlobColor.BlobColor" title="utils.BlobColor.BlobColor"><em>BlobColor</em></a>) – Color of the blob.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The blob read.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utils.html#utils.Blob.Blob" title="utils.Blob.Blob">Blob</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.readAllColorBlobs">
-<code class="sig-name descname">readAllColorBlobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readAllColorBlobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readAllColorBlobs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads all the color blob data.</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readAllColorBlobs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readAllColorBlobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readAllColorBlobs" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads all the color blob data.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.setActiveBlobs" title="Robobo.Robobo.setActiveBlobs"><code class="xref py py-class docutils literal notranslate"><span class="pre">setActiveBlobs</span></code></a>.</div>
+</div>
 <p>Example of use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">blobs</span> <span class="o">=</span> <span class="n">rob</span><span class="o">.</span><span class="n">readAllColorBlobs</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">blobs</span><span class="p">:</span>
@@ -314,115 +706,87 @@ a higher frequency reduces the filters.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A dictionary returning the individual blob information.                  Dictionary keys: ‘red’, ‘green’, ‘blue’, ‘custom’. Dictionary Values: Blob object (see <a class="reference internal" href="utils.html#module-utils.Blob" title="utils.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>)</p>
+<dd class="field-odd"><p>A dictionary returning the individual blob information.                 Dictionary keys (<a class="reference internal" href="utils.html#module-utils.BlobColor" title="utils.BlobColor"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlobColor</span></code></a>): the possible colors. Dictionary values (<a class="reference internal" href="utils.html#module-utils.Blob" title="utils.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>): the blobs.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readAllIRSensor">
-<code class="sig-name descname">readAllIRSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readAllIRSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readAllIRSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the values of all the IR sensors.</p>
-<p>Example of use:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">irs</span> <span class="o">=</span> <span class="n">rob</span><span class="o">.</span><span class="n">readAllIRSensor</span><span class="p">()</span>
-<span class="k">if</span> <span class="n">irs</span> <span class="o">!=</span> <span class="p">[]:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">irs</span><span class="p">[</span><span class="n">IR</span><span class="o">.</span><span class="n">FrontR</span><span class="o">.</span><span class="n">value</span><span class="p">])</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">irs</span><span class="p">[</span><span class="n">IR</span><span class="o">.</span><span class="n">FrontRR</span><span class="o">.</span><span class="n">value</span><span class="p">])</span>
-</pre></div>
+<dt id="Robobo.Robobo.resetColorBlobs">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">resetColorBlobs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetColorBlobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.resetColorBlobs" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Resets the color blob detector. This sets to 0 the attributes of the last color blobs detected, but keeps the enabled and disabled colors the same.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.setActiveBlobs" title="Robobo.Robobo.setActiveBlobs"><code class="xref py py-class docutils literal notranslate"><span class="pre">setActiveBlobs</span></code></a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.whenANewColorBlobIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenANewColorBlobIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANewColorBlobIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenANewColorBlobIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a new color blob is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.setActiveBlobs" title="Robobo.Robobo.setActiveBlobs"><code class="xref py py-class docutils literal notranslate"><span class="pre">setActiveBlobs</span></code></a>.</div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A dictionary returning the values of all the IR sensors of the base.                  Dictionary keys: (string) IR ids (see <a class="reference internal" href="utils.html#utils.IR.IR" title="utils.IR.IR"><code class="xref py py-class docutils literal notranslate"><span class="pre">IR</span></code></a>).                  Dictionary values: (float) The value of the IR.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readBatteryLevel">
-<code class="sig-name descname">readBatteryLevel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readBatteryLevel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readBatteryLevel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the battery level of the base or the smartphone.</p>
+<dt id="Robobo.Robobo.setAdvancedLostBlobParameters">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setAdvancedLostBlobParameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minarea</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setAdvancedLostBlobParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setAdvancedLostBlobParameters" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Sets advanced parameters for the blob tracker.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Warning</strong>: Only use this function if you know what you are doing. A bad configuration might have unexpected consecuences.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>device</strong> (<em>string</em>) – One of ‘base’ or ‘phone’</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The battery level of the base or the smartphone</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readBrightnessSensor">
-<code class="sig-name descname">readBrightnessSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readBrightnessSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readBrightnessSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the brightness detected by the smartphone light sensor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The current brightness value</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frames</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Number of frames passed to consider a blob lost.</p></li>
+<li><p><strong>minarea</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Minimum area to consdider a Blob as a Blob.</p></li>
+<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – max_count parameter of the termcriteria.</p></li>
+<li><p><strong>epsilon</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – epsilon parameter of the termcriteria.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readClapCounter">
-<code class="sig-name descname">readClapCounter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readClapCounter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readClapCounter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of claps registered since the last reset</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Clap counter</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
-</dd>
-</dl>
+<dt id="Robobo.Robobo.startFaceDetection">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startFaceDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startFaceDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startFaceDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Starts the face detection.</div>
+<div class="line">Face detection is started by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.stopFaceDetection" title="Robobo.Robobo.stopFaceDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopFaceDetection</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readFaceSensor" title="Robobo.Robobo.readFaceSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">readFaceSensor</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.resetFaceSensor" title="Robobo.Robobo.resetFaceSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">resetFaceSensor</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenAFaceIsLost" title="Robobo.Robobo.whenAFaceIsLost"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenAFaceIsLost</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenANewFaceIsDetected" title="Robobo.Robobo.whenANewFaceIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenANewFaceIsDetected</span></code></a>.</div>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readColorBlob">
-<code class="sig-name descname">readColorBlob</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readColorBlob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readColorBlob" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the last detected blob of color of the indicated color</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>color</strong> (<em>string</em>) – Color of the blob, one of the following: ‘red’,’green’,’blue’,’custom’</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A Blob object</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="utils.html#utils.Blob.Blob" title="utils.Blob.Blob">Blob</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readDetectedObject">
-<code class="sig-name descname">readDetectedObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readDetectedObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readDetectedObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the last object detected by the robot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A DetectedObject object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.DetectedObject.DetectedObject" title="utils.DetectedObject.DetectedObject">DetectedObject</a></p>
-</dd>
-</dl>
+<dt id="Robobo.Robobo.stopFaceDetection">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopFaceDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopFaceDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopFaceDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the face detection.</div>
+<div class="line">Face detection is started by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startFaceDetection" title="Robobo.Robobo.startFaceDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startFaceDetection</span></code></a>.</div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.readFaceSensor">
-<code class="sig-name descname">readFaceSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFaceSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readFaceSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the position and distance of the last face detected by the robot.</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readFaceSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFaceSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readFaceSensor" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last face detected by Robobo.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startFaceDetection" title="Robobo.Robobo.startFaceDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startFaceDetection</span></code></a>.</div>
+</div>
 <p>Example of use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">face</span> <span class="o">=</span> <span class="n">robobo</span><span class="o">.</span><span class="n">readFaceSensor</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span>  <span class="c1">#the distance to the person</span>
@@ -432,7 +796,7 @@ a higher frequency reduces the filters.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A Face object</p>
+<dd class="field-odd"><p>The information of the face detected.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Face.Face" title="utils.Face.Face">Face</a></p>
@@ -441,75 +805,103 @@ a higher frequency reduces the filters.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readFlingAngle">
-<code class="sig-name descname">readFlingAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFlingAngle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readFlingAngle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the angle detected on the fling sensor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The last angle detected on the sensor.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readFlingDistance">
-<code class="sig-name descname">readFlingDistance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFlingDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readFlingDistance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readFlingTime">
-<code class="sig-name descname">readFlingTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFlingTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readFlingTime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readIRSensor">
-<code class="sig-name descname">readIRSensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readIRSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readIRSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the current value sensed by the specified IR</p>
+<dt id="Robobo.Robobo.whenAFaceIsLost">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenAFaceIsLost</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAFaceIsLost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenAFaceIsLost" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a face is lost.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startFaceDetection" title="Robobo.Robobo.startFaceDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startFaceDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> (<a class="reference internal" href="utils.html#utils.IR.IR" title="utils.IR.IR"><em>IR</em></a>) – One value of the IR enumeration</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the current value of the IR</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readLaneBasic">
-<code class="sig-name descname">readLaneBasic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLaneBasic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readLaneBasic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the last detected basic lane (straight lines)</p>
+<dt id="Robobo.Robobo.whenANewFaceIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenANewFaceIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANewFaceIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenANewFaceIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a new face is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startFaceDetection" title="Robobo.Robobo.startFaceDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startFaceDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>(LaneBasic) A LaneBasic object (see <a class="reference internal" href="utils.html#utils.Lanes.LaneBasic" title="utils.Lanes.LaneBasic"><code class="xref py py-class docutils literal notranslate"><span class="pre">LaneBasic</span></code></a>)</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readLanePro">
-<code class="sig-name descname">readLanePro</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLanePro"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readLanePro" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the last detected pro lane (2nd degree polynomials)</p>
+<dt id="Robobo.Robobo.resetFaceSensor">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">resetFaceSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetFaceSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.resetFaceSensor" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Resets the face sensor. After this function, and until a new face is detected, the face sensor will return 0 for each attribute of the face object.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startFaceDetection" title="Robobo.Robobo.startFaceDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startFaceDetection</span></code></a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.startObjectRecognition">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startObjectRecognition</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startObjectRecognition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startObjectRecognition" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Starts the object recognition.</div>
+<div class="line">Object recognition is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.stopObjectRecognition" title="Robobo.Robobo.stopObjectRecognition"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopObjectRecognition</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readDetectedObject" title="Robobo.Robobo.readDetectedObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">readDetectedObject</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenAnObjectIsDetected" title="Robobo.Robobo.whenAnObjectIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenAnObjectIsDetected</span></code></a>.        </div>
+<div class="line">For more information, check the <a class="reference external" href="https://github.com/mintforpeople/robobo-programming/wiki/Real-time-object-identification">Object Recognition Wiki</a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.stopObjectRecognition">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopObjectRecognition</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopObjectRecognition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopObjectRecognition" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the object recognition.</div>
+<div class="line">Object recognition is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startObjectRecognition" title="Robobo.Robobo.startObjectRecognition"><code class="xref py py-class docutils literal notranslate"><span class="pre">startObjectRecognition</span></code></a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readDetectedObject">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readDetectedObject</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readDetectedObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readDetectedObject" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last object detected by Robobo.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startObjectRecognition" title="Robobo.Robobo.startObjectRecognition"><code class="xref py py-class docutils literal notranslate"><span class="pre">startObjectRecognition</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>(LanePro) A LanePro object (see <a class="reference internal" href="utils.html#utils.Lanes.LanePro" title="utils.Lanes.LanePro"><code class="xref py py-class docutils literal notranslate"><span class="pre">LanePro</span></code></a>)</p>
+<dd class="field-odd"><p>The object.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.DetectedObject.DetectedObject" title="utils.DetectedObject.DetectedObject">DetectedObject</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.whenAnObjectIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenAnObjectIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAnObjectIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenAnObjectIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when an object is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startObjectRecognition" title="Robobo.Robobo.startObjectRecognition"><code class="xref py py-class docutils literal notranslate"><span class="pre">startObjectRecognition</span></code></a>.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.readLastNote">
-<code class="sig-name descname">readLastNote</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLastNote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readLastNote" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the last note detected by the note sensor</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readLastNote</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLastNote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readLastNote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the last note detected by the note sensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A Note object</p>
+<dd class="field-odd"><p>The note read.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Note.Note" title="utils.Note.Note">Note</a></p>
@@ -518,29 +910,132 @@ a higher frequency reduces the filters.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readLine">
-<code class="sig-name descname">readLine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readLine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the last detected lines</p>
+<dt id="Robobo.Robobo.whenANoteIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenANoteIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANoteIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenANoteIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the callback that is called when a new note is detected.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>(Lines) A Lines object (see <a class="reference internal" href="utils.html#module-utils.Lines" title="utils.Lines"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lines</span></code></a>)</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
+<dt id="Robobo.Robobo.readClapCounter">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readClapCounter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readClapCounter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readClapCounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the number of claps registered since last reset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of claps.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.whenClapIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenClapIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenClapIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenClapIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the callback that is called when a new clap is detected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.resetClapCounter">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">resetClapCounter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetClapCounter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.resetClapCounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the clap counter.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="Robobo.Robobo.readNoiseLevel">
-<code class="sig-name descname">readNoiseLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readNoiseLevel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readNoiseLevel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readNoiseLevel</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readNoiseLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readNoiseLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the SPL (Sound Pressure Level) value, which is a measurement of the ambient noise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The SPL value in decibels.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readFlingAngle">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readFlingAngle</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFlingAngle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readFlingAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the last angle detected on the fling sensor. This angle is formed by a horizontal line and the first and last points where the finger touched the screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The angle detected in degrees.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readFlingDistance">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readFlingDistance</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFlingDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readFlingDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the length of the last fling detected by Robobo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The length of the fling in pixels.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readFlingTime">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readFlingTime</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readFlingTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readFlingTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the duration of the last fling detected by Robobo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The duration of the fling in milliseconds.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.resetFlingSensor">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">resetFlingSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetFlingSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.resetFlingSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the state of the Fling sensor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.whenAFlingIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenAFlingIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAFlingIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenAFlingIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the callback that is called when a new fling is detected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.readOrientationSensor">
-<code class="sig-name descname">readOrientationSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readOrientationSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readOrientationSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the orientation sensor.</p>
-<p><em>Warning</em>: This sensor may not be available on all the devices</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readOrientationSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readOrientationSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readOrientationSensor" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the orientation sensor.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Warning</strong>: This sensor may not be available on all the devices.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>An orientation object.</p>
+<dd class="field-odd"><p>The orientation read.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Orientation.Orientation" title="utils.Orientation.Orientation">Orientation</a></p>
@@ -549,51 +1044,26 @@ a higher frequency reduces the filters.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readPanPosition">
-<code class="sig-name descname">readPanPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readPanPosition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readPanPosition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the current position of the PAN</p>
+<dt id="Robobo.Robobo.readAccelerationSensor">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readAccelerationSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readAccelerationSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readAccelerationSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the acceleration sensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The current position of the pan</p>
+<dd class="field-odd"><p>The acceleration read.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readQR">
-<code class="sig-name descname">readQR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readQR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readQR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the last detected QR code</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>(QRCode) A QRCode object (see <a class="reference internal" href="utils.html#module-utils.QRCode" title="utils.QRCode"><code class="xref py py-class docutils literal notranslate"><span class="pre">QRCode</span></code></a>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readTag">
-<code class="sig-name descname">readTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readTag" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the last ArUco Tag detected by the robot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A Tag object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Tag.Tag" title="utils.Tag.Tag">Tag</a></p>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Acceleration.Acceleration" title="utils.Acceleration.Acceleration">Acceleration</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.readTapSensor">
-<code class="sig-name descname">readTapSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readTapSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readTapSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the data on the tap sensor</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readTapSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readTapSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readTapSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the data on the tap sensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A Tap object.</p>
+<dd class="field-odd"><p>The data read.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Tap.Tap" title="utils.Tap.Tap">Tap</a></p>
@@ -602,510 +1072,342 @@ a higher frequency reduces the filters.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.readTiltPosition">
-<code class="sig-name descname">readTiltPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readTiltPosition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readTiltPosition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the current position of the TILT</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The current position of the TILT</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readWheelPosition">
-<code class="sig-name descname">readWheelPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wheel</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readWheelPosition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readWheelPosition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the position of the wheel in degrees</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>wheel</strong> (<a class="reference internal" href="utils.html#utils.Wheels.Wheels" title="utils.Wheels.Wheels"><em>Wheels</em></a>) – One of Wheels.L or Wheels.R</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The position of the wheel in degrees</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.readWheelSpeed">
-<code class="sig-name descname">readWheelSpeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wheel</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readWheelSpeed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.readWheelSpeed" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the current speed of the wheel</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>wheel</strong> (<a class="reference internal" href="utils.html#utils.Wheels.Wheels" title="utils.Wheels.Wheels"><em>Wheels</em></a>) – One of Wheels.L or Wheels.R</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The current speed of the wheel</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.resetClapCounter">
-<code class="sig-name descname">resetClapCounter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetClapCounter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.resetClapCounter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the clap counter</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.resetColorBlobs">
-<code class="sig-name descname">resetColorBlobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetColorBlobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.resetColorBlobs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the color blob detector</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.resetFaceSensor">
-<code class="sig-name descname">resetFaceSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetFaceSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.resetFaceSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the face sensor. After this function, and until a new face is detected, the face sensor will return 0 as values for distance, x and y position.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.resetFlingSensor">
-<code class="sig-name descname">resetFlingSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetFlingSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.resetFlingSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the state of the Fling sensor</p>
-</dd></dl>
-
-<dl class="py method">
 <dt id="Robobo.Robobo.resetTapSensor">
-<code class="sig-name descname">resetTapSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetTapSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.resetTapSensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the tap sensor value</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">resetTapSensor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetTapSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.resetTapSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the tap sensor value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.resetWheelEncoders">
-<code class="sig-name descname">resetWheelEncoders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.resetWheelEncoders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.resetWheelEncoders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the encoders of the wheels</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.sayText">
-<code class="sig-name descname">sayText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">speech</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.sayText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.sayText" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to say the specified text</p>
+<dt id="Robobo.Robobo.whenATapIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenATapIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenATapIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenATapIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the callback that is called when a new tap is detected.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>speech</strong> (<em>String</em>) – The text to say</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – True: blocking mode, False: non-blocking mode</p></li>
-</ul>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setActiveBlobs">
-<code class="sig-name descname">setActiveBlobs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">red</span></em>, <em class="sig-param"><span class="n">green</span></em>, <em class="sig-param"><span class="n">blue</span></em>, <em class="sig-param"><span class="n">custom</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setActiveBlobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setActiveBlobs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activates the individual tracking of each color.</p>
-<p><strong>Warning</strong>: Color tracking is a computationally intensive task, activating all the colors may impact performance</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>red</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Enables red blob tracking</p></li>
-<li><p><strong>green</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Enables green blob tracking</p></li>
-<li><p><strong>blue</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Enables blue blob tracking</p></li>
-<li><p><strong>custom</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Enables custom blob tracking</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setBackCamera">
-<code class="sig-name descname">setBackCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setBackCamera"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setBackCamera" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to use the back camera</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setCameraFps">
-<code class="sig-name descname">setCameraFps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fps</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setCameraFps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setCameraFps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to change the camera fps</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Upper limit of the camera’s fps</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setEmotionTo">
-<code class="sig-name descname">setEmotionTo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">emotion</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setEmotionTo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setEmotionTo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Changes the emotion of showed by the face of Robobo</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>emotion</strong> (<a class="reference internal" href="utils.html#utils.Emotions.Emotions" title="utils.Emotions.Emotions"><em>Emotions</em></a>) – One value of the Emotion enumeration</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setFrontCamera">
-<code class="sig-name descname">setFrontCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setFrontCamera"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setFrontCamera" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to use the frontal camera</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setLaneColorInversion">
-<code class="sig-name descname">setLaneColorInversion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">set_on</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setLaneColorInversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setLaneColorInversion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to toggle the color inversion for the advanced lane module.
-NOTE: this does not affects the yellow detection.</p>
-<p>:param set_on Boolean to choose if turn it on or off.
-:type set_on bool</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setLedColorTo">
-<code class="sig-name descname">setLedColorTo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">led</span></em>, <em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setLedColorTo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setLedColorTo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Changes the color of a LED of the base</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>led</strong> (<a class="reference internal" href="utils.html#utils.LED.LED" title="utils.LED.LED"><em>LED</em></a>) – One value of the LED enumeration.</p></li>
-<li><p><strong>color</strong> (<a class="reference internal" href="utils.html#utils.Color.Color" title="utils.Color.Color"><em>Color</em></a>) – One value of the  Color enumeration.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.setStreamFps">
-<code class="sig-name descname">setStreamFps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fps</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setStreamFps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.setStreamFps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to change the stream fps</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Upper limit of the stream’s fps</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startArUcoTagDetection">
-<code class="sig-name descname">startArUcoTagDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startArUcoTagDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startArUcoTagDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the ArUcoTag detection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startCamera">
-<code class="sig-name descname">startCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startCamera"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startCamera" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the camera</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startColorDetection">
-<code class="sig-name descname">startColorDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startColorDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startColorDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the color detection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startColorMeasurement">
-<code class="sig-name descname">startColorMeasurement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startColorMeasurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startColorMeasurement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the color measurement</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startFaceDetection">
-<code class="sig-name descname">startFaceDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startFaceDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startFaceDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the face detection</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.startLaneDetection">
-<code class="sig-name descname">startLaneDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startLaneDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startLaneDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the lane detection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startLineDetection">
-<code class="sig-name descname">startLineDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startLineDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startLineDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the line detection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startLineStats">
-<code class="sig-name descname">startLineStats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startLineStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startLineStats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the line detection STATUS report</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startObjectRecognition">
-<code class="sig-name descname">startObjectRecognition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startObjectRecognition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startObjectRecognition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the object recognition</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startQrTracking">
-<code class="sig-name descname">startQrTracking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startQrTracking"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startQrTracking" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the  QR tracking</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.startStream">
-<code class="sig-name descname">startStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startStream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.startStream" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to start the camera streaming</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopArUcoTagDetection">
-<code class="sig-name descname">stopArUcoTagDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopArUcoTagDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopArUcoTagDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the ArucoTag detection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopCamera">
-<code class="sig-name descname">stopCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopCamera"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopCamera" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the camera</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopColorDetection">
-<code class="sig-name descname">stopColorDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopColorDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopColorDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the color detection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopColorMeasurement">
-<code class="sig-name descname">stopColorMeasurement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopColorMeasurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopColorMeasurement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the color measurement</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopFaceDetection">
-<code class="sig-name descname">stopFaceDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopFaceDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopFaceDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the face detection</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startLaneDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startLaneDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startLaneDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Starts the lane detection.</div>
+<div class="line">Lane detection is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.stopLaneDetection" title="Robobo.Robobo.stopLaneDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopLaneDetection</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.setLaneColorInversion" title="Robobo.Robobo.setLaneColorInversion"><code class="xref py py-class docutils literal notranslate"><span class="pre">setLaneColorInversion</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readLaneBasic" title="Robobo.Robobo.readLaneBasic"><code class="xref py py-class docutils literal notranslate"><span class="pre">readLaneBasic</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readLanePro" title="Robobo.Robobo.readLanePro"><code class="xref py py-class docutils literal notranslate"><span class="pre">readLanePro</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenALaneBasicDetected" title="Robobo.Robobo.whenALaneBasicDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenALaneBasicDetected</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenALaneProDetected" title="Robobo.Robobo.whenALaneProDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenALaneProDetected</span></code></a>.</div>
+<div class="line">For more information, check the <a class="reference external" href="https://github.com/mintforpeople/robobo-programming/wiki/Lane-detection-library">Lane Detection Wiki</a>.</div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.stopLaneDetection">
-<code class="sig-name descname">stopLaneDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopLaneDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopLaneDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the lane detection</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopLaneDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopLaneDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopLaneDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the lane detection.</div>
+<div class="line">Lane detection is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLaneDetection" title="Robobo.Robobo.startLaneDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLaneDetection</span></code></a>.</div>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.stopLineDetection">
-<code class="sig-name descname">stopLineDetection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopLineDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopLineDetection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the line detection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopLineStats">
-<code class="sig-name descname">stopLineStats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopLineStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopLineStats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the line detection STATUS report</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopMotors">
-<code class="sig-name descname">stopMotors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopMotors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopMotors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stops the movement of the wheels</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopObjectRecognition">
-<code class="sig-name descname">stopObjectRecognition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopObjectRecognition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopObjectRecognition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the object recognition</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopQrTracking">
-<code class="sig-name descname">stopQrTracking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopQrTracking"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopQrTracking" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the QR tracking</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.stopStream">
-<code class="sig-name descname">stopStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopStream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.stopStream" title="Permalink to this definition">¶</a></dt>
-<dd><p>Commands the robot to stop the camera streaming</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.wait">
-<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seconds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.wait" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pauses the program for the specified time (in seconds)</p>
+<dt id="Robobo.Robobo.readLaneBasic">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readLaneBasic</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLaneBasic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readLaneBasic" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last detected basic lane (straight lines).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLaneDetection" title="Robobo.Robobo.startLaneDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLaneDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Time in seconds (accepts decimals like 0.2)</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The lane read.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Lanes.LaneBasic" title="utils.Lanes.LaneBasic">LaneBasic</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenAFaceIsLost">
-<code class="sig-name descname">whenAFaceIsLost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAFaceIsLost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenAFaceIsLost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a face is lost</p>
+<dt id="Robobo.Robobo.readLanePro">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readLanePro</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLanePro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readLanePro" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last detected pro lane (Degree 2 polynomials).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLaneDetection" title="Robobo.Robobo.startLaneDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLaneDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The pro lane read.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Lanes.LanePro" title="utils.Lanes.LanePro">LanePro</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenAFlingIsDetected">
-<code class="sig-name descname">whenAFlingIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAFlingIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenAFlingIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a new fling is detected</p>
+<dt id="Robobo.Robobo.setLaneColorInversion">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setLaneColorInversion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set_on</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setLaneColorInversion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setLaneColorInversion" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Toggles the color inversion for the advanced lane module. Usually, light lanes are detected against a dark background, but it is also possible to detect dark lanes against light backgrounds.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLaneDetection" title="Robobo.Robobo.startLaneDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLaneDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.whenALaneBasicDetected">
-<code class="sig-name descname">whenALaneBasicDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenALaneBasicDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenALaneBasicDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a basic lane is detected</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dd class="field-odd"><p><strong>set_on</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Boolean to choose if turn it on or off.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.whenALaneProDetected">
-<code class="sig-name descname">whenALaneProDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenALaneProDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenALaneProDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a pro lane is detected</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenALaneProDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenALaneProDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenALaneProDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a pro lane is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLaneDetection" title="Robobo.Robobo.startLaneDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLaneDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenALineIsDetected">
-<code class="sig-name descname">whenALineIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenALineIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenALineIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a line is detected</p>
+<dt id="Robobo.Robobo.whenALaneBasicDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenALaneBasicDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenALaneBasicDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenALaneBasicDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a basic lane is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLaneDetection" title="Robobo.Robobo.startLaneDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLaneDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenANewColorBlobIsDetected">
-<code class="sig-name descname">whenANewColorBlobIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANewColorBlobIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenANewColorBlobIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a new color blob is detected</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> – The callback function to be called</p>
-</dd>
-<dt class="field-even">Rtype callback</dt>
-<dd class="field-even"><p>fun</p>
-</dd>
-</dl>
+<dt id="Robobo.Robobo.startQrTracking">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startQrTracking</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startQrTracking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startQrTracking" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Starts the QR tracking.</div>
+<div class="line">QR tracking is started by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.stopQrTracking" title="Robobo.Robobo.stopQrTracking"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopQrTracking</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readQR" title="Robobo.Robobo.readQR"><code class="xref py py-class docutils literal notranslate"><span class="pre">readQR</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenANewQRCodeIsDetected" title="Robobo.Robobo.whenANewQRCodeIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenANewQRCodeIsDetected</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenAQRCodeIsDetected" title="Robobo.Robobo.whenAQRCodeIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenAQRCodeIsDetected</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenAQRCodeIsLost" title="Robobo.Robobo.whenAQRCodeIsLost"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenAQRCodeIsLost</span></code></a>.</div>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenANewFaceIsDetected">
-<code class="sig-name descname">whenANewFaceIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANewFaceIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenANewFaceIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a new face is detected</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
-</dd>
-</dl>
+<dt id="Robobo.Robobo.stopQrTracking">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopQrTracking</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopQrTracking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopQrTracking" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the QR tracking.</div>
+<div class="line">QR tracking is started by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startQrTracking" title="Robobo.Robobo.startQrTracking"><code class="xref py py-class docutils literal notranslate"><span class="pre">startQrTracking</span></code></a>.</div>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenANewQRCodeIsDetected">
-<code class="sig-name descname">whenANewQRCodeIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANewQRCodeIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenANewQRCodeIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a new QR is detected</p>
+<dt id="Robobo.Robobo.readQR">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readQR</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readQR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readQR" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last detected QR code.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startQrTracking" title="Robobo.Robobo.startQrTracking"><code class="xref py py-class docutils literal notranslate"><span class="pre">startQrTracking</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The QR code read.</p>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Robobo.Robobo.whenANoteIsDetected">
-<code class="sig-name descname">whenANoteIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANoteIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenANoteIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a new note is detected</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – (fun) The callback function to be called</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.QRCode.QRCode" title="utils.QRCode.QRCode">QRCode</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.whenAQRCodeIsDetected">
-<code class="sig-name descname">whenAQRCodeIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAQRCodeIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenAQRCodeIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a QR is detected</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenAQRCodeIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAQRCodeIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenAQRCodeIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a QR is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startQrTracking" title="Robobo.Robobo.startQrTracking"><code class="xref py py-class docutils literal notranslate"><span class="pre">startQrTracking</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.whenANewQRCodeIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenANewQRCodeIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenANewQRCodeIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenANewQRCodeIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a new QR is detected. A QR is considered to be new if it’s different to the last one detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startQrTracking" title="Robobo.Robobo.startQrTracking"><code class="xref py py-class docutils literal notranslate"><span class="pre">startQrTracking</span></code></a>.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Robobo.Robobo.whenAQRCodeIsLost">
-<code class="sig-name descname">whenAQRCodeIsLost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAQRCodeIsLost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenAQRCodeIsLost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a QR is lost</p>
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenAQRCodeIsLost</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAQRCodeIsLost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenAQRCodeIsLost" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a QR is lost.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startQrTracking" title="Robobo.Robobo.startQrTracking"><code class="xref py py-class docutils literal notranslate"><span class="pre">startQrTracking</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenATagIsDetected">
-<code class="sig-name descname">whenATagIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenATagIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenATagIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a Tag is detected</p>
+<dt id="Robobo.Robobo.startArUcoTagDetection">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startArUcoTagDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startArUcoTagDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startArUcoTagDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Starts the ArUcoTag detection.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.stopArUcoTagDetection" title="Robobo.Robobo.stopArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopArUcoTagDetection</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.setArucoTagSize" title="Robobo.Robobo.setArucoTagSize"><code class="xref py py-class docutils literal notranslate"><span class="pre">setArucoTagSize</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readArucoTag" title="Robobo.Robobo.readArucoTag"><code class="xref py py-class docutils literal notranslate"><span class="pre">readArucoTag</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenArucoTagIsDetected" title="Robobo.Robobo.whenArucoTagIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenArucoTagIsDetected</span></code></a>.</div>
+<div class="line">For more information, check the <a class="reference external" href="https://github.com/mintforpeople/robobo-programming/wiki/ArUco-marker-detection">ArUco Tag Detection Wiki</a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.setArucoTagSize">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">setArucoTagSize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setArucoTagSize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setArucoTagSize" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Sets the length of the side of the ArUco tag to be detected. It is important that this value fits the real tag size used, because it is used to calculate the distance from Robobo to the tag.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dd class="field-odd"><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Size of the side of the ArUco tag in milimiters.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenATapIsDetected">
-<code class="sig-name descname">whenATapIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenATapIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenATapIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a new tap is detected</p>
+<dt id="Robobo.Robobo.stopArUcoTagDetection">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopArUcoTagDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopArUcoTagDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopArUcoTagDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the ArUco tag detection.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readArucoTag">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readArucoTag</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readArucoTag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readArucoTag" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last ArUco Tag detected by Robobo.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The Tag.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Tag.Tag" title="utils.Tag.Tag">Tag</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenAnObjectIsDetected">
-<code class="sig-name descname">whenAnObjectIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenAnObjectIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenAnObjectIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when an object is detected</p>
+<dt id="Robobo.Robobo.whenArucoTagIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenArucoTagIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenArucoTagIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenArucoTagIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a Tag is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Robobo.Robobo.whenClapIsDetected">
-<code class="sig-name descname">whenClapIsDetected</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenClapIsDetected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Robobo.Robobo.whenClapIsDetected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the callback that is called when a new clap is detected</p>
+<dt id="Robobo.Robobo.startLineDetection">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">startLineDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.startLineDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.startLineDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Starts the line detection.</div>
+<div class="line">Line detection is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="utils.html#utils.Lines.Lines" title="utils.Lines.Lines"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lines</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.stopLineDetection" title="Robobo.Robobo.stopLineDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopLineDetection</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readLine" title="Robobo.Robobo.readLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">readLine</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenALineIsDetected" title="Robobo.Robobo.whenALineIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenALineIsDetected</span></code></a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.stopLineDetection">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">stopLineDetection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.stopLineDetection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.stopLineDetection" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Stops the line detection.</div>
+<div class="line">Line detection is stopped by default.</div>
+<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLineDetection" title="Robobo.Robobo.startLineDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLineDetection</span></code></a>.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Robobo.Robobo.readLine">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">readLine</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readLine" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Reads the last detected line.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLineDetection" title="Robobo.Robobo.startLineDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLineDetection</span></code></a>.</div>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The line read.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Lines.Lines" title="utils.Lines.Lines">Lines</a></p>
 </dd>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="Robobo.Robobo.whenALineIsDetected">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">whenALineIsDetected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenALineIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenALineIsDetected" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a line is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startLineDetection" title="Robobo.Robobo.startLineDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startLineDetection</span></code></a>.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
+<div class="section" id="other-methods">
+<h2>Other methods<a class="headerlink" href="#other-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="Robobo.Robobo.wait">
+<code class="sig-prename descclassname"><span class="pre">Robobo.</span></code><code class="sig-name descname"><span class="pre">wait</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.wait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pauses the program for the specified time. After that time, next instruction is executed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Time to wait in seconds (&gt;0). Decimals like 0.2 are allowed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1124,19 +1426,20 @@ NOTE: this does not affects the yellow detection.</p>
           <a href="utils.html" title="Utils"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Robobo.py"
+          <a href="features.html" title="General features"
              >previous</a> |</li>
         <li><a href="index.html">Home</a></li>
 <!--
         <li><a href="index.html">Home</a>&#160;|</li>
         <li><a href="contents.html">Documentation</a> &#187;</li>
 -->
- 
+
+        <li class="nav-item nav-item-this"><a href="">Robobo.py</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+        &#169; Copyright 2010, MINT.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

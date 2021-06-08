@@ -1,19 +1,18 @@
 
 class Tap:
     """
-    Represents a tap on smartphone screen. Attributes:
-
-    - x: Returns the position x of the tap
-    - y: Returns the position y of the tap.
-
-        .. image:: _static/tap_position.jpg
-
-    - zone: Returns the area of the smartphone screen: forehead, eye, right, left, mouth or chin.
+    Represents a tap detected on the smartphone screen.
+    
+    Attributes:
+        - x (int): The x coordinate of the tap [0..100]. See: :ref:`screen`.
+        - y (int): The y coordinate of the tap [0..100]. See: :ref:`screen`.
+        - zone (string): Returns the area of the smartphone screen. Takes one of the following values: 'forehead', 'eye', 'right', 'left', 'mouth' or 'chin'.
 
         .. image:: _static/tap_areas.jpg
             :scale: 50 %
-
+            :alt: Image showing the different possible tap areas on the screen, each one of them being a square or a rectangle. The upper part is the 'forehead'. Excluding the forehead, the right part is 'right' and the left part is 'left'. Excluding those parts, there are four zones remaining. From top to bottom, they are: the 'eye', which is the biggest of all zones, an undefined zone, the 'mouth' and the 'chin'.
     """
+
     def __init__(self, x, y):
         self.x = x
         self.y = y

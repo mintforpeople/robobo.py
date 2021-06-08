@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 # -- Project information -----------------------------------------------------
 
 project = 'Robobo.py'
-copyright = '2019, MINT'
+copyright = '2010, MINT'
 author = 'MINT'
 
 # The short X.Y version
@@ -89,6 +89,8 @@ pygments_style = None
 html_theme = 'sphinx13'
 
 html_theme_path = ['_themes']
+
+autodoc_member_order = 'bysource'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

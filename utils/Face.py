@@ -1,11 +1,12 @@
 
 class Face:
     """
-    Represents the last face detected by Robobo (front camera):
-
-    - posX: (int) Returns the x position in which a face is detected.
-    - posY: (int) Returns the y position in which a face is detected.
-    - distance: (int) the distance at which the SmartPhone front camera detects a face.
+    Represents a face detected by Robobo using the front camera of the smartphone.
+    
+    Attributes:
+        - posx (int): The x coordinate of the tap [0..100]. See: :ref:`screen`.
+        - posy (int): The y coordinate of the tap [0..100]. See: :ref:`screen`.
+        - distance (int): The rounded distance between the eyes of the person, measured in pixels. The values obtained when the person is near the camera are higher than those obtained when the person is far. Takes positive values.
 
     """
 

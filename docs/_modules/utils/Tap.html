@@ -4,14 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.Tap &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -86,7 +86,8 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Tap</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -113,19 +114,18 @@
 <span></span>
 <div class="viewcode-block" id="Tap"><a class="viewcode-back" href="../../utils.html#utils.Tap.Tap">[docs]</a><span class="k">class</span> <span class="nc">Tap</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a tap on smartphone screen. Attributes:</span>
-
-<span class="sd">    - x: Returns the position x of the tap</span>
-<span class="sd">    - y: Returns the position y of the tap.</span>
-
-<span class="sd">        .. image:: _static/tap_position.jpg</span>
-
-<span class="sd">    - zone: Returns the area of the smartphone screen: forehead, eye, right, left, mouth or chin.</span>
+<span class="sd">    Represents a tap detected on the smartphone screen.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        - x (int): The x coordinate of the tap [0..100]. See: :ref:`screen`.</span>
+<span class="sd">        - y (int): The y coordinate of the tap [0..100]. See: :ref:`screen`.</span>
+<span class="sd">        - zone (string): Returns the area of the smartphone screen. Takes one of the following values: &#39;forehead&#39;, &#39;eye&#39;, &#39;right&#39;, &#39;left&#39;, &#39;mouth&#39; or &#39;chin&#39;.</span>
 
 <span class="sd">        .. image:: _static/tap_areas.jpg</span>
 <span class="sd">            :scale: 50 %</span>
-
+<span class="sd">            :alt: Image showing the different possible tap areas on the screen, each one of them being a square or a rectangle. The upper part is the &#39;forehead&#39;. Excluding the forehead, the right part is &#39;right&#39; and the left part is &#39;left&#39;. Excluding those parts, there are four zones remaining. From top to bottom, they are: the &#39;eye&#39;, which is the biggest of all zones, an undefined zone, the &#39;mouth&#39; and the &#39;chin&#39;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
@@ -175,6 +175,7 @@
         <span class="k">return</span> <span class="s2">&quot;Tap, (x,y): &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot;, &quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, zone: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zone</span><span class="p">)</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -195,12 +196,13 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.Tap</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+        &#169; Copyright 2010, MINT.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

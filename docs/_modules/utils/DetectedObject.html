@@ -4,14 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.DetectedObject &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -86,7 +86,8 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.DetectedObject</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -112,15 +113,15 @@
   <h1>Source code for utils.DetectedObject</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="DetectedObject"><a class="viewcode-back" href="../../utils.html#utils.DetectedObject.DetectedObject">[docs]</a><span></span><span class="k">class</span> <span class="nc">DetectedObject</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a detected object</span>
+<span class="sd">    Represents an object detected by Robobo.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        - x: x coordinate of the bounding box.</span>
-<span class="sd">        - y: x coordinate of the bounding box.</span>
-<span class="sd">        - width: width of the bounding box.</span>
-<span class="sd">        - height: height of the bounding box.</span>
-<span class="sd">        - label: class of the identified object.</span>
-<span class="sd">        - confidence: confidence or score of the class of the object.</span>
+<span class="sd">        - x (int): The x coordinate of the center of the bounding box, measured in pixels from the left side of the screen. Takes positive values.</span>
+<span class="sd">        - y (int): The y coordinate of the center of the bounding box, measured in pixels from the upper side of the screen. Takes positive values.</span>
+<span class="sd">        - width (int): The width of the bounding box, measured in pixels. Takes positive values.</span>
+<span class="sd">        - height (int): The height of the bounding box, measured in pixels. Takes positive values.</span>
+<span class="sd">        - label (string): The class of the identified object.</span>
+<span class="sd">        - confidence (float): The confidence for the class of the object. Takes values between 0.5 and 1.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">confidence</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
@@ -140,6 +141,7 @@
                <span class="s2">&quot; confidence:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">confidence</span><span class="p">)</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -160,12 +162,13 @@
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 -->
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">utils.DetectedObject</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MINT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
+        &#169; Copyright 2010, MINT.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

@@ -6,76 +6,60 @@ from utils.Orientation import Orientation
 from utils.Tap import Tap
 import time
 
-
 class Robobo:
-    """
-     Robobo.py is the library used to create programs for the Robobo educational
-     robot in the Python language.
 
-     To create a Robobo instance:
-
-     .. code-block:: python
-
-        from Robobo import Robobo
-
-        rob = Robobo ('10.113.36.150')
-
-     **Parameters:**
-
-     - **ip:** (string) The IP address of the Robobo robot
-
-    """
 
     def __init__(self, ip):
         """
         Creates a new Robobo.js library instance.
 
-        :param ip: (string) The IP address of the Robobo robot
+        :param ip: The IP address of the Robobo robot.
+
+        :type ip: string
         """
+
         self.rem = Remote(ip)
 
     def connect(self):
         """
         Establishes a remote connection with the Robobo indicated by the IP address associated to this instance.
         """
+
         self.rem.wsStartup()
 
     def disconnect(self):
         """
         Disconnects the library from the Robobo robot.
         """
+
         self.rem.disconnect()
 
     def wait(self, seconds):
         """
-        Pauses the program for the specified time (in seconds)
+        Pauses the program for the specified time. After that time, next instruction is executed.
 
-        :param seconds: Time in seconds (accepts decimals like 0.2)
+        :param seconds: Time to wait in seconds (>0). Decimals like 0.2 are allowed.
+
         :type seconds: float
-
         """
+
         time.sleep(seconds)
 
     def moveWheelsByTime(self, rSpeed, lSpeed, duration, wait=True):
         """
-        Moves the wheels of the robot at the specified speeds during the specified time.
+        Moves Robobo wheels during the specified time, each one at the specified speed.
 
-        :param rSpeed: Speed factor for the right wheel [-100..100]
-        :param lSpeed: Speed factor for the left wheel [-100..100]
-        :param duration: Time duration of the movement in seconds
-        :param wait:
-            * If wait = True: (default value) it waits until the movement finishes.
-            * If wait = False: the movement starts and the execution of the following command is \
-              immediately launched. This implies that the robot can execute the movement of another motor \
-              while the wheels are running.
+        :param rSpeed: Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
+        :param lSpeed: Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
+        :param duration: Duration of the movement in seconds (>0). Decimals like 0.2 are allowed.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
 
         :type rSpeed: int
         :type lSpeed: int
-        :type duration: int
+        :type duration: float
         :type wait: bool
-
-
         """
+
         if wait:
             self.rem.moveWheelsWait(rSpeed, lSpeed, duration)
         else:
@@ -83,48 +67,52 @@ class Robobo:
 
     def moveWheels(self, rSpeed, lSpeed):
         """
-        Starts moving the wheels of the robot at the specified speed.
+        Moves Robobo wheels, each one at the specified speed.
         
-        :param rSpeed: (int) Speed factor for the right wheel [-100 - 100]
-        :param lSpeed: (int) Speed factor for the left wheel [-100 - 100]
+        :param rSpeed: Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
+        :param lSpeed: Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
+        
         :type rSpeed: int
         :type lSpeed: int
-
         """
+
         self.rem.moveWheels(rSpeed, lSpeed, 100000)
 
     def stopMotors(self):
         """
-        Stops the movement of the wheels
+        Stops the movement of the wheels.
         """
+
         self.rem.moveWheels(0, 0, 1)
 
     def moveWheelsByDegrees(self, wheel, degrees, speed):
         """
-        Moves the wheels of the robot by some degress at the specified speed.
+        Moves Robobo wheels by some degrees at the specified speed.
 
-        :param wheel: Wheels to move, one value of the Wheels enumeration.
-        :param degrees: Degrees to move the wheel
-        :param speed: Speed factor for the right wheel [-100..100]
+        :param wheel: Wheel or wheels to move.
+        :param degrees: Degrees to move the wheel or wheels (>0).
+        :param speed: Speed factor for the movement [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
+
         :type wheel: Wheels
         :type degrees: int
         :type speed: int
-
         """
+        
         self.rem.moveWheelsByDegreeWait(wheel, degrees, speed)
 
     def movePanTo(self, degrees, speed, wait=True):
         """
-        Moves the PAN of the base to the specified position at the specified speed
+        Moves the PAN of the base to the specified position at the specified speed.
 
-        :param degrees: Position in degress of the PAN [-160..160]
-        :param speed: Speed factor [0..100]
-        :param wait: True: blocking mode, False: non-blocking mode
+        :param degrees: Position in degress of the PAN [-160..160]. See: :ref:`pan`.
+        :param speed: Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
+
         :type degrees: int
         :type speed: int
         :type wait: bool
-
         """
+
         if wait:
             self.rem.movePanWait(degrees, speed)
         else:
@@ -132,15 +120,17 @@ class Robobo:
 
     def moveTiltTo(self, degrees, speed, wait=True):
         """
-        Moves the TILT of the base to the specified position at the specified speed
+        Moves the TILT of the base to the specified position at the specified speed.
 
-        :param degrees: Position in degrees of the TILT [5..105]
-        :param speed: Speed factor [0..100]
-        :param wait: True: blocking mode, False: non-blocking mode
+        :param degrees: Position in degrees of the TILT [5..105]. See: :ref:`tilt`.
+        :param speed: Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
+            
         :type degrees: int
         :type speed: int
         :type wait: bool
         """
+
         if wait:
             self.rem.moveTiltWait(degrees, speed)
         else:
@@ -148,324 +138,419 @@ class Robobo:
 
     def setLedColorTo(self, led, color):
         """
-        Changes the color of a LED of the base
+        Set the color of a LED of the base.
 
-        :param led: One value of the LED enumeration.
-        :param color: One value of the  Color enumeration.
+        :param led: LED to set the color of.
+        :param color: New color of the LED.
+
         :type led: LED
         :type color: Color
-
         """
+
         self.rem.setLedColor(led, color)
 
     def resetWheelEncoders(self):
         """
-        Resets the encoders of the wheels
+        Resets the encoders of the wheels.
         """
+
         self.rem.resetEncoders()
 
     def playNote(self, note, duration, wait=True):
         """
-        Commands the robot to play a musical note
+        Makes Robobo play a musical note.
 
-        :param note: Musical note index [48..72]. Anglo-Saxon notation is used and there are 25 possible notes with the following basic correspondence. Any integer between 48 and 72.
-        :param duration: Duration of the note in seconds (decimals can be used to used, like 0.2 or 0.5)
-        :param wait: True: blocking mode, False: non-blocking mode
+        :param note: Note to play index following the Anglo-Saxon notation, allowing 133 possible notes. The following scheme shows the equivalency in the range 48 to 59:
+
+        ====  ==== ====  ==== ====  ====  ==== ==== ==== ====  ====  ====
+        DO    DO#  RE    RE#  MI    FA    FA#  SOL  SOL# LA    LA#   SI
+        C     Cs   D     Ds   E     F     Fs   G    Gs   A     As    B
+        48    49   50    51   52    53    54   55   56   57    58    59
+        ====  ==== ====  ==== ====  ====  ==== ==== ==== ====  ====  ====
+
+        :param duration: Duration of the note in seconds (>0). Decimals like 0.2 are allowed.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
+
         :type note: int
-        :type duration: int
+        :type duration: float
         :type wait: bool
         """
+
         self.rem.playNote(note, duration, wait)
 
     def playSound(self, sound):
         """
-        Commands the robot to play the specified emotion sound
+        Makes Robobo play the specified emotion sound.
 
-        :param sound: One value of the Sound enumeration.
+        :param sound: The emotion sound to play.
+
         :type sound: Sounds
         """
+
         self.rem.playEmotionSound(sound)
 
     def sayText(self, speech, wait=True):
         """
-        Commands the robot to say the specified text
+        Makes Robobo say the specified text.
 
-        :param speech: The text to say
-        :param wait: True: blocking mode, False: non-blocking mode
-        :type speech: String
+        :param speech: The text to say.
+        :param wait: If true, the instruction is executed in blocking mode. If false, it's executed in non-blocking mode. For more information, see: :ref:`blocking`.
+
+        :type speech: string
         :type wait: bool
         """
+
         self.rem.talk(speech, wait)
 
     def setStreamFps(self, fps):
         """
-        Commands the robot to change the stream fps
+        | Sets the stream fps. These are the number of frames per second sent from the smartphone to the computer. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.
+        | This change is persistent (see: :ref:`persistent`).
 
-        :param fps: Upper limit of the stream's fps
+        :param fps: New upper limit of the stream fps. Takes positive values.
+
         :type fps: int
+
         """
         self.rem.setStreamFps(fps)
 
     def setCameraFps(self, fps):
         """
-        Commands the robot to change the camera fps
+        | Sets the camera fps. These are the number of frames per second read by the smartphone camera. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.
+        | This change is persistent (see: :ref:`persistent`).
 
-        :param fps: Upper limit of the camera's fps
+        :param fps: New upper limit of the camera fps. Takes positive values.
+
         :type fps: int
         """
+
         self.rem.setCameraFps(fps)
 
     def setFrontCamera(self):
         """
-        Commands the robot to use the frontal camera
+        | Makes Robobo use the frontal camera.
+        | This change is persistent (see: :ref:`persistent`).
         """
+
         self.rem.setCamera("front")
 
     def setBackCamera(self):
         """
-        Commands the robot to use the back camera
+        | Makes Robobo use the back camera.
+        | This change is persistent (see: :ref:`persistent`).
         """
+
         self.rem.setCamera("back")
 
     def startStream(self):
         """
-        Commands the robot to start the camera streaming
+        | Starts the camera streaming.
+        | Camera streaming is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | In order to use this function, it's neccesary to download the project and follow the instructions from the `stream repository <https://github.com/mintforpeople/robobo-python-video-stream>`_.
+        
         """
+
         self.rem.startStream()
 
     def stopStream(self):
         """
-        Commands the robot to stop the camera streaming
+        | Stops the camera streaming.
+        | Camera streaming is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
         """
+
         self.rem.stopStream()
-
-    def startColorDetection(self):
-        """
-        Commands the robot to start the color detection
-        """
-        self.rem.startColorDetection()
-
-    def stopColorDetection(self):
-        """
-        Commands the robot to stop the color detection
-        """
-        self.rem.stopColorDetection()
-
-    def startColorMeasurement(self):
-        """
-        Commands the robot to start the color measurement
-        """
-        self.rem.startColorMeasurement()
-
-    def stopColorMeasurement(self):
-        """
-        Commands the robot to stop the color measurement
-        """
-        self.rem.stopColorMeasurement()
 
     def startFaceDetection(self):
         """
-        Commands the robot to start the face detection
-        """
+        | Starts the face detection.
+        | Face detection is started by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.stopFaceDetection`, :class:`~Robobo.readFaceSensor`, :class:`~Robobo.resetFaceSensor`, :class:`~Robobo.whenAFaceIsLost`, :class:`~Robobo.whenANewFaceIsDetected`.
+        """ 
         self.rem.startFaceDetection()
 
     def stopFaceDetection(self):
         """
-        Commands the robot to stop the face detection
-        """
+        | Stops the face detection.
+        | Face detection is started by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startFaceDetection`.
+        """ 
         self.rem.stopFaceDetection()
 
     def startObjectRecognition(self):
         """
-        Commands the robot to start the object recognition
+        | Starts the object recognition.
+        | Object recognition is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObject`, :class:`~Robobo.whenAnObjectIsDetected`.        
+        | For more information, check the `Object Recognition Wiki <https://github.com/mintforpeople/robobo-programming/wiki/Real-time-object-identification>`_.
         """
+
         self.rem.startObjectRecognition()
 
     def stopObjectRecognition(self):
         """
-        Commands the robot to stop the object recognition
+        | Stops the object recognition.
+        | Object recognition is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startObjectRecognition`.
         """
+
         self.rem.stopObjectRecognition()
 
     def startQrTracking(self):
         """
-        Commands the robot to start the  QR tracking
+        | Starts the QR tracking.
+        | QR tracking is started by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.stopQrTracking`, :class:`~Robobo.readQR`, :class:`~Robobo.whenANewQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsLost`.
         """
+
         self.rem.startQrTracking()
 
     def stopQrTracking(self):
         """
-        Commands the robot to stop the QR tracking
+        | Stops the QR tracking.
+        | QR tracking is started by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startQrTracking`.
         """
+
         self.rem.stopQrTracking()
 
     def startArUcoTagDetection(self):
         """
-        Commands the robot to start the ArUcoTag detection
+        | Starts the ArUcoTag detection.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.stopArUcoTagDetection`, :class:`~Robobo.setArucoTagSize`, :class:`~Robobo.readArucoTag`, :class:`~Robobo.whenArucoTagIsDetected`.
+        | For more information, check the `ArUco Tag Detection Wiki <https://github.com/mintforpeople/robobo-programming/wiki/ArUco-marker-detection>`_.
         """
+
         self.rem.startTag()
 
-    def changeTagSize(self, size):
+    def setArucoTagSize(self, size):
         """
-        Commands the robot to change the length of the side of the tag
+        | Sets the length of the side of the ArUco tag to be detected. It is important that this value fits the real tag size used, because it is used to calculate the distance from Robobo to the tag.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
 
-        :param size Size of the side of the aruco tag in milimiters
+        :param size: Size of the side of the ArUco tag in milimiters.
+
+        :type size: int
         """
+
         self.rem.changeTagSize(size)
 
     def stopArUcoTagDetection(self):
         """
-        Commands the robot to stop the ArucoTag detection
+        | Stops the ArUco tag detection.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
         """
+
         self.rem.stopTag()
 
     def startLaneDetection(self):
         """
-        Commands the robot to start the lane detection
+        | Starts the lane detection.
+        | Lane detection is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.stopLaneDetection`, :class:`~Robobo.setLaneColorInversion`, :class:`~Robobo.readLaneBasic`, :class:`~Robobo.readLanePro`, :class:`~Robobo.whenALaneBasicDetected`, :class:`~Robobo.whenALaneProDetected`.
+        | For more information, check the `Lane Detection Wiki <https://github.com/mintforpeople/robobo-programming/wiki/Lane-detection-library>`_.
         """
+
         self.rem.startLane()
 
     def stopLaneDetection(self):
         """
-        Commands the robot to stop the lane detection
+        | Stops the lane detection.
+        | Lane detection is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startLaneDetection`.
+        
         """
+
         self.rem.stopLane()
 
     def startLineDetection(self):
         """
-        Commands the robot to start the line detection
+        | Starts the line detection.
+        | Line detection is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~utils.Lines.Lines`, :class:`~Robobo.stopLineDetection`, :class:`~Robobo.readLine`, :class:`~Robobo.whenALineIsDetected`.
         """
+
         self.rem.startLine()
 
     def stopLineDetection(self):
         """
-        Commands the robot to stop the line detection
+        | Stops the line detection.
+        | Line detection is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startLineDetection`.
         """
+
         self.rem.stopLine()
-
-    def startLineStats(self):
-        """
-        Commands the robot to start the line detection STATUS report
-        """
-        self.rem.startLineStats()
-
-    def stopLineStats(self):
-        """
-        Commands the robot to stop the line detection STATUS report
-        """
-        self.rem.stopLineStats()
 
     def setLaneColorInversion(self, set_on):
         """
-        Commands the robot to toggle the color inversion for the advanced lane module.
-        NOTE: this does not affects the yellow detection.
+        | Toggles the color inversion for the advanced lane module. Usually, light lanes are detected against a dark background, but it is also possible to detect dark lanes against light backgrounds.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startLaneDetection`.
 
-        :param set_on Boolean to choose if turn it on or off.
-        :type set_on bool
+        :param set_on: Boolean to choose if turn it on or off.
+
+        :type set_on: bool
         """
+
         if set_on:
             self.rem.setLaneColorInversionOn()
         else:
             self.rem.setLaneColorInversionOff()
 
-
     def startCamera(self):
         """
-        Commands the robot to start the camera
+        Starts the camera.
         """
+
         self.rem.startCamera()
 
     def stopCamera(self):
         """
-        Commands the robot to stop the camera
+        | Stops the camera.
+        | **Warning**: Other modules depend on the camera, so it's necessary to start it again to make use of them.
+
         """
+
         self.rem.stopCamera()
 
     def resetClapCounter(self):
         """
-        Resets the clap counter
+        Resets the clap counter.
         """
+
         self.rem.resetClaps()
 
     def resetTapSensor(self):
         """
-        Resets the tap sensor value
+        Resets the tap sensor value.
         """
+
         self.rem.resetTap()
 
     def resetFlingSensor(self):
         """
-        Resets the state of the Fling sensor
+        Resets the state of the Fling sensor.
         """
+
         self.rem.resetFling()
 
     def resetColorBlobs(self):
         """
-        Resets the color blob detector
+        | Resets the color blob detector. This sets to 0 the attributes of the last color blobs detected, but keeps the enabled and disabled colors the same.
+        | See also: :class:`~Robobo.setActiveBlobs`.
+
         """
+
         self.rem.resetBlobs()
 
     def resetFaceSensor(self):
         """
-        Resets the face sensor. After this function, and until a new face is detected, the face sensor will return 0 as values for distance, x and y position.
+        | Resets the face sensor. After this function, and until a new face is detected, the face sensor will return 0 for each attribute of the face object.
+        | See also: :class:`~Robobo.startFaceDetection`.
         """
+
         self.rem.resetFace()
 
     def setEmotionTo(self, emotion):
         """
-        Changes the emotion of showed by the face of Robobo
+        Changes the emotion showed by the face of Robobo.
 
-        :param emotion: One value of the Emotion enumeration
+        :param emotion: New emotion to show.
+
         :type emotion: Emotions
-
         """
+
         self.rem.setEmotionTo(emotion)
 
     def setActiveBlobs(self, red, green, blue, custom):
         """
-        Activates the individual tracking of each color.
+        | **Note**: Before tracking blobs, it is highly recommended to follow the `camera calibration tutorial <https://github.com/mintforpeople/robobo-programming/wiki/camera-calibration-tutorial_en>`_.
+        | Enables or disables the individual tracking of each color.
+        | By default, green tracking is enabled and the rest are disabled.
+        | **Warning**: Color tracking is a computationally intensive task, activating all the colors may impact performance.
+        | See also: :class:`~Robobo.readAllColorBlobs`, :class:`~Robobo.readColorBlob`, :class:`~Robobo.resetColorBlobs`, :class:`~Robobo.whenANewColorBlobIsDetected`.
 
-        **Warning**: Color tracking is a computationally intensive task, activating all the colors may impact performance
+        :param red: If true, enables red blob tracking.
+        :param green: If true, enables green blob tracking.
+        :param blue: If true, enables blue blob tracking.
+        :param custom: If true, enables custom blob tracking.
 
-        :param red: Enables red blob tracking
-        :param green: Enables green blob tracking
-        :param blue: Enables blue blob tracking
-        :param custom: Enables custom blob tracking
         :type red: bool
         :type green: bool
         :type blue: bool
         :type custom: bool
         """
+
         self.rem.configureBlobTracking(red, green, blue, custom)
+
+    def setAdvancedLostBlobParameters(self,  frames = 5, minarea = 1000, max_count = 1, epsilon = 0):
+        """
+        | Sets advanced parameters for the blob tracker.
+
+        | **Warning**: Only use this function if you know what you are doing. A bad configuration might have unexpected consecuences.
+
+        :param frames: Number of frames passed to consider a blob lost.
+        :param minarea: Minimum area to consdider a Blob as a Blob.
+        :param max_count: max_count parameter of the termcriteria.
+        :param epsilon: epsilon parameter of the termcriteria.
+
+        :type frames: int
+        :type minarea: int
+        :type max_count: int
+        :type epsilon: int
+        """
+
+        self.rem.advancedLostBlobConfiguration(frames, minarea, max_count, epsilon)
 
     def readClapCounter(self):
         """
-        Returns the number of claps registered since the last reset
+        Reads the number of claps registered since last reset.
 
-        :return: Clap counter
+        :return: The number of claps.
+
         :rtype: int
         """
+
         return self.rem.state.claps
 
     def readLastNote(self):
         """
-        Returns the last note detected by the note sensor
+        Reads the last note detected by the note sensor.
 
-        :return: A Note object
+        :return: The note read.
+
         :rtype: Note
         """
+
         return Note(self.rem.state.lastNote, self.rem.state.lastNoteDuration)
 
     def readIRSensor(self, id):
         """
-        Returns the current value sensed by the specified IR
+        Reads the current value sensed by the specified IR.
+        This value depends on the distance to nearby objects, being larger for shorter distances.
+        This value also depends on ambient conditions, such as the lighting.
 
-        :param id: One value of the IR enumeration
-        :return: the current value of the IR
+        :param id: The IR to read the value sensed from.
+        :return: The value of the IR read.
+
         :type id: IR
         :rtype: int
-
         """
+
         if self.rem.state.irs == []:
             return 0
         else:
@@ -473,7 +558,7 @@ class Robobo:
 
     def readAllIRSensor(self):
         """
-        Returns the values of all the IR sensors.
+        Reads the values of all the IR sensors.
 
         Example of use:
 
@@ -485,26 +570,31 @@ class Robobo:
                 print (irs[IR.FrontRR.value])
 
         :return: A dictionary returning the values of all the IR sensors of the base. \
-                 Dictionary keys: (string) IR ids (see :class:`~utils.IR.IR`). \
-                 Dictionary values: (float) The value of the IR.
+                 Dictionary keys (string): IR ids (see :class:`~utils.IR.IR`). \
+                 Dictionary values (float): The value of the IR.
         :rtype: dict
         """
+
         return self.rem.state.irs
 
     def readColorBlob(self, color):
         """
-        Reads the last detected blob of color of the indicated color
+        | Reads the last detected blob of the indicated color.
+        | See also: :class:`~Robobo.setActiveBlobs`.
          
-        :param color: Color of the blob, one of the following: 'red','green','blue','custom'
-        :type color: string
-        :return:  A Blob object
+        :param color: Color of the blob.
+        :type color: BlobColor
+
+        :return:  The blob read.
         :rtype: Blob
         """
-        return self.rem.state.blobs[color]
+
+        return self.rem.state.blobs[color.value]
 
     def readAllColorBlobs(self):
         """
-        Reads all the color blob data.
+        | Reads all the color blob data.
+        | See also: :class:`~Robobo.setActiveBlobs`.
 
         Example of use:
 
@@ -519,79 +609,105 @@ class Robobo:
                 print(blob.size)
 
         :return: A dictionary returning the individual blob information. \
-                 Dictionary keys: 'red', 'green', 'blue', 'custom'. Dictionary Values: Blob object (see :class:`~utils.Blob`)
+                Dictionary keys (:class:`~utils.BlobColor`): the possible colors. Dictionary values (:class:`~utils.Blob`): the blobs.
+
         :rtype: dict
         """
+
         return self.rem.state.blobs
 
     def readQR(self):
         """
-        Reads the last detected QR code
+        | Reads the last detected QR code.
+        | See also: :class:`~Robobo.startQrTracking`.
 
-        :return: (QRCode) A QRCode object (see :class:`~utils.QRCode`)
+        :return: The QR code read.
+
+        :rtype: QRCode
         """
+
         return self.rem.state.qr
 
     def readLine(self):
         """
-        Reads the last detected lines
+        | Reads the last detected line.
+        | See also: :class:`~Robobo.startLineDetection`.
 
-        :return: (Lines) A Lines object (see :class:`~utils.Lines`)
+        :return: The line read.
+
+        :rtype: Lines       
         """
+
         return self.rem.state.lines
 
     def readLaneBasic(self):
         """
-        Reads the last detected basic lane (straight lines)
+        | Reads the last detected basic lane (straight lines).
+        | See also: :class:`~Robobo.startLaneDetection`.
 
-        :return: (LaneBasic) A LaneBasic object (see :class:`~utils.Lanes.LaneBasic`)
+        :return: The lane read.
+
+        :rtype: LaneBasic        
         """
+
         return self.rem.state.laneBasic
 
     def readLanePro(self):
         """
-        Reads the last detected pro lane (2nd degree polynomials)
+        | Reads the last detected pro lane (Degree 2 polynomials).
+        | See also: :class:`~Robobo.startLaneDetection`.
 
-        :return: (LanePro) A LanePro object (see :class:`~utils.Lanes.LanePro`)
+        :return: The pro lane read.
+        
+        :rtype: LanePro        
         """
+
         return self.rem.state.lanePro
 
     def readOrientationSensor(self):
         """
-        Reads the orientation sensor.
+        | Reads the orientation sensor.
 
-        *Warning*: This sensor may not be available on all the devices
+        | **Warning**: This sensor may not be available on all the devices.
 
-        :return: An orientation object.
+        :return: The orientation read.
+
         :rtype: Orientation
         """
+
         return Orientation(self.rem.state.yaw, self.rem.state.pitch, self.rem.state.roll)
 
     def readAccelerationSensor(self):
         """
-        Reads the acceleration sensor
+        Reads the acceleration sensor.
 
-        :return: An Acceleration object.
+        :return: The acceleration read.
+
         :rtype: Acceleration
         """
+
         return Acceleration(self.rem.state.accelx, self.rem.state.accely, self.rem.state.accelz)
 
     def readTapSensor(self):
         """
-        Reads the data on the tap sensor
+        Reads the data on the tap sensor.
 
-        :return: A Tap object.
+        :return: The data read.
+
         :rtype: Tap
         """
+
         return Tap(self.rem.state.tapx, self.rem.state.tapy)
 
     def readPanPosition(self):
         """
-        Returns the current position of the PAN
+        Reads the current position of the PAN.
 
-        :return: The current position of the pan
+        :return: The position in degrees, taking values in range [-160..160]. See: :ref:`pan`.
+
         :rtype: int
         """
+
         return self.rem.state.panPos
 
     def readPanLastTime(self):
@@ -606,9 +722,10 @@ class Robobo:
 
     def readTiltPosition(self):
         """
-        Returns the current position of the TILT
+        Reads the current position of the TILT.
 
-        :return: The current position of the TILT
+        :return: The position in degrees, taking values in range [5..105]. See: :ref:`tilt`.
+
         :rtype: int
         """
         return self.rem.state.tiltPos
@@ -625,13 +742,15 @@ class Robobo:
 
     def readWheelPosition(self, wheel):
         """
-        Returns the position of the wheel in degrees
+        Reads the current position of the specified wheel.
 
-        :param wheel: One of Wheels.L or Wheels.R
+        :param wheel: The wheel to read the position of. One of Wheels.L or Wheels.R.
         :type wheel: Wheels
-        :return: The position of the wheel in degrees
+
+        :return: The position of the wheel in degrees.
         :rtype: int
         """
+
         if wheel == Wheels.R:
             return self.rem.state.wheelPosR
         elif wheel == Wheels.L:
@@ -642,13 +761,15 @@ class Robobo:
 
     def readWheelSpeed(self, wheel):
         """
-        Returns the current speed of the wheel
+        Returns the current speed of the specified wheel.
 
-        :param wheel: One of Wheels.L or Wheels.R
+        :param wheel: The wheel to read the position of. One of Wheels.L or Wheels.R
         :type wheel: Wheels
-        :return: The current speed of the wheel
+
+        :return: The current speed of the wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.
         :rtype: int
         """
+
         if wheel == Wheels.R:
             return self.rem.state.wheelSpeedR
         elif wheel == Wheels.L:
@@ -669,26 +790,42 @@ class Robobo:
 
     def readFlingAngle(self):
         """
-        Returns the angle detected on the fling sensor
+        Reads the last angle detected on the fling sensor. This angle is formed by a horizontal line and the first and last points where the finger touched the screen.
 
-        :return: The last angle detected on the sensor.
+        :return: The angle detected in degrees.
+
         :rtype: int
         """
+
         return self.rem.state.flingAngle
 
     def readFlingDistance(self):
+        """
+        Reads the length of the last fling detected by Robobo.
+
+        :return: The length of the fling in pixels.
+        :rtype: float
+        """
         return self.rem.state.flingDistance
 
     def readFlingTime(self):
+        """
+        Reads the duration of the last fling detected by Robobo.
+
+        :return: The duration of the fling in milliseconds.
+        :rtype: float
+        """
+
         return self.rem.state.flingTime
 
     def readBatteryLevel(self, device):
         """
-        Returns the battery level of the base or the smartphone.
+        Reads the battery level of the base or the smartphone.
 
-        :param device: One of 'base' or 'phone'
+        :param device: One of 'base' or 'phone'.
         :type device: string
-        :return: The battery level of the base or the smartphone
+
+        :return: The battery level of the specified device.
         :rtype: int
         """
 
@@ -698,20 +835,32 @@ class Robobo:
             return self.rem.state.baseBattery
 
     def readNoiseLevel(self):
+        """
+        Reads the SPL (Sound Pressure Level) value, which is a measurement of the ambient noise.
+
+        :return: The SPL value in decibels.
+
+        :rtype: float
+        """
+
         return self.rem.state.noise
 
     def readBrightnessSensor(self):
         """
-        Reads the brightness detected by the smartphone light sensor
+        | Reads the ambient light level detected by the smartphone.
+        | **Warning**: The light sensor may not be available on all the devices.
 
-        :return: The current brightness value
+        :return: The brightness value in lux. It's a positive value.
+
         :rtype: int
         """
+
         return self.rem.state.brightness
 
     def readFaceSensor(self):
         """
-        Returns the position and distance of the last face detected by the robot.
+        | Reads the last face detected by Robobo.
+        | See also: :class:`~Robobo.startFaceDetection`.
 
         Example of use:
 
@@ -722,84 +871,100 @@ class Robobo:
            print(face.posX) # the position of the face in X axis
            print(fase.posY) # the position of the face in Y axis
 
-        :return: A Face object
+        :return: The information of the face detected.
         :rtype: Face
 
         """
         return self.rem.state.face
 
-    def readTag(self):
+    def readArucoTag(self):
         """
-        Returns the last ArUco Tag detected by the robot.
+        | Reads the last ArUco Tag detected by Robobo.
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
 
-        :return: A Tag object
+        :return: The Tag.
+
         :rtype: Tag
-
         """
+
         return self.rem.state.tag
 
     def readDetectedObject(self):
         """
-        Returns the last object detected by the robot.
+        | Reads the last object detected by Robobo.
+        | See also: :class:`~Robobo.startObjectRecognition`.
 
-        :return: A DetectedObject object
+        :return: The object.
+
         :rtype: DetectedObject
-
         """
+
         return self.rem.state.detectedObject
 
     def whenClapIsDetected(self, callback):
         """
-        Configures the callback that is called when a new clap is detected
+        Configures the callback that is called when a new clap is detected.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setClapCallback(callback)
 
     def whenANoteIsDetected(self, callback):
         """
-        Configures the callback that is called when a new note is detected
+        Configures the callback that is called when a new note is detected.
 
-        :param callback: (fun) The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
-
         """
+
         self.rem.setNoteCallback(callback)
 
     def whenANewFaceIsDetected(self, callback):
         """
-        Configures the callback that is called when a new face is detected
+        | Configures the callback that is called when a new face is detected.
+        | See also: :class:`~Robobo.startFaceDetection`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
-
         """
+
         self.rem.setFaceCallback(callback)
 
     def whenANewColorBlobIsDetected(self, callback):
         """
-        Configures the callback that is called when a new color blob is detected
+        | Configures the callback that is called when a new color blob is detected.
+        | See also: :class:`~Robobo.setActiveBlobs`.
 
-        :param callback: The callback function to be called
-        :rtype callback: fun
+        :param callback: The callback function to be called.
+
+        :type callback: fun
         """
+
         self.rem.setBlobCallback(callback)
 
     def whenANewQRCodeIsDetected(self, callback):
         """
-        Configures the callback that is called when a new QR is detected
+        | Configures the callback that is called when a new QR is detected. A QR is considered to be new if it's different to the last one detected.
+        | See also: :class:`~Robobo.startQrTracking`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setNewQRCallback(callback)
 
     def whenATapIsDetected(self, callback):
         """
-        Configures the callback that is called when a new tap is detected
+        Configures the callback that is called when a new tap is detected.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
 
@@ -807,94 +972,121 @@ class Robobo:
 
     def whenAFlingIsDetected(self, callback):
         """
-        Configures the callback that is called when a new fling is detected
+        Configures the callback that is called when a new fling is detected.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setFlingCallback(callback)
 
     def whenAFaceIsLost(self, callback):
         """
-        Configures the callback that is called when a face is lost
+        | Configures the callback that is called when a face is lost.
+        | See also: :class:`~Robobo.startFaceDetection`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setLostFaceCallback(callback)
 
     def whenAQRCodeIsDetected(self, callback):
         """
-        Configures the callback that is called when a QR is detected
+        | Configures the callback that is called when a QR is detected.
+        | See also: :class:`~Robobo.startQrTracking`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setQRCallback(callback)
 
     def whenAQRCodeIsLost(self, callback):
         """
-        Configures the callback that is called when a QR is lost
+        | Configures the callback that is called when a QR is lost.
+        | See also: :class:`~Robobo.startQrTracking`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setLostQRCallback(callback)
 
-    def whenATagIsDetected(self, callback):
+    def whenArucoTagIsDetected(self, callback):
         """
-        Configures the callback that is called when a Tag is detected
+        | Configures the callback that is called when a Tag is detected.
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setTagCallback(callback)
 
     def whenAnObjectIsDetected(self, callback):
         """
-        Configures the callback that is called when an object is detected
+        | Configures the callback that is called when an object is detected.
+        | See also: :class:`~Robobo.startObjectRecognition`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setDetectedObjectCallback(callback)
 
     def whenALineIsDetected(self, callback):
         """
-        Configures the callback that is called when a line is detected
+        | Configures the callback that is called when a line is detected.
+        | See also: :class:`~Robobo.startLineDetection`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setLineCallback(callback)
 
     def whenALaneProDetected(self, callback):
         """
-        Configures the callback that is called when a pro lane is detected
+        | Configures the callback that is called when a pro lane is detected.
+        | See also: :class:`~Robobo.startLaneDetection`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+
         self.rem.setLaneProCallback(callback)
 
     def whenALaneBasicDetected(self, callback):
         """
-        Configures the callback that is called when a basic lane is detected
+        | Configures the callback that is called when a basic lane is detected.
+        | See also: :class:`~Robobo.startLaneDetection`.
 
-        :param callback: The callback function to be called
+        :param callback: The callback function to be called.
+
         :type callback: fun
         """
+        
         self.rem.setLaneBasicCallback(callback)
 
-    def changeStatusFrequency(self, frequency):
+    def setStatusFrequency(self, frequency):
         """
-        Changes the frequency of the status messages coming from the robot.
-        Status messages are filtered by default in order to reduce network bandwidth,
-        a higher frequency reduces the filters.
+        | Sets the frequency of the status messages coming from Robobo. Status messages are filtered by default in order to reduce network bandwidth. A higher frequency reduces the filters, so more status messages are sent and more network bandwidth is used.
+        | This change is persistent (see: :ref:`persistent`).
 
-        :param frequency: One value of the StatusFrequency enumeration
+        :param frequency: New frequency of the status messages.
+
         :type frequency: StatusFrequency
         """
+        
         self.rem.changeStatusFrequency(frequency)
 
     def sendSync(self, syncId):

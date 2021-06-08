@@ -2,7 +2,7 @@
 
 class Note:
     """
-    Represents a note detected:
+    Represents a note detected by Robobo:
         * Name: (string) The musical note in text format, according to the English nomenclature, that is:
 
             +----+-----+----+-----+----+----+-----+-----+------+----+-----+----+
@@ -11,7 +11,7 @@ class Note:
             | C  | Cs  | D  |  Ds | E  | F  | Fs  |  G  |  Gs  | A  |  As | B  |
             +----+-----+----+-----+----+----+-----+-----+------+----+-----+----+
 
-        * Duration: (int) The note's duration in milliseconds
+        * Duration: (int) The note's duration in milliseconds.
     """
     def __init__(self, name, duration):
         self.name = name
