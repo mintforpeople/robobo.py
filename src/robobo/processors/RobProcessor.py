@@ -1,9 +1,8 @@
-import json
-from utils.Message import Message
-from utils.IR import IR
-from utils.Wheels import Wheels
+from robobo.processors.AbstractProcessor import AbstractProcessor
+from robobo.utils.Message import Message
+from robobo.utils.IR import IR
 
-from processors.AbstractProcessor import AbstractProcessor
+
 
 
 class RobProcessor(AbstractProcessor):
@@ -44,7 +43,7 @@ class RobProcessor(AbstractProcessor):
                  "time":time}
         id = self.state.getId()
 
-        return Message(name,values,id)
+        return Message(name, values, id)
 
     def moveWheelsSeparatedWait(self,speedL, speedR, time):
         name = "MOVE-BLOCKING"
@@ -54,7 +53,7 @@ class RobProcessor(AbstractProcessor):
                  "time":time,
                  "blockid":id}
 
-        return Message(name,values,id)
+        return Message(name, values, id)
 
     def moveWheelsByDegree(self, wheel, degrees, speed):
         name = "MOVEBY-DEGREES"

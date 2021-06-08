@@ -4,14 +4,13 @@ import threading
 import time
 import sys
 
-from State import State
-from processors.PTProcessor import PTProcessor
-from processors.RobProcessor import RobProcessor
-from processors.VisionProcessor import VisionProcessor
-from processors.SmartphoneProcessor import SmartphoneProcessor
-from processors.SoundProcessor import SoundProcessor
-from utils.ConnectionState import ConnectionState
-from utils.IR import IR
+from src.robobo.State import State
+from src.robobo.processors.PTProcessor import PTProcessor
+from src.robobo.processors.RobProcessor import RobProcessor
+from src.robobo.processors.VisionProcessor import VisionProcessor
+from src.robobo.processors.SmartphoneProcessor import SmartphoneProcessor
+from src.robobo.processors.SoundProcessor import SoundProcessor
+from src.robobo.utils.ConnectionState import ConnectionState
 
 
 class Remote:

@@ -1,5 +1,5 @@
-from processors.AbstractProcessor import AbstractProcessor
-from utils.Message import Message
+from robobo.processors.AbstractProcessor import AbstractProcessor
+from robobo.utils.Message import Message
 
 
 class SoundProcessor(AbstractProcessor):

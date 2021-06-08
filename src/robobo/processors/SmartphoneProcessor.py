@@ -1,6 +1,6 @@
-from processors.AbstractProcessor import AbstractProcessor
-from utils import Emotions
-from utils.Message import Message
+from robobo.processors.AbstractProcessor import AbstractProcessor
+from robobo.utils.Message import Message
+
 
 class SmartphoneProcessor(AbstractProcessor):
     def __init__(self, state):

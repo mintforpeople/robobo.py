@@ -1,9 +1,9 @@
-from remotelib import Remote
-from utils.Wheels import Wheels
-from utils.Note import Note
-from utils.Acceleration import Acceleration
-from utils.Orientation import Orientation
-from utils.Tap import Tap
+from robobo.remotelib import Remote
+from robobo.utils.Wheels import Wheels
+from robobo.utils.Note import Note
+from robobo.utils.Acceleration import Acceleration
+from robobo.utils.Orientation import Orientation
+from robobo.utils.Tap import Tap
 import time
 
 class Robobo:

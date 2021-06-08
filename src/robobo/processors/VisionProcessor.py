@@ -1,14 +1,14 @@
 import json
 
-from processors.AbstractProcessor import AbstractProcessor
-from utils.Blob import Blob
-from utils.DetectedObject import DetectedObject
-from utils.Face import Face
-from utils.Lanes import LaneBasic, LanePro
-from utils.Lines import Lines
-from utils.Message import Message
-from utils.QRCode import QRCode
-from utils.Tag import Tag
+from robobo.processors.AbstractProcessor import AbstractProcessor
+from robobo.utils.DetectedObject import DetectedObject
+from robobo.utils.Face import Face
+from robobo.utils.Lanes import LaneBasic, LanePro
+from robobo.utils.Lines import Lines
+from robobo.utils.Message import Message
+from robobo.utils.Blob import Blob
+from robobo.utils.QRCode import QRCode
+from robobo.utils.Tag import Tag
 
 
 class VisionProcessor(AbstractProcessor):
@@ -78,7 +78,7 @@ class VisionProcessor(AbstractProcessor):
                                    float(value["p2y"]),
                                    float(value["p3x"]),
                                    float(value["p3y"]),
-                                   value["id"],int(value["timestamp"]))
+                                   value["id"], int(value["timestamp"]))
 
             self.runCallback("newqr")
 
@@ -92,14 +92,14 @@ class VisionProcessor(AbstractProcessor):
                                    float(value["p2y"]),
                                    float(value["p3x"]),
                                    float(value["p3y"]),
-                                   value["id"],int(value["timestamp"]))
+                                   value["id"], int(value["timestamp"]))
             self.runCallback("qr")
 
 
 
 
         elif (name == "QRCODELOST"):
-            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None",0)
+            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None", 0)
 
             self.runCallback("lostqr")
 
@@ -118,7 +118,7 @@ class VisionProcessor(AbstractProcessor):
                                  float(value["tvec_0"]),
                                  float(value["tvec_1"]),
                                  float(value["tvec_2"]),
-                                 value["id"],int(value["timestamp"]))
+                                 value["id"], int(value["timestamp"]))
             self.runCallback("tag")
 
         elif name == "DETECTED_OBJECT":
