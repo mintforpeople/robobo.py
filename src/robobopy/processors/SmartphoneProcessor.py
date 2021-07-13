@@ -1,5 +1,5 @@
-from robobo.processors.AbstractProcessor import AbstractProcessor
-from robobo.utils.Message import Message
+from robobopy.processors.AbstractProcessor import AbstractProcessor
+from robobopy.utils.Message import Message
 
 
 class SmartphoneProcessor(AbstractProcessor):

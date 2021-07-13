@@ -1,9 +1,9 @@
-from robobo.remotelib import Remote
-from robobo.utils.Wheels import Wheels
-from robobo.utils.Note import Note
-from robobo.utils.Acceleration import Acceleration
-from robobo.utils.Orientation import Orientation
-from robobo.utils.Tap import Tap
+from robobopy.remotelib import Remote
+from robobopy.utils.Wheels import Wheels
+from robobopy.utils.Note import Note
+from robobopy.utils.Acceleration import Acceleration
+from robobopy.utils.Orientation import Orientation
+from robobopy.utils.Tap import Tap
 import time
 
 class Robobo:
@@ -11,7 +11,7 @@ class Robobo:
 
     def __init__(self, ip):
         """
-        Creates a new Robobo.js library instance.
+        Creates a new Robobo library instance.
 
         :param ip: The IP address of the Robobo robot.
 

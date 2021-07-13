@@ -1,6 +1,6 @@
-from robobo.processors.AbstractProcessor import AbstractProcessor
-from robobo.utils.Message import Message
-from robobo.utils.IR import IR
+from robobopy.processors.AbstractProcessor import AbstractProcessor
+from robobopy.utils.Message import Message
+from robobopy.utils.IR import IR
 
 
 

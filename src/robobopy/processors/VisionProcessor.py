@@ -1,14 +1,14 @@
 import json
 
-from robobo.processors.AbstractProcessor import AbstractProcessor
-from robobo.utils.DetectedObject import DetectedObject
-from robobo.utils.Face import Face
-from robobo.utils.Lanes import LaneBasic, LanePro
-from robobo.utils.Lines import Lines
-from robobo.utils.Message import Message
-from robobo.utils.Blob import Blob
-from robobo.utils.QRCode import QRCode
-from robobo.utils.Tag import Tag
+from robobopy.processors.AbstractProcessor import AbstractProcessor
+from robobopy.utils.DetectedObject import DetectedObject
+from robobopy.utils.Face import Face
+from robobopy.utils.Lanes import LaneBasic, LanePro
+from robobopy.utils.Lines import Lines
+from robobopy.utils.Message import Message
+from robobopy.utils.Blob import Blob
+from robobopy.utils.QRCode import QRCode
+from robobopy.utils.Tag import Tag
 
 
 class VisionProcessor(AbstractProcessor):

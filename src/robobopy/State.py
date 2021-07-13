@@ -1,10 +1,10 @@
-from robobo.utils.Blob import Blob
-from robobo.utils.DetectedObject import DetectedObject
-from robobo.utils.Face import Face
-from robobo.utils.Lanes import LanePro, LaneBasic
-from robobo.utils.Lines import Lines
-from robobo.utils.QRCode import QRCode
-from robobo.utils.Tag import Tag
+from robobopy.utils.Blob import Blob
+from robobopy.utils.DetectedObject import DetectedObject
+from robobopy.utils.Face import Face
+from robobopy.utils.Lanes import LanePro, LaneBasic
+from robobopy.utils.Lines import Lines
+from robobopy.utils.QRCode import QRCode
+from robobopy.utils.Tag import Tag
 
 
 class State:
