@@ -147,7 +147,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Robobo.wait"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.wait">[docs]</a>    <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Pauses the program for the specified time. After that time, next instruction is executed.</span>
 
@@ -156,9 +156,9 @@
 <span class="sd">        :type seconds: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span></div>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.moveWheelsByTime"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.moveWheelsByTime">[docs]</a>    <span class="k">def</span> <span class="nf">moveWheelsByTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">moveWheelsByTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Moves Robobo wheels during the specified time, each one at the specified speed.</span>
 
@@ -176,9 +176,9 @@
         <span class="k">if</span> <span class="n">wait</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheelsWait</span><span class="p">(</span><span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">,</span> <span class="n">duration</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheels</span><span class="p">(</span><span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">,</span> <span class="n">duration</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheels</span><span class="p">(</span><span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">,</span> <span class="n">duration</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.moveWheels"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.moveWheels">[docs]</a>    <span class="k">def</span> <span class="nf">moveWheels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">moveWheels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Moves Robobo wheels, each one at the specified speed.</span>
 <span class="sd">        </span>
@@ -189,16 +189,16 @@
 <span class="sd">        :type lSpeed: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheels</span><span class="p">(</span><span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheels</span><span class="p">(</span><span class="n">rSpeed</span><span class="p">,</span> <span class="n">lSpeed</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.stopMotors"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopMotors">[docs]</a>    <span class="k">def</span> <span class="nf">stopMotors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopMotors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stops the movement of the wheels.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.moveWheelsByDegrees"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.moveWheelsByDegrees">[docs]</a>    <span class="k">def</span> <span class="nf">moveWheelsByDegrees</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">moveWheelsByDegrees</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Moves Robobo wheels by some degrees at the specified speed.</span>
 
@@ -211,9 +211,9 @@
 <span class="sd">        :type speed: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheelsByDegreeWait</span><span class="p">(</span><span class="n">wheel</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveWheelsByDegreeWait</span><span class="p">(</span><span class="n">wheel</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.movePanTo"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.movePanTo">[docs]</a>    <span class="k">def</span> <span class="nf">movePanTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">movePanTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Moves the PAN of the base to the specified position at the specified speed.</span>
 
@@ -229,9 +229,9 @@
         <span class="k">if</span> <span class="n">wait</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">movePanWait</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">movePan</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">movePan</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.moveTiltTo"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.moveTiltTo">[docs]</a>    <span class="k">def</span> <span class="nf">moveTiltTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">moveTiltTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Moves the TILT of the base to the specified position at the specified speed.</span>
 
@@ -247,9 +247,9 @@
         <span class="k">if</span> <span class="n">wait</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveTiltWait</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveTilt</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">moveTilt</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setLedColorTo"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setLedColorTo">[docs]</a>    <span class="k">def</span> <span class="nf">setLedColorTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">led</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setLedColorTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">led</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the color of a LED of the base.</span>
 
@@ -260,16 +260,16 @@
 <span class="sd">        :type color: Color</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLedColor</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLedColor</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.resetWheelEncoders"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetWheelEncoders">[docs]</a>    <span class="k">def</span> <span class="nf">resetWheelEncoders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resetWheelEncoders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resets the encoders of the wheels.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetEncoders</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetEncoders</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.playNote"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.playNote">[docs]</a>    <span class="k">def</span> <span class="nf">playNote</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">playNote</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Makes Robobo play a musical note.</span>
 
@@ -289,9 +289,9 @@
 <span class="sd">        :type wait: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">playNote</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">playNote</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.playSound"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.playSound">[docs]</a>    <span class="k">def</span> <span class="nf">playSound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sound</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">playSound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sound</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Makes Robobo play the specified emotion sound.</span>
 
@@ -300,9 +300,9 @@
 <span class="sd">        :type sound: Sounds</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">playEmotionSound</span><span class="p">(</span><span class="n">sound</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">playEmotionSound</span><span class="p">(</span><span class="n">sound</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.sayText"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.sayText">[docs]</a>    <span class="k">def</span> <span class="nf">sayText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speech</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">sayText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speech</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Makes Robobo say the specified text.</span>
 
@@ -313,9 +313,9 @@
 <span class="sd">        :type wait: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">talk</span><span class="p">(</span><span class="n">speech</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">talk</span><span class="p">(</span><span class="n">speech</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setStreamFps"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setStreamFps">[docs]</a>    <span class="k">def</span> <span class="nf">setStreamFps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fps</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setStreamFps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fps</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Sets the stream fps. These are the number of frames per second sent from the smartphone to the computer. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
@@ -325,9 +325,9 @@
 <span class="sd">        :type fps: int</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setStreamFps</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setStreamFps</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setCameraFps"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setCameraFps">[docs]</a>    <span class="k">def</span> <span class="nf">setCameraFps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fps</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setCameraFps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fps</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Sets the camera fps. These are the number of frames per second read by the smartphone camera. Default value is 60, buf effective value is usually lower (around 20), depending on the smartphone.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
@@ -337,25 +337,25 @@
 <span class="sd">        :type fps: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCameraFps</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCameraFps</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setFrontCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setFrontCamera">[docs]</a>    <span class="k">def</span> <span class="nf">setFrontCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setFrontCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Makes Robobo use the frontal camera.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setBackCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setBackCamera">[docs]</a>    <span class="k">def</span> <span class="nf">setBackCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setBackCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Makes Robobo use the back camera.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;back&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setCamera</span><span class="p">(</span><span class="s2">&quot;back&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.startStream"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startStream">[docs]</a>    <span class="k">def</span> <span class="nf">startStream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startStream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Starts the camera streaming.</span>
 <span class="sd">        | Camera streaming is stopped by default.</span>
@@ -364,34 +364,34 @@
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startStream</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startStream</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.stopStream"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopStream">[docs]</a>    <span class="k">def</span> <span class="nf">stopStream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopStream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the camera streaming.</span>
 <span class="sd">        | Camera streaming is stopped by default.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopStream</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopStream</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.startFaceDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startFaceDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startFaceDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startFaceDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Starts the face detection.</span>
 <span class="sd">        | Face detection is started by default.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        | See also: :class:`~Robobo.stopFaceDetection`, :class:`~Robobo.readFaceSensor`, :class:`~Robobo.resetFaceSensor`, :class:`~Robobo.whenAFaceIsLost`, :class:`~Robobo.whenANewFaceIsDetected`.</span>
 <span class="sd">        &quot;&quot;&quot;</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startFaceDetection</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startFaceDetection</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.stopFaceDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopFaceDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopFaceDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopFaceDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the face detection.</span>
 <span class="sd">        | Face detection is started by default.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopFaceDetection</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopFaceDetection</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Robobo.startObjectRecognition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startObjectRecognition">[docs]</a>    <span class="k">def</span> <span class="nf">startObjectRecognition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -404,7 +404,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startObjectRecognition</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Robobo.stopObjectRecognition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopObjectRecognition">[docs]</a>    <span class="k">def</span> <span class="nf">stopObjectRecognition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopObjectRecognition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the object recognition.</span>
 <span class="sd">        | Object recognition is stopped by default.</span>
@@ -412,9 +412,9 @@
 <span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopObjectRecognition</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopObjectRecognition</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.startQrTracking"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startQrTracking">[docs]</a>    <span class="k">def</span> <span class="nf">startQrTracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startQrTracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Starts the QR tracking.</span>
 <span class="sd">        | QR tracking is started by default.</span>
@@ -422,9 +422,9 @@
 <span class="sd">        | See also: :class:`~Robobo.stopQrTracking`, :class:`~Robobo.readQR`, :class:`~Robobo.whenANewQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsDetected`, :class:`~Robobo.whenAQRCodeIsLost`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startQrTracking</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startQrTracking</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.stopQrTracking"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopQrTracking">[docs]</a>    <span class="k">def</span> <span class="nf">stopQrTracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopQrTracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the QR tracking.</span>
 <span class="sd">        | QR tracking is started by default.</span>
@@ -432,9 +432,9 @@
 <span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopQrTracking</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopQrTracking</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.startArUcoTagDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startArUcoTagDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startArUcoTagDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startArUcoTagDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Starts the ArUcoTag detection.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
@@ -442,9 +442,9 @@
 <span class="sd">        | For more information, check the `ArUco Tag Detection Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/ArUco-marker-detection&gt;`_.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startTag</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startTag</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.setArucoTagSize"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setArucoTagSize">[docs]</a>    <span class="k">def</span> <span class="nf">setArucoTagSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setArucoTagSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Sets the length of the side of the ArUco tag to be detected. It is important that this value fits the real tag size used, because it is used to calculate the distance from Robobo to the tag.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
@@ -455,18 +455,18 @@
 <span class="sd">        :type size: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeTagSize</span><span class="p">(</span><span class="n">size</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeTagSize</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.stopArUcoTagDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopArUcoTagDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopArUcoTagDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopArUcoTagDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the ArUco tag detection.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
 <span class="sd">        | See also: :class:`~Robobo.startArUcoTagDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopTag</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopTag</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.startLaneDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startLaneDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startLaneDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startLaneDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Starts the lane detection.</span>
 <span class="sd">        | Lane detection is stopped by default.</span>
@@ -475,9 +475,9 @@
 <span class="sd">        | For more information, check the `Lane Detection Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/Lane-detection-library&gt;`_.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startLane</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startLane</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.stopLaneDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopLaneDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopLaneDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopLaneDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the lane detection.</span>
 <span class="sd">        | Lane detection is stopped by default.</span>
@@ -486,9 +486,9 @@
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopLane</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopLane</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.startLineDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startLineDetection">[docs]</a>    <span class="k">def</span> <span class="nf">startLineDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startLineDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Starts the line detection.</span>
 <span class="sd">        | Line detection is stopped by default.</span>
@@ -496,9 +496,9 @@
 <span class="sd">        | See also: :class:`~utils.Lines.Lines`, :class:`~Robobo.stopLineDetection`, :class:`~Robobo.readLine`, :class:`~Robobo.whenALineIsDetected`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startLine</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startLine</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.stopLineDetection"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopLineDetection">[docs]</a>    <span class="k">def</span> <span class="nf">stopLineDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopLineDetection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the line detection.</span>
 <span class="sd">        | Line detection is stopped by default.</span>
@@ -506,9 +506,9 @@
 <span class="sd">        | See also: :class:`~Robobo.startLineDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopLine</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopLine</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.setLaneColorInversion"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setLaneColorInversion">[docs]</a>    <span class="k">def</span> <span class="nf">setLaneColorInversion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">set_on</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setLaneColorInversion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">set_on</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Toggles the color inversion for the advanced lane module. Usually, light lanes are detected against a dark background, but it is also possible to detect dark lanes against light backgrounds.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
@@ -522,63 +522,63 @@
         <span class="k">if</span> <span class="n">set_on</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneColorInversionOn</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneColorInversionOff</span><span class="p">()</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneColorInversionOff</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.startCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.startCamera">[docs]</a>    <span class="k">def</span> <span class="nf">startCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Starts the camera.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startCamera</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">startCamera</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.stopCamera"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.stopCamera">[docs]</a>    <span class="k">def</span> <span class="nf">stopCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stopCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Stops the camera.</span>
 <span class="sd">        | **Warning**: Other modules depend on the camera, so it&#39;s necessary to start it again to make use of them.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopCamera</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">stopCamera</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.resetClapCounter"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetClapCounter">[docs]</a>    <span class="k">def</span> <span class="nf">resetClapCounter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resetClapCounter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resets the clap counter.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetClaps</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetClaps</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.resetTapSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetTapSensor">[docs]</a>    <span class="k">def</span> <span class="nf">resetTapSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resetTapSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resets the tap sensor value.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetTap</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetTap</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.resetFlingSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetFlingSensor">[docs]</a>    <span class="k">def</span> <span class="nf">resetFlingSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resetFlingSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resets the state of the Fling sensor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetFling</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetFling</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.resetColorBlobs"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetColorBlobs">[docs]</a>    <span class="k">def</span> <span class="nf">resetColorBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resetColorBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Resets the color blob detector. This sets to 0 the attributes of the last color blobs detected, but keeps the enabled and disabled colors the same.</span>
 <span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetBlobs</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetBlobs</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.resetFaceSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.resetFaceSensor">[docs]</a>    <span class="k">def</span> <span class="nf">resetFaceSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resetFaceSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Resets the face sensor. After this function, and until a new face is detected, the face sensor will return 0 for each attribute of the face object.</span>
 <span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetFace</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">resetFace</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Robobo.setEmotionTo"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setEmotionTo">[docs]</a>    <span class="k">def</span> <span class="nf">setEmotionTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">emotion</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setEmotionTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">emotion</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Changes the emotion showed by the face of Robobo.</span>
 
@@ -587,9 +587,9 @@
 <span class="sd">        :type emotion: Emotions</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setEmotionTo</span><span class="p">(</span><span class="n">emotion</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setEmotionTo</span><span class="p">(</span><span class="n">emotion</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setActiveBlobs"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setActiveBlobs">[docs]</a>    <span class="k">def</span> <span class="nf">setActiveBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">custom</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setActiveBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">custom</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | **Note**: Before tracking blobs, it is highly recommended to follow the `camera calibration tutorial &lt;https://github.com/mintforpeople/robobo-programming/wiki/camera-calibration-tutorial_en&gt;`_.</span>
 <span class="sd">        | Enables or disables the individual tracking of each color.</span>
@@ -608,9 +608,9 @@
 <span class="sd">        :type custom: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">configureBlobTracking</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">custom</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">configureBlobTracking</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">custom</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setAdvancedLostBlobParameters"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setAdvancedLostBlobParameters">[docs]</a>    <span class="k">def</span> <span class="nf">setAdvancedLostBlobParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">frames</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">minarea</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">max_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setAdvancedLostBlobParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">frames</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">minarea</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">max_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Sets advanced parameters for the blob tracker.</span>
 
@@ -627,9 +627,9 @@
 <span class="sd">        :type epsilon: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">advancedLostBlobConfiguration</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">minarea</span><span class="p">,</span> <span class="n">max_count</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">advancedLostBlobConfiguration</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">minarea</span><span class="p">,</span> <span class="n">max_count</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.readClapCounter"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readClapCounter">[docs]</a>    <span class="k">def</span> <span class="nf">readClapCounter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readClapCounter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the number of claps registered since last reset.</span>
 
@@ -638,9 +638,9 @@
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">claps</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">claps</span>
 
-<div class="viewcode-block" id="Robobo.readLastNote"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLastNote">[docs]</a>    <span class="k">def</span> <span class="nf">readLastNote</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readLastNote</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the last note detected by the note sensor.</span>
 
@@ -649,9 +649,9 @@
 <span class="sd">        :rtype: Note</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">Note</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastNote</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastNoteDuration</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">Note</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastNote</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastNoteDuration</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.readIRSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readIRSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readIRSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readIRSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the current value sensed by the specified IR.</span>
 <span class="sd">        This value depends on the distance to nearby objects, being larger for shorter distances.</span>
@@ -667,9 +667,9 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">irs</span> <span class="o">==</span> <span class="p">[]:</span>
             <span class="k">return</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">irs</span><span class="p">[</span><span class="nb">id</span><span class="o">.</span><span class="n">value</span><span class="p">])</span></div>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">irs</span><span class="p">[</span><span class="nb">id</span><span class="o">.</span><span class="n">value</span><span class="p">])</span>
 
-<div class="viewcode-block" id="Robobo.readAllIRSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readAllIRSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readAllIRSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readAllIRSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the values of all the IR sensors.</span>
 
@@ -688,9 +688,9 @@
 <span class="sd">        :rtype: dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">irs</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">irs</span>
 
-<div class="viewcode-block" id="Robobo.readColorBlob"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readColorBlob">[docs]</a>    <span class="k">def</span> <span class="nf">readColorBlob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readColorBlob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last detected blob of the indicated color.</span>
 <span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
@@ -702,9 +702,9 @@
 <span class="sd">        :rtype: Blob</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">value</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Robobo.readAllColorBlobs"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readAllColorBlobs">[docs]</a>    <span class="k">def</span> <span class="nf">readAllColorBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readAllColorBlobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads all the color blob data.</span>
 <span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
@@ -727,9 +727,9 @@
 <span class="sd">        :rtype: dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">blobs</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">blobs</span>
 
-<div class="viewcode-block" id="Robobo.readQR"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readQR">[docs]</a>    <span class="k">def</span> <span class="nf">readQR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readQR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last detected QR code.</span>
 <span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
@@ -739,9 +739,9 @@
 <span class="sd">        :rtype: QRCode</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">qr</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">qr</span>
 
-<div class="viewcode-block" id="Robobo.readLine"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLine">[docs]</a>    <span class="k">def</span> <span class="nf">readLine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readLine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last detected line.</span>
 <span class="sd">        | See also: :class:`~Robobo.startLineDetection`.</span>
@@ -751,9 +751,9 @@
 <span class="sd">        :rtype: Lines       </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lines</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lines</span>
 
-<div class="viewcode-block" id="Robobo.readLaneBasic"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLaneBasic">[docs]</a>    <span class="k">def</span> <span class="nf">readLaneBasic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readLaneBasic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last detected basic lane (straight lines).</span>
 <span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
@@ -763,9 +763,9 @@
 <span class="sd">        :rtype: LaneBasic        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">laneBasic</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">laneBasic</span>
 
-<div class="viewcode-block" id="Robobo.readLanePro"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLanePro">[docs]</a>    <span class="k">def</span> <span class="nf">readLanePro</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readLanePro</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last detected pro lane (Degree 2 polynomials).</span>
 <span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
@@ -775,9 +775,9 @@
 <span class="sd">        :rtype: LanePro        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lanePro</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lanePro</span>
 
-<div class="viewcode-block" id="Robobo.readOrientationSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readOrientationSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readOrientationSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readOrientationSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the orientation sensor.</span>
 
@@ -788,9 +788,9 @@
 <span class="sd">        :rtype: Orientation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">Orientation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">yaw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">pitch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">Orientation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">yaw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">pitch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.readAccelerationSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readAccelerationSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readAccelerationSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readAccelerationSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the acceleration sensor.</span>
 
@@ -799,9 +799,9 @@
 <span class="sd">        :rtype: Acceleration</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">Acceleration</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">accelx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">accely</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">accelz</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">Acceleration</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">accelx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">accely</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">accelz</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.readTapSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readTapSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readTapSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readTapSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the data on the tap sensor.</span>
 
@@ -810,9 +810,9 @@
 <span class="sd">        :rtype: Tap</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">Tap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tapx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tapy</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">Tap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tapx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tapy</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.readPanPosition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readPanPosition">[docs]</a>    <span class="k">def</span> <span class="nf">readPanPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readPanPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the current position of the PAN.</span>
 
@@ -821,9 +821,9 @@
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">panPos</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">panPos</span>
 
-<div class="viewcode-block" id="Robobo.readTiltPosition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readTiltPosition">[docs]</a>    <span class="k">def</span> <span class="nf">readTiltPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readTiltPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the current position of the TILT.</span>
 
@@ -831,9 +831,9 @@
 
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tiltPos</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tiltPos</span>
 
-<div class="viewcode-block" id="Robobo.readWheelPosition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readWheelPosition">[docs]</a>    <span class="k">def</span> <span class="nf">readWheelPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readWheelPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the current position of the specified wheel.</span>
 
@@ -850,9 +850,9 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">wheelPosL</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wheel id not valid&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="mi">0</span></div>
+            <span class="k">return</span> <span class="mi">0</span>
 
-<div class="viewcode-block" id="Robobo.readWheelSpeed"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readWheelSpeed">[docs]</a>    <span class="k">def</span> <span class="nf">readWheelSpeed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readWheelSpeed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the current speed of the specified wheel.</span>
 
@@ -869,9 +869,9 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">wheelSpeedL</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wheel id not valid&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="mi">0</span></div>
+            <span class="k">return</span> <span class="mi">0</span>
 
-<div class="viewcode-block" id="Robobo.readFlingAngle"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readFlingAngle">[docs]</a>    <span class="k">def</span> <span class="nf">readFlingAngle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readFlingAngle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the last angle detected on the fling sensor. This angle is formed by a horizontal line and the first and last points where the finger touched the screen.</span>
 
@@ -880,18 +880,18 @@
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">flingAngle</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">flingAngle</span>
 
-<div class="viewcode-block" id="Robobo.readFlingDistance"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readFlingDistance">[docs]</a>    <span class="k">def</span> <span class="nf">readFlingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readFlingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the length of the last fling detected by Robobo.</span>
 
 <span class="sd">        :return: The length of the fling in pixels.</span>
 <span class="sd">        :rtype: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">flingDistance</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">flingDistance</span>
 
-<div class="viewcode-block" id="Robobo.readFlingTime"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readFlingTime">[docs]</a>    <span class="k">def</span> <span class="nf">readFlingTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readFlingTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the duration of the last fling detected by Robobo.</span>
 
@@ -899,9 +899,9 @@
 <span class="sd">        :rtype: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">flingTime</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">flingTime</span>
 
-<div class="viewcode-block" id="Robobo.readBatteryLevel"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readBatteryLevel">[docs]</a>    <span class="k">def</span> <span class="nf">readBatteryLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readBatteryLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the battery level of the base or the smartphone.</span>
 
@@ -915,9 +915,9 @@
         <span class="k">if</span> <span class="n">device</span> <span class="o">==</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">phoneBattery</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">baseBattery</span></div>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">baseBattery</span>
 
-<div class="viewcode-block" id="Robobo.readNoiseLevel"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readNoiseLevel">[docs]</a>    <span class="k">def</span> <span class="nf">readNoiseLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readNoiseLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the SPL (Sound Pressure Level) value, which is a measurement of the ambient noise.</span>
 
@@ -926,9 +926,9 @@
 <span class="sd">        :rtype: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">noise</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">noise</span>
 
-<div class="viewcode-block" id="Robobo.readBrightnessSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readBrightnessSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readBrightnessSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readBrightnessSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the ambient light level detected by the smartphone.</span>
 <span class="sd">        | **Warning**: The light sensor may not be available on all the devices.</span>
@@ -938,9 +938,9 @@
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">brightness</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">brightness</span>
 
-<div class="viewcode-block" id="Robobo.readFaceSensor"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readFaceSensor">[docs]</a>    <span class="k">def</span> <span class="nf">readFaceSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readFaceSensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last face detected by Robobo.</span>
 <span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
@@ -958,9 +958,9 @@
 <span class="sd">        :rtype: Face</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">face</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">face</span>
 
-<div class="viewcode-block" id="Robobo.readArucoTag"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readArucoTag">[docs]</a>    <span class="k">def</span> <span class="nf">readArucoTag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readArucoTag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last ArUco Tag detected by Robobo.</span>
 <span class="sd">        | See also: :class:`~Robobo.startArUcoTagDetection`.</span>
@@ -970,9 +970,9 @@
 <span class="sd">        :rtype: Tag</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tag</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tag</span>
 
-<div class="viewcode-block" id="Robobo.readDetectedObject"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readDetectedObject">[docs]</a>    <span class="k">def</span> <span class="nf">readDetectedObject</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readDetectedObject</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last object detected by Robobo.</span>
 <span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
@@ -982,9 +982,9 @@
 <span class="sd">        :rtype: DetectedObject</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">detectedObject</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">detectedObject</span>
 
-<div class="viewcode-block" id="Robobo.whenClapIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenClapIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenClapIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenClapIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Configures the callback that is called when a new clap is detected.</span>
 
@@ -993,9 +993,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setClapCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setClapCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenANoteIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenANoteIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenANoteIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenANoteIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Configures the callback that is called when a new note is detected.</span>
 
@@ -1004,9 +1004,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setNoteCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setNoteCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenANewFaceIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenANewFaceIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenANewFaceIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenANewFaceIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a new face is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
@@ -1016,9 +1016,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setFaceCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setFaceCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenANewColorBlobIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenANewColorBlobIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenANewColorBlobIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenANewColorBlobIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a new color blob is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.setActiveBlobs`.</span>
@@ -1028,9 +1028,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setBlobCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setBlobCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenANewQRCodeIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenANewQRCodeIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenANewQRCodeIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenANewQRCodeIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a new QR is detected. A QR is considered to be new if it&#39;s different to the last one detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
@@ -1040,9 +1040,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setNewQRCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setNewQRCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenATapIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenATapIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenATapIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenATapIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Configures the callback that is called when a new tap is detected.</span>
 
@@ -1051,9 +1051,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setTapCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setTapCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenAFlingIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAFlingIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenAFlingIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenAFlingIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Configures the callback that is called when a new fling is detected.</span>
 
@@ -1062,9 +1062,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setFlingCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setFlingCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenAFaceIsLost"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAFaceIsLost">[docs]</a>    <span class="k">def</span> <span class="nf">whenAFaceIsLost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenAFaceIsLost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a face is lost.</span>
 <span class="sd">        | See also: :class:`~Robobo.startFaceDetection`.</span>
@@ -1074,9 +1074,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLostFaceCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLostFaceCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenAQRCodeIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAQRCodeIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenAQRCodeIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenAQRCodeIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a QR is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
@@ -1086,9 +1086,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setQRCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setQRCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenAQRCodeIsLost"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAQRCodeIsLost">[docs]</a>    <span class="k">def</span> <span class="nf">whenAQRCodeIsLost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenAQRCodeIsLost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a QR is lost.</span>
 <span class="sd">        | See also: :class:`~Robobo.startQrTracking`.</span>
@@ -1098,9 +1098,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLostQRCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLostQRCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenArucoTagIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenArucoTagIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenArucoTagIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenArucoTagIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a Tag is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startArUcoTagDetection`.</span>
@@ -1110,9 +1110,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setTagCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setTagCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenAnObjectIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenAnObjectIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenAnObjectIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenAnObjectIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when an object is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
@@ -1122,9 +1122,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setDetectedObjectCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setDetectedObjectCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenALineIsDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenALineIsDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenALineIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenALineIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a line is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startLineDetection`.</span>
@@ -1134,9 +1134,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLineCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLineCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenALaneProDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenALaneProDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenALaneProDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenALaneProDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a pro lane is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
@@ -1146,9 +1146,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneProCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneProCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.whenALaneBasicDetected"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenALaneBasicDetected">[docs]</a>    <span class="k">def</span> <span class="nf">whenALaneBasicDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">whenALaneBasicDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a basic lane is detected.</span>
 <span class="sd">        | See also: :class:`~Robobo.startLaneDetection`.</span>
@@ -1158,9 +1158,9 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneBasicCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLaneBasicCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.setStatusFrequency"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.setStatusFrequency">[docs]</a>    <span class="k">def</span> <span class="nf">setStatusFrequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setStatusFrequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Sets the frequency of the status messages coming from Robobo. Status messages are filtered by default in order to reduce network bandwidth. A higher frequency reduces the filters, so more status messages are sent and more network bandwidth is used.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
@@ -1170,7 +1170,7 @@
 <span class="sd">        :type frequency: StatusFrequency</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeStatusFrequency</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeStatusFrequency</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
 </pre></div>
 
             <div class="clearer"></div>

@@ -18,6 +18,19 @@ Python programming library for the Robobo educational robot.
    robobo.rst   
    utils.rst
 
+==============================
+Specific Computer Vision Pages
+==============================
+
+.. toctree::
+   :maxdepth: 2
+
+   object_recognition.rst
+   lane-detection.rst
+   aruco.rst
+   streaming.rst
+   
+
 ==================
 Indices and tables
 ==================
