@@ -3,6 +3,8 @@
 Streaming
 =========
 
+These are the related methods: 
+
 * :py:meth:`~Robobo.Robobo.setStreamFps`
 * :py:meth:`~Robobo.Robobo.setCameraFps`
 * :py:meth:`~Robobo.Robobo.setFrontCamera`
