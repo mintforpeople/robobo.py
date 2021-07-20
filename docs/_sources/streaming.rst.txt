@@ -3,6 +3,11 @@
 Streaming
 =========
 
+You can find a tutorial on the robobo-python-video-stream repository:
+
+* `robobo-python-video-stream <https://github.com/mintforpeople/robobo-python-video-stream>`_ 
+
+
 These are the related methods: 
 
 * :py:meth:`~Robobo.Robobo.setStreamFps`
