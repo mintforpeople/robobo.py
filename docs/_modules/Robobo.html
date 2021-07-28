@@ -111,12 +111,12 @@
           <div class="body" role="main">
             
   <h1>Source code for Robobo</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">remotelib</span> <span class="kn">import</span> <span class="n">Remote</span>
-<span class="kn">from</span> <span class="nn">utils.Wheels</span> <span class="kn">import</span> <span class="n">Wheels</span>
-<span class="kn">from</span> <span class="nn">utils.Note</span> <span class="kn">import</span> <span class="n">Note</span>
-<span class="kn">from</span> <span class="nn">utils.Acceleration</span> <span class="kn">import</span> <span class="n">Acceleration</span>
-<span class="kn">from</span> <span class="nn">utils.Orientation</span> <span class="kn">import</span> <span class="n">Orientation</span>
-<span class="kn">from</span> <span class="nn">utils.Tap</span> <span class="kn">import</span> <span class="n">Tap</span>
+<span></span><span class="kn">from</span> <span class="nn">robobopy.remotelib</span> <span class="kn">import</span> <span class="n">Remote</span>
+<span class="kn">from</span> <span class="nn">robobopy.utils.Wheels</span> <span class="kn">import</span> <span class="n">Wheels</span>
+<span class="kn">from</span> <span class="nn">robobopy.utils.Note</span> <span class="kn">import</span> <span class="n">Note</span>
+<span class="kn">from</span> <span class="nn">robobopy.utils.Acceleration</span> <span class="kn">import</span> <span class="n">Acceleration</span>
+<span class="kn">from</span> <span class="nn">robobopy.utils.Orientation</span> <span class="kn">import</span> <span class="n">Orientation</span>
+<span class="kn">from</span> <span class="nn">robobopy.utils.Tap</span> <span class="kn">import</span> <span class="n">Tap</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="k">class</span> <span class="nc">Robobo</span><span class="p">:</span>
@@ -124,7 +124,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates a new Robobo.js library instance.</span>
+<span class="sd">        Creates a new Robobo library instance.</span>
 
 <span class="sd">        :param ip: The IP address of the Robobo robot.</span>
 
@@ -823,6 +823,16 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">panPos</span></div>
 
+    <span class="k">def</span> <span class="nf">readPanLastTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Returns the timestamp of the last received</span>
+<span class="sd">                pan status</span>
+
+<span class="sd">                :return: Time in milliseconds</span>
+<span class="sd">                :rtype: int</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastPanTimestamp</span>
+
 <div class="viewcode-block" id="Robobo.readTiltPosition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readTiltPosition">[docs]</a>    <span class="k">def</span> <span class="nf">readTiltPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the current position of the TILT.</span>
@@ -832,6 +842,16 @@
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tiltPos</span></div>
+
+    <span class="k">def</span> <span class="nf">readTiltLastTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Returns the timestamp of the last received</span>
+<span class="sd">                tilt status</span>
+
+<span class="sd">                :return: Time in milliseconds</span>
+<span class="sd">                :rtype: int</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastTiltTimestamp</span>
 
 <div class="viewcode-block" id="Robobo.readWheelPosition"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readWheelPosition">[docs]</a>    <span class="k">def</span> <span class="nf">readWheelPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wheel</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -870,6 +890,16 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wheel id not valid&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="mi">0</span></div>
+
+    <span class="k">def</span> <span class="nf">readWheelLastTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Returns the timestamp of the last received</span>
+<span class="sd">                wheel status</span>
+
+<span class="sd">                :return: Time in milliseconds</span>
+<span class="sd">                :rtype: int</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastWheelsTimestamp</span>
 
 <div class="viewcode-block" id="Robobo.readFlingAngle"><a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readFlingAngle">[docs]</a>    <span class="k">def</span> <span class="nf">readFlingAngle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1171,6 +1201,15 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">changeStatusFrequency</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">sendSync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">syncId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send a sync identifier to label the next frame sent through the camera stream</span>
+
+<span class="sd">        :param syncId: Label to be applied to the frame</span>
+<span class="sd">        :type frequency: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">sendSync</span><span class="p">(</span><span class="n">syncId</span><span class="p">)</span>
 </pre></div>
 
             <div class="clearer"></div>

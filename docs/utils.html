@@ -15,6 +15,7 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Object recognition" href="object_recognition.html" />
     <link rel="prev" title="Robobo.py" href="robobo.html" />
     <link rel="canonical" href="http://www.sphinx-doc.org/en/master/utils.html" />
 
@@ -82,6 +83,9 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="object_recognition.html" title="Object recognition"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
           <a href="robobo.html" title="Robobo.py"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Home</a></li>
@@ -107,6 +111,9 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="robobo.html"
                         title="previous chapter">Robobo.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="object_recognition.html"
+                        title="next chapter">Object recognition</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -171,7 +178,7 @@
 
 <span class="target" id="module-utils.DetectedObject"></span><dl class="py class">
 <dt id="utils.DetectedObject.DetectedObject">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.DetectedObject.</span></code><code class="sig-name descname"><span class="pre">DetectedObject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/DetectedObject.html#DetectedObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.DetectedObject.DetectedObject" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.DetectedObject.</span></code><code class="sig-name descname"><span class="pre">DetectedObject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statusTimestamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/DetectedObject.html#DetectedObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.DetectedObject.DetectedObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Represents an object detected by Robobo.</p>
 <dl class="simple">
@@ -325,11 +332,12 @@
 
 <span class="target" id="module-utils.QRCode"></span><dl class="py class">
 <dt id="utils.QRCode.QRCode">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.QRCode.</span></code><code class="sig-name descname"><span class="pre">QRCode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/QRCode.html#QRCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.QRCode.QRCode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.QRCode.</span></code><code class="sig-name descname"><span class="pre">QRCode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statusTimestamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/QRCode.html#QRCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.QRCode.QRCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para saber si te acercas o te alejas, no la distancia exacta.</p>
-<dl>
-<dt>Attributes:</dt><dd><ul class="simple">
+<p>Attributes:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>x (float): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</p></li>
 <li><p>y (float): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</p></li>
 <li><p>distance (int): Approximated distance between Robobo and the QRCode, measured in meters.</p></li>
@@ -337,15 +345,15 @@
 <li><p>p2 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the second point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
 <li><p>p3 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the third point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
 <li><p>id (int): QRCode identifier.</p></li>
+<li><p>timestamp (int): timestamp of the message</p></li>
 </ul>
 <img alt="Image showing an standard QR code, which has three of its corners marked. From the not marked corner and clockwise, the other corners are numbered as p1, p2 and p3." src="_images/qr.PNG" />
-</dd>
-</dl>
+</div></blockquote>
 </dd></dl>
 
 <span class="target" id="module-utils.Tag"></span><dl class="py class">
 <dt id="utils.Tag.Tag">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Tag.</span></code><code class="sig-name descname"><span class="pre">Tag</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cor1x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor1y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor2x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor2y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor3x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor3y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor4x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor4y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Tag.html#Tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Tag.Tag" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.Tag.</span></code><code class="sig-name descname"><span class="pre">Tag</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cor1x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor1y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor2x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor2y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor3x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor3y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor4x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor4y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statusTimestamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Tag.html#Tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Tag.Tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Represents an ArUco Tag detected by Robobo, and defined by four corners read clockwise.</p>
 <dl class="simple">
@@ -753,6 +761,9 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="object_recognition.html" title="Object recognition"
+             >next</a> |</li>
         <li class="right" >
           <a href="robobo.html" title="Robobo.py"
              >previous</a> |</li>
