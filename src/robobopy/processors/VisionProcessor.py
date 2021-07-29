@@ -1,14 +1,14 @@
 import json
 
-from processors.AbstractProcessor import AbstractProcessor
-from utils.Blob import Blob
-from utils.DetectedObject import DetectedObject
-from utils.Face import Face
-from utils.Lanes import LaneBasic, LanePro
-from utils.Lines import Lines
-from utils.Message import Message
-from utils.QRCode import QRCode
-from utils.Tag import Tag
+from robobopy.processors.AbstractProcessor import AbstractProcessor
+from robobopy.utils.DetectedObject import DetectedObject
+from robobopy.utils.Face import Face
+from robobopy.utils.Lanes import LaneBasic, LanePro
+from robobopy.utils.Lines import Lines
+from robobopy.utils.Message import Message
+from robobopy.utils.Blob import Blob
+from robobopy.utils.QRCode import QRCode
+from robobopy.utils.Tag import Tag
 
 
 class VisionProcessor(AbstractProcessor):
@@ -63,6 +63,7 @@ class VisionProcessor(AbstractProcessor):
 
             self.state.blobs[value["color"]].status_timestamp = int(value["timestamp"])
 
+
             self.state.blobs[value["color"]].frame_timestamp = int(value["frame_timestamp"])
 
             self.runCallback("blob")
@@ -71,13 +72,14 @@ class VisionProcessor(AbstractProcessor):
             self.state.qr = QRCode(float(value["coordx"]),
                                    float(value["coordy"]),
                                    float(value["distance"]),
-                                   float(0),
-                                   float(0),
-                                   float(0),
-                                   float(0),
-                                   float(0),
-                                   float(0),
-                                   value["id"])
+                                   float(value["p1x"]),
+                                   float(value["p1y"]),
+                                   float(value["p2x"]),
+                                   float(value["p2y"]),
+                                   float(value["p3x"]),
+                                   float(value["p3y"]),
+                                   value["id"], int(value["timestamp"]))
+
             self.runCallback("newqr")
 
         elif name == "QRCODE":
@@ -90,11 +92,15 @@ class VisionProcessor(AbstractProcessor):
                                    float(value["p2y"]),
                                    float(value["p3x"]),
                                    float(value["p3y"]),
-                                   value["id"])
+                                   value["id"], int(value["timestamp"]))
             self.runCallback("qr")
 
-        elif name == "QRCODELOST":
-            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None")
+
+
+
+        elif (name == "QRCODELOST"):
+            self.state.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None", 0)
+
             self.runCallback("lostqr")
 
         elif name == "TAG":
@@ -112,7 +118,7 @@ class VisionProcessor(AbstractProcessor):
                                  float(value["tvec_0"]),
                                  float(value["tvec_1"]),
                                  float(value["tvec_2"]),
-                                 value["id"])
+                                 value["id"], int(value["timestamp"]))
             self.runCallback("tag")
 
         elif name == "DETECTED_OBJECT":
@@ -122,7 +128,7 @@ class VisionProcessor(AbstractProcessor):
                 int(value["width"]),
                 int(value["height"]),
                 float(value["confidence"]),
-                value["label"])
+                value["label"],int(value["timestamp"]))
             self.runCallback("detectedobject")
         elif name == "LANE_BASIC":
             self.state.laneBasic = LaneBasic(
@@ -171,10 +177,12 @@ class VisionProcessor(AbstractProcessor):
 
     def resetBlobs(self):
         self.state.blobs = {
+
             "red": Blob("red", 0, 0, 0, 0, 0),
             "green": Blob("green", 0, 0, 0, 0, 0),
             "blue": Blob("blue", 0, 0, 0, 0, 0),
             "custom": Blob("custom", 0, 0, 0, 0, 0)}
+
 
     def resetFace(self):
         self.state.face = Face(0, 0, -1)
@@ -215,6 +223,12 @@ class VisionProcessor(AbstractProcessor):
         name = "SET-CAMERA-FPS"
         id = self.state.getId()
         values = {"fps": fps}
+        return Message(name, values, id)
+
+    def sendSync(self,syncId):
+        name = "SYNC"
+        id = self.state.getId()
+        values = {"id":syncId}
         return Message(name, values, id)
 
     def stopCamera(self):

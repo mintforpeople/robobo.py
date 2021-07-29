@@ -13,7 +13,7 @@ class Tag:
     """
 
     def __init__(self, cor1x, cor1y, cor2x, cor2y, cor3x, cor3y, cor4x, cor4y, rvec_0, rvec_1, rvec_2, tvec_0, tvec_1,
-                 tvec_2, id):
+                 tvec_2, id, statusTimestamp):
         self.cor1 = {"x": cor1x,
                      "y": cor1y}
 
@@ -36,6 +36,9 @@ class Tag:
 
         self.id = id
 
+        self.timestamp = statusTimestamp
+
     def __str__(self):
         return "Aruco, Id:" + self.id + " cor1:" + str(self.cor1) + " cor2:" + str(self.cor2) + " cor3:" + str(
-            self.cor3) + " cor4:" + str(self.cor4) + " tvecs:" + str(self.tvecs) + " rvecs:" + str(self.rvecs)
+            self.cor3) + " cor4:" + str(self.cor4) + " tvecs:" + str(self.tvecs) + " rvecs:" + str(self.rvecs) \
+               + " timestamp" +self.timestamp

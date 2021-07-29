@@ -4,14 +4,13 @@ import threading
 import time
 import sys
 
-from State import State
-from processors.PTProcessor import PTProcessor
-from processors.RobProcessor import RobProcessor
-from processors.VisionProcessor import VisionProcessor
-from processors.SmartphoneProcessor import SmartphoneProcessor
-from processors.SoundProcessor import SoundProcessor
-from utils.ConnectionState import ConnectionState
-from utils.IR import IR
+from robobopy.State import State
+from robobopy.processors.PTProcessor import PTProcessor
+from robobopy.processors.RobProcessor import RobProcessor
+from robobopy.processors.VisionProcessor import VisionProcessor
+from robobopy.processors.SmartphoneProcessor import SmartphoneProcessor
+from robobopy.processors.SoundProcessor import SoundProcessor
+from robobopy.utils.ConnectionState import ConnectionState
 
 
 class Remote:
@@ -95,8 +94,8 @@ class Remote:
     def processMessage(self, msg):
         status = json.loads(msg)
         name = status["name"]
-        # print(name)
-        # print(status)
+        #print(name)
+        #print(status)
         value = status["value"]
         processed = False
         for key in self.processors.keys():
@@ -216,6 +215,10 @@ class Remote:
 
     def stopStream(self):
         msg = self.processors["VISION"].stopStream()
+        self.sendMessage(msg)
+
+    def sendSync(self, syncId):
+        msg = self.processors["VISION"].sendSync(syncId)
         self.sendMessage(msg)
 
     def startCamera(self):

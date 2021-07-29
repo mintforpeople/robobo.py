@@ -1,5 +1,6 @@
-from processors.AbstractProcessor import AbstractProcessor
-from utils.Message import Message
+from robobopy.processors.AbstractProcessor import AbstractProcessor
+from robobopy.utils.Message import Message
+
 
 class PTProcessor(AbstractProcessor):
     def __init__(self, state):
@@ -17,9 +18,13 @@ class PTProcessor(AbstractProcessor):
 
         if (name == "PAN"):
             self.state.panPos = self.internalAngleToExternal(int(value["panPos"]))
+            self.state.lastPanTimestamp = int(value["timestamp"])
+
 
         elif (name == "TILT"):
             self.state.tiltPos = int(value["tiltPos"])
+            self.state.lastTiltTimestamp = int(value["timestamp"])
+
 
         elif (name == "UNLOCK-PAN"):
             self.state.panLock = False

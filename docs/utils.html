@@ -1,64 +1,70 @@
-
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Utils &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
 
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Object recognition" href="object_recognition.html" />
-    <link rel="prev" title="Robobo.py" href="robobo.html" />
-    <link rel="canonical" href="http://www.sphinx-doc.org/en/master/utils.html" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utils &#8212; Robobo.py documentation</title>
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
-          rel='stylesheet' type='text/css' />
- 
-    <style type="text/css">
-      table.right { float: right; margin-left: 20px; }
-      table.right td { border: 1px solid #ccc; }
-      
-    </style>
-    <script type="text/javascript">
-      // intelligent scrolling of the sidebar content
-      $(window).scroll(function() {
-        var sb = $('.sphinxsidebarwrapper');
-        var win = $(window);
-        var sbh = sb.height();
-        var offset = $('.sphinxsidebar').position()['top'];
-        var wintop = win.scrollTop();
-        var winbot = wintop + win.innerHeight();
-        var curtop = sb.position()['top'];
-        var curbot = curtop + sbh;
-        // does sidebar fit in window?
-        if (sbh < win.innerHeight()) {
-          // yes: easy case -- always keep at the top
-          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
-                                $(document).height() - sbh - 200]));
-        } else {
-          // no: only scroll if top/bottom edge of sidebar is at
-          // top/bottom edge of window
-          if (curtop > wintop && curbot > winbot) {
-            sb.css('top', $u.max([wintop - offset - 10, 0]));
-          } else if (curtop < wintop && curbot < winbot) {
-            sb.css('top', $u.min([winbot - sbh - offset - 20,
-                                  $(document).height() - sbh - 200]));
-          }
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Object recognition" href="object_recognition.html" />
+  <link rel="prev" title="Robobo.py" href="robobo.html" />
+  <link rel="canonical" href="http://www.sphinx-doc.org/en/master/utils.html" />
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css' />
+
+  <style type="text/css">
+    table.right {
+      float: right;
+      margin-left: 20px;
+    }
+
+    table.right td {
+      border: 1px solid #ccc;
+    }
+  </style>
+  <script type="text/javascript">
+    // intelligent scrolling of the sidebar content
+    $(window).scroll(function () {
+      var sb = $('.sphinxsidebarwrapper');
+      var win = $(window);
+      var sbh = sb.height();
+      var offset = $('.sphinxsidebar').position()['top'];
+      var wintop = win.scrollTop();
+      var winbot = wintop + win.innerHeight();
+      var curtop = sb.position()['top'];
+      var curbot = curtop + sbh;
+      // does sidebar fit in window?
+      if (sbh < win.innerHeight()) {
+        // yes: easy case -- always keep at the top
+        sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+        $(document).height() - sbh - 200]));
+      } else {
+        // no: only scroll if top/bottom edge of sidebar is at
+        // top/bottom edge of window
+        if (curtop > wintop && curbot > winbot) {
+          sb.css('top', $u.max([wintop - offset - 10, 0]));
+        } else if (curtop < wintop && curbot < winbot) {
+          sb.css('top', $u.min([winbot - sbh - offset - 20,
+          $(document).height() - sbh - 200]));
         }
-      });
-    </script>
+      }
+    });
+  </script>
 
-  </head><body>
-<div class="pageheader">
-<!--
+</head>
+
+<body>
+  <div class="pageheader">
+    <!--
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="usage/installation.html">Get it</a></li>
@@ -66,718 +72,1506 @@
     <li><a href="develop.html">Extend/Develop</a></li>
   </ul>
 -->
-  <div>
-    <a href="index.html">
-      <img src="_static/logo_robobo.png" alt="Robobo" />
-    </a>
+    <div>
+      <a href="index.html">
+        <img src="_static/logo_robobo.png" alt="Robobo" />
+      </a>
+    </div>
   </div>
-</div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="object_recognition.html" title="Object recognition"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="robobo.html" title="Robobo.py"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Home</a></li>
-<!--
+  <div class="related" role="navigation" aria-label="related navigation">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right" style="margin-right: 10px">
+        <a href="genindex.html" title="General Index" accesskey="I">index</a>
+      </li>
+      <li class="right">
+        <a href="py-modindex.html" title="Python Module Index">modules</a> |
+      </li>
+      <li class="right">
+        <a href="object_recognition.html" title="Object recognition" accesskey="N">next</a> |
+      </li>
+      <li class="right">
+        <a href="robobo.html" title="Robobo.py" accesskey="P">previous</a> |
+      </li>
+      <li><a href="index.html">Home</a></li>
+      <!--
         <li><a href="index.html">Home</a>&#160;|</li>
         <li><a href="contents.html">Documentation</a> &#187;</li>
 -->
 
-        <li class="nav-item nav-item-this"><a href="">Utils</a></li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Utils</a><ul>
-<li><a class="reference internal" href="#module-utils.Acceleration">Classes</a></li>
-<li><a class="reference internal" href="#module-utils.BlobColor">Enumerations</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="robobo.html"
-                        title="previous chapter">Robobo.py</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="object_recognition.html"
-                        title="next chapter">Object recognition</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/utils.rst.txt"
-            rel="nofollow">Show Source</a></li>
+      <li class="nav-item nav-item-this"><a href="">Utils</a></li>
     </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="utils">
-<h1>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-utils.Acceleration">
-<span id="classes"></span><h2>Classes<a class="headerlink" href="#module-utils.Acceleration" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="utils.Acceleration.Acceleration">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Acceleration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Acceleration.html#Acceleration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Acceleration.Acceleration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents the acceleration of the smartphone.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>x (float): acceleration on the X axis (m/s^2).</p></li>
-<li><p>y (float): acceleration on the Y axis (m/s^2).</p></li>
-<li><p>z (float): acceleration on the Z axis (m/s^2).</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Blob"></span><dl class="py class">
-<dt id="utils.Blob.Blob">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Blob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_timestamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Blob.html#Blob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Blob.Blob" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a blob detected by Robobo.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>color (string): The color of the blob.</p></li>
-<li><p>posx (int): The x coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
-<li><p>posy (int): The y coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
-<li><p>size (int): The area of the blob measured in pixels.</p></li>
-<li><p>frame_timestamp (long): The time when the frame started processing.</p></li>
-<li><p>status_timestamp (long): The time when the status was sent.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.DetectedObject"></span><dl class="py class">
-<dt id="utils.DetectedObject.DetectedObject">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">DetectedObject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/DetectedObject.html#DetectedObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.DetectedObject.DetectedObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents an object detected by Robobo.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>x (int): The x coordinate of the center of the bounding box, measured in pixels from the left side of the screen. Takes positive values.</p></li>
-<li><p>y (int): The y coordinate of the center of the bounding box, measured in pixels from the upper side of the screen. Takes positive values.</p></li>
-<li><p>width (int): The width of the bounding box, measured in pixels. Takes positive values.</p></li>
-<li><p>height (int): The height of the bounding box, measured in pixels. Takes positive values.</p></li>
-<li><p>label (string): The class of the identified object.</p></li>
-<li><p>confidence (float): The confidence for the class of the object. Takes values between 0.5 and 1.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Face"></span><dl class="py class">
-<dt id="utils.Face.Face">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Face</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">posx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Face.html#Face"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Face.Face" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a face detected by Robobo using the front camera of the smartphone.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>posx (int): The x coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
-<li><p>posy (int): The y coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
-<li><p>distance (int): The rounded distance between the eyes of the person, measured in pixels. The values obtained when the person is near the camera are higher than those obtained when the person is far. Takes positive values.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Lanes"></span><dl class="py class">
-<dt id="utils.Lanes.LanePro">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">LanePro</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Lanes.html#LanePro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lanes.LanePro" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a lane detected by Robobo, formed by two second degree polynomials.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>coeffs1 (dict): Dictionary with ‘a’,’b’ and ‘c’ (ax^2 + bx +c) coefficients of the left line.</p></li>
-<li><p>coeffs2 (dict): Dictionary with ‘a’,’b’ and ‘c’ (ax^2 + bx +c) coefficients of the right line.</p></li>
-<li><p>minv (array): Transformation matrix to get to the original perspective.</p></li>
-<li><p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt id="utils.Lanes.LaneBasic">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">LaneBasic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Lanes.html#LaneBasic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lanes.LaneBasic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a lane detected by Robobo, formed by two straight lines.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>coeffs1 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the left line.</p></li>
-<li><p>coeffs2 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the right line.</p></li>
-<li><p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Lines"></span><dl class="py class">
-<dt id="utils.Lines.Lines">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Lines</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Lines.html#Lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lines.Lines" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a set of straight lines detected by Robobo in a frame.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>lines (array): Array with n rows and 4 columns, being n the number of lines detected. Each row has the values ‘x1’, ‘y1’, ‘x2’, ‘y2’, representing the x and y coordinates of the points 1 and 2 that form the detected line. These coordinates takes positive values.</p></li>
-<li><p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be identified. Takes positive values.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Note"></span><dl class="py class">
-<dt id="utils.Note.Note">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Note</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Note.html#Note"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Note.Note" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl>
-<dt>Represents a note detected by Robobo:</dt><dd><ul>
-<li><p>Name: (string) The musical note in text format, according to the English nomenclature, that is:</p>
-<blockquote>
-<div><table class="docutils align-default">
-<colgroup>
-<col style="width: 7%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 11%" />
-<col style="width: 7%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>DO</p></td>
-<td><p>DO#</p></td>
-<td><p>RE</p></td>
-<td><p>RE#</p></td>
-<td><p>MI</p></td>
-<td><p>FA</p></td>
-<td><p>FA#</p></td>
-<td><p>SOL</p></td>
-<td><p>SOL#</p></td>
-<td><p>LA</p></td>
-<td><p>LA#</p></td>
-<td><p>SI</p></td>
-</tr>
-<tr class="row-even"><td><p>C</p></td>
-<td><p>Cs</p></td>
-<td><p>D</p></td>
-<td><p>Ds</p></td>
-<td><p>E</p></td>
-<td><p>F</p></td>
-<td><p>Fs</p></td>
-<td><p>G</p></td>
-<td><p>Gs</p></td>
-<td><p>A</p></td>
-<td><p>As</p></td>
-<td><p>B</p></td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-</li>
-<li><p>Duration: (int) The note’s duration in milliseconds.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Orientation"></span><dl class="py class">
-<dt id="utils.Orientation.Orientation">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Orientation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pitch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roll</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Orientation.html#Orientation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Orientation.Orientation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents the orientation of the Smartphone.</p>
-<dl>
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>yaw (float): Rotation in degrees around the Z axis. Takes values between -180 and 180. The yaw angle turn is achieved by turning the base with the wheel motors and the PAN motor.</p></li>
-<li><p>pitch (float): Rotation in degrees around the Y axis. Takes values between -180 and 180. The pitch angle turn is achieved by using the TILT motor or moving the robot through a frontally inclined plane.</p></li>
-<li><p>roll (float): Rotation in degrees around the X axis. Takes values between -180 and 180. The turn in the roll angle cannot be achieved by Robobo, but if the surface on which it moves has a lateral inclination, it will change.</p></li>
-</ul>
-<img alt="Image showing Robobo three main axes. Yaw is the vertical axis, positive upwards. Roll is the longitudinal axis, positive forward. Pitch is the transversal axis, positive to Robobo's right." src="_images/orientation.jpg" />
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.QRCode"></span><dl class="py class">
-<dt id="utils.QRCode.QRCode">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">QRCode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/QRCode.html#QRCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.QRCode.QRCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para saber si te acercas o te alejas, no la distancia exacta.</p>
-<dl>
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>x (float): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</p></li>
-<li><p>y (float): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</p></li>
-<li><p>distance (int): Approximated distance between Robobo and the QRCode, measured in meters.</p></li>
-<li><p>p1 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the first point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
-<li><p>p2 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the second point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
-<li><p>p3 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the third point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</p></li>
-<li><p>id (int): QRCode identifier.</p></li>
-</ul>
-<img alt="Image showing an standard QR code, which has three of its corners marked. From the not marked corner and clockwise, the other corners are numbered as p1, p2 and p3." src="_images/qr.PNG" />
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Tag"></span><dl class="py class">
-<dt id="utils.Tag.Tag">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Tag</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cor1x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor1y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor2x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor2y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor3x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor3y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor4x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor4y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvec_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Tag.html#Tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Tag.Tag" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents an ArUco Tag detected by Robobo, and defined by four corners read clockwise.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>cor1 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the first corner.</p></li>
-<li><p>cor2 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the second corner.</p></li>
-<li><p>cor3 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the third corner.</p></li>
-<li><p>cor4 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the fourth corner.</p></li>
-<li><p>tvecs (dict): Dictionary with the ‘x’, ‘y’ and ‘z’ components of the translation vector.</p></li>
-<li><p>rvecs (dict): Dictionary with the ‘x’, ‘y’ and ‘z’ components of the rotation vector.</p></li>
-<li><p>id (int): The ArUco identifier.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-utils.Tap"></span><dl class="py class">
-<dt id="utils.Tap.Tap">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Tap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Tap.html#Tap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Tap.Tap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Represents a tap detected on the smartphone screen.</p>
-<dl>
-<dt>Attributes:</dt><dd><ul class="simple">
-<li><p>x (int): The x coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
-<li><p>y (int): The y coordinate of the tap [0..100]. See: <a class="reference internal" href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p></li>
-<li><p>zone (string): Returns the area of the smartphone screen. Takes one of the following values: ‘forehead’, ‘eye’, ‘right’, ‘left’, ‘mouth’ or ‘chin’.</p></li>
-</ul>
-<a class="reference internal image-reference" href="_images/tap_areas.jpg"><img alt="Image showing the different possible tap areas on the screen, each one of them being a square or a rectangle. The upper part is the 'forehead'. Excluding the forehead, the right part is 'right' and the left part is 'left'. Excluding those parts, there are four zones remaining. From top to bottom, they are: the 'eye', which is the biggest of all zones, an undefined zone, the 'mouth' and the 'chin'." src="_images/tap_areas.jpg" style="width: 350.0px; height: 256.0px;" /></a>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-utils.BlobColor">
-<span id="enumerations"></span><h2>Enumerations<a class="headerlink" href="#module-utils.BlobColor" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="utils.BlobColor.BlobColor">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">BlobColor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/BlobColor.html#BlobColor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.BlobColor.BlobColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>This enumeration represents the list of colors Robobo can detect</p>
-<dl class="py attribute">
-<dt id="utils.BlobColor.BlobColor.RED">
-<code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.RED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.BlobColor.BlobColor.BLUE">
-<code class="sig-name descname"><span class="pre">BLUE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'blue'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.BLUE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.BlobColor.BlobColor.GREEN">
-<code class="sig-name descname"><span class="pre">GREEN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'green'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.GREEN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.BlobColor.BlobColor.CUSTOM">
-<code class="sig-name descname"><span class="pre">CUSTOM</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'custom'</span></em><a class="headerlink" href="#utils.BlobColor.BlobColor.CUSTOM" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-utils.Color"></span><dl class="py class">
-<dt id="utils.Color.Color">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Color</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Color.html#Color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Color.Color" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>This enumeration represents the list of colors Robobo’s LEDs can show.</p>
-<dl class="py attribute">
-<dt id="utils.Color.Color.OFF">
-<code class="sig-name descname"><span class="pre">OFF</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'off'</span></em><a class="headerlink" href="#utils.Color.Color.OFF" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.WHITE">
-<code class="sig-name descname"><span class="pre">WHITE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'white'</span></em><a class="headerlink" href="#utils.Color.Color.WHITE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.RED">
-<code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink" href="#utils.Color.Color.RED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.BLUE">
-<code class="sig-name descname"><span class="pre">BLUE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'blue'</span></em><a class="headerlink" href="#utils.Color.Color.BLUE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.CYAN">
-<code class="sig-name descname"><span class="pre">CYAN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'cyan'</span></em><a class="headerlink" href="#utils.Color.Color.CYAN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.MAGENTA">
-<code class="sig-name descname"><span class="pre">MAGENTA</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'magenta'</span></em><a class="headerlink" href="#utils.Color.Color.MAGENTA" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.YELLOW">
-<code class="sig-name descname"><span class="pre">YELLOW</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'yellow'</span></em><a class="headerlink" href="#utils.Color.Color.YELLOW" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.GREEN">
-<code class="sig-name descname"><span class="pre">GREEN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'green'</span></em><a class="headerlink" href="#utils.Color.Color.GREEN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Color.Color.ORANGE">
-<code class="sig-name descname"><span class="pre">ORANGE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'orange'</span></em><a class="headerlink" href="#utils.Color.Color.ORANGE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-utils.Emotions"></span><dl class="py class">
-<dt id="utils.Emotions.Emotions">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Emotions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Emotions.html#Emotions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Emotions.Emotions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>Represents the list of emotions Robobo’s face can show.</p>
-<a class="reference internal image-reference" href="_images/emotions.jpg"><img alt="Image showing how Robobo looks for each emotion: happy, laughung, surprised, sad, angry, normal, sleeping, tired or afraid." src="_images/emotions.jpg" style="width: 686.4000000000001px; height: 288.0px;" /></a>
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.HAPPY">
-<code class="sig-name descname"><span class="pre">HAPPY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'happy'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.HAPPY" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.LAUGHING">
-<code class="sig-name descname"><span class="pre">LAUGHING</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'laughing'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.LAUGHING" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.SURPRISED">
-<code class="sig-name descname"><span class="pre">SURPRISED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'surprised'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.SURPRISED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.SAD">
-<code class="sig-name descname"><span class="pre">SAD</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'sad'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.SAD" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.ANGRY">
-<code class="sig-name descname"><span class="pre">ANGRY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'angry'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.ANGRY" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.NORMAL">
-<code class="sig-name descname"><span class="pre">NORMAL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'normal'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.NORMAL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.SLEEPING">
-<code class="sig-name descname"><span class="pre">SLEEPING</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'sleeping'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.SLEEPING" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.TIRED">
-<code class="sig-name descname"><span class="pre">TIRED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'tired'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.TIRED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Emotions.Emotions.AFRAID">
-<code class="sig-name descname"><span class="pre">AFRAID</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'afraid'</span></em><a class="headerlink" href="#utils.Emotions.Emotions.AFRAID" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-utils.IR"></span><dl class="py class">
-<dt id="utils.IR.IR">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">IR</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/IR.html#IR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.IR.IR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>This enumeration represents the list of Robobo base’s IR</p>
-<blockquote>
-<div><img alt="One image from Robobo frontal part, showing five IR sensors, named from left to right: Front-RR, Front-R, Front-C, Front-L and Front-LL. Another image from Robobo rear part, showing three IR sensors, named from left to right: Back-L, Back-C, Back-R." src="_images/irs.jpg" />
-</div></blockquote>
-<dl class="py attribute">
-<dt id="utils.IR.IR.BackR">
-<code class="sig-name descname"><span class="pre">BackR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-R'</span></em><a class="headerlink" href="#utils.IR.IR.BackR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.BackC">
-<code class="sig-name descname"><span class="pre">BackC</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-C'</span></em><a class="headerlink" href="#utils.IR.IR.BackC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.FrontR">
-<code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink" href="#utils.IR.IR.FrontR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.FrontRR">
-<code class="sig-name descname"><span class="pre">FrontRR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink" href="#utils.IR.IR.FrontRR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.FrontC">
-<code class="sig-name descname"><span class="pre">FrontC</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-C'</span></em><a class="headerlink" href="#utils.IR.IR.FrontC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.FrontL">
-<code class="sig-name descname"><span class="pre">FrontL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-L'</span></em><a class="headerlink" href="#utils.IR.IR.FrontL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.FrontLL">
-<code class="sig-name descname"><span class="pre">FrontLL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-LL'</span></em><a class="headerlink" href="#utils.IR.IR.FrontLL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.IR.IR.BackL">
-<code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink" href="#utils.IR.IR.BackL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-utils.LED"></span><dl class="py class">
-<dt id="utils.LED.LED">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">LED</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/LED.html#LED"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.LED.LED" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>This enumeration represents the list of Robobo base’s LEDs</p>
-<blockquote>
-<div><a class="reference internal image-reference" href="_images/leds.jpg"><img alt="Top view of Robobo. There are five IR sensors forming a pentagon on the frontal part: Front-C on the upper and central part, Front-RR to the left and Front-LL to the right (from the viewer's point of view) of the first one, and finally Front-R on the left and Front-L on the right of the lower part of the pentagon. There are two IR sensors on the rear part: Back-R on the right and Back-L on the left." src="_images/leds.jpg" style="width: 460.79999999999995px; height: 357.59999999999997px;" /></a>
-</div></blockquote>
-<dl class="py attribute">
-<dt id="utils.LED.LED.BackR">
-<code class="sig-name descname"><span class="pre">BackR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-R'</span></em><a class="headerlink" href="#utils.LED.LED.BackR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.FrontR">
-<code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink" href="#utils.LED.LED.FrontR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.FrontRE">
-<code class="sig-name descname"><span class="pre">FrontRE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink" href="#utils.LED.LED.FrontRE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.FrontC">
-<code class="sig-name descname"><span class="pre">FrontC</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-C'</span></em><a class="headerlink" href="#utils.LED.LED.FrontC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.FrontL">
-<code class="sig-name descname"><span class="pre">FrontL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-L'</span></em><a class="headerlink" href="#utils.LED.LED.FrontL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.FrontLL">
-<code class="sig-name descname"><span class="pre">FrontLL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Front-LL'</span></em><a class="headerlink" href="#utils.LED.LED.FrontLL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.BackL">
-<code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink" href="#utils.LED.LED.BackL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.LED.LED.All">
-<code class="sig-name descname"><span class="pre">All</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'all'</span></em><a class="headerlink" href="#utils.LED.LED.All" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-utils.Sounds"></span><dl class="py class">
-<dt id="utils.Sounds.Sounds">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Sounds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Sounds.html#Sounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Sounds.Sounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>This enumeration lists the emotion sound Robobo can play.</p>
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.PURR">
-<code class="sig-name descname"><span class="pre">PURR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'purr'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.PURR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.MOAN">
-<code class="sig-name descname"><span class="pre">MOAN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'moan'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.MOAN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.ANGRY">
-<code class="sig-name descname"><span class="pre">ANGRY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'angry'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.ANGRY" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.APPROVE">
-<code class="sig-name descname"><span class="pre">APPROVE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'approve'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.APPROVE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.DISAPPROVE">
-<code class="sig-name descname"><span class="pre">DISAPPROVE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'disapprove'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.DISAPPROVE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.DISCOMFORT">
-<code class="sig-name descname"><span class="pre">DISCOMFORT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'discomfort'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.DISCOMFORT" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.DOUBTFUL">
-<code class="sig-name descname"><span class="pre">DOUBTFUL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'doubtful'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.DOUBTFUL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.LAUGH">
-<code class="sig-name descname"><span class="pre">LAUGH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'laugh'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.LAUGH" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.LIKES">
-<code class="sig-name descname"><span class="pre">LIKES</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'likes'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.LIKES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.MUMBLE">
-<code class="sig-name descname"><span class="pre">MUMBLE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'mumble'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.MUMBLE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.OUCH">
-<code class="sig-name descname"><span class="pre">OUCH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'ouch'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.OUCH" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.THINKING">
-<code class="sig-name descname"><span class="pre">THINKING</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'thinking'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.THINKING" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Sounds.Sounds.VARIOUS">
-<code class="sig-name descname"><span class="pre">VARIOUS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'various'</span></em><a class="headerlink" href="#utils.Sounds.Sounds.VARIOUS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-utils.StatusFrequency"></span><dl class="py class">
-<dt id="utils.StatusFrequency.StatusFrequency">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">StatusFrequency</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/StatusFrequency.html#StatusFrequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>This enumeration lists the possible values for setting the frequency of the status messages coming from the robot.</p>
-<dl class="py attribute">
-<dt id="utils.StatusFrequency.StatusFrequency.Low">
-<code class="sig-name descname"><span class="pre">Low</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'LOW'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Low" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.StatusFrequency.StatusFrequency.Normal">
-<code class="sig-name descname"><span class="pre">Normal</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'NORMAL'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Normal" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.StatusFrequency.StatusFrequency.High">
-<code class="sig-name descname"><span class="pre">High</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'HIGH'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.High" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.StatusFrequency.StatusFrequency.Max">
-<code class="sig-name descname"><span class="pre">Max</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'MAX'</span></em><a class="headerlink" href="#utils.StatusFrequency.StatusFrequency.Max" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-utils.Wheels"></span><dl class="py class">
-<dt id="utils.Wheels.Wheels">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Wheels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Wheels.html#Wheels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Wheels.Wheels" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>This enumeration represents the list of possible values for the wheels of Robobo</p>
-<dl class="py attribute">
-<dt id="utils.Wheels.Wheels.R">
-<code class="sig-name descname"><span class="pre">R</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'right'</span></em><a class="headerlink" href="#utils.Wheels.Wheels.R" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Wheels.Wheels.L">
-<code class="sig-name descname"><span class="pre">L</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'left'</span></em><a class="headerlink" href="#utils.Wheels.Wheels.L" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="utils.Wheels.Wheels.BOTH">
-<code class="sig-name descname"><span class="pre">BOTH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'both'</span></em><a class="headerlink" href="#utils.Wheels.Wheels.BOTH" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
+  </div>
+  <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebarwrapper">
+      <h3><a href="index.html">Table of Contents</a></h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="object_recognition.html" title="Object recognition"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="robobo.html" title="Robobo.py"
-             >previous</a> |</li>
-        <li><a href="index.html">Home</a></li>
-<!--
+        <li><a class="reference internal" href="#">Utils</a>
+          <ul>
+            <li><a class="reference internal" href="#module-utils.Acceleration">Classes</a></li>
+            <li><a class="reference internal" href="#module-utils.BlobColor">Enumerations</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Previous topic</h4>
+      <p class="topless"><a href="robobo.html" title="previous chapter">Robobo.py</a></p>
+      <h4>Next topic</h4>
+      <p class="topless"><a href="object_recognition.html" title="next chapter">Object recognition</a></p>
+      <div role="note" aria-label="source link">
+        <h3>This Page</h3>
+        <ul class="this-page-menu">
+          <li><a href="_sources/utils.rst.txt" rel="nofollow">Show Source</a></li>
+        </ul>
+      </div>
+      <div id="searchbox" style="display: none" role="search">
+        <h3 id="searchlabel">Quick search</h3>
+        <div class="searchformwrapper">
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" aria-labelledby="searchlabel" />
+            <input type="submit" value="Go" />
+          </form>
+        </div>
+      </div>
+      <script>$('#searchbox').show(0);</script>
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="documentwrapper">
+      <div class="bodywrapper">
+        <div class="body" role="main">
+
+          <div class="section" id="utils">
+            <h1>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h1>
+            <div class="section" id="module-utils.Acceleration">
+              <span id="classes"></span>
+              <h2>Classes<a class="headerlink" href="#module-utils.Acceleration"
+                  title="Permalink to this headline">¶</a></h2>
+              <dl class="py class">
+                <dt id="utils.Acceleration.Acceleration">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Acceleration</span></code><span
+                    class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                        class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal"
+                    href="_modules/utils/Acceleration.html#Acceleration"><span class="viewcode-link"><span
+                        class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Acceleration.Acceleration" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents the acceleration of the smartphone.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>x (float): acceleration on the X axis (m/s^2).</p>
+                        </li>
+                        <li>
+                          <p>y (float): acceleration on the Y axis (m/s^2).</p>
+                        </li>
+                        <li>
+                          <p>z (float): acceleration on the Z axis (m/s^2).</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Blob"></span>
+              <dl class="py class">
+                <dt id="utils.Blob.Blob">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Blob</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">posx</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">posy</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">frame_timestamp</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">status_timestamp</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Blob.html#Blob"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Blob.Blob" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents a blob detected by Robobo.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>color (string): The color of the blob.</p>
+                        </li>
+                        <li>
+                          <p>posx (int): The x coordinate of the tap [0..100]. See: <a class="reference internal"
+                              href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p>
+                        </li>
+                        <li>
+                          <p>posy (int): The y coordinate of the tap [0..100]. See: <a class="reference internal"
+                              href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p>
+                        </li>
+                        <li>
+                          <p>size (int): The area of the blob measured in pixels.</p>
+                        </li>
+                        <li>
+                          <p>frame_timestamp (long): The time when the frame started processing.</p>
+                        </li>
+                        <li>
+                          <p>status_timestamp (long): The time when the status was sent.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.DetectedObject"></span>
+              <dl class="py class">
+                <dt id="utils.DetectedObject.DetectedObject">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-prename descclassname"><span class="pre">utils.DetectedObject.</span></code><code
+                    class="sig-name descname"><span class="pre">DetectedObject</span></code><span
+                    class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                        class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">confidence</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">statusTimestamp</span></span></em><span class="sig-paren">)</span><a
+                    class="reference internal" href="_modules/utils/DetectedObject.html#DetectedObject"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.DetectedObject.DetectedObject" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents an object detected by Robobo.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>x (int): The x coordinate of the center of the bounding box, measured in pixels from the
+                            left side of the screen. Takes positive values.</p>
+                        </li>
+                        <li>
+                          <p>y (int): The y coordinate of the center of the bounding box, measured in pixels from the
+                            upper side of the screen. Takes positive values.</p>
+                        </li>
+                        <li>
+                          <p>width (int): The width of the bounding box, measured in pixels. Takes positive values.</p>
+                        </li>
+                        <li>
+                          <p>height (int): The height of the bounding box, measured in pixels. Takes positive values.
+                          </p>
+                        </li>
+                        <li>
+                          <p>label (string): The class of the identified object.</p>
+                        </li>
+                        <li>
+                          <p>confidence (float): The confidence for the class of the object. Takes values between 0.5
+                            and 1.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Face"></span>
+              <dl class="py class">
+                <dt id="utils.Face.Face">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Face</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">posx</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">posy</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Face.html#Face"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Face.Face" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents a face detected by Robobo using the front camera of the smartphone.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>posx (int): The x coordinate of the tap [0..100]. See: <a class="reference internal"
+                              href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p>
+                        </li>
+                        <li>
+                          <p>posy (int): The y coordinate of the tap [0..100]. See: <a class="reference internal"
+                              href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p>
+                        </li>
+                        <li>
+                          <p>distance (int): The rounded distance between the eyes of the person, measured in pixels.
+                            The values obtained when the person is near the camera are higher than those obtained when
+                            the person is far. Takes positive values.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Lanes"></span>
+              <dl class="py class">
+                <dt id="utils.Lanes.LanePro">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">LanePro</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">l1</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">l2</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">l3</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">r3</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">minv</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">id</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal"
+                    href="_modules/utils/Lanes.html#LanePro"><span class="viewcode-link"><span
+                        class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lanes.LanePro"
+                    title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents a lane detected by Robobo, formed by two second degree polynomials.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>coeffs1 (dict): Dictionary with ‘a’,’b’ and ‘c’ (ax^2 + bx +c) coefficients of the left
+                            line.</p>
+                        </li>
+                        <li>
+                          <p>coeffs2 (dict): Dictionary with ‘a’,’b’ and ‘c’ (ax^2 + bx +c) coefficients of the right
+                            line.</p>
+                        </li>
+                        <li>
+                          <p>minv (array): Transformation matrix to get to the original perspective.</p>
+                        </li>
+                        <li>
+                          <p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be
+                            identified. Takes positive values.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <dl class="py class">
+                <dt id="utils.Lanes.LaneBasic">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">LaneBasic</span></code><span
+                    class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                        class="pre">l1</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">l2</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal"
+                    href="_modules/utils/Lanes.html#LaneBasic"><span class="viewcode-link"><span
+                        class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Lanes.LaneBasic"
+                    title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents a lane detected by Robobo, formed by two straight lines.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>coeffs1 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the left line.</p>
+                        </li>
+                        <li>
+                          <p>coeffs2 (dict): Dictionary with ‘a’ and ‘b’ (ax + b) coefficients of the right line.</p>
+                        </li>
+                        <li>
+                          <p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be
+                            identified. Takes positive values.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Lines"></span>
+              <dl class="py class">
+                <dt id="utils.Lines.Lines">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Lines</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">id</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Lines.html#Lines"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Lines.Lines" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents a set of straight lines detected by Robobo in a frame.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>lines (array): Array with n rows and 4 columns, being n the number of lines detected. Each
+                            row has the values ‘x1’, ‘y1’, ‘x2’, ‘y2’, representing the x and y coordinates of the
+                            points 1 and 2 that form the detected line. These coordinates takes positive values.</p>
+                        </li>
+                        <li>
+                          <p>id (int): Sequence frame number. Since the camera starts, each frame has a number to be
+                            identified. Takes positive values.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Note"></span>
+              <dl class="py class">
+                <dt id="utils.Note.Note">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Note</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">duration</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Note.html#Note"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Note.Note" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <dl>
+                    <dt>Represents a note detected by Robobo:</dt>
+                    <dd>
+                      <ul>
+                        <li>
+                          <p>Name: (string) The musical note in text format, according to the English nomenclature, that
+                            is:</p>
+                          <blockquote>
+                            <div>
+                              <table class="docutils align-default">
+                                <colgroup>
+                                  <col style="width: 7%" />
+                                  <col style="width: 9%" />
+                                  <col style="width: 7%" />
+                                  <col style="width: 9%" />
+                                  <col style="width: 7%" />
+                                  <col style="width: 7%" />
+                                  <col style="width: 9%" />
+                                  <col style="width: 9%" />
+                                  <col style="width: 11%" />
+                                  <col style="width: 7%" />
+                                  <col style="width: 9%" />
+                                  <col style="width: 7%" />
+                                </colgroup>
+                                <tbody>
+                                  <tr class="row-odd">
+                                    <td>
+                                      <p>DO</p>
+                                    </td>
+                                    <td>
+                                      <p>DO#</p>
+                                    </td>
+                                    <td>
+                                      <p>RE</p>
+                                    </td>
+                                    <td>
+                                      <p>RE#</p>
+                                    </td>
+                                    <td>
+                                      <p>MI</p>
+                                    </td>
+                                    <td>
+                                      <p>FA</p>
+                                    </td>
+                                    <td>
+                                      <p>FA#</p>
+                                    </td>
+                                    <td>
+                                      <p>SOL</p>
+                                    </td>
+                                    <td>
+                                      <p>SOL#</p>
+                                    </td>
+                                    <td>
+                                      <p>LA</p>
+                                    </td>
+                                    <td>
+                                      <p>LA#</p>
+                                    </td>
+                                    <td>
+                                      <p>SI</p>
+                                    </td>
+                                  </tr>
+                                  <tr class="row-even">
+                                    <td>
+                                      <p>C</p>
+                                    </td>
+                                    <td>
+                                      <p>Cs</p>
+                                    </td>
+                                    <td>
+                                      <p>D</p>
+                                    </td>
+                                    <td>
+                                      <p>Ds</p>
+                                    </td>
+                                    <td>
+                                      <p>E</p>
+                                    </td>
+                                    <td>
+                                      <p>F</p>
+                                    </td>
+                                    <td>
+                                      <p>Fs</p>
+                                    </td>
+                                    <td>
+                                      <p>G</p>
+                                    </td>
+                                    <td>
+                                      <p>Gs</p>
+                                    </td>
+                                    <td>
+                                      <p>A</p>
+                                    </td>
+                                    <td>
+                                      <p>As</p>
+                                    </td>
+                                    <td>
+                                      <p>B</p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </blockquote>
+                        </li>
+                        <li>
+                          <p>Duration: (int) The note’s duration in milliseconds.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Orientation"></span>
+              <dl class="py class">
+                <dt id="utils.Orientation.Orientation">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Orientation</span></code><span
+                    class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                        class="pre">yaw</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">pitch</span></span></em>, <em class="sig-param"><span class="n"><span
+                        class="pre">roll</span></span></em><span class="sig-paren">)</span><a class="reference internal"
+                    href="_modules/utils/Orientation.html#Orientation"><span class="viewcode-link"><span
+                        class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Orientation.Orientation" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents the orientation of the Smartphone.</p>
+                  <dl>
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>yaw (float): Rotation in degrees around the Z axis. Takes values between -180 and 180. The
+                            yaw angle turn is achieved by turning the base with the wheel motors and the PAN motor.</p>
+                        </li>
+                        <li>
+                          <p>pitch (float): Rotation in degrees around the Y axis. Takes values between -180 and 180.
+                            The pitch angle turn is achieved by using the TILT motor or moving the robot through a
+                            frontally inclined plane.</p>
+                        </li>
+                        <li>
+                          <p>roll (float): Rotation in degrees around the X axis. Takes values between -180 and 180. The
+                            turn in the roll angle cannot be achieved by Robobo, but if the surface on which it moves
+                            has a lateral inclination, it will change.</p>
+                        </li>
+                      </ul>
+                      <img
+                        alt="Image showing Robobo three main axes. Yaw is the vertical axis, positive upwards. Roll is the longitudinal axis, positive forward. Pitch is the transversal axis, positive to Robobo's right."
+                        src="_images/orientation.jpg" />
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.QRCode"></span>
+              <dl class="py class">
+                <dt id="utils.QRCode.QRCode">
+                  <<<<<<< HEAD <em class="property"><span class="pre">class</span> </em><code
+                      class="sig-name descname"><span class="pre">QRCode</span></code><span
+                      class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                          class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">p1x</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">p1y</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">p2x</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">p2y</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">p3x</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">p3y</span></span></em>, <em class="sig-param"><span class="n"><span
+                          class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal"
+                      href="_modules/utils/QRCode.html#QRCode"><span class="viewcode-link"><span
+                          class="pre">[source]</span></span></a><a class="headerlink" href="#utils.QRCode.QRCode"
+                      title="Permalink to this definition">¶</a>
+                </dt>
+                =======
+                <em class="property"><span class="pre">class</span> </em><code
+                  class="sig-prename descclassname"><span class="pre">utils.QRCode.</span></code><code
+                  class="sig-name descname"><span class="pre">QRCode</span></code><span class="sig-paren">(</span><em
+                  class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span
+                    class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">p1x</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">p1y</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">p2x</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">p2y</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">p3x</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">p3y</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span
+                      class="pre">statusTimestamp</span></span></em><span class="sig-paren">)</span><a
+                  class="reference internal" href="_modules/utils/QRCode.html#QRCode"><span class="viewcode-link"><span
+                      class="pre">[source]</span></span></a><a class="headerlink" href="#utils.QRCode.QRCode"
+                  title="Permalink to this definition">¶</a></dt>
+                >>>>>>> pypi-release
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para
+                    saber si te acercas o te alejas, no la distancia exacta.</p>
+                  <p>Attributes:</p>
+                  <blockquote>
+                    <div>
+                      <ul class="simple">
+                        <li>
+                          <p>x (float): The x coordinate of the center of the QR, measured in pixels from the left side
+                            of the screen. Takes positive values.</p>
+                        </li>
+                        <li>
+                          <p>y (float): The y coordinate of the center of the QR, measured in pixels from the upper side
+                            of the screen. Takes positive values.</p>
+                        </li>
+                        <li>
+                          <p>distance (int): Approximated distance between Robobo and the QRCode, measured in meters.
+                          </p>
+                        </li>
+                        <li>
+                          <p>p1 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the first point of interest. These
+                            coordinates are measured in pixels from the left and upper sides of the screen, and take
+                            positive values.</p>
+                        </li>
+                        <li>
+                          <p>p2 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the second point of interest. These
+                            coordinates are measured in pixels from the left and upper sides of the screen, and take
+                            positive values.</p>
+                        </li>
+                        <li>
+                          <p>p3 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the third point of interest. These
+                            coordinates are measured in pixels from the left and upper sides of the screen, and take
+                            positive values.</p>
+                        </li>
+                        <li>
+                          <p>id (int): QRCode identifier.</p>
+                        </li>
+                        <li>
+                          <p>timestamp (int): timestamp of the message</p>
+                        </li>
+                      </ul>
+                      <img
+                        alt="Image showing an standard QR code, which has three of its corners marked. From the not marked corner and clockwise, the other corners are numbered as p1, p2 and p3."
+                        src="_images/qr.PNG" />
+                    </div>
+                  </blockquote>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Tag"></span>
+              <dl class="py class">
+                <dt id="utils.Tag.Tag">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-prename descclassname"><span class="pre">utils.Tag.</span></code><code
+                    class="sig-name descname"><span class="pre">Tag</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">cor1x</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">cor1y</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">cor2x</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">cor2y</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">cor3x</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">cor3y</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">cor4x</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">cor4y</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">rvec_0</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">rvec_1</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">rvec_2</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">tvec_0</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">tvec_1</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">tvec_2</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">statusTimestamp</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Tag.html#Tag"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Tag.Tag" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents an ArUco Tag detected by Robobo, and defined by four corners read clockwise.</p>
+                  <dl class="simple">
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>cor1 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the first corner.</p>
+                        </li>
+                        <li>
+                          <p>cor2 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the second corner.</p>
+                        </li>
+                        <li>
+                          <p>cor3 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the third corner.</p>
+                        </li>
+                        <li>
+                          <p>cor4 (dict): Dictionary with ‘x’ and ‘y’ coordinates of the fourth corner.</p>
+                        </li>
+                        <li>
+                          <p>tvecs (dict): Dictionary with the ‘x’, ‘y’ and ‘z’ components of the translation vector.
+                          </p>
+                        </li>
+                        <li>
+                          <p>rvecs (dict): Dictionary with the ‘x’, ‘y’ and ‘z’ components of the rotation vector.</p>
+                        </li>
+                        <li>
+                          <p>id (int): The ArUco identifier.</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Tap"></span>
+              <dl class="py class">
+                <dt id="utils.Tap.Tap">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Tap</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em
+                    class="sig-param"><span class="n"><span class="pre">y</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Tap.html#Tap"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Tap.Tap" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>
+                  </p>
+                  <p>Represents a tap detected on the smartphone screen.</p>
+                  <dl>
+                    <dt>Attributes:</dt>
+                    <dd>
+                      <ul class="simple">
+                        <li>
+                          <p>x (int): The x coordinate of the tap [0..100]. See: <a class="reference internal"
+                              href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p>
+                        </li>
+                        <li>
+                          <p>y (int): The y coordinate of the tap [0..100]. See: <a class="reference internal"
+                              href="features.html#screen"><span class="std std-ref">Screen coordinates</span></a>.</p>
+                        </li>
+                        <li>
+                          <p>zone (string): Returns the area of the smartphone screen. Takes one of the following
+                            values: ‘forehead’, ‘eye’, ‘right’, ‘left’, ‘mouth’ or ‘chin’.</p>
+                        </li>
+                      </ul>
+                      <a class="reference internal image-reference" href="_images/tap_areas.jpg"><img
+                          alt="Image showing the different possible tap areas on the screen, each one of them being a square or a rectangle. The upper part is the 'forehead'. Excluding the forehead, the right part is 'right' and the left part is 'left'. Excluding those parts, there are four zones remaining. From top to bottom, they are: the 'eye', which is the biggest of all zones, an undefined zone, the 'mouth' and the 'chin'."
+                          src="_images/tap_areas.jpg" style="width: 350.0px; height: 256.0px;" /></a>
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+
+            </div>
+            <div class="section" id="module-utils.BlobColor">
+              <span id="enumerations"></span>
+              <h2>Enumerations<a class="headerlink" href="#module-utils.BlobColor"
+                  title="Permalink to this headline">¶</a></h2>
+              <dl class="py class">
+                <dt id="utils.BlobColor.BlobColor">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">BlobColor</span></code><span
+                    class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                        class="pre">value</span></span></em><span class="sig-paren">)</span><a
+                    class="reference internal" href="_modules/utils/BlobColor.html#BlobColor"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.BlobColor.BlobColor" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>This enumeration represents the list of colors Robobo can detect</p>
+                  <dl class="py attribute">
+                    <dt id="utils.BlobColor.BlobColor.RED">
+                      <code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink"
+                        href="#utils.BlobColor.BlobColor.RED" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.BlobColor.BlobColor.BLUE">
+                      <code class="sig-name descname"><span class="pre">BLUE</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'blue'</span></em><a class="headerlink"
+                        href="#utils.BlobColor.BlobColor.BLUE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.BlobColor.BlobColor.GREEN">
+                      <code class="sig-name descname"><span class="pre">GREEN</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'green'</span></em><a class="headerlink"
+                        href="#utils.BlobColor.BlobColor.GREEN" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.BlobColor.BlobColor.CUSTOM">
+                      <code class="sig-name descname"><span class="pre">CUSTOM</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'custom'</span></em><a class="headerlink"
+                        href="#utils.BlobColor.BlobColor.CUSTOM" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Color"></span>
+              <dl class="py class">
+                <dt id="utils.Color.Color">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Color</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">value</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/Color.html#Color"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Color.Color" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>This enumeration represents the list of colors Robobo’s LEDs can show.</p>
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.OFF">
+                      <code class="sig-name descname"><span class="pre">OFF</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'off'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.OFF" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.WHITE">
+                      <code class="sig-name descname"><span class="pre">WHITE</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'white'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.WHITE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.RED">
+                      <code class="sig-name descname"><span class="pre">RED</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.RED" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.BLUE">
+                      <code class="sig-name descname"><span class="pre">BLUE</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'blue'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.BLUE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.CYAN">
+                      <code class="sig-name descname"><span class="pre">CYAN</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'cyan'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.CYAN" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.MAGENTA">
+                      <code class="sig-name descname"><span class="pre">MAGENTA</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'magenta'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.MAGENTA" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.YELLOW">
+                      <code class="sig-name descname"><span class="pre">YELLOW</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'yellow'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.YELLOW" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.GREEN">
+                      <code class="sig-name descname"><span class="pre">GREEN</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'green'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.GREEN" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Color.Color.ORANGE">
+                      <code class="sig-name descname"><span class="pre">ORANGE</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'orange'</span></em><a class="headerlink"
+                        href="#utils.Color.Color.ORANGE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Emotions"></span>
+              <dl class="py class">
+                <dt id="utils.Emotions.Emotions">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Emotions</span></code><span
+                    class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                        class="pre">value</span></span></em><span class="sig-paren">)</span><a
+                    class="reference internal" href="_modules/utils/Emotions.html#Emotions"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.Emotions.Emotions" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>Represents the list of emotions Robobo’s face can show.</p>
+                  <a class="reference internal image-reference" href="_images/emotions.jpg"><img
+                      alt="Image showing how Robobo looks for each emotion: happy, laughung, surprised, sad, angry, normal, sleeping, tired or afraid."
+                      src="_images/emotions.jpg" style="width: 686.4000000000001px; height: 288.0px;" /></a>
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.HAPPY">
+                      <code class="sig-name descname"><span class="pre">HAPPY</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'happy'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.HAPPY" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.LAUGHING">
+                      <code class="sig-name descname"><span class="pre">LAUGHING</span></code><em class="property">
+                        <span class="pre">=</span> <span class="pre">'laughing'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.LAUGHING" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.SURPRISED">
+                      <code class="sig-name descname"><span class="pre">SURPRISED</span></code><em class="property">
+                        <span class="pre">=</span> <span class="pre">'surprised'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.SURPRISED" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.SAD">
+                      <code class="sig-name descname"><span class="pre">SAD</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'sad'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.SAD" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.ANGRY">
+                      <code class="sig-name descname"><span class="pre">ANGRY</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'angry'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.ANGRY" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.NORMAL">
+                      <code class="sig-name descname"><span class="pre">NORMAL</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'normal'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.NORMAL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.SLEEPING">
+                      <code class="sig-name descname"><span class="pre">SLEEPING</span></code><em class="property">
+                        <span class="pre">=</span> <span class="pre">'sleeping'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.SLEEPING" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.TIRED">
+                      <code class="sig-name descname"><span class="pre">TIRED</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'tired'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.TIRED" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Emotions.Emotions.AFRAID">
+                      <code class="sig-name descname"><span class="pre">AFRAID</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'afraid'</span></em><a class="headerlink"
+                        href="#utils.Emotions.Emotions.AFRAID" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.IR"></span>
+              <dl class="py class">
+                <dt id="utils.IR.IR">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">IR</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">value</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/IR.html#IR"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.IR.IR" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>This enumeration represents the list of Robobo base’s IR</p>
+                  <blockquote>
+                    <div><img
+                        alt="One image from Robobo frontal part, showing five IR sensors, named from left to right: Front-RR, Front-R, Front-C, Front-L and Front-LL. Another image from Robobo rear part, showing three IR sensors, named from left to right: Back-L, Back-C, Back-R."
+                        src="_images/irs.jpg" />
+                    </div>
+                  </blockquote>
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.BackR">
+                      <code class="sig-name descname"><span class="pre">BackR</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Back-R'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.BackR" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.BackC">
+                      <code class="sig-name descname"><span class="pre">BackC</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Back-C'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.BackC" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.FrontR">
+                      <code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.FrontR" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.FrontRR">
+                      <code class="sig-name descname"><span class="pre">FrontRR</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.FrontRR" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.FrontC">
+                      <code class="sig-name descname"><span class="pre">FrontC</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-C'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.FrontC" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.FrontL">
+                      <code class="sig-name descname"><span class="pre">FrontL</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-L'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.FrontL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.FrontLL">
+                      <code class="sig-name descname"><span class="pre">FrontLL</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-LL'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.FrontLL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.IR.IR.BackL">
+                      <code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink"
+                        href="#utils.IR.IR.BackL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.LED"></span>
+              <dl class="py class">
+                <dt id="utils.LED.LED">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">LED</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">value</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal" href="_modules/utils/LED.html#LED"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.LED.LED" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>This enumeration represents the list of Robobo base’s LEDs</p>
+                  <blockquote>
+                    <div><a class="reference internal image-reference" href="_images/leds.jpg"><img
+                          alt="Top view of Robobo. There are five IR sensors forming a pentagon on the frontal part: Front-C on the upper and central part, Front-RR to the left and Front-LL to the right (from the viewer's point of view) of the first one, and finally Front-R on the left and Front-L on the right of the lower part of the pentagon. There are two IR sensors on the rear part: Back-R on the right and Back-L on the left."
+                          src="_images/leds.jpg"
+                          style="width: 460.79999999999995px; height: 357.59999999999997px;" /></a>
+                    </div>
+                  </blockquote>
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.BackR">
+                      <code class="sig-name descname"><span class="pre">BackR</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Back-R'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.BackR" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.FrontR">
+                      <code class="sig-name descname"><span class="pre">FrontR</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-R'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.FrontR" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.FrontRE">
+                      <code class="sig-name descname"><span class="pre">FrontRE</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-RR'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.FrontRE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.FrontC">
+                      <code class="sig-name descname"><span class="pre">FrontC</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-C'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.FrontC" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.FrontL">
+                      <code class="sig-name descname"><span class="pre">FrontL</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-L'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.FrontL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.FrontLL">
+                      <code class="sig-name descname"><span class="pre">FrontLL</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Front-LL'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.FrontLL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.BackL">
+                      <code class="sig-name descname"><span class="pre">BackL</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'Back-L'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.BackL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.LED.LED.All">
+                      <code class="sig-name descname"><span class="pre">All</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'all'</span></em><a class="headerlink"
+                        href="#utils.LED.LED.All" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Sounds"></span>
+              <dl class="py class">
+                <dt id="utils.Sounds.Sounds">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Sounds</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">value</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal"
+                    href="_modules/utils/Sounds.html#Sounds"><span class="viewcode-link"><span
+                        class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Sounds.Sounds"
+                    title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>This enumeration lists the emotion sound Robobo can play.</p>
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.PURR">
+                      <code class="sig-name descname"><span class="pre">PURR</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'purr'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.PURR" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.MOAN">
+                      <code class="sig-name descname"><span class="pre">MOAN</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'moan'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.MOAN" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.ANGRY">
+                      <code class="sig-name descname"><span class="pre">ANGRY</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'angry'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.ANGRY" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.APPROVE">
+                      <code class="sig-name descname"><span class="pre">APPROVE</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'approve'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.APPROVE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.DISAPPROVE">
+                      <code class="sig-name descname"><span class="pre">DISAPPROVE</span></code><em class="property">
+                        <span class="pre">=</span> <span class="pre">'disapprove'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.DISAPPROVE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.DISCOMFORT">
+                      <code class="sig-name descname"><span class="pre">DISCOMFORT</span></code><em class="property">
+                        <span class="pre">=</span> <span class="pre">'discomfort'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.DISCOMFORT" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.DOUBTFUL">
+                      <code class="sig-name descname"><span class="pre">DOUBTFUL</span></code><em class="property">
+                        <span class="pre">=</span> <span class="pre">'doubtful'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.DOUBTFUL" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.LAUGH">
+                      <code class="sig-name descname"><span class="pre">LAUGH</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'laugh'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.LAUGH" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.LIKES">
+                      <code class="sig-name descname"><span class="pre">LIKES</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'likes'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.LIKES" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.MUMBLE">
+                      <code class="sig-name descname"><span class="pre">MUMBLE</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'mumble'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.MUMBLE" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.OUCH">
+                      <code class="sig-name descname"><span class="pre">OUCH</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'ouch'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.OUCH" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.THINKING">
+                      <code class="sig-name descname"><span class="pre">THINKING</span></code><em class="property">
+                        <span class="pre">=</span> <span class="pre">'thinking'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.THINKING" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Sounds.Sounds.VARIOUS">
+                      <code class="sig-name descname"><span class="pre">VARIOUS</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'various'</span></em><a class="headerlink"
+                        href="#utils.Sounds.Sounds.VARIOUS" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.StatusFrequency"></span>
+              <dl class="py class">
+                <dt id="utils.StatusFrequency.StatusFrequency">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">StatusFrequency</span></code><span
+                    class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                        class="pre">value</span></span></em><span class="sig-paren">)</span><a
+                    class="reference internal" href="_modules/utils/StatusFrequency.html#StatusFrequency"><span
+                      class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
+                    href="#utils.StatusFrequency.StatusFrequency" title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>This enumeration lists the possible values for setting the frequency of the status messages coming
+                    from the robot.</p>
+                  <dl class="py attribute">
+                    <dt id="utils.StatusFrequency.StatusFrequency.Low">
+                      <code class="sig-name descname"><span class="pre">Low</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'LOW'</span></em><a class="headerlink"
+                        href="#utils.StatusFrequency.StatusFrequency.Low" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.StatusFrequency.StatusFrequency.Normal">
+                      <code class="sig-name descname"><span class="pre">Normal</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'NORMAL'</span></em><a class="headerlink"
+                        href="#utils.StatusFrequency.StatusFrequency.Normal" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.StatusFrequency.StatusFrequency.High">
+                      <code class="sig-name descname"><span class="pre">High</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'HIGH'</span></em><a class="headerlink"
+                        href="#utils.StatusFrequency.StatusFrequency.High" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.StatusFrequency.StatusFrequency.Max">
+                      <code class="sig-name descname"><span class="pre">Max</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'MAX'</span></em><a class="headerlink"
+                        href="#utils.StatusFrequency.StatusFrequency.Max" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+              <span class="target" id="module-utils.Wheels"></span>
+              <dl class="py class">
+                <dt id="utils.Wheels.Wheels">
+                  <em class="property"><span class="pre">class</span> </em><code
+                    class="sig-name descname"><span class="pre">Wheels</span></code><span class="sig-paren">(</span><em
+                    class="sig-param"><span class="n"><span class="pre">value</span></span></em><span
+                    class="sig-paren">)</span><a class="reference internal"
+                    href="_modules/utils/Wheels.html#Wheels"><span class="viewcode-link"><span
+                        class="pre">[source]</span></span></a><a class="headerlink" href="#utils.Wheels.Wheels"
+                    title="Permalink to this definition">¶</a>
+                </dt>
+                <dd>
+                  <p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum"
+                      title="(in Python v3.9)"><code
+                        class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>
+                  </p>
+                  <p>This enumeration represents the list of possible values for the wheels of Robobo</p>
+                  <dl class="py attribute">
+                    <dt id="utils.Wheels.Wheels.R">
+                      <code class="sig-name descname"><span class="pre">R</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'right'</span></em><a class="headerlink"
+                        href="#utils.Wheels.Wheels.R" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Wheels.Wheels.L">
+                      <code class="sig-name descname"><span class="pre">L</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'left'</span></em><a class="headerlink"
+                        href="#utils.Wheels.Wheels.L" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="py attribute">
+                    <dt id="utils.Wheels.Wheels.BOTH">
+                      <code class="sig-name descname"><span class="pre">BOTH</span></code><em class="property"> <span
+                          class="pre">=</span> <span class="pre">'both'</span></em><a class="headerlink"
+                        href="#utils.Wheels.Wheels.BOTH" title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+
+                </dd>
+              </dl>
+
+            </div>
+          </div>
+
+
+          <div class="clearer"></div>
+        </div>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  </div>
+  <div class="related" role="navigation" aria-label="related navigation">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right" style="margin-right: 10px">
+        <a href="genindex.html" title="General Index">index</a>
+      </li>
+      <li class="right">
+        <a href="py-modindex.html" title="Python Module Index">modules</a> |
+      </li>
+      <li class="right">
+        <a href="object_recognition.html" title="Object recognition">next</a> |
+      </li>
+      <li class="right">
+        <a href="robobo.html" title="Robobo.py">previous</a> |
+      </li>
+      <li><a href="index.html">Home</a></li>
+      <!--
         <li><a href="index.html">Home</a>&#160;|</li>
         <li><a href="contents.html">Documentation</a> &#187;</li>
 -->
 
-        <li class="nav-item nav-item-this"><a href="">Utils</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2010, MINT.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
-    </div>
-  </body>
+      <li class="nav-item nav-item-this"><a href="">Utils</a></li>
+    </ul>
+  </div>
+  <div class="footer" role="contentinfo">
+    &#169; Copyright 2010, MINT.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+  </div>
+</body>
+
 </html>

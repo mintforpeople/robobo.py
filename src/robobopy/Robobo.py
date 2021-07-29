@@ -1,9 +1,9 @@
-from remotelib import Remote
-from utils.Wheels import Wheels
-from utils.Note import Note
-from utils.Acceleration import Acceleration
-from utils.Orientation import Orientation
-from utils.Tap import Tap
+from robobopy.remotelib import Remote
+from robobopy.utils.Wheels import Wheels
+from robobopy.utils.Note import Note
+from robobopy.utils.Acceleration import Acceleration
+from robobopy.utils.Orientation import Orientation
+from robobopy.utils.Tap import Tap
 import time
 
 class Robobo:
@@ -11,7 +11,7 @@ class Robobo:
 
     def __init__(self, ip):
         """
-        Creates a new Robobo.js library instance.
+        Creates a new Robobo library instance.
 
         :param ip: The IP address of the Robobo robot.
 
@@ -710,6 +710,16 @@ class Robobo:
 
         return self.rem.state.panPos
 
+    def readPanLastTime(self):
+        """
+                Returns the timestamp of the last received
+                pan status
+
+                :return: Time in milliseconds
+                :rtype: int
+                """
+        return self.rem.state.lastPanTimestamp
+
     def readTiltPosition(self):
         """
         Reads the current position of the TILT.
@@ -719,6 +729,16 @@ class Robobo:
         :rtype: int
         """
         return self.rem.state.tiltPos
+
+    def readTiltLastTime(self):
+        """
+                Returns the timestamp of the last received
+                tilt status
+
+                :return: Time in milliseconds
+                :rtype: int
+                """
+        return self.rem.state.lastTiltTimestamp
 
     def readWheelPosition(self, wheel):
         """
@@ -757,6 +777,16 @@ class Robobo:
         else:
             print("Wheel id not valid")
             return 0
+
+    def readWheelLastTime(self):
+        """
+                Returns the timestamp of the last received
+                wheel status
+
+                :return: Time in milliseconds
+                :rtype: int
+                """
+        return self.rem.state.lastWheelsTimestamp
 
     def readFlingAngle(self):
         """
@@ -1058,3 +1088,12 @@ class Robobo:
         """
         
         self.rem.changeStatusFrequency(frequency)
+
+    def sendSync(self, syncId):
+        """
+        Send a sync identifier to label the next frame sent through the camera stream
+
+        :param syncId: Label to be applied to the frame
+        :type frequency: int
+        """
+        self.rem.sendSync(syncId)

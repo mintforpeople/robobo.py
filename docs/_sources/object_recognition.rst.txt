@@ -14,4 +14,3 @@ And these are the related methods:
 * :py:meth:`~Robobo.Robobo.readDetectedObject`
 * :py:meth:`~Robobo.Robobo.whenAnObjectIsDetected`
 
-
