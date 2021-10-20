@@ -113,13 +113,13 @@
   <h1>Source code for utils.QRCode</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="QRCode"><a class="viewcode-back" href="../../utils.html#utils.QRCode.QRCode">[docs]</a><span></span><span class="k">class</span> <span class="nc">QRCode</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a QRCode detected by Robobo. Definido por tres puntos. Valor cualitativo que sirve para saber si te acercas o te alejas, no la distancia exacta.</span>
+<span class="sd">    Represents a QRCode detected by Robobo, defined by three points.</span>
 
 <span class="sd">    Attributes:</span>
 
 <span class="sd">        - x (float): The x coordinate of the center of the QR, measured in pixels from the left side of the screen. Takes positive values.</span>
 <span class="sd">        - y (float): The y coordinate of the center of the QR, measured in pixels from the upper side of the screen. Takes positive values.</span>
-<span class="sd">        - distance (int): Approximated distance between Robobo and the QRCode, measured in meters.</span>
+<span class="sd">        - distance (int): Qualitative value which is higher when Robobo is close the QRCode and lower when it&#39;s far.</span>
 <span class="sd">        - p1 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the first point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
 <span class="sd">        - p2 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the second point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
 <span class="sd">        - p3 (dict): Dictionary with &#39;x&#39; and &#39;y&#39; coordinates of the third point of interest. These coordinates are measured in pixels from the left and upper sides of the screen, and take positive values.</span>
