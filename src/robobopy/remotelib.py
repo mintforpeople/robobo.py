@@ -106,7 +106,11 @@ class Remote:
 
     def sendMessage(self, msg):
         if self.connectionState == ConnectionState.CONNECTED:
-            self.ws.send(msg.encode())
+            try:
+                self.ws.send(msg.encode())
+            except websocket._exceptions.WebSocketConnectionClosedException:
+                self.disconnect()
+                sys.exit("\nError: Remote robot has forcefully disconnected. Re-establish the connection before sending a message")
         else:
             sys.exit("\nError: Establish connection before sending a message")
 
