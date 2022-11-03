@@ -63,12 +63,15 @@ class Remote:
             self.processMessage(message)
 
         def on_error(ws, error):
-            print(error)
+            print(f"ERROR: {error}")
             self.connectionState = ConnectionState.ERROR
 
-        def on_close(ws):
+        def on_close(ws, status_code, msg):
             self.connectionState = ConnectionState.DISCONNECTED
-            print("### closed connection ###")
+            if (status_code != None):
+                print(f"### closed connection [{status_code}] {msg} ###")
+            else:
+                print("### closed connection ###")
 
         self.ws = websocket.WebSocketApp('ws://' + self.ip + ":40404",
                                          on_message=on_message,

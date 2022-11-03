@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="robobopy",                     # This is the name of the package
-    version="1.0.2.1",                        # The initial release version
+    version="1.1.0",                        # The initial release version
     author="The Robobo Project",                     # Full name of the author
     authore_email='info@theroboboproject.com',
     description="Robobo remote control library",
@@ -23,5 +23,5 @@ setuptools.setup(
     packages=setuptools.find_packages('src'),
     package_dir={'':'src'},     # Directory of the source code of the package
     #packages=setuptools.find_packages(include=['.*']),
-    install_requires=['websocket-client==1.0.1']                     # Install other dependencies if any
+    install_requires=['websocket-client']                     # Install other dependencies if any
 )
