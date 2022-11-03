@@ -60,11 +60,13 @@ class Remote:
             self.connectionState = ConnectionState.CONNECTED
 
         def on_message(ws, message):
+            print(message)
             self.processMessage(message)
 
         def on_error(ws, error):
-            print(f"ERROR: {error}")
             self.connectionState = ConnectionState.ERROR
+            raise error
+            
 
         def on_close(ws, status_code, msg):
             self.connectionState = ConnectionState.DISCONNECTED
