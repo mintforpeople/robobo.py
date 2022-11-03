@@ -23,5 +23,5 @@ setuptools.setup(
     packages=setuptools.find_packages('src'),
     package_dir={'':'src'},     # Directory of the source code of the package
     #packages=setuptools.find_packages(include=['.*']),
-    install_requires=['websocket-client']                     # Install other dependencies if any
+    install_requires=['websocket-client==1.0.1']                     # Install other dependencies if any
 )
