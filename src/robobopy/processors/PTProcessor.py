@@ -18,12 +18,14 @@ class PTProcessor(AbstractProcessor):
 
         if (name == "PAN"):
             self.state.panPos = self.internalAngleToExternal(int(value["panPos"]))
-            self.state.lastPanTimestamp = int(value["timestamp"])
+            if "timestamp" in value.keys():
+                self.state.lastPanTimestamp = int(value["timestamp"])
 
 
         elif (name == "TILT"):
             self.state.tiltPos = int(value["tiltPos"])
-            self.state.lastTiltTimestamp = int(value["timestamp"])
+            if "timestamp" in value.keys():
+                self.state.lastTiltTimestamp = int(value["timestamp"])
 
 
         elif (name == "UNLOCK-PAN"):
