@@ -98,14 +98,15 @@ class Remote:
     def processMessage(self, msg):
         status = json.loads(msg)
         name = status["name"]
-        #print(name)
-        #print(status)
         value = status["value"]
         processed = False
         for key in self.processors.keys():
             if self.processors[key].canProcess(name):
-                self.processors[key].process(status)
-                processed = True
+                try:
+                    self.processors[key].process(status)
+                    processed = True
+                except KeyError as e:
+                    print(f"Expected key {e} was missing from the message!")
                 break
 
     def sendMessage(self, msg):

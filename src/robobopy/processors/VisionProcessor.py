@@ -68,13 +68,10 @@ class VisionProcessor(AbstractProcessor):
             self.state.qr = QRCode(float(value["coordx"]),
                                    float(value["coordy"]),
                                    float(value["distance"]),
-                                   float(value["p1x"]),
-                                   float(value["p1y"]),
-                                   float(value["p2x"]),
-                                   float(value["p2y"]),
-                                   float(value["p3x"]),
-                                   float(value["p3y"]),
-                                   value["id"], int(value["timestamp"]))
+                                   0,0,
+                                   0,0,
+                                   0,0,
+                                   value["id"], 0)
 
             self.runCallback("newqr")
 

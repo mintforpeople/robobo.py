@@ -39,6 +39,6 @@ class Tag:
         self.timestamp = statusTimestamp
 
     def __str__(self):
-        return "Aruco, Id:" + self.id + " cor1:" + str(self.cor1) + " cor2:" + str(self.cor2) + " cor3:" + str(
+        return "Aruco, Id:" + str(self.id) + " cor1:" + str(self.cor1) + " cor2:" + str(self.cor2) + " cor3:" + str(
             self.cor3) + " cor4:" + str(self.cor4) + " tvecs:" + str(self.tvecs) + " rvecs:" + str(self.rvecs) \
-               + " timestamp" +self.timestamp
+               + " timestamp: " + str(self.timestamp)
