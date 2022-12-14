@@ -5,6 +5,7 @@ from robobopy.utils.Acceleration import Acceleration
 from robobopy.utils.Orientation import Orientation
 from robobopy.utils.Tap import Tap
 import time
+from copy import copy, deepcopy
 
 class Robobo:
 
@@ -575,7 +576,7 @@ class Robobo:
         :rtype: dict
         """
 
-        return self.rem.state.irs
+        return deepcopy(self.rem.state.irs)
 
     def readColorBlob(self, color):
         """
@@ -589,7 +590,7 @@ class Robobo:
         :rtype: Blob
         """
 
-        return self.rem.state.blobs[color.value]
+        return deepcopy(self.rem.state.blobs[color.value])
 
     def readAllColorBlobs(self):
         """
@@ -614,7 +615,7 @@ class Robobo:
         :rtype: dict
         """
 
-        return self.rem.state.blobs
+        return deepcopy(self.rem.state.blobs)
 
     def readQR(self):
         """
@@ -626,7 +627,7 @@ class Robobo:
         :rtype: QRCode
         """
 
-        return self.rem.state.qr
+        return deepcopy(self.rem.state.qr)
 
     def readLine(self):
         """
@@ -638,7 +639,7 @@ class Robobo:
         :rtype: Lines       
         """
 
-        return self.rem.state.lines
+        return deepcopy(self.rem.state.lines)
 
     def readLaneBasic(self):
         """
@@ -650,7 +651,7 @@ class Robobo:
         :rtype: LaneBasic        
         """
 
-        return self.rem.state.laneBasic
+        return deepcopy(self.rem.state.laneBasic)
 
     def readLanePro(self):
         """
@@ -662,7 +663,7 @@ class Robobo:
         :rtype: LanePro        
         """
 
-        return self.rem.state.lanePro
+        return deepcopy(self.rem.state.lanePro)
 
     def readOrientationSensor(self):
         """
@@ -875,7 +876,7 @@ class Robobo:
         :rtype: Face
 
         """
-        return self.rem.state.face
+        return deepcopy(self.rem.state.face)
 
     def readArucoTag(self):
         """
@@ -887,7 +888,7 @@ class Robobo:
         :rtype: Tag
         """
 
-        return self.rem.state.tag
+        return deepcopy(self.rem.state.tag)
 
     def readDetectedObject(self):
         """
@@ -899,7 +900,7 @@ class Robobo:
         :rtype: DetectedObject
         """
 
-        return self.rem.state.detectedObject
+        return deepcopy(self.rem.state.detectedObject)
 
     def whenClapIsDetected(self, callback):
         """
