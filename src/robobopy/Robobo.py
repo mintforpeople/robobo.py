@@ -10,16 +10,20 @@ from copy import copy, deepcopy
 class Robobo:
 
 
-    def __init__(self, ip):
+    def __init__(self, ip, robot_id=0):
         """
         Creates a new Robobo library instance.
 
         :param ip: The IP address of the Robobo robot.
 
         :type ip: string
+
+        :param robot_id: Sequential ID of robots. Only used in multi-robot scenarios in simulation.
+
+        :type robot_id: int
         """
 
-        self.rem = Remote(ip)
+        self.rem = Remote(ip, robot_id)
 
     def connect(self):
         """

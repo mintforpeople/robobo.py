@@ -14,8 +14,9 @@ from robobopy.utils.ConnectionState import ConnectionState
 
 
 class Remote:
-    def __init__(self, ip):
+    def __init__(self, ip, robot_id=0):
         self.ip = ip
+        self.robot_id = robot_id
         self.ws = None
         self.password = ""
         self.state = State()
@@ -73,8 +74,10 @@ class Remote:
                 print(f"### closed connection [{status_code}] {msg} ###")
             else:
                 print("### closed connection ###")
+        
+        port = 40404 + (self.robot_id * 10)
 
-        self.ws = websocket.WebSocketApp('ws://' + self.ip + ":40404",
+        self.ws = websocket.WebSocketApp('ws://' + self.ip + ":" + str(port),
                                          on_message=on_message,
                                          on_error=on_error,
                                          on_close=on_close)
