@@ -229,6 +229,18 @@ class Remote:
         msg = self.processors["VISION"].stopStream()
         self.sendMessage(msg)
 
+    def startAudioStream(self):
+        msg = self.processors["SOUND"].startAudioStream()
+        self.sendMessage(msg)
+
+    def stopAudioStream(self):
+        msg = self.processors["SOUND"].stopAudioStream()
+        self.sendMessage(msg)
+
+    def sendSyncAudio(self, syncId):
+        msg = self.processors["SOUND"].sendSync(syncId)
+        self.sendMessage(msg)
+
     def sendSync(self, syncId):
         msg = self.processors["VISION"].sendSync(syncId)
         self.sendMessage(msg)
@@ -251,6 +263,10 @@ class Remote:
 
     def stopCamera(self):
         msg = self.processors["VISION"].stopCamera()
+        self.sendMessage(msg)
+
+    def setAudioStreamBitrate(self, bitrate):
+        msg = self.processors["SOUND"].setAudioStreamBitrate(bitrate)
         self.sendMessage(msg)
 
     def startColorDetection(self):

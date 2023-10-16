@@ -65,3 +65,28 @@ class SoundProcessor(AbstractProcessor):
 
     def resetClaps(self):
         self.state.claps = 0
+
+    # Stream related functions
+    def startAudioStream(self):
+        name = "START-AUDIOSTREAM"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+
+    def stopAudioStream(self):
+        name = "STOP-AUDIOSTREAM"
+        id = self.state.getId()
+        values = {}
+        return Message(name, values, id)
+    
+    def setAudioStreamBitrate(self, bitrate):
+        name = "SET-AUDIOSTREAM-BITRATE"
+        id = self.state.getId()
+        values = {"bitrate": bitrate}
+        return Message(name, values, id)
+    
+    def sendSyncAudio(self, syncId):
+        name = "AUDIOSTREAM-SYNC"
+        id = self.state.getId()
+        values = {"id":syncId}
+        return Message(name, values, id)

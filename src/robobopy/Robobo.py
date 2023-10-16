@@ -267,6 +267,39 @@ class Robobo:
 
         self.rem.stopStream()
 
+    def setAudioStreamBitrate(self, bitrate):
+        """
+        | Sets the audio stream bitrate. Audio bitrate is the measure of bits (audio data) processed over a given period of time and sent from the smartphone to the computer.
+        | Default value is 44100 but it can be set to 22050, 44100, 48000, 96000, 192000. Higher means more audio quality but can cause latency problems. Some smartphones only support 44100 and 48000.
+        | This change is persistent (see: :ref:`persistent`).
+
+        :param bitrate: New bitrate value. Takes discrete values from the list [22050, 44100, 48000, 96000, 192000]
+
+        :type bitrate: int
+
+        """
+        self.rem.setStreamFps(bitrate)
+    
+    def startAudioStream(self):
+        """
+        | Starts the microphone streaming.
+        | Microphone streaming is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | In order to use this function, it's neccesary to download the project and follow the instructions from the `stream repository <https://github.com/mintforpeople/robobo-python-audio-stream>`_.
+        
+        """
+
+        self.rem.startAudioStream()
+
+    def stopAudioStream(self):
+        """
+        | Stops the microphone streaming.
+        | Audio streaming is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        """
+
+        self.rem.stopAudioStream()
+
     def startFaceDetection(self):
         """
         | Starts the face detection.
@@ -1099,6 +1132,15 @@ class Robobo:
         Send a sync identifier to label the next frame sent through the camera stream
 
         :param syncId: Label to be applied to the frame
-        :type frequency: int
+        :type syncId: int
         """
         self.rem.sendSync(syncId)
+    
+    def sendSyncAudio(self, syncId):
+        """
+        Send a sync identifier to label the next audio packet sent through the audio stream
+
+        :param syncId: Label to be applied to the audio packet
+        :type syncId: int
+        """
+        self.rem.sendSyncAudio(syncId)
