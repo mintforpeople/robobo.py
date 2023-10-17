@@ -278,7 +278,7 @@ class Robobo:
         :type bitrate: int
 
         """
-        self.rem.setStreamFps(bitrate)
+        self.rem.setAudioStreamBitrate(bitrate)
     
     def startAudioStream(self):
         """
