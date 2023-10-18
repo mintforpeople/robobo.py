@@ -238,7 +238,7 @@ class Remote:
         self.sendMessage(msg)
 
     def sendSyncAudio(self, syncId):
-        msg = self.processors["SOUND"].sendSync(syncId)
+        msg = self.processors["SOUND"].sendSyncAudio(syncId)
         self.sendMessage(msg)
 
     def sendSync(self, syncId):
