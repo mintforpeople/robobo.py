@@ -10,6 +10,7 @@ from robobopy.processors.RobProcessor import RobProcessor
 from robobopy.processors.VisionProcessor import VisionProcessor
 from robobopy.processors.SmartphoneProcessor import SmartphoneProcessor
 from robobopy.processors.SoundProcessor import SoundProcessor
+from robobopy.processors.SpeechProcessor import SpeechProcessor
 from robobopy.utils.ConnectionState import ConnectionState
 
 
@@ -24,6 +25,7 @@ class Remote:
                            "ROB": RobProcessor(self.state),
                            "PHONE": SmartphoneProcessor(self.state),
                            "SOUND": SoundProcessor(self.state),
+                           "SPEECH" : SpeechProcessor(self.state),
                            "VISION": VisionProcessor(self.state)}
 
         self.wsDaemon = None
@@ -245,6 +247,30 @@ class Remote:
         msg = self.processors["VISION"].sendSync(syncId)
         self.sendMessage(msg)
 
+    def startSpeechDetection(self):
+        msg = self.processors["SPEECH"].startSpeechDetection()
+        self.sendMessage(msg)
+    
+    def stopSpeechDetection(self):
+        msg = self.processors["SPEECH"].stopSpeechDetection()
+        self.sendMessage(msg)
+    
+    def registerSpeechPhrase(self, phrase):
+        msg = self.processors["SPEECH"].registerSpeechPhrase(phrase)
+        self.sendMessage(msg)
+    
+    def removeSpeechPhrase(self, phrase):
+        msg = self.processors["SPEECH"].removeSpeechPhrase(phrase)
+        self.sendMessage(msg)
+    
+    def detectAnySpeech(self):
+        msg = self.processors["SPEECH"].detectAnySpeech()
+        self.sendMessage(msg)
+    
+    def detectSpeechPhrasesOnly(self):
+        msg = self.processors["SPEECH"].detectSpeechPhrasesOnly()
+        self.sendMessage(msg)
+
     def startCamera(self):
         msg = self.processors["VISION"].startCamera()
         self.sendMessage(msg)
@@ -427,3 +453,6 @@ class Remote:
 
     def setLaneProCallback(self, callback):
         self.processors["VISION"].callbacks["lanepro"] = callback
+
+    def setSpeechDetectionCallback(self, callback):
+        self.processors["SPEECH"].callbacks["speech"] = callback

@@ -5,6 +5,7 @@ from robobopy.utils.Lanes import LanePro, LaneBasic
 from robobopy.utils.Lines import Lines
 from robobopy.utils.QRCode import QRCode
 from robobopy.utils.Tag import Tag
+from robobopy.utils.Speech import Speech
 
 
 class State:
@@ -83,6 +84,8 @@ class State:
         self.lastLaneTimestamp = 0
         self.lastLineTimestamp = 0
 
+        self.lastSpeech = Speech("", True)
+        self.registeredSpeechPhrases = []
 
 
     def getId(self):

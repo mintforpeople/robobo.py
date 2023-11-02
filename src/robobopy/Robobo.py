@@ -448,6 +448,70 @@ class Robobo:
             self.rem.setLaneColorInversionOn()
         else:
             self.rem.setLaneColorInversionOff()
+    
+    def startSpeechDetection(self):
+        """
+        | Starts the speech detection.
+        | Speech detection is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        """
+
+        self.rem.startSpeechDetection()
+
+    def stopSpeechDetection(self):
+        """
+        | Stops the speech detection.
+        | Speech detection is stopped by default.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.stopSpeechDetection`.
+        """
+
+        self.rem.stopSpeechDetection()
+    
+    def setSpeechDetectionPhraseOnly(self, set_on):
+        """
+        | Toggles the Speech Detection mode to only detect the registered phrases if true or anything if false
+        | Registered phrases won't get cleared if this is toggled off
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startSpeechDetection`.
+
+        :param set_on: Boolean to choose if turn it on or off.
+
+        :type set_on: bool
+        """
+
+        if set_on:
+            self.rem.detectSpeechPhrasesOnly()
+        else:
+            self.rem.detectAnySpeech()
+
+    def registerSpeechDetectionPhrase(self, phrase):
+        """
+        | Registers a new phrase to be detected by the speech detection module
+        | Registered phrases can be retrieved with :class:`~Robobo.readRegisteredSpeechPhrases`.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startSpeechDetection`.
+
+        :param phrase: Phrase string to be registered.
+
+        :type phrase: string
+        """
+
+        self.rem.registerSpeechPhrase(phrase)
+
+    def removeSpeechDetectionPhrase(self, phrase):
+        """
+        | Removes a a phrase from the registered on the speech detection module. Has no effect if the phrase wasn't registered previously
+        | Registered phrases can be retrieved with :class:`~Robobo.readRegisteredSpeechPhrases`.
+        | This change is persistent (see: :ref:`persistent`).
+        | See also: :class:`~Robobo.startSpeechDetection`.
+
+        :param phrase: Phrase string to be removed.
+
+        :type phrase: string
+        """
+
+        self.rem.removeSpeechPhrase(phrase)
 
     def startCamera(self):
         """
@@ -939,6 +1003,30 @@ class Robobo:
 
         return deepcopy(self.rem.state.detectedObject)
 
+    def readDetectedSpeech(self):
+        """
+        | Reads the last speech message detected by Robobo.
+        | See also: :class:`~Robobo.startSpeechDetection`.
+
+        :return: The object.
+
+        :rtype: Speech
+        """
+
+        return deepcopy(self.rem.state.lastSpeech)
+    
+    def readRegisteredSpeechPhrases(self):
+        """
+        | Reads the list of registered speech phrases.
+        | See also: :class:`~Robobo.startSpeechDetection`.
+
+        :return: A list of registered string phrases.
+
+        :rtype: list of str
+        """
+
+        return deepcopy(self.rem.state.registeredSpeechPhrases)
+
     def whenClapIsDetected(self, callback):
         """
         Configures the callback that is called when a new clap is detected.
@@ -1114,6 +1202,18 @@ class Robobo:
         """
         
         self.rem.setLaneBasicCallback(callback)
+    
+    def whenSpeechDetected(self, callback):
+        """
+        | Configures the callback that is called when speech is detected.
+        | See also: :class:`~Robobo.startSpeechDetection`.
+
+        :param callback: The callback function to be called.
+
+        :type callback: fun
+        """
+        
+        self.rem.setSpeechDetectionCallback(callback)
 
     def setStatusFrequency(self, frequency):
         """
@@ -1144,3 +1244,4 @@ class Robobo:
         :type syncId: int
         """
         self.rem.sendSyncAudio(syncId)
+    
