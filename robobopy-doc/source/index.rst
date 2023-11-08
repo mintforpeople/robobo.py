@@ -29,8 +29,16 @@ Specific Computer Vision Pages
    lane-detection.rst
    aruco.rst
    streaming.rst
-   
 
+==============================
+Specific Audio Processing Pages
+==============================
+
+.. toctree::
+   :maxdepth: 2
+
+   audio-streaming.rst
+   speech-recognition.rst
 
 ==================
 Indices and tables

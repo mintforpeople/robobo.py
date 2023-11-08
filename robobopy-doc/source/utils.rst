@@ -42,6 +42,10 @@ Classes
     :members:
     :show-inheritance:
 
+.. automodule:: utils.Speech
+    :members:
+    :show-inheritance:
+
 .. automodule:: utils.Tag
     :members:
     :show-inheritance:

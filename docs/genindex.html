@@ -1,17 +1,15 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx13.css?v=f187b6fe" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
@@ -95,12 +93,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -376,6 +374,8 @@
 </li>
         <li><a href="utils.html#module-utils.Sounds">utils.Sounds</a>
 </li>
+        <li><a href="utils.html#module-utils.Speech">utils.Speech</a>
+</li>
         <li><a href="utils.html#module-utils.StatusFrequency">utils.StatusFrequency</a>
 </li>
         <li><a href="utils.html#module-utils.Tag">utils.Tag</a>
@@ -477,6 +477,8 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readDetectedObject">readDetectedObject() (Robobo method)</a>
 </li>
+      <li><a href="robobo.html#Robobo.Robobo.readDetectedSpeech">readDetectedSpeech() (Robobo method)</a>
+</li>
       <li><a href="robobo.html#Robobo.Robobo.readFaceSensor">readFaceSensor() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readFlingAngle">readFlingAngle() (Robobo method)</a>
@@ -493,10 +495,10 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readLastNote">readLastNote() (Robobo method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="robobo.html#Robobo.Robobo.readLine">readLine() (Robobo method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="robobo.html#Robobo.Robobo.readNoiseLevel">readNoiseLevel() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readOrientationSensor">readOrientationSensor() (Robobo method)</a>
@@ -504,6 +506,8 @@
       <li><a href="robobo.html#Robobo.Robobo.readPanPosition">readPanPosition() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readQR">readQR() (Robobo method)</a>
+</li>
+      <li><a href="robobo.html#Robobo.Robobo.readRegisteredSpeechPhrases">readRegisteredSpeechPhrases() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readTapSensor">readTapSensor() (Robobo method)</a>
 </li>
@@ -519,6 +523,10 @@
         <li><a href="utils.html#utils.Color.Color.RED">(Color attribute)</a>
 </li>
       </ul></li>
+      <li><a href="robobo.html#Robobo.Robobo.registerSpeechDetectionPhrase">registerSpeechDetectionPhrase() (Robobo method)</a>
+</li>
+      <li><a href="robobo.html#Robobo.Robobo.removeSpeechDetectionPhrase">removeSpeechDetectionPhrase() (Robobo method)</a>
+</li>
       <li><a href="robobo.html#Robobo.Robobo.resetClapCounter">resetClapCounter() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.resetColorBlobs">resetColorBlobs() (Robobo method)</a>
@@ -554,6 +562,8 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.setArucoTagSize">setArucoTagSize() (Robobo method)</a>
 </li>
+      <li><a href="robobo.html#Robobo.Robobo.setAudioStreamBitrate">setAudioStreamBitrate() (Robobo method)</a>
+</li>
       <li><a href="robobo.html#Robobo.Robobo.setBackCamera">setBackCamera() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.setCameraFps">setCameraFps() (Robobo method)</a>
@@ -566,6 +576,8 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.setLedColorTo">setLedColorTo() (Robobo method)</a>
 </li>
+      <li><a href="robobo.html#Robobo.Robobo.setSpeechDetectionPhraseOnly">setSpeechDetectionPhraseOnly() (Robobo method)</a>
+</li>
       <li><a href="robobo.html#Robobo.Robobo.setStatusFrequency">setStatusFrequency() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.setStreamFps">setStreamFps() (Robobo method)</a>
@@ -575,6 +587,8 @@
       <li><a href="utils.html#utils.Sounds.Sounds">Sounds (class in utils.Sounds)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.startArUcoTagDetection">startArUcoTagDetection() (Robobo method)</a>
+</li>
+      <li><a href="robobo.html#Robobo.Robobo.startAudioStream">startAudioStream() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.startCamera">startCamera() (Robobo method)</a>
 </li>
@@ -590,11 +604,15 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.startQrTracking">startQrTracking() (Robobo method)</a>
 </li>
+      <li><a href="robobo.html#Robobo.Robobo.startSpeechDetection">startSpeechDetection() (Robobo method)</a>
+</li>
       <li><a href="robobo.html#Robobo.Robobo.startStream">startStream() (Robobo method)</a>
 </li>
       <li><a href="utils.html#utils.StatusFrequency.StatusFrequency">StatusFrequency (class in utils.StatusFrequency)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.stopArUcoTagDetection">stopArUcoTagDetection() (Robobo method)</a>
+</li>
+      <li><a href="robobo.html#Robobo.Robobo.stopAudioStream">stopAudioStream() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.stopCamera">stopCamera() (Robobo method)</a>
 </li>
@@ -609,6 +627,8 @@
       <li><a href="robobo.html#Robobo.Robobo.stopObjectRecognition">stopObjectRecognition() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.stopQrTracking">stopQrTracking() (Robobo method)</a>
+</li>
+      <li><a href="robobo.html#Robobo.Robobo.stopSpeechDetection">stopSpeechDetection() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.stopStream">stopStream() (Robobo method)</a>
 </li>
@@ -744,6 +764,13 @@
 </li>
       </ul></li>
       <li>
+    utils.Speech
+
+      <ul>
+        <li><a href="utils.html#module-utils.Speech">module</a>
+</li>
+      </ul></li>
+      <li>
     utils.StatusFrequency
 
       <ul>
@@ -821,6 +848,8 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.whenClapIsDetected">whenClapIsDetected() (Robobo method)</a>
 </li>
+      <li><a href="robobo.html#Robobo.Robobo.whenSpeechDetected">whenSpeechDetected() (Robobo method)</a>
+</li>
       <li><a href="utils.html#utils.Color.Color.WHITE">WHITE (Color attribute)</a>
 </li>
   </ul></td>
@@ -861,8 +890,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010, MINT.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    &#169; Copyright 2010, MINT.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

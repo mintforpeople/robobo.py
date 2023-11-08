@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>General features &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx13.css?v=f187b6fe" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -99,8 +98,9 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">General features</a><ul>
 <li><a class="reference internal" href="#blocking-instructions">Blocking instructions</a></li>
 <li><a class="reference internal" href="#enabled-and-disabled-modules">Enabled and disabled modules</a></li>
@@ -112,12 +112,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Robobo.py</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="robobo.html"
-                        title="next chapter">Robobo.py</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Robobo.py</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="robobo.html"
+                          title="next chapter">Robobo.py</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -129,12 +134,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -143,44 +148,44 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="general-features">
-<span id="features"></span><h1>General features<a class="headerlink" href="#general-features" title="Permalink to this headline">¶</a></h1>
+  <section id="general-features">
+<span id="features"></span><h1>General features<a class="headerlink" href="#general-features" title="Link to this heading">¶</a></h1>
 <p>In this section, some particularities of Robobo which are common to several functions and classes are explained.</p>
-<div class="section" id="blocking-instructions">
-<span id="blocking"></span><h2>Blocking instructions<a class="headerlink" href="#blocking-instructions" title="Permalink to this headline">¶</a></h2>
+<section id="blocking-instructions">
+<span id="blocking"></span><h2>Blocking instructions<a class="headerlink" href="#blocking-instructions" title="Link to this heading">¶</a></h2>
 <p>A blocking instruction prevents Robobo from executing other instructions until it has finished.
 A non blocking instruction, once executed, allows other instructions to be executed simultaneously.
 Some instructions can be executed both in blocking and non blocking mode.</p>
-</div>
-<div class="section" id="enabled-and-disabled-modules">
-<span id="modules"></span><h2>Enabled and disabled modules<a class="headerlink" href="#enabled-and-disabled-modules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="enabled-and-disabled-modules">
+<span id="modules"></span><h2>Enabled and disabled modules<a class="headerlink" href="#enabled-and-disabled-modules" title="Link to this heading">¶</a></h2>
 <p>For better performance, some modules are disabled by default. In order to use this modules, it’s necessary to start them. After using this modules, it’s recommended to stop them.
 This are the modules enabled by default: face detection, color blob detection and QR tracking.
 This are the modules disabled by default: camera stream, line detection, lane detection, object recognition, ArUco tag detection.</p>
-</div>
-<div class="section" id="screen-coordinates">
-<span id="screen"></span><h2>Screen coordinates<a class="headerlink" href="#screen-coordinates" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="screen-coordinates">
+<span id="screen"></span><h2>Screen coordinates<a class="headerlink" href="#screen-coordinates" title="Link to this heading">¶</a></h2>
 <p>Screen coordinates have their origin at the upper left corner of the screen.
 The x axis follows the upper side of the screen, from left to right. It takes values between 0 and 100, being 0 the left side and 100 the right side of the screen.
 The y axis follows the left side of the screen, from top to bottom. It takes values between 0 and 100, being 0 the upper side and 100 the lower side of the screen.</p>
 <img alt="Image showing the two coordinate axes on the screen of the smartphone, which is showing Robobo face." src="_images/tap_position.jpg" />
-</div>
-<div class="section" id="persistent-changes">
-<span id="persistent"></span><h2>Persistent changes<a class="headerlink" href="#persistent-changes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="persistent-changes">
+<span id="persistent"></span><h2>Persistent changes<a class="headerlink" href="#persistent-changes" title="Link to this heading">¶</a></h2>
 <p>Some of the functions called affect Robobo hardware.
 Persistent changes remain even if the program finishes and until Robobo is restarted, when it takes all the default values again.</p>
-</div>
-<div class="section" id="tilt-positions">
-<span id="tilt"></span><h2>Tilt positions<a class="headerlink" href="#tilt-positions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tilt-positions">
+<span id="tilt"></span><h2>Tilt positions<a class="headerlink" href="#tilt-positions" title="Link to this heading">¶</a></h2>
 <p>The following image shows the different positions of the tilt, which can take angles between 5 and 105 degrees.</p>
 <a class="reference internal image-reference" href="_images/tilt.PNG"><img alt="Image showing standard smartphone position at 75 degrees, and indicating that lower values mean it rotated backwards while higher values mean it rotated forwards." src="_images/tilt.PNG" style="width: 384.0px; height: 400.0px;" /></a>
-</div>
-<div class="section" id="pan-positions">
-<span id="pan"></span><h2>Pan positions<a class="headerlink" href="#pan-positions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pan-positions">
+<span id="pan"></span><h2>Pan positions<a class="headerlink" href="#pan-positions" title="Link to this heading">¶</a></h2>
 <p>The following image shows the different positions of the pan, which can take angles between -160 and 160 degrees.</p>
 <a class="reference internal image-reference" href="_images/pan.PNG"><img alt="Image showing standard smartphone position at 0 degrees, and indicating that lower values mean it rotated left while higher values mean it rotated right." src="_images/pan.PNG" style="width: 384.0px; height: 444.5px;" /></a>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -214,8 +219,8 @@ Persistent changes remain even if the program finishes and until Robobo is resta
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010, MINT.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    &#169; Copyright 2010, MINT.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>
