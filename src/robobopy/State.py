@@ -84,7 +84,7 @@ class State:
         self.lastLaneTimestamp = 0
         self.lastLineTimestamp = 0
 
-        self.lastSpeech = Speech("", True)
+        self.lastSpeech = Speech("", [], True)
         self.registeredSpeechPhrases = []
 
 

@@ -5,4 +5,4 @@ class Speech:
         self.final = final
 
     def __str__(self):
-        return "Speech, message:"+ self.message+", final:"+str(self.final)
+        return "Speech, message:"+ self.message+", recognized: [" + ", ".join(self.recognized) + "], final:"+str(self.final)
