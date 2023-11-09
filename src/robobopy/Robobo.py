@@ -1006,6 +1006,7 @@ class Robobo:
     def readDetectedSpeech(self):
         """
         | Reads the last speech message detected by Robobo.
+        | This includes the detected message and the matched registered phrases if any, also indicates if the detected message is final or is still going.
         | See also: :class:`~Robobo.startSpeechDetection`.
 
         :return: The object.

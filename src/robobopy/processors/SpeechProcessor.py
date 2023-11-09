@@ -19,7 +19,7 @@ class SpeechProcessor(AbstractProcessor):
         name = status["name"]
         value = status["value"]
         if (name == "SPEECH"):  #
-            self.state.lastSpeech = Speech(value["message"], bool(value["final"]))
+            self.state.lastSpeech = Speech(value["message"], value["recognized"].split(","), bool(value["final"]))
             self.runCallback("speech")
         elif (name == "REGISTERED-PHRASES"):  #
             self.state.registeredSpeechPhrases = value["phrases"].split(",")
