@@ -144,7 +144,6 @@ To create a Robobo instance:
     .. automethod:: Robobo.readLine
     .. automethod:: Robobo.whenALineIsDetected
 
-    .. automethod:: Robobo.Robobo.setAudioStreamBitrate
     .. automethod:: Robobo.Robobo.startAudioStream
     .. automethod:: Robobo.Robobo.stopAudioStream
 

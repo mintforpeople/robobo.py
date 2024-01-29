@@ -201,7 +201,6 @@
 <li><a class="reference internal" href="#Robobo.Robobo.stopLineDetection"><code class="docutils literal notranslate"><span class="pre">Robobo.stopLineDetection()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.readLine"><code class="docutils literal notranslate"><span class="pre">Robobo.readLine()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.whenALineIsDetected"><code class="docutils literal notranslate"><span class="pre">Robobo.whenALineIsDetected()</span></code></a></li>
-<li><a class="reference internal" href="#Robobo.Robobo.setAudioStreamBitrate"><code class="docutils literal notranslate"><span class="pre">Robobo.setAudioStreamBitrate()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.startAudioStream"><code class="docutils literal notranslate"><span class="pre">Robobo.startAudioStream()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.stopAudioStream"><code class="docutils literal notranslate"><span class="pre">Robobo.stopAudioStream()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.startSpeechDetection"><code class="docutils literal notranslate"><span class="pre">Robobo.startSpeechDetection()</span></code></a></li>
@@ -1486,21 +1485,6 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="Robobo.Robobo.setAudioStreamBitrate">
-<span class="sig-prename descclassname"><span class="pre">Robobo.</span></span><span class="sig-name descname"><span class="pre">setAudioStreamBitrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitrate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.setAudioStreamBitrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.setAudioStreamBitrate" title="Link to this definition">¶</a></dt>
-<dd><div class="line-block">
-<div class="line">Sets the audio stream bitrate. Audio bitrate is the measure of bits (audio data) processed over a given period of time and sent from the smartphone to the computer.</div>
-<div class="line">Default value is 44100 but it can be set to 22050, 44100, 48000, 96000, 192000. Higher means more audio quality but can cause latency problems. Some smartphones only support 44100 and 48000.</div>
-<div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>bitrate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – New bitrate value. Takes discrete values from the list [22050, 44100, 48000, 96000, 192000]</p>
 </dd>
 </dl>
 </dd></dl>

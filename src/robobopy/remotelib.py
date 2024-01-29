@@ -291,10 +291,6 @@ class Remote:
         msg = self.processors["VISION"].stopCamera()
         self.sendMessage(msg)
 
-    def setAudioStreamBitrate(self, bitrate):
-        msg = self.processors["SOUND"].setAudioStreamBitrate(bitrate)
-        self.sendMessage(msg)
-
     def startColorDetection(self):
         msg = self.processors["VISION"].startColorDetection()
         self.sendMessage(msg)

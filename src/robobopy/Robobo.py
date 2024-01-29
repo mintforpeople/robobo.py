@@ -266,19 +266,6 @@ class Robobo:
         """
 
         self.rem.stopStream()
-
-    def setAudioStreamBitrate(self, bitrate):
-        """
-        | Sets the audio stream bitrate. Audio bitrate is the measure of bits (audio data) processed over a given period of time and sent from the smartphone to the computer.
-        | Default value is 44100 but it can be set to 22050, 44100, 48000, 96000, 192000. Higher means more audio quality but can cause latency problems. Some smartphones only support 44100 and 48000.
-        | This change is persistent (see: :ref:`persistent`).
-
-        :param bitrate: New bitrate value. Takes discrete values from the list [22050, 44100, 48000, 96000, 192000]
-
-        :type bitrate: int
-
-        """
-        self.rem.setAudioStreamBitrate(bitrate)
     
     def startAudioStream(self):
         """

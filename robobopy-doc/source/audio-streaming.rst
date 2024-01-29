@@ -9,6 +9,5 @@ You can find a tutorial on the robobo-python-audio-stream repository:
 
 These are the related methods: 
 
-* :py:meth:`~Robobo.Robobo.setAudioStreamBitrate`
 * :py:meth:`~Robobo.Robobo.startAudioStream`
 * :py:meth:`~Robobo.Robobo.stopAudioStream`

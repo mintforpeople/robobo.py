@@ -79,12 +79,6 @@ class SoundProcessor(AbstractProcessor):
         values = {}
         return Message(name, values, id)
     
-    def setAudioStreamBitrate(self, bitrate):
-        name = "SET-AUDIOSTREAM-SAMPLERATE"
-        id = self.state.getId()
-        values = {"sampleRate": bitrate}
-        return Message(name, values, id)
-    
     def sendSyncAudio(self, syncId):
         name = "AUDIOSTREAM-SYNC"
         id = self.state.getId()
