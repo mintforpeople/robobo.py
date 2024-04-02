@@ -77,9 +77,9 @@ class Remote:
             else:
                 print("### closed connection ###")
         
-        port = 40404 + (self.robot_id * 10)
+        port = 44304 + (self.robot_id * 10)
 
-        self.ws = websocket.WebSocketApp('ws://' + self.ip + ":" + str(port),
+        self.ws = websocket.WebSocketApp('wss://' + self.ip + ":" + str(port),
                                          on_message=on_message,
                                          on_error=on_error,
                                          on_close=on_close)
