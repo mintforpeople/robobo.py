@@ -21,6 +21,10 @@ class Robobo:
         :param robot_id: Sequential ID of robots. Only used in multi-robot scenarios in simulation.
 
         :type robot_id: int
+
+        :param secure: Use a secure websocket connection instead of the default one. Only works in local networks (192.68.xxx.xxx)
+
+        :type secure: bool
         """
 
         self.rem = Remote(ip, robot_id, secure)
