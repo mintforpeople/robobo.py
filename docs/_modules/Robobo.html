@@ -121,7 +121,7 @@
 <span class="k">class</span> <span class="nc">Robobo</span><span class="p">:</span>
 
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">robot_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">robot_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">secure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new Robobo library instance.</span>
 
@@ -132,9 +132,13 @@
 <span class="sd">        :param robot_id: Sequential ID of robots. Only used in multi-robot scenarios in simulation.</span>
 
 <span class="sd">        :type robot_id: int</span>
+
+<span class="sd">        :param secure: Use a secure websocket connection instead of the default one. Only works in local networks (192.68.xxx.xxx)</span>
+
+<span class="sd">        :type secure: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span> <span class="o">=</span> <span class="n">Remote</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">robot_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span> <span class="o">=</span> <span class="n">Remote</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">robot_id</span><span class="p">,</span> <span class="n">secure</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Robobo.connect">
 <a class="viewcode-back" href="../robobo.html#Robobo.Robobo.connect">[docs]</a>
