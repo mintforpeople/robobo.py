@@ -10,7 +10,7 @@ from copy import copy, deepcopy
 class Robobo:
 
 
-    def __init__(self, ip, robot_id=0):
+    def __init__(self, ip, robot_id=0, secure=False):
         """
         Creates a new Robobo library instance.
 
@@ -23,7 +23,7 @@ class Robobo:
         :type robot_id: int
         """
 
-        self.rem = Remote(ip, robot_id)
+        self.rem = Remote(ip, robot_id, secure)
 
     def connect(self):
         """

@@ -1,5 +1,7 @@
 import json
 import websocket
+import pathlib
+import ssl
 import threading
 import time
 import sys
@@ -15,9 +17,11 @@ from robobopy.utils.ConnectionState import ConnectionState
 
 
 class Remote:
-    def __init__(self, ip, robot_id=0):
+    def __init__(self, ip, robot_id=0, secure=False):
         self.ip = ip
         self.robot_id = robot_id
+        self.secure = secure
+        self.ssl_context = None
         self.ws = None
         self.password = ""
         self.state = State()
@@ -30,6 +34,9 @@ class Remote:
 
         self.wsDaemon = None
         self.connectionState = ConnectionState.DISCONNECTED
+
+        self.ssl_context = None
+        self.localhost_pem = None
 
         self.wheelsLastTime = 0
         self.panLastTime = 0
@@ -77,17 +84,30 @@ class Remote:
             else:
                 print("### closed connection ###")
         
-        port = 44304 + (self.robot_id * 10)
+        if not self.secure:
+            port = 40404 + (self.robot_id * 10)
+            self.ws = websocket.WebSocketApp('ws://' + self.ip + ":" + str(port),
+                                            on_message=on_message,
+                                            on_error=on_error,
+                                            on_close=on_close)
+        else:
+            self.ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+            localhost_pem = pathlib.Path(__file__).with_name("local_network_cert.pem")
+            self.ssl_context.load_verify_locations(localhost_pem)
 
-        self.ws = websocket.WebSocketApp('wss://' + self.ip + ":" + str(port),
-                                         on_message=on_message,
-                                         on_error=on_error,
-                                         on_close=on_close)
+            port = 44304 + (self.robot_id * 10)
+            self.ws = websocket.WebSocketApp('wss://' + self.ip + ":" + str(port),
+                                            on_message=on_message,
+                                            on_error=on_error,
+                                            on_close=on_close)
 
         self.ws.on_open = on_open
 
         def runWS():
-            self.ws.run_forever()
+            if self.secure:
+                self.ws.run_forever(sslopt={'context': self.ssl_context})
+            else:
+                self.ws.run_forever()
 
         self.wsDaemon = threading.Thread(target=runWS, name='wsDaemon')
         self.wsDaemon.setDaemon(True)
