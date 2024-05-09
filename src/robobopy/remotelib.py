@@ -92,7 +92,7 @@ class Remote:
                                             on_close=on_close)
         else:
             self.ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-            localhost_pem = pathlib.Path(__file__).with_name("local_network_cert.pem")
+            localhost_pem = pathlib.Path(__file__).with_name("local_network_cert_mkcert.pem")
             self.ssl_context.load_verify_locations(localhost_pem)
 
             port = 44304 + (self.robot_id * 10)
