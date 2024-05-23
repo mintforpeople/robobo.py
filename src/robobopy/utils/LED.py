@@ -11,7 +11,7 @@ class LED(Enum):
     """
     BackR = "Back-R"
     FrontR = "Front-R"
-    FrontRE = "Front-RR"
+    FrontRR = "Front-RR"
     FrontC = "Front-C"
     FrontL = "Front-L"
     FrontLL = "Front-LL"
