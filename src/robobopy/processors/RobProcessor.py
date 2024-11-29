@@ -40,8 +40,8 @@ class RobProcessor(AbstractProcessor):
 
     def moveWheelsSeparated(self,speedL, speedR, time):
         name = "MOVE"
-        values= {"lspeed":speedL,
-                 "rspeed":speedR,
+        values= {"lspeed":int(speedL),
+                 "rspeed":int(speedR),
                  "time":time}
         id = self.state.getId()
 
@@ -50,8 +50,8 @@ class RobProcessor(AbstractProcessor):
     def moveWheelsSeparatedWait(self,speedL, speedR, time):
         name = "MOVE-BLOCKING"
         id = self.state.getId()
-        values= {"lspeed":speedL,
-                 "rspeed":speedR,
+        values= {"lspeed":int(speedL),
+                 "rspeed":int(speedR),
                  "time":time,
                  "blockid":id}
 
@@ -62,7 +62,7 @@ class RobProcessor(AbstractProcessor):
         id = self.state.getId()
         values = {"wheel": wheel.value,
                   "degrees": degrees,
-                  "speed": speed,
+                  "speed": int(speed),
                   "blockid": id}
 
         return Message(name, values, id)
