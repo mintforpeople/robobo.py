@@ -7,7 +7,7 @@ setuptools.setup(
     name="robobopy",                     # This is the name of the package
     version="1.4.3",                        # The initial release version
     author="The Robobo Project",                     # Full name of the author
-    authore_email='info@theroboboproject.com',
+    author_email='info@theroboboproject.com',
     description="Robobo remote control library",
     long_description=long_description,      # Long description read from the the readme file
     long_description_content_type="text/markdown",
