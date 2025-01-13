@@ -189,7 +189,6 @@ class Remote:
     def movePan(self, pos, speed):
         if self.filterMovement(speed, "pan"):
             msg = self.processors["PT"].movePan(pos, speed)
-            print(msg.encode())
             self.sendMessage(msg)
         else:
             print('Robobo Warning: Ignored movePan command. Maybe the client is sending messages too fast?')
@@ -225,14 +224,12 @@ class Remote:
 
     def playNote(self, index, duration, wait):
         msg = self.processors["SOUND"].playNote(index, int(duration * 1000))
-        print(msg.encode())
         self.sendMessage(msg)
         if wait:
             time.sleep(duration)
 
     def playEmotionSound(self, sound):
         msg = self.processors["SOUND"].playEmotionSound(sound)
-        print(msg.encode())
         self.sendMessage(msg)
 
     def talk(self, speech, wait):
