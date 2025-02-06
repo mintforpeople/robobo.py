@@ -41,7 +41,7 @@ class PTProcessor(AbstractProcessor):
     def movePan(self, pos, speed):
         name = "MOVEPAN"
         id = self.state.getId()
-        values = {"pos":self.panBounds(self.externalAngleToInternal(pos)),
+        values = {"pos": int(self.panBounds(self.externalAngleToInternal(pos))),
                   "speed": int(speed)}
 
         return Message(name, values, id)
@@ -49,7 +49,7 @@ class PTProcessor(AbstractProcessor):
     def moveTilt(self, pos, speed):
         name = "MOVETILT"
         id = self.state.getId()
-        values = {"pos":self.tiltBounds(pos),
+        values = {"pos": int(self.tiltBounds(pos)),
                   "speed": int(speed)}
 
         return Message(name, values, id)
@@ -57,7 +57,7 @@ class PTProcessor(AbstractProcessor):
     def movePanWait(self, pos, speed):
         name = "MOVEPAN-BLOCKING"
         id = self.state.getId()
-        values = {"pos":self.panBounds(self.externalAngleToInternal(pos)),
+        values = {"pos": int(self.panBounds(self.externalAngleToInternal(pos))),
                   "speed": int(speed),
                   "blockid": id}
 
@@ -66,7 +66,7 @@ class PTProcessor(AbstractProcessor):
     def moveTiltWait(self, pos, speed):
         name = "MOVETILT-BLOCKING"
         id = self.state.getId()
-        values = {"pos":self.tiltBounds(pos),
+        values = {"pos": int(self.tiltBounds(pos)),
                   "speed": int(speed),
                   "blockid": id}
 
