@@ -25,6 +25,8 @@ class VisionProcessor(AbstractProcessor):
                               "blob": False,
                               "detectedobject": False,
                               "tag": False,
+                              "newtag": False,
+                              "losttag": False,
                               "lanepro": False,
                               "lanebasic": False,
                               "line": False}
@@ -36,6 +38,8 @@ class VisionProcessor(AbstractProcessor):
                           "lostface": None,
                           "blob": None,
                           "tag": None,
+                          "newtag": None,
+                          "losttag": None,
                           "detectedobject": None,
                           "lanepro": None,
                           "lanebasic": None,
@@ -97,22 +101,49 @@ class VisionProcessor(AbstractProcessor):
             self.runCallback("lostqr")
 
         elif name == "TAG":
-            self.state.tag = Tag(int(value["cor1x"]),
-                                 int(value["cor1y"]),
-                                 int(value["cor2x"]),
-                                 int(value["cor2y"]),
-                                 int(value["cor3x"]),
-                                 int(value["cor3y"]),
-                                 int(value["cor4x"]),
-                                 int(value["cor4y"]),
-                                 float(value["rvec_0"]),
-                                 float(value["rvec_1"]),
-                                 float(value["rvec_2"]),
-                                 float(value["tvec_0"]),
-                                 float(value["tvec_1"]),
-                                 float(value["tvec_2"]),
-                                 value["id"], int(value["timestamp"]))
+            taglist = json.loads(value["tags"])
+            tags = []
+            for tag in taglist:
+                tagobject = Tag(int(tag["cor1x"]),
+                                    int(tag["cor1y"]),
+                                    int(tag["cor2x"]),
+                                    int(tag["cor2y"]),
+                                    int(tag["cor3x"]),
+                                    int(tag["cor3y"]),
+                                    int(tag["cor4x"]),
+                                    int(tag["cor4y"]),
+                                    float(tag["rvec_0"]),
+                                    float(tag["rvec_1"]),
+                                    float(tag["rvec_2"]),
+                                    float(tag["tvec_0"]),
+                                    float(tag["tvec_1"]),
+                                    float(tag["tvec_2"]),
+                                    tag["id"], int(value["timestamp"]))
+                tags += [tagobject]
+            self.state.tags = tags
             self.runCallback("tag")
+        
+        elif name == "TAGAPPEAR":
+            self.state.newestTag = Tag(int(value["cor1x"]),
+                                    int(value["cor1y"]),
+                                    int(value["cor2x"]),
+                                    int(value["cor2y"]),
+                                    int(value["cor3x"]),
+                                    int(value["cor3y"]),
+                                    int(value["cor4x"]),
+                                    int(value["cor4y"]),
+                                    float(value["rvec_0"]),
+                                    float(value["rvec_1"]),
+                                    float(value["rvec_2"]),
+                                    float(value["tvec_0"]),
+                                    float(value["tvec_1"]),
+                                    float(value["tvec_2"]),
+                                    value["id"], int(value["timestamp"]))
+            self.runCallback("newtag")
+
+        elif name == "TAGLOST":
+            self.state.lastLostTagId = value["id"]
+            self.runCallback("losttag")
 
         elif name == "DETECTED_OBJECT":
             self.state.detectedObject = DetectedObject(

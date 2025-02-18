@@ -970,17 +970,41 @@ class Robobo:
         """
         return deepcopy(self.rem.state.face)
 
-    def readArucoTag(self):
+    def readArucoTags(self):
         """
-        | Reads the last ArUco Tag detected by Robobo.
+        | Reads the last set of ARuco tags detected by Robobo
         | See also: :class:`~Robobo.startArUcoTagDetection`.
 
-        :return: The Tag.
+        :return: The Tags list.
+
+        :rtype: list of Tag
+        """
+
+        return deepcopy(self.rem.state.tags)
+    
+    def readNewestArucoTag(self):
+        """
+        | Reads the ARuco detected most recently by Robobo
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
+
+        :return: The most recently detected Tag.
 
         :rtype: Tag
         """
 
-        return deepcopy(self.rem.state.tag)
+        return deepcopy(self.rem.state.newestTag)
+    
+    def readNewestArucoTagId(self):
+        """
+        | Reads the ID of the Tag that has most recently disappeared
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
+
+        :return: The most recently disappeared Tag ID.
+
+        :rtype: str
+        """
+
+        return deepcopy(self.rem.state.lastLostTagId)
 
     def readDetectedObject(self):
         """
@@ -1146,6 +1170,31 @@ class Robobo:
         """
 
         self.rem.setTagCallback(callback)
+
+    def whenArucoTagAppears(self, callback):
+        """
+        | Configures the callback that is called when a new Tag is detected.
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
+
+        :param callback: The callback function to be called.
+
+        :type callback: fun
+        """
+
+        self.rem.setNewTagCallback(callback)
+    
+    def whenArucoTagDisappears(self, callback):
+        """
+        | Configures the callback that is called when a Tag is lost.
+        | See also: :class:`~Robobo.startArUcoTagDetection`.
+
+        :param callback: The callback function to be called.
+
+        :type callback: fun
+        """
+
+        self.rem.setLostTagCallback(callback)
+
 
     def whenAnObjectIsDetected(self, callback):
         """

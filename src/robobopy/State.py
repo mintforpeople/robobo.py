@@ -74,8 +74,9 @@ class State:
 
         self.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "", 0)
 
-
-        self.tag = Tag(0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, "", 0)
+        self.tags = []
+        self.lastLostTagId = None
+        self.newestTag = None
 
         self.lines = Lines([], 0)
         self.lanePro = LanePro(0, 0, 0, 0, 0, 0, [], 0)

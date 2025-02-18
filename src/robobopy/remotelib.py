@@ -454,6 +454,12 @@ class Remote:
 
     def setTagCallback(self, callback):
         self.processors["VISION"].callbacks["tag"] = callback
+    
+    def setNewTagCallback(self, callback):
+        self.processors["VISION"].callbacks["newtag"] = callback
+    
+    def setLostTagCallback(self, callback):
+        self.processors["VISION"].callbacks["losttag"] = callback
 
     def setDetectedObjectCallback(self, callback):
         self.processors["VISION"].callbacks["detectedobject"] = callback
