@@ -994,7 +994,7 @@ class Robobo:
 
         return deepcopy(self.rem.state.newestTag)
     
-    def readNewestArucoTagId(self):
+    def readLostArucoTagId(self):
         """
         | Reads the ID of the Tag that has most recently disappeared
         | See also: :class:`~Robobo.startArUcoTagDetection`.

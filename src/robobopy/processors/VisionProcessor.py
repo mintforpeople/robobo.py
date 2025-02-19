@@ -15,7 +15,7 @@ class VisionProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
         self.supportedMessages = ["QRCODE", "FACE", "BLOB", "QRCODEAPPEAR", "QRCODELOST", "TAG", "DETECTED_OBJECT",
-                                  "LANE_BASIC", "LANE_PRO", "LINE"]
+                                  "LANE_BASIC", "LANE_PRO", "LINE", "TAGAPPEAR", "TAGLOST"]
 
         self.callbacklocks = {"qr": False,
                               "newqr": False,
