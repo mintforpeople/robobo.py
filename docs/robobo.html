@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Robobo.py &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=34bb78ad" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx13.css?v=f187b6fe" />
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 
     <link rel="index" title="Index" href="genindex.html" />
@@ -72,7 +72,7 @@
   </div>
 </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -96,7 +96,7 @@
         <li class="nav-item nav-item-this"><a href="">Robobo.py</a></li> 
       </ul>
     </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -195,8 +195,10 @@
 <li><a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection"><code class="docutils literal notranslate"><span class="pre">Robobo.startArUcoTagDetection()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.setArucoTagSize"><code class="docutils literal notranslate"><span class="pre">Robobo.setArucoTagSize()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.stopArUcoTagDetection"><code class="docutils literal notranslate"><span class="pre">Robobo.stopArUcoTagDetection()</span></code></a></li>
-<li><a class="reference internal" href="#Robobo.Robobo.readArucoTag"><code class="docutils literal notranslate"><span class="pre">Robobo.readArucoTag()</span></code></a></li>
+<li><a class="reference internal" href="#Robobo.Robobo.readArucoTags"><code class="docutils literal notranslate"><span class="pre">Robobo.readArucoTags()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.whenArucoTagIsDetected"><code class="docutils literal notranslate"><span class="pre">Robobo.whenArucoTagIsDetected()</span></code></a></li>
+<li><a class="reference internal" href="#Robobo.Robobo.whenArucoTagAppears"><code class="docutils literal notranslate"><span class="pre">Robobo.whenArucoTagAppears()</span></code></a></li>
+<li><a class="reference internal" href="#Robobo.Robobo.whenArucoTagDisappears"><code class="docutils literal notranslate"><span class="pre">Robobo.whenArucoTagDisappears()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.startLineDetection"><code class="docutils literal notranslate"><span class="pre">Robobo.startLineDetection()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.stopLineDetection"><code class="docutils literal notranslate"><span class="pre">Robobo.stopLineDetection()</span></code></a></li>
 <li><a class="reference internal" href="#Robobo.Robobo.readLine"><code class="docutils literal notranslate"><span class="pre">Robobo.readLine()</span></code></a></li>
@@ -239,7 +241,7 @@
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -247,7 +249,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -262,7 +264,7 @@
 <p>Robobo.py is the library used to create programs for the Robobo educational
 robot in the Python language.</p>
 <p>To create a Robobo instance:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Robobo</span> <span class="kn">import</span> <span class="n">Robobo</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Robobo</span><span class="w"> </span><span class="kn">import</span> <span class="n">Robobo</span>
 
 <span class="n">rob</span> <span class="o">=</span> <span class="n">Robobo</span> <span class="p">(</span><span class="s1">&#39;10.113.36.150&#39;</span><span class="p">)</span>
 </pre></div>
@@ -295,8 +297,8 @@ robot in the Python language.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
-<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
 </ul>
 </dd>
 </dl>
@@ -309,10 +311,10 @@ robot in the Python language.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
-<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
-<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Duration of the movement in seconds (&gt;0). Decimals like 0.2 are allowed.</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+<li><p><strong>rSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Speed factor for the right wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>lSpeed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Speed factor for the left wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Duration of the movement in seconds (&gt;0). Decimals like 0.2 are allowed.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -326,8 +328,8 @@ robot in the Python language.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wheel</strong> (<a class="reference internal" href="utils.html#utils.Wheels.Wheels" title="utils.Wheels.Wheels"><em>Wheels</em></a>) – Wheel or wheels to move.</p></li>
-<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Degrees to move the wheel or wheels (&gt;0).</p></li>
-<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Speed factor for the movement [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
+<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Degrees to move the wheel or wheels (&gt;0).</p></li>
+<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Speed factor for the movement [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p></li>
 </ul>
 </dd>
 </dl>
@@ -346,9 +348,9 @@ robot in the Python language.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Position in degress of the PAN [-160..160]. See: <a class="reference internal" href="features.html#pan"><span class="std std-ref">Pan positions</span></a>.</p></li>
-<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Position in degress of the PAN [-160..160]. See: <a class="reference internal" href="features.html#pan"><span class="std std-ref">Pan positions</span></a>.</p></li>
+<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -361,9 +363,9 @@ robot in the Python language.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Position in degrees of the TILT [5..105]. See: <a class="reference internal" href="features.html#tilt"><span class="std std-ref">Tilt positions</span></a>.</p></li>
-<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+<li><p><strong>degrees</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Position in degrees of the TILT [5..105]. See: <a class="reference internal" href="features.html#tilt"><span class="std std-ref">Tilt positions</span></a>.</p></li>
+<li><p><strong>speed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Speed factor for the movement [0..100]. 100 is the maximum speed reachable, while 0 means no movement.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -398,7 +400,7 @@ robot in the Python language.</p>
 <dd class="field-even"><p>The battery level of the specified device.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -417,7 +419,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-even"><p>The value of the IR read.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -438,7 +440,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>A dictionary returning the values of all the IR sensors of the base.                  Dictionary keys (string): IR ids (see <a class="reference internal" href="utils.html#utils.IR.IR" title="utils.IR.IR"><code class="xref py py-class docutils literal notranslate"><span class="pre">IR</span></code></a>).                  Dictionary values (float): The value of the IR.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -455,7 +457,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-even"><p>The position of the wheel in degrees.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -472,7 +474,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-even"><p>The current speed of the wheel [-100..100]. Absolute value 100 is the maximum speed reachable, while 0 means no movement. Positive values mean the wheel moves forwards and negative values mean it moves backwards.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -486,7 +488,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The position in degrees, taking values in range [-160..160]. See: <a class="reference internal" href="features.html#pan"><span class="std std-ref">Pan positions</span></a>.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -500,7 +502,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The position in degrees, taking values in range [5..105]. See: <a class="reference internal" href="features.html#tilt"><span class="std std-ref">Tilt positions</span></a>.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -569,8 +571,8 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Duration of the note in seconds (&gt;0). Decimals like 0.2 are allowed.</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+<li><p><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Duration of the note in seconds (&gt;0). Decimals like 0.2 are allowed.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -595,7 +597,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>speech</strong> (<em>string</em>) – The text to say.</p></li>
-<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
+<li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, the instruction is executed in blocking mode. If false, it’s executed in non-blocking mode. For more information, see: <a class="reference internal" href="features.html#blocking"><span class="std std-ref">Blocking instructions</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -627,7 +629,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-even"><p>The battery level of the specified device.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -655,7 +657,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – New upper limit of the stream fps. Takes positive values.</p>
+<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – New upper limit of the stream fps. Takes positive values.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -669,7 +671,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – New upper limit of the camera fps. Takes positive values.</p>
+<dd class="field-odd"><p><strong>fps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – New upper limit of the camera fps. Takes positive values.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -740,7 +742,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The brightness value in lux. It’s a positive value.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -758,10 +760,10 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>red</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, enables red blob tracking.</p></li>
-<li><p><strong>green</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, enables green blob tracking.</p></li>
-<li><p><strong>blue</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, enables blue blob tracking.</p></li>
-<li><p><strong>custom</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If true, enables custom blob tracking.</p></li>
+<li><p><strong>red</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, enables red blob tracking.</p></li>
+<li><p><strong>green</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, enables green blob tracking.</p></li>
+<li><p><strong>blue</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, enables blue blob tracking.</p></li>
+<li><p><strong>custom</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – If true, enables custom blob tracking.</p></li>
 </ul>
 </dd>
 </dl>
@@ -809,7 +811,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>A dictionary returning the individual blob information.                 Dictionary keys (<a class="reference internal" href="utils.html#module-utils.BlobColor" title="utils.BlobColor"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlobColor</span></code></a>): the possible colors. Dictionary values (<a class="reference internal" href="utils.html#module-utils.Blob" title="utils.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>): the blobs.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -849,10 +851,10 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frames</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of frames passed to consider a blob lost.</p></li>
-<li><p><strong>minarea</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Minimum area to consdider a Blob as a Blob.</p></li>
-<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – max_count parameter of the termcriteria.</p></li>
-<li><p><strong>epsilon</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – epsilon parameter of the termcriteria.</p></li>
+<li><p><strong>frames</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of frames passed to consider a blob lost.</p></li>
+<li><p><strong>minarea</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Minimum area to consdider a Blob as a Blob.</p></li>
+<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – max_count parameter of the termcriteria.</p></li>
+<li><p><strong>epsilon</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – epsilon parameter of the termcriteria.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1029,7 +1031,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The number of claps.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1060,7 +1062,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The SPL value in decibels.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1074,7 +1076,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The angle detected in degrees.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1088,7 +1090,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The length of the fling in pixels.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1102,7 +1104,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>The duration of the fling in milliseconds.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1255,7 +1257,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>set_on</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Boolean to choose if turn it on or off.</p>
+<dd class="field-odd"><p><strong>set_on</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Boolean to choose if turn it on or off.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1375,7 +1377,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd><div class="line-block">
 <div class="line">Starts the ArUcoTag detection.</div>
 <div class="line">This change is persistent (see: <a class="reference internal" href="features.html#persistent"><span class="std std-ref">Persistent changes</span></a>).</div>
-<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.stopArUcoTagDetection" title="Robobo.Robobo.stopArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopArUcoTagDetection</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.setArucoTagSize" title="Robobo.Robobo.setArucoTagSize"><code class="xref py py-class docutils literal notranslate"><span class="pre">setArucoTagSize</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.readArucoTag" title="Robobo.Robobo.readArucoTag"><code class="xref py py-class docutils literal notranslate"><span class="pre">readArucoTag</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.whenArucoTagIsDetected" title="Robobo.Robobo.whenArucoTagIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenArucoTagIsDetected</span></code></a>.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.stopArUcoTagDetection" title="Robobo.Robobo.stopArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">stopArUcoTagDetection</span></code></a>, <a class="reference internal" href="#Robobo.Robobo.setArucoTagSize" title="Robobo.Robobo.setArucoTagSize"><code class="xref py py-class docutils literal notranslate"><span class="pre">setArucoTagSize</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">readArucoTag</span></code>, <a class="reference internal" href="#Robobo.Robobo.whenArucoTagIsDetected" title="Robobo.Robobo.whenArucoTagIsDetected"><code class="xref py py-class docutils literal notranslate"><span class="pre">whenArucoTagIsDetected</span></code></a>.</div>
 <div class="line">For more information, check the <a class="reference external" href="https://github.com/mintforpeople/robobo-programming/wiki/ArUco-marker-detection">ArUco Tag Detection Wiki</a>.</div>
 </div>
 </dd></dl>
@@ -1390,7 +1392,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Size of the side of the ArUco tag in milimiters.</p>
+<dd class="field-odd"><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Size of the side of the ArUco tag in milimiters.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1406,18 +1408,18 @@ This value also depends on ambient conditions, such as the lighting.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Robobo.Robobo.readArucoTag">
-<span class="sig-prename descclassname"><span class="pre">Robobo.</span></span><span class="sig-name descname"><span class="pre">readArucoTag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readArucoTag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readArucoTag" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Robobo.Robobo.readArucoTags">
+<span class="sig-prename descclassname"><span class="pre">Robobo.</span></span><span class="sig-name descname"><span class="pre">readArucoTags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.readArucoTags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.readArucoTags" title="Link to this definition">¶</a></dt>
 <dd><div class="line-block">
-<div class="line">Reads the last ArUco Tag detected by Robobo.</div>
+<div class="line">Reads the last set of ARuco tags detected by Robobo</div>
 <div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The Tag.</p>
+<dd class="field-odd"><p>The Tags list.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="utils.html#utils.Tag.Tag" title="utils.Tag.Tag">Tag</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a> of <a class="reference internal" href="utils.html#utils.Tag.Tag" title="utils.Tag.Tag">Tag</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1427,6 +1429,34 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <span class="sig-prename descclassname"><span class="pre">Robobo.</span></span><span class="sig-name descname"><span class="pre">whenArucoTagIsDetected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenArucoTagIsDetected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenArucoTagIsDetected" title="Link to this definition">¶</a></dt>
 <dd><div class="line-block">
 <div class="line">Configures the callback that is called when a Tag is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Robobo.Robobo.whenArucoTagAppears">
+<span class="sig-prename descclassname"><span class="pre">Robobo.</span></span><span class="sig-name descname"><span class="pre">whenArucoTagAppears</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenArucoTagAppears"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenArucoTagAppears" title="Link to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a new Tag is detected.</div>
+<div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>fun</em>) – The callback function to be called.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Robobo.Robobo.whenArucoTagDisappears">
+<span class="sig-prename descclassname"><span class="pre">Robobo.</span></span><span class="sig-name descname"><span class="pre">whenArucoTagDisappears</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Robobo.html#Robobo.whenArucoTagDisappears"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Robobo.Robobo.whenArucoTagDisappears" title="Link to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Configures the callback that is called when a Tag is lost.</div>
 <div class="line">See also: <a class="reference internal" href="#Robobo.Robobo.startArUcoTagDetection" title="Robobo.Robobo.startArUcoTagDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">startArUcoTagDetection</span></code></a>.</div>
 </div>
 <dl class="field-list simple">
@@ -1574,7 +1604,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>set_on</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Boolean to choose if turn it on or off.</p>
+<dd class="field-odd"><p><strong>set_on</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Boolean to choose if turn it on or off.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1623,7 +1653,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd class="field-odd"><p>A list of registered string phrases.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1637,7 +1667,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
 <dd><p>Pauses the program for the specified time. After that time, next instruction is executed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Time to wait in seconds (&gt;0). Decimals like 0.2 are allowed.</p>
+<dd class="field-odd"><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Time to wait in seconds (&gt;0). Decimals like 0.2 are allowed.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1652,7 +1682,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1678,7 +1708,7 @@ This value also depends on ambient conditions, such as the lighting.</p>
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2010, MINT.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.0.
     </div>
   </body>
 </html>

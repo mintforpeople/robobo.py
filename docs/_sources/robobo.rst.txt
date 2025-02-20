@@ -136,8 +136,10 @@ To create a Robobo instance:
     .. automethod:: Robobo.startArUcoTagDetection
     .. automethod:: Robobo.setArucoTagSize
     .. automethod:: Robobo.stopArUcoTagDetection
-    .. automethod:: Robobo.readArucoTag
+    .. automethod:: Robobo.readArucoTags
     .. automethod:: Robobo.whenArucoTagIsDetected
+    .. automethod:: Robobo.whenArucoTagAppears
+    .. automethod:: Robobo.whenArucoTagDisappears
 
     .. automethod:: Robobo.startLineDetection
     .. automethod:: Robobo.stopLineDetection

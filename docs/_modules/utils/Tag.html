@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>utils.Tag &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=34bb78ad" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx13.css?v=f187b6fe" />
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -69,7 +69,7 @@
   </div>
 </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -88,9 +88,9 @@
         <li class="nav-item nav-item-this"><a href="">utils.Tag</a></li> 
       </ul>
     </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -98,7 +98,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -111,7 +111,7 @@
   <h1>Source code for utils.Tag</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="Tag">
 <a class="viewcode-back" href="../../utils.html#utils.Tag.Tag">[docs]</a>
-<span></span><span class="k">class</span> <span class="nc">Tag</span><span class="p">:</span>
+<span></span><span class="k">class</span><span class="w"> </span><span class="nc">Tag</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents an ArUco Tag detected by Robobo, and defined by four corners read clockwise.</span>
 
@@ -125,7 +125,7 @@
 <span class="sd">        - id (int): The ArUco identifier.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cor1x</span><span class="p">,</span> <span class="n">cor1y</span><span class="p">,</span> <span class="n">cor2x</span><span class="p">,</span> <span class="n">cor2y</span><span class="p">,</span> <span class="n">cor3x</span><span class="p">,</span> <span class="n">cor3y</span><span class="p">,</span> <span class="n">cor4x</span><span class="p">,</span> <span class="n">cor4y</span><span class="p">,</span> <span class="n">rvec_0</span><span class="p">,</span> <span class="n">rvec_1</span><span class="p">,</span> <span class="n">rvec_2</span><span class="p">,</span> <span class="n">tvec_0</span><span class="p">,</span> <span class="n">tvec_1</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cor1x</span><span class="p">,</span> <span class="n">cor1y</span><span class="p">,</span> <span class="n">cor2x</span><span class="p">,</span> <span class="n">cor2y</span><span class="p">,</span> <span class="n">cor3x</span><span class="p">,</span> <span class="n">cor3y</span><span class="p">,</span> <span class="n">cor4x</span><span class="p">,</span> <span class="n">cor4y</span><span class="p">,</span> <span class="n">rvec_0</span><span class="p">,</span> <span class="n">rvec_1</span><span class="p">,</span> <span class="n">rvec_2</span><span class="p">,</span> <span class="n">tvec_0</span><span class="p">,</span> <span class="n">tvec_1</span><span class="p">,</span>
                  <span class="n">tvec_2</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">statusTimestamp</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cor1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">cor1x</span><span class="p">,</span>
                      <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">cor1y</span><span class="p">}</span>
@@ -151,7 +151,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">statusTimestamp</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Aruco, Id:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; cor1:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cor1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; cor2:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cor2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; cor3:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cor3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; cor4:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cor4</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; tvecs:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tvecs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; rvecs:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rvecs</span><span class="p">)</span> \
                <span class="o">+</span> <span class="s2">&quot; timestamp: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="p">)</span></div>
@@ -164,7 +164,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -185,7 +185,7 @@
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2010, MINT.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.0.
     </div>
   </body>
 </html>

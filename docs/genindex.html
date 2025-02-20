@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index &#8212; Robobo.py  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=34bb78ad" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx13.css?v=f187b6fe" />
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 
     <link rel="index" title="Index" href="#" />
@@ -69,7 +69,7 @@
   </div>
 </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -87,9 +87,9 @@
         <li class="nav-item nav-item-this"><a href="">Index</a></li> 
       </ul>
     </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -97,7 +97,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -264,10 +264,12 @@
         <li><a href="utils.html#utils.LED.LED.FrontR">(LED attribute)</a>
 </li>
       </ul></li>
-      <li><a href="utils.html#utils.LED.LED.FrontRE">FrontRE (LED attribute)</a>
-</li>
       <li><a href="utils.html#utils.IR.IR.FrontRR">FrontRR (IR attribute)</a>
+
+      <ul>
+        <li><a href="utils.html#utils.LED.LED.FrontRR">(LED attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -465,7 +467,7 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readAllIRSensor">readAllIRSensor() (Robobo method)</a>
 </li>
-      <li><a href="robobo.html#Robobo.Robobo.readArucoTag">readArucoTag() (Robobo method)</a>
+      <li><a href="robobo.html#Robobo.Robobo.readArucoTags">readArucoTags() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.readBatteryLevel">readBatteryLevel() (Robobo method)</a>, <a href="robobo.html#id0">[1]</a>
 </li>
@@ -828,10 +830,10 @@
 </li>
       <li><a href="robobo.html#Robobo.Robobo.whenANewFaceIsDetected">whenANewFaceIsDetected() (Robobo method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="robobo.html#Robobo.Robobo.whenANewQRCodeIsDetected">whenANewQRCodeIsDetected() (Robobo method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="robobo.html#Robobo.Robobo.whenAnObjectIsDetected">whenAnObjectIsDetected() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.whenANoteIsDetected">whenANoteIsDetected() (Robobo method)</a>
@@ -839,6 +841,10 @@
       <li><a href="robobo.html#Robobo.Robobo.whenAQRCodeIsDetected">whenAQRCodeIsDetected() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.whenAQRCodeIsLost">whenAQRCodeIsLost() (Robobo method)</a>
+</li>
+      <li><a href="robobo.html#Robobo.Robobo.whenArucoTagAppears">whenArucoTagAppears() (Robobo method)</a>
+</li>
+      <li><a href="robobo.html#Robobo.Robobo.whenArucoTagDisappears">whenArucoTagDisappears() (Robobo method)</a>
 </li>
       <li><a href="robobo.html#Robobo.Robobo.whenArucoTagIsDetected">whenArucoTagIsDetected() (Robobo method)</a>
 </li>
@@ -869,7 +875,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -889,7 +895,7 @@
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2010, MINT.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.0.
     </div>
   </body>
 </html>
