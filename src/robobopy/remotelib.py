@@ -13,6 +13,7 @@ from robobopy.processors.VisionProcessor import VisionProcessor
 from robobopy.processors.SmartphoneProcessor import SmartphoneProcessor
 from robobopy.processors.SoundProcessor import SoundProcessor
 from robobopy.processors.SpeechProcessor import SpeechProcessor
+from robobopy.processors.CommandProcessor import CommandProcessor
 from robobopy.utils.ConnectionState import ConnectionState
 
 
@@ -30,7 +31,8 @@ class Remote:
                            "PHONE": SmartphoneProcessor(self.state),
                            "SOUND": SoundProcessor(self.state),
                            "SPEECH" : SpeechProcessor(self.state),
-                           "VISION": VisionProcessor(self.state)}
+                           "VISION": VisionProcessor(self.state),
+                           "COMMAND": CommandProcessor(self.state)}
 
         self.wsDaemon = None
         self.connectionState = ConnectionState.DISCONNECTED
@@ -262,6 +264,10 @@ class Remote:
 
     def sendSync(self, syncId):
         msg = self.processors["VISION"].sendSync(syncId)
+        self.sendMessage(msg)
+    
+    def sendGenericCommand(self, tag, parameters):
+        msg = self.processors["COMMAND"].sendGenericCommand(tag, parameters)
         self.sendMessage(msg)
 
     def startSpeechDetection(self):

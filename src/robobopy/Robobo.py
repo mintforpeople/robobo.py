@@ -1285,4 +1285,16 @@ class Robobo:
         :type syncId: int
         """
         self.rem.sendSyncAudio(syncId)
+
+    def sendCommand(self, tag, parameters):
+        """
+        Send a generic command to the Robobo. Useful for debugging and special instructions not implemented in methods yet.
+
+        :param tag: Command Tag
+        :type tag: str
+
+        :param parameters: JSON dict containing the parameters of the command
+        :type parameters: dict
+        """
+        self.rem.sendGenericCommand(tag, parameters)
     
