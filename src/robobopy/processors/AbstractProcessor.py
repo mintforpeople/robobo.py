@@ -14,19 +14,20 @@ class AbstractProcessor:
         name = status["name"]
         value = status["value"]
 
-    def _wrapCallback(self,callback, callbackName):
+    def _wrapCallback(self, callback, callbackName):
         self.callbacklocks[callbackName] = True
-        callback()
-        self.callbacklocks[callbackName] = False
+        try:
+            callback()
+        finally:
+            self.callbacklocks[callbackName] = False
 
     def runCallback(self, callbackName):
-        callbackExists =  self.callbacks[callbackName] is not None
+        callbackExists = self.callbacks.get(callbackName) is not None
 
-        if callbackExists :
-
-            if not self.callbacklocks[callbackName]:
+        if callbackExists:
+            if not self.callbacklocks.get(callbackName, False):
                 t = threading.Thread(target=self._wrapCallback, args=[self.callbacks[callbackName], callbackName])
+                t.daemon = True
                 t.start()
             else:
-
-                print("Too much concurrent calls to " + callbackName + "callback, ignoring")
+                pass
