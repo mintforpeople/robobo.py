@@ -159,6 +159,24 @@ class Remote:
             while self.state.wheelLock:
                 time.sleep(0.1)
 
+    def wait(self, duration):
+        if duration <= 0:
+            return
+        if self.connectionState == ConnectionState.CONNECTED:
+            msg = self.processors["ROB"].waitCommand(duration)
+            self.sendMessage(msg)
+            self.state.waitLock = True
+            start = time.time()
+            # If in lockstep simulator, UNLOCK-WAIT arrives as soon as simulation ticks elapse.
+            # If on a real robot that discards WAIT, the wall-clock timeout unlocks after duration.
+            while self.state.waitLock and self.connectionState == ConnectionState.CONNECTED:
+                if (time.time() - start) >= duration:
+                    break
+                time.sleep(0.002)
+            self.state.waitLock = False
+        else:
+            time.sleep(duration)
+
     def moveWheelsByDegree(self, wheel, degrees, speed):
         if self.filterMovement(speed, "wheels"):
             msg = self.processors["ROB"].moveWheelsByDegree(wheel, degrees, speed)

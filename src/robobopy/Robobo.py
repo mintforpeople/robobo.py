@@ -46,13 +46,14 @@ class Robobo:
     def wait(self, seconds):
         """
         Pauses the program for the specified time. After that time, next instruction is executed.
+        Works consistently across physical Robobo hardware and the simulator (including Lockstep Mode).
 
         :param seconds: Time to wait in seconds (>0). Decimals like 0.2 are allowed.
 
         :type seconds: float
         """
 
-        time.sleep(seconds)
+        self.rem.wait(seconds)
 
     def moveWheelsByTime(self, rSpeed, lSpeed, duration, wait=True):
         """

@@ -8,7 +8,7 @@ from robobopy.utils.IR import IR
 class RobProcessor(AbstractProcessor):
     def __init__(self, state):
         super().__init__(state)
-        self.supportedMessages = ["IRS","LED","BAT-BASE","WHEELS","UNLOCK-MOVE","UNLOCK-DEGREES"]
+        self.supportedMessages = ["IRS","LED","BAT-BASE","WHEELS","UNLOCK-MOVE","UNLOCK-DEGREES","UNLOCK-WAIT","LOCKSTEP-STATUS"]
 
     def process(self, status):
         name = status["name"]
@@ -34,8 +34,22 @@ class RobProcessor(AbstractProcessor):
         elif name == "UNLOCK-MOVE":
             self.state.wheelLock = False
 
+        elif name == "UNLOCK-WAIT":
+            self.state.waitLock = False
+
+        elif name == "LOCKSTEP-STATUS":
+            if isinstance(value, dict) and "enabled" in value:
+                self.state.isLockstep = str(value["enabled"]).lower() == "true"
+
         elif name == "BAT-BASE":
             self.state.baseBattery = int(value["level"])
+
+    def waitCommand(self, duration):
+        name = "WAIT"
+        id = self.state.getId()
+        values = {"time": float(duration),
+                  "blockid": id}
+        return Message(name, values, id)
 
 
     def moveWheelsSeparated(self,speedL, speedR, time):

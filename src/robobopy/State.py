@@ -69,6 +69,8 @@ class State:
         self.tiltLock = False
         self.degreesLock = False
         self.talkLock = False
+        self.waitLock = False
+        self.isLockstep = False
 
         self.emotion = "normal"
 
