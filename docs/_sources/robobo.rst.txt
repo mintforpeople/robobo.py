@@ -95,7 +95,10 @@ To create a Robobo instance:
 
     .. automethod:: Robobo.startObjectRecognition
     .. automethod:: Robobo.stopObjectRecognition
+    .. automethod:: Robobo.readDetectedObjects
+    .. automethod:: Robobo.readLastDetectedObject
     .. automethod:: Robobo.readDetectedObject
+    .. automethod:: Robobo.whenObjectsAreDetected
     .. automethod:: Robobo.whenAnObjectIsDetected
 
     .. automethod:: Robobo.readLastNote

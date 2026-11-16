@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=34bb78ad" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx13.css?v=f187b6fe" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
 
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -165,13 +165,14 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Pauses the program for the specified time. After that time, next instruction is executed.</span>
+<span class="sd">        Works consistently across physical Robobo hardware and the simulator (including Lockstep Mode).</span>
 
 <span class="sd">        :param seconds: Time to wait in seconds (&gt;0). Decimals like 0.2 are allowed.</span>
 
 <span class="sd">        :type seconds: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Robobo.moveWheelsByTime">
@@ -499,7 +500,7 @@
 <span class="sd">        | Starts the object recognition.</span>
 <span class="sd">        | Object recognition is stopped by default.</span>
 <span class="sd">        | This change is persistent (see: :ref:`persistent`).</span>
-<span class="sd">        | See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObject`, :class:`~Robobo.whenAnObjectIsDetected`.        </span>
+<span class="sd">        | See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObjects`, :class:`~Robobo.readLastDetectedObject`, :class:`~Robobo.whenObjectsAreDetected`.        </span>
 <span class="sd">        | For more information, check the `Object Recognition Wiki &lt;https://github.com/mintforpeople/robobo-programming/wiki/Real-time-object-identification&gt;`_.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -1306,6 +1307,8 @@
         <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">face</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="Robobo.readArucoTags">
+<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readArucoTags">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">readArucoTags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last set of ARuco tags detected by Robobo</span>
@@ -1316,7 +1319,8 @@
 <span class="sd">        :rtype: list of Tag</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tags</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">tags</span><span class="p">)</span></div>
+
     
     <span class="k">def</span><span class="w"> </span><span class="nf">readNewestArucoTag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1342,12 +1346,33 @@
 
         <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lastLostTagId</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Robobo.readDetectedObject">
-<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readDetectedObject">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">readDetectedObject</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Robobo.readDetectedObjects">
+<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readDetectedObjects">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">readDetectedObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        | Reads the list of objects detected by Robobo in the current frame.</span>
+<span class="sd">        | All objects detected within the same frame are bundled together into a list.</span>
+<span class="sd">        | Users can filter or sort these objects by confidence, size, or label once bundled.</span>
+<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.readLastDetectedObject`, :class:`~Robobo.whenObjectsAreDetected`.</span>
+
+<span class="sd">        :return: The list of detected objects.</span>
+
+<span class="sd">        :rtype: list of DetectedObject</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">detectedObjects</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Robobo.readLastDetectedObject">
+<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readLastDetectedObject">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">readLastDetectedObject</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Reads the last object detected by Robobo.</span>
-<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
+<span class="sd">        | .. note::</span>
+<span class="sd">        |    This method is subject to race conditions when multiple objects are detected</span>
+<span class="sd">        |    within the same frame, as the last detected object gets overwritten on every message.</span>
+<span class="sd">        |    It is recommended to use :class:`~Robobo.readDetectedObjects` instead.</span>
+<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.readDetectedObjects`, :class:`~Robobo.whenAnObjectIsDetected`.</span>
 
 <span class="sd">        :return: The object.</span>
 
@@ -1355,6 +1380,27 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">detectedObject</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Robobo.readDetectedObject">
+<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.readDetectedObject">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">readDetectedObject</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        | Legacy method to read the last detected object.</span>
+<span class="sd">        | .. note::</span>
+<span class="sd">        |    This method is kept for legacy purposes. Reading the last detected object</span>
+<span class="sd">        |    is subject to race conditions when multiple objects are detected in the same frame.</span>
+<span class="sd">        |    Users are encouraged to move on to :class:`~Robobo.readDetectedObjects` instead,</span>
+<span class="sd">        |    which bundles all detected objects from the frame into a list, or</span>
+<span class="sd">        |    :class:`~Robobo.readLastDetectedObject` if only the last single object is needed.</span>
+<span class="sd">        | See also: :class:`~Robobo.readDetectedObjects`, :class:`~Robobo.readLastDetectedObject`.</span>
+
+<span class="sd">        :return: The object.</span>
+
+<span class="sd">        :rtype: DetectedObject</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">readLastDetectedObject</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="Robobo.readDetectedSpeech">
@@ -1549,6 +1595,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setTagCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="Robobo.whenArucoTagAppears">
+<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenArucoTagAppears">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">whenArucoTagAppears</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a new Tag is detected.</span>
@@ -1559,8 +1607,11 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setNewTagCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setNewTagCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+
     
+<div class="viewcode-block" id="Robobo.whenArucoTagDisappears">
+<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenArucoTagDisappears">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">whenArucoTagDisappears</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when a Tag is lost.</span>
@@ -1571,7 +1622,25 @@
 <span class="sd">        :type callback: fun</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLostTagCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setLostTagCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Robobo.whenObjectsAreDetected">
+<a class="viewcode-back" href="../robobo.html#Robobo.Robobo.whenObjectsAreDetected">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">whenObjectsAreDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        | Configures the callback that is called when objects are detected in a frame.</span>
+<span class="sd">        | All objects detected in the same camera frame are bundled together and can be</span>
+<span class="sd">        | retrieved using :class:`~Robobo.readDetectedObjects`.</span>
+<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.readDetectedObjects`.</span>
+
+<span class="sd">        :param callback: The callback function to be called.</span>
+
+<span class="sd">        :type callback: fun</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">setDetectedObjectsCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Robobo.whenAnObjectIsDetected">
@@ -1579,7 +1648,12 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">whenAnObjectIsDetected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        | Configures the callback that is called when an object is detected.</span>
-<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`.</span>
+<span class="sd">        | .. note::</span>
+<span class="sd">        |    This method is kept for legacy purposes. This callback is triggered</span>
+<span class="sd">        |    for each individual detected object, which can cause race conditions when reading</span>
+<span class="sd">        |    the last detected object. Users are encouraged to move to</span>
+<span class="sd">        |    :class:`~Robobo.whenObjectsAreDetected` and :class:`~Robobo.readDetectedObjects` instead.</span>
+<span class="sd">        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.whenObjectsAreDetected`, :class:`~Robobo.readDetectedObjects`.</span>
 
 <span class="sd">        :param callback: The callback function to be called.</span>
 
@@ -1681,6 +1755,18 @@
 <span class="sd">        :type syncId: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">sendSyncAudio</span><span class="p">(</span><span class="n">syncId</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">sendCommand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send a generic command to the Robobo. Useful for debugging and special instructions not implemented in methods yet.</span>
+
+<span class="sd">        :param tag: Command Tag</span>
+<span class="sd">        :type tag: str</span>
+
+<span class="sd">        :param parameters: JSON dict containing the parameters of the command</span>
+<span class="sd">        :type parameters: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem</span><span class="o">.</span><span class="n">sendGenericCommand</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
     
 </pre></div>
 
@@ -1711,7 +1797,7 @@
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2010, MINT.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.2.0.
     </div>
   </body>
 </html>

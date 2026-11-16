@@ -11,6 +11,9 @@ And these are the related methods:
 
 * :py:meth:`~Robobo.Robobo.startObjectRecognition`
 * :py:meth:`~Robobo.Robobo.stopObjectRecognition`
+* :py:meth:`~Robobo.Robobo.readDetectedObjects`
+* :py:meth:`~Robobo.Robobo.readLastDetectedObject`
 * :py:meth:`~Robobo.Robobo.readDetectedObject`
+* :py:meth:`~Robobo.Robobo.whenObjectsAreDetected`
 * :py:meth:`~Robobo.Robobo.whenAnObjectIsDetected`
 
