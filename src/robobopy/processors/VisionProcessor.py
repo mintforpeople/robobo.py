@@ -1,4 +1,5 @@
 import json
+import threading
 
 from robobopy.processors.AbstractProcessor import AbstractProcessor
 from robobopy.utils.DetectedObject import DetectedObject
@@ -24,6 +25,7 @@ class VisionProcessor(AbstractProcessor):
                               "lostface": False,
                               "blob": False,
                               "detectedobject": False,
+                              "detectedobjects": False,
                               "tag": False,
                               "newtag": False,
                               "losttag": False,
@@ -41,9 +43,17 @@ class VisionProcessor(AbstractProcessor):
                           "newtag": None,
                           "losttag": None,
                           "detectedobject": None,
+                          "detectedobjects": None,
                           "lanepro": None,
                           "lanebasic": None,
                           "line": None}
+
+        self._current_detected_objects_timestamp = None
+        self._detected_objects_buffer = []
+        self._detected_objects_timer = None
+        self._detected_objects_lock = threading.Lock()
+        self._detected_objects_flushed = False
+        self._bundle_timeout = 0.02
 
     def process(self, status):
         name = status["name"]
@@ -146,14 +156,41 @@ class VisionProcessor(AbstractProcessor):
             self.runCallback("losttag")
 
         elif name == "DETECTED_OBJECT":
-            self.state.detectedObject = DetectedObject(
+            timestamp = int(value["timestamp"])
+            obj = DetectedObject(
                 int(value["posx"]),
                 int(value["posy"]),
                 int(value["width"]),
                 int(value["height"]),
                 float(value["confidence"]),
-                value["label"],int(value["timestamp"]))
+                value["label"],
+                timestamp
+            )
+            self.state.detectedObject = obj
             self.runCallback("detectedobject")
+
+            with self._detected_objects_lock:
+                if self._current_detected_objects_timestamp != timestamp:
+                    if self._detected_objects_timer is not None:
+                        self._detected_objects_timer.cancel()
+                        self._detected_objects_timer = None
+                    self._flush_detected_objects()
+
+                    self._current_detected_objects_timestamp = timestamp
+                    self._detected_objects_buffer = [obj]
+                    self._detected_objects_flushed = False
+                else:
+                    self._detected_objects_buffer.append(obj)
+                    self._detected_objects_flushed = False
+
+                if self._detected_objects_timer is not None:
+                    self._detected_objects_timer.cancel()
+
+                self._detected_objects_timer = threading.Timer(
+                    self._bundle_timeout, self._on_detected_objects_timeout
+                )
+                self._detected_objects_timer.daemon = True
+                self._detected_objects_timer.start()
         elif name == "LANE_BASIC":
             self.state.laneBasic = LaneBasic(
                 float(value["a1"]),
@@ -210,6 +247,29 @@ class VisionProcessor(AbstractProcessor):
 
     def resetFace(self):
         self.state.face = Face(0, 0, -1)
+
+    def _on_detected_objects_timeout(self):
+        with self._detected_objects_lock:
+            self._detected_objects_timer = None
+            self._flush_detected_objects()
+
+    def _flush_detected_objects(self):
+        if not self._detected_objects_flushed:
+            self._detected_objects_flushed = True
+            if self._detected_objects_buffer:
+                self.state.detectedObjects = list(self._detected_objects_buffer)
+                self.runCallback("detectedobjects")
+
+    def resetDetectedObjects(self):
+        with self._detected_objects_lock:
+            if self._detected_objects_timer is not None:
+                self._detected_objects_timer.cancel()
+                self._detected_objects_timer = None
+            self._current_detected_objects_timestamp = None
+            self._detected_objects_buffer = []
+            self._detected_objects_flushed = False
+            self.state.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "", 0)
+            self.state.detectedObjects = []
 
     # Stream related functions
     # TODO: move all start/stop messages to a single file

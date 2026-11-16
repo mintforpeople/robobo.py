@@ -315,7 +315,7 @@ class Robobo:
         | Starts the object recognition.
         | Object recognition is stopped by default.
         | This change is persistent (see: :ref:`persistent`).
-        | See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObject`, :class:`~Robobo.whenAnObjectIsDetected`.        
+        | See also: :class:`~Robobo.stopObjectRecognition`, :class:`~Robobo.readDetectedObjects`, :class:`~Robobo.readLastDetectedObject`, :class:`~Robobo.whenObjectsAreDetected`.        
         | For more information, check the `Object Recognition Wiki <https://github.com/mintforpeople/robobo-programming/wiki/Real-time-object-identification>`_.
         """
 
@@ -1007,10 +1007,28 @@ class Robobo:
 
         return deepcopy(self.rem.state.lastLostTagId)
 
-    def readDetectedObject(self):
+    def readDetectedObjects(self):
+        """
+        | Reads the list of objects detected by Robobo in the current frame.
+        | All objects detected within the same frame are bundled together into a list.
+        | Users can filter or sort these objects by confidence, size, or label once bundled.
+        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.readLastDetectedObject`, :class:`~Robobo.whenObjectsAreDetected`.
+
+        :return: The list of detected objects.
+
+        :rtype: list of DetectedObject
+        """
+
+        return deepcopy(self.rem.state.detectedObjects)
+
+    def readLastDetectedObject(self):
         """
         | Reads the last object detected by Robobo.
-        | See also: :class:`~Robobo.startObjectRecognition`.
+        | .. note::
+        |    This method is subject to race conditions when multiple objects are detected
+        |    within the same frame, as the last detected object gets overwritten on every message.
+        |    It is recommended to use :class:`~Robobo.readDetectedObjects` instead.
+        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.readDetectedObjects`, :class:`~Robobo.whenAnObjectIsDetected`.
 
         :return: The object.
 
@@ -1018,6 +1036,24 @@ class Robobo:
         """
 
         return deepcopy(self.rem.state.detectedObject)
+
+    def readDetectedObject(self):
+        """
+        | Legacy method to read the last detected object.
+        | .. note::
+        |    This method is kept for legacy purposes. Reading the last detected object
+        |    is subject to race conditions when multiple objects are detected in the same frame.
+        |    Users are encouraged to move on to :class:`~Robobo.readDetectedObjects` instead,
+        |    which bundles all detected objects from the frame into a list, or
+        |    :class:`~Robobo.readLastDetectedObject` if only the last single object is needed.
+        | See also: :class:`~Robobo.readDetectedObjects`, :class:`~Robobo.readLastDetectedObject`.
+
+        :return: The object.
+
+        :rtype: DetectedObject
+        """
+
+        return self.readLastDetectedObject()
 
     def readDetectedSpeech(self):
         """
@@ -1197,10 +1233,29 @@ class Robobo:
         self.rem.setLostTagCallback(callback)
 
 
+    def whenObjectsAreDetected(self, callback):
+        """
+        | Configures the callback that is called when objects are detected in a frame.
+        | All objects detected in the same camera frame are bundled together and can be
+        | retrieved using :class:`~Robobo.readDetectedObjects`.
+        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.readDetectedObjects`.
+
+        :param callback: The callback function to be called.
+
+        :type callback: fun
+        """
+
+        self.rem.setDetectedObjectsCallback(callback)
+
     def whenAnObjectIsDetected(self, callback):
         """
         | Configures the callback that is called when an object is detected.
-        | See also: :class:`~Robobo.startObjectRecognition`.
+        | .. note::
+        |    This method is kept for legacy purposes. This callback is triggered
+        |    for each individual detected object, which can cause race conditions when reading
+        |    the last detected object. Users are encouraged to move to
+        |    :class:`~Robobo.whenObjectsAreDetected` and :class:`~Robobo.readDetectedObjects` instead.
+        | See also: :class:`~Robobo.startObjectRecognition`, :class:`~Robobo.whenObjectsAreDetected`, :class:`~Robobo.readDetectedObjects`.
 
         :param callback: The callback function to be called.
 

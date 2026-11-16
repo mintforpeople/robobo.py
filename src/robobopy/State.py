@@ -75,6 +75,7 @@ class State:
         self.emotion = "normal"
 
         self.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "", 0)
+        self.detectedObjects = []
 
         self.tags = []
         self.lastLostTagId = None
@@ -141,6 +142,7 @@ class State:
         self.qr = QRCode(0, 0, 0, 0, 0, 0, 0, 0, 0, "None", 0)
 
         self.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "", 0)
+        self.detectedObjects = []
         self.tag = Tag(0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, "", 0)
 
         self.lines = Lines([], 0)

@@ -431,6 +431,9 @@ class Remote:
     def resetFace(self):
         self.processors["VISION"].resetFace()
 
+    def resetDetectedObjects(self):
+        self.processors["VISION"].resetDetectedObjects()
+
     def setEmotionTo(self, emotion):
         msg = self.processors["PHONE"].setEmotion(emotion)
         self.sendMessage(msg)
@@ -487,6 +490,9 @@ class Remote:
 
     def setDetectedObjectCallback(self, callback):
         self.processors["VISION"].callbacks["detectedobject"] = callback
+
+    def setDetectedObjectsCallback(self, callback):
+        self.processors["VISION"].callbacks["detectedobjects"] = callback
 
     def setLineCallback(self, callback):
         self.processors["VISION"].callbacks["line"] = callback
