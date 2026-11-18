@@ -48,7 +48,7 @@ class VisionProcessor(AbstractProcessor):
                           "lanebasic": None,
                           "line": None}
 
-        self._current_detected_objects_timestamp = None
+        self._current_detected_objects_frame_id = None
         self._detected_objects_buffer = []
         self._detected_objects_timer = None
         self._detected_objects_lock = threading.Lock()
@@ -157,6 +157,7 @@ class VisionProcessor(AbstractProcessor):
 
         elif name == "DETECTED_OBJECT":
             timestamp = int(value["timestamp"])
+            frame_id = int(value["frame_id"]) if "frame_id" in value else timestamp
             obj = DetectedObject(
                 int(value["posx"]),
                 int(value["posy"]),
@@ -170,13 +171,13 @@ class VisionProcessor(AbstractProcessor):
             self.runCallback("detectedobject")
 
             with self._detected_objects_lock:
-                if self._current_detected_objects_timestamp != timestamp:
+                if self._current_detected_objects_frame_id != frame_id:
                     if self._detected_objects_timer is not None:
                         self._detected_objects_timer.cancel()
                         self._detected_objects_timer = None
                     self._flush_detected_objects()
 
-                    self._current_detected_objects_timestamp = timestamp
+                    self._current_detected_objects_frame_id = frame_id
                     self._detected_objects_buffer = [obj]
                     self._detected_objects_flushed = False
                 else:
@@ -265,7 +266,7 @@ class VisionProcessor(AbstractProcessor):
             if self._detected_objects_timer is not None:
                 self._detected_objects_timer.cancel()
                 self._detected_objects_timer = None
-            self._current_detected_objects_timestamp = None
+            self._current_detected_objects_frame_id = None
             self._detected_objects_buffer = []
             self._detected_objects_flushed = False
             self.state.detectedObject = DetectedObject(0, 0, 0, 0, 0.0, "", 0)
